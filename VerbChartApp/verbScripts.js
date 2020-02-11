@@ -2,7 +2,6 @@ function conjugateTheWholeDamnVerb(id) {
     //
     // Verb Conjugation IDer
     var chosenVerb = document.getElementById(id).value;
-    chosenVerb = chosenVerb.trim();
     chosenVerb = chosenVerb.toLowerCase();
     //
     // Takes verb and takes apart the principle parts of the verb
