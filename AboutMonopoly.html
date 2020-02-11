@@ -14,8 +14,7 @@
       <nav id="rowNav">
             <a href="index.html" class="link">Home</a>
             <a href="aboutme.html" class="link">About Me</a>
-            <a href="resume.html" class="link">Resume</a>
-            <a href="contactme.html" class="link">Contact Me</a>
+            <a href="mailto:pfmooney@me.com" class="link">Contact Me</a>
             <a href="https://www.linkedin.com/in/patrick-franklin-mooney/" target="_blank" class="link">LinkedIn</a>
     </nav>
      <main id="mainColumn" class="containerColumn marginWide">
@@ -51,34 +50,34 @@
                 <div class="sampleCode">
                     <pre>
                     <code>
-                        // Calculates the repair bill
-                        function calculateRepairBill(a) {
-                          if (a === 'communityChest') {
-                            communityChestHouses = document.getElementById("communityChestHouses").value;
-                            communityChestHotels = document.getElementById("communityChestHotels").value;
-                            communityChestHouses = Number(communityChestHouses);
-                            communityChestHotels = Number(communityChestHotels);
-                            housesRepairCost = communityChestHouses * 40;
-                            hotelsRepairCost = communityChestHotels * 115;
-                            repairBillTotal = housesRepairCost + hotelsRepairCost;
-                            document.getElementById("repairsTotal").innerHTML = "$" + repairBillTotal;
-                            document.getElementById("repairsCommunityChest1").style.display = "none";
-                            document.getElementById("repairsChance1").style.display = "none";
-                            document.getElementById("repairsFinalBill").style.display = "block";
-                          } else if (a === "chance") {
-                            chanceHouses = document.getElementById("chanceHouses").value;
-                            chanceHotels = document.getElementById("chanceHotels").value;
-                            chanceHouses = Number(chanceHouses);
-                            chanceHotels = Number(chanceHotels);
-                            housesRepairCost = chanceHouses * 25;
-                            hotelsRepairCost = chanceHotels * 100;
-                            repairBillTotal = housesRepairCost + hotelsRepairCost;
-                            document.getElementById("repairsTotal").innerHTML = "$" + repairBillTotal;
-                            document.getElementById("repairsCommunityChest1").style.display = "none";
-                            document.getElementById("repairsChance1").style.display = "none";
-                            document.getElementById("repairsFinalBill").style.display = "block";
-                          }
-                        }
+// Calculates the repair bill
+function calculateRepairBill(a) {
+  if (a === 'communityChest') {
+    communityChestHouses = document.getElementById("communityChestHouses").value;
+    communityChestHotels = document.getElementById("communityChestHotels").value;
+    communityChestHouses = Number(communityChestHouses);
+    communityChestHotels = Number(communityChestHotels);
+    housesRepairCost = communityChestHouses * 40;
+    hotelsRepairCost = communityChestHotels * 115;
+    repairBillTotal = housesRepairCost + hotelsRepairCost;
+    document.getElementById("repairsTotal").innerHTML = "$" + repairBillTotal;
+    document.getElementById("repairsCommunityChest1").style.display = "none";
+    document.getElementById("repairsChance1").style.display = "none";
+    document.getElementById("repairsFinalBill").style.display = "block";
+  } else if (a === "chance") {
+    chanceHouses = document.getElementById("chanceHouses").value;
+    chanceHotels = document.getElementById("chanceHotels").value;
+    chanceHouses = Number(chanceHouses);
+    chanceHotels = Number(chanceHotels);
+    housesRepairCost = chanceHouses * 25;
+    hotelsRepairCost = chanceHotels * 100;
+    repairBillTotal = housesRepairCost + hotelsRepairCost;
+    document.getElementById("repairsTotal").innerHTML = "$" + repairBillTotal;
+    document.getElementById("repairsCommunityChest1").style.display = "none";
+    document.getElementById("repairsChance1").style.display = "none";
+    document.getElementById("repairsFinalBill").style.display = "block";
+  }
+}
                     </code>
                     </pre>
                     </div>

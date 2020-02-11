@@ -14,36 +14,33 @@
       <nav id="rowNav">
             <a href="index.html" class="link">Home</a>
             <a href="aboutme.html" class="link">About Me</a>
-            <a href="resume.html" class="link">Resume</a>
-            <a href="contactme.html" class="link">Contact Me</a>
+            <a href="mailto:pfmooney@me.com" class="link">Contact Me</a>
             <a href="https://www.linkedin.com/in/patrick-franklin-mooney/" target="_blank" class="link">LinkedIn</a>
     </nav>
      <main id="mainColumn" class="containerColumn marginWide">
-             <h1>Monopoly Bank Accounts</h1>
+             <h1>Rock Paper Scissors</h1>
              <h2>The Idea</h2>
                  <p class="paragraphContent">
-                     What if you could play Monopoly without touching the bills? <br>
-                     The slowest part of playing Monopoly is handling the money and crunching numbers. While it's fantastic when someone lands on your monopoly with four houses on it, 90% of the time it is counting and passing back and forth less than $95.<br> What if there was a faster way? What if there were monopoly bank accounts?
+This was my very first attempt at making a game in HTML/CSS/JavaScript. <br>
+The idea itself was simple. Can I quickly throw together a rock paper scissors game using just HTML, CSS, and my limited knowledge of JavaScript at the time?
+
                  </p>
              <h2>The Approach</h2>
                  <p class="paragraphContent">
-                     I made a table tall enough to fit up to 10 players and made it wide enough to fit enough actions to play the board game without touching the paper bills. I had just learned how to create and use Modals and I applied them to the project as well, creating the Start and Repair screens. I also used SVG icons instead of PNG or JPGs to take advantage of their speed and scalability. I wanted to make it customizable when playing so I added the ability to change the font, color theme, and the player names.
-                 </p>
+                    For the "Computer Player", I simply coded a function that would pick a random number between 1 and 3: 1 was rock, 2 was paper, 3 was scissors. When the player picked either rock, paper, or scissors, it would also call the computer pick function, decide who won or if it was a tie, then update the score. A separate button reset the scoreboard.
+                </p>
              <h2>The Challenge</h2>
                 <p class="paragraphContent">
-                    This project presented two challenges. <br>
-                    First, as I coded the modals it got increasingly hard to stop bugs from popping up, especially in the repairs modals. I would edit a modal and not find the changes taking place, only to realize that I was coding in the wrong modal. <br>
-                    Second, the dropdown select element that I had coded for the alternate themes/fonts looked ugly and was unappealing to use. 
+                    The biggest challenge that appeared after my first pass at coding the game was that it required the player to press a separate button to try another round. This was clunky and inconvenient with the user needing to move the mouse across the whole screen and back just to try again. If the user did not press the button, however, it would not reset the Rock Paper Scissor choices and the user would only be left with the option of making the previous choice again.
                  </p>
              <h2>The Solution</h2>
                 <p class="paragraphContent">
-                    I solved the modals challenge with clear commenting above each modal in the HTML file. This made it easy to know for sure which modal I was editing and how it functioned in relation to the rest of the modals. An ounce of prevention is worth a pound of cure. 
-                    <br>
-                    Second, I replaced my dropdown/select elements with toggle tokens coded in vanilla HTML/CSS/JS. I liked these because it made it clear which one was selected, it gave the user a preview of what they were choosing, and they looked significantly better.
+                    My solution was to create a nested if statement inside the function called by the user on Rock-Paper-Scissors choice. If the round was reset, the click would play the round. If the round was not reset, it would reset the round. This eliminated the need for a round-reset button and made the game much more enjoyable to play in the process.
                 </p>
              <h2>My Favorite Part</h2>
                 <p class="paragraphContent">
-                    The piece of code I am most proud of is the JavaScript  function the takes the number of houses and hotels a player has and charges them accordingly based on whether they landed on Chance or Community Chest. Stopping a game of monopoly to crunch those numbers was always annoying, and I love how a problem like that can be solved in so few lines of code. 
+                    My favorite part of the code is the function that makes the "Computer Player"'s choice occur. A random number is selected and with that either Rock, Paper, or Scissors. Then the choice is shown to the player by hiding the other options and the AI's avatar.
+                    Short and simple.
                     <br>
                     <br>
                     Here's the code: <br>
@@ -51,39 +48,38 @@
                 <div class="sampleCode">
                     <pre>
                     <code>
-                        // Calculates the repair bill
-                        function calculateRepairBill(a) {
-                          if (a === 'communityChest') {
-                            communityChestHouses = document.getElementById("communityChestHouses").value;
-                            communityChestHotels = document.getElementById("communityChestHotels").value;
-                            communityChestHouses = Number(communityChestHouses);
-                            communityChestHotels = Number(communityChestHotels);
-                            housesRepairCost = communityChestHouses * 40;
-                            hotelsRepairCost = communityChestHotels * 115;
-                            repairBillTotal = housesRepairCost + hotelsRepairCost;
-                            document.getElementById("repairsTotal").innerHTML = "$" + repairBillTotal;
-                            document.getElementById("repairsCommunityChest1").style.display = "none";
-                            document.getElementById("repairsChance1").style.display = "none";
-                            document.getElementById("repairsFinalBill").style.display = "block";
-                          } else if (a === "chance") {
-                            chanceHouses = document.getElementById("chanceHouses").value;
-                            chanceHotels = document.getElementById("chanceHotels").value;
-                            chanceHouses = Number(chanceHouses);
-                            chanceHotels = Number(chanceHotels);
-                            housesRepairCost = chanceHouses * 25;
-                            hotelsRepairCost = chanceHotels * 100;
-                            repairBillTotal = housesRepairCost + hotelsRepairCost;
-                            document.getElementById("repairsTotal").innerHTML = "$" + repairBillTotal;
-                            document.getElementById("repairsCommunityChest1").style.display = "none";
-                            document.getElementById("repairsChance1").style.display = "none";
-                            document.getElementById("repairsFinalBill").style.display = "block";
-                          }
-                        }
+    // Opponent Choice
+    function opponentChooses() {
+        opponentImage.style.display = "none";
+        var number = Math.random();
+        number = (number * 3) + 1;
+        number = Math.floor(number);
+        switch (number) {
+             case 1: 
+                  opponentChoice = "rock";
+                  rockOpponent.style.display = "table-cell";
+                  paperOpponent.style.display = "none";
+                  scissorsOpponent.style.display = "none";
+                  break;
+            case 2: 
+                  opponentChoice = "paper";
+                  rockOpponent.style.display = "none";
+                  paperOpponent.style.display = "table-cell";
+                  scissorsOpponent.style.display = "none";
+                  break;
+            case 3:
+                  opponentChoice = "scissors";
+                  rockOpponent.style.display = "none";
+                  paperOpponent.style.display = "none";
+                  scissorsOpponent.style.display = "table-cell";
+                  break;
+          }
+    }
                     </code>
                     </pre>
                     </div>
                 <br>
-                <a href="monopoly/monopoly.html" class="linkButton" target="_blank">Try it out</a>
+                <a href="rockPaperScissors/rockpaperscissors.html" class="linkButton" target="_blank">Try it out</a>
                 <br>
     </main>
     <footer class="containerRow">
