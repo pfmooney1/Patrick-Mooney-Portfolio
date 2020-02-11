@@ -66,7 +66,7 @@ function conjugateTheWholeDamnVerb(id) {
     var englishIncluded;
     if (document.getElementById("usersChoiceEnglish").value === "") {
         englishIncluded = false;
-        }
+    }
     else {
         englishIncluded = true;
         }

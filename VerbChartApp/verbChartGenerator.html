@@ -12,20 +12,28 @@
         Latin: <input type="text" id="usersChoiceLatin" spellcheck="false" placeholder="laudo, laudare, laudavi, laudatum"><br>
         English: <input type="text" id="usersChoiceEnglish" spellcheck="true" placeholder="to praise (optional)"><br>
         <input type="button" value="Click to Conjugate!" onClick="conjugateTheWholeDamnVerb('usersChoiceLatin');">
-        <hr>
-        <p class="centeredAndNarrow"> or </p>
-        <hr>
+        <br>
+        <p class="centeredAndNarrow">- or -</p>
+        <br>
         <p class="centeredAndLeft"> Pick one from the list </p>
-        <select id="verbSelect" class="customSelect">
-            <option value="laudo">laudo, laudare (to praise)</option>
-            <option value="amo">amo, amare (to love)</option>
-            <option value="laudo">voco, vocare (to call)</option>
-            <option value="laudo">premo, premere (to push)</option>
-            <option value="rogo">rogo, rogare (to ask)</option>
+        <select id="verbSelect" class="customSelect" name="verbSelectDropdown">
+            <option value="amo, amare, amavi, amatum">amo, amare (to love)</option>
+            <option value="ardeo, ardere, arsi, arsus">ardeo, ard&#275;re (to burn)</option>            
+            <option value="debeo, debere, debui, debitus">debeo, deb&#275;re (to owe)</option>
+            <option value="desidero, desiderare, desideravi, desideratus">desidero, desiderare (to want)</option>
+            <option value="exspecto, exspectare, exspectavi, exspectatus">exspecto, exspectare (to expect)</option>
+            <option value="laudo, laudare, laudavi, laudatum">laudo, laudare (to praise)</option>
+            <option value="neco, necare, necavi, necatum">neco, necare (to murder)</option>
+            <option value="premo, premere, pressi, pressum">premo, premere (to push)</option>
+            <option value="rogo, rogare, rogavi, rogatum">rogo, rogare (to ask)</option>
+            <option value="voco, vocare, vocavi, vocatum">voco, vocare (to call)</option>
         </select>
+        <input type="button" value="Click to Conjugate!" onClick="conjugateTheWholeDamnVerb('verbSelect');">
     </fieldset>
 </section>
     <!-- Verb Chart Form -->
+<br>
+<br>
 <!-- Tables Begin Here-->
 <!--       -->
 <section><!--   ACTIVE INDICATIVE    -->
