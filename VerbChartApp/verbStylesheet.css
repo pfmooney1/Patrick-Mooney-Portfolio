@@ -1,0 +1,38 @@
+body {
+    background-color: #e8e8e8;
+    color: black;
+    font-size: 1.5em;
+}
+h1 {
+    font-weight: 800;
+
+}
+header, footer {
+    background-color: #273e91;
+    text-align: center;
+    width: 100%;
+    right: 0; 
+    left: 0; 
+    color: white;
+    padding: 1em;
+    margin: 0 -1 0 -2;
+}
+div#navbar {
+    background-color: #f0f0f0;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+}
+ul#navbar {
+    list-style-type: none;
+    display: inline;
+    margin: 0 auto 0 auto;
+    
+}
+ul#navbar, li {
+    list-style-type: none;
+    display: inline;
+    margin: 0 1em 0 1em;
+    font-weight: 800;
+    width: 100%
+}

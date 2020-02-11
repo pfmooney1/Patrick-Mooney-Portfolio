@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Quicker Monopoly</title>
+  <link rel="stylesheet" href="monopolyStylesheet.css">
+</head>
+<body id="body">
+    
+    <!-- Starting Pop Up -->
+    <div id="start" class="modal">
+      <div class="modal-content" id="startMenu">
+        <span class="close">&times;</span>
+        <h1>Monopoly</h1>
+        <h2>Start Game</h2>
+        <fieldset>
+          <legend>Setup</legend>
+          Players: <input type="number" id="numberOfPlayers" value="4" min="2" max="10"><br>
+          Starting Cash: <input type="number" value="1500" id="startingCash">
+        </fieldset>
+        <button id="startGo!" onClick="setup();">Begin</button>
+        <br>
+      </div>
+    </div>
+    
+    <!-- Repairs PopUp -->
+    <div id="repairs" class="modal">
+      <div id="repairsOne" class="modal-content">
+        <span class="close">&times;</span>
+        <div class="containerRow">
+         <img src="monopolyImages/tools.svg" class="svgButton"> 
+            <h1>Charged for Repairs</h1> 
+            <img src="monopolyImages/tools.svg" class="svgButton">
+          </div>
+        <h2>Community Chest or Chance?</h2>
+        <div class="containerRow">
+            <img src="monopolyImages/chest.svg" class="svgButtonNoRightMargin"> 
+            <button id="communityChest" onClick="chanceOrChest('communityChest');" class="fixedWidthButton">Community Chest</button>
+        </div>
+        <div class="containerRow">
+            <img src="monopolyImages/question.svg" class="svgButtonNoRightMargin"> 
+            <button id="chance" onClick="chanceOrChest('chance');" class="fixedWidthButton">Chance</button>
+        </div>
+        <br>
+      </div>
+        
+      <!-- Community Chest Screen 1 -->
+      <div id="repairsCommunityChest1" class="modal-content">
+        <span class="close">&times;</span>
+        <div class="containerRow">
+            <img src="monopolyImages/chest.svg" class="svgButton"> 
+            <h1>Community Chest</h1>
+            <img src="monopolyImages/chest.svg" class="svgButton">
+        </div>
+        <h2>You are assessed for street repairs.</h2>
+        <fieldset>
+          Houses: <input type="number" value="0" id="communityChestHouses"><br>
+          Hotels: <input type="number" value="0" id="communityChestHotels">
+        </fieldset>
+        <button id="calculateCCrepairs" onClick="calculateRepairBill('communityChest')">Next</button>
+        <br>
+      </div>
+        
+      <!-- Chance Screen 1 -->
+      <div id="repairsChance1" class="modal-content">
+        <span class="close">&times;</span>
+        <div class="containerRow">
+            <img src="monopolyImages/question.svg" class="svgButton"> 
+            <h1>Chance</h1>
+            <img src="monopolyImages/question.svg" class="svgButton">
+        </div>
+        <h2>Make general repairs on all your property.</h2>
+        <fieldset>
+          Houses: <input type="number" value="0" id="chanceHouses"> <br>
+          Hotels: <input type="number" value="0" id="chanceHotels">
+        </fieldset>
+        <button id="calculateChanceRepairs" onClick="calculateRepairBill('chance')">Next</button>
+        <br>
+      </div>
+        
+      <!-- Repairs final bill -->
+      <div id="repairsFinalBill" class="modal-content">
+        <span class="close">&times;</span>
+        <div class="containerRow">
+            <img src="monopolyImages/tools.svg" class="svgButton"> 
+            <h1>Charged for Repairs</h1> 
+            <img src="monopolyImages/tools.svg" class="svgButton">
+        </div>
+        <h2>Your total is...</h2>
+        <h2 id="repairsTotal"></h2>
+        <button id="closeRepairScreen" onClick="repairAndClose();">Ok</button>
+        <br>
+      </div>
+    </div>
+    
+    <!-- Main screen; not popus -->
+    <main id="main">
+        <div class="containerRow">
+         <img src="monopolyImages/cash.svg" class="flankingHeaderSVG"> 
+            <h1 id="topLogo">Monopoly Bank Accounts</h1>
+            <img src="monopolyImages/cash.svg" class="flankingHeaderSVG">
+          </div>
+      <table id="scoreboard">
+        <tr id="labels">
+          <td>NAME</td>
+          <td>MONEY</td>
+          <td>EARN</td>
+          <td>LOSE</td>
+          <td>REPAIR</td>
+        </tr>
+        <tr id="1">
+            <td id="p1name" onClick="rename(id);">Player 1</td>
+            <td class="money" id="p1money">$1500</td>
+            <td class="addMoney" id="p1AddMoney" onClick="addMoney(id)"><span class="plus">+</span></td>
+            <td class="takeMoney" id="p1TakeMoney" onClick="takeMoney(id);"><span class="minus">-</span></td>
+            <td id="1repairs" onClick="repairs(id);"><img src="monopolyImages/tools.svg" class="svgButton"></td>
+        </tr>
+        <tr id="2">
+          <td id="p2name" onClick="rename(id);">Player 2</td>
+          <td class="money" id="p2money">$1500</td>
+          <td class="addMoney" id="p2AddMoney" onClick="addMoney(id)"><span class="plus">+</span></td>
+          <td class="takeMoney" id="p2TakeMoney" onClick="takeMoney(id);"><span class="minus">-</span></td>
+          <td id="2repairs" onClick="repairs(id);"><img src="monopolyImages/tools.svg" class="svgButton"></td>
+        </tr>
+        <tr id="3">
+          <td id="p3name" onClick="rename(id);">Player 3</td>
+          <td class="money" id="p3money">$1500</td>
+          <td class="addMoney" id="p3AddMoney" onClick="addMoney(id)"><span class="plus">+</span></td>
+          <td class="takeMoney" id="p3TakeMoney" onClick="takeMoney(id);"><span class="minus">-</span></td>
+          <td id="3repairs" onClick="repairs(id);"><img src="monopolyImages/tools.svg" class="svgButton"></td>
+        </tr>
+        <tr id="4">
+          <td id="p4name" onClick="rename(id);">Player 4</td>
+          <td class="money" id="p4money">$1500</td>
+          <td class="addMoney" id="p4AddMoney" onClick="addMoney(id)"><span class="plus">+</span></td>
+          <td class="takeMoney" id="p4TakeMoney" onClick="takeMoney(id);"><span class="minus">-</span></td>
+          <td id="4repairs" onClick="repairs(id);"><img src="monopolyImages/tools.svg" class="svgButton"></td>
+        </tr>
+        <tr id="5">
+          <td id="p5name" onClick="rename(id);">Player 5</td>
+          <td class="money" id="p5money">$1500</td>
+          <td class="addMoney" id="p5AddMoney" onClick="addMoney(id)"><span class="plus">+</span></td>
+          <td class="takeMoney" id="p5TakeMoney" onClick="takeMoney(id);"><span class="minus">-</span></td>
+          <td id="5repairs" onClick="repairs(id);"><img src="monopolyImages/tools.svg" class="svgButton"></td>
+        </tr>
+        <tr id="6">
+          <td id="p6name" onClick="rename(id);">Player 6</td>
+          <td class="money" id="p6money">$1500</td>
+          <td class="addMoney" id="p6AddMoney" onClick="addMoney(id)"><span class="plus">+</span></td>
+          <td class="takeMoney" id="p6TakeMoney" onClick="takeMoney(id);"><span class="minus">-</span></td>
+          <td id="6repairs" onClick="repairs(id);"><img src="monopolyImages/tools.svg" class="svgButton"></td>
+        </tr>
+        <tr id="7">
+          <td id="p7name" onClick="rename(id);">Player 7</td>
+          <td class="money" id="p7money">$1500</td>
+          <td class="addMoney" id="p7AddMoney" onClick="addMoney(id)"><span class="plus">+</span></td>
+          <td class="takeMoney" id="p7TakeMoney" onClick="takeMoney(id);"><span class="minus">-</span></td>
+          <td id="7repairs" onClick="repairs(id);"><img src="monopolyImages/tools.svg" class="svgButton"></td>
+        </tr>
+        <tr id="8">
+          <td id="p8name" onClick="rename(id);">Player 8</td>
+          <td class="money" id="p8money">$1500</td>
+          <td class="addMoney" id="p8AddMoney" onClick="addMoney(id)"><span class="plus">+</span></td>
+          <td class="takeMoney" id="p8TakeMoney" onClick="takeMoney(id);"><span class="minus">-</span></td>
+          <td id="8repairs" onClick="repairs(id);"><img src="monopolyImages/tools.svg" class="svgButton"></td>
+        </tr>
+        <tr id="9">
+          <td id="p9name" onClick="rename(id);">Player 9</td>
+          <td class="money" id="p9money">$1500</td>
+          <td class="addMoney" id="p9AddMoney" onClick="addMoney(id)"><span class="plus">+</span></td>
+          <td class="takeMoney" id="p9TakeMoney" onClick="takeMoney(id);"><span class="minus">-</span></td>
+          <td id="9repairs" onClick="repairs(id);"><img src="monopolyImages/tools.svg" class="svgButton"></td>
+        </tr>
+        <tr id="10">
+          <td id="p10name" onClick="rename(id);">Player 10</td>
+          <td class="money" id="p10money">$1500</td>
+          <td class="addMoney" id="p10AddMoney" onClick="addMoney(id)"><span class="plus">+</span></td>
+          <td class="takeMoney" id="p10TakeMoney" onClick="takeMoney(id);"><span class="minus">-</span></td>
+          <td id="10repairs" onClick="repairs(id);"><img src="monopolyImages/tools.svg" class="svgButton"></td>
+        </tr>
+      </table>
+      <!-- Options screen -->
+      <div id="optionsMenu">
+        <h2>Settings</h2>
+      <h3>Pick a Theme</h3>
+      <div id="themePicker">
+  <button class="toggled" id="greenTheme" onClick="selectButton(id, 'green');">Green</button>
+  <button class="unToggled" id="darkBlueTheme" onClick="selectButton(id, 'blue');">Dark Blue</button>
+  <button class="unToggled" id="redTheme" onClick="selectButton(id, 'red');">Red</button>
+  <button class="unToggled" id="yellowTheme" onClick="selectButton(id, 'yellow');">Yellow</button><br>
+  <button class="unToggled" id="pinkTheme" onClick="selectButton(id, 'pink');">Pink</button>
+  <button class="unToggled" id="lightBlueTheme" onClick="selectButton(id, 'lightblue');">Light Blue</button>
+  <button class="unToggled" id="blackTheme" onClick="selectButton(id, 'black');">Black</button>
+  <button class="unToggled" id="whiteTheme" onClick="selectButton(id, 'white');">White</button>
+      </div>
+        <h3>Pick a Font</h3>
+      <div id="fontPicker">
+  <button class="toggled" id="georgia" onClick="selectButtonFont(id, 'georgia');">Georgia</button>
+  <button class="unToggled" id="cambria" onClick="selectButtonFont(id, 'cambria');">Cambria</button><br>
+  <button class="unToggled" id="verdana" onClick="selectButtonFont(id, 'verdana');">Verdana</button>
+  <button class="unToggled" id="lucidaConsole" onClick="selectButtonFont(id, 'lucidaConsole');">Lucida Console</button>
+      </div>
+        </div>
+      <div>
+      <!-- Buttons on the bottom of the main screen -->
+      <button class="mainButtons" id="StartScreen" onClick="confirmSetup();">Start Over</button>
+      <button class="mainButtons" id="optionsButton" onClick="showOptions();">Options</button>
+      </div>
+    </main>
+    <footer class="containerRow">
+    </footer>
+        <script src="monopolyScripts.js">
+        </script>
+</body>
+</html>

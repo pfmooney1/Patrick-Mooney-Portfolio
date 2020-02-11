@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Patrick Mooney's Portfolio</title>
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <!-- Header-->
+    <header class="containerRow">
+        <h1 class="headerContent">Patrick Mooney</h1>
+    </header>
+    <!-- NavBar Here-->
+      <nav id="rowNav">
+            <a href="index.html" class="link">Home</a>
+            <a href="aboutme.html" class="link">About Me</a>
+            <a href="resume.html" class="link">Resume</a>
+            <a href="contactme.html" class="link">Contact Me</a>
+            <a href="https://www.linkedin.com/in/patrick-franklin-mooney/" target="_blank" class="link">LinkedIn</a>
+    </nav>
+     <main id="mainColumn" class="containerColumn marginWide">
+             <h1>Monopoly Bank Accounts</h1>
+             <h2>The Idea</h2>
+                 <p class="paragraphContent">
+                     What if you could play Monopoly without touching the bills? <br>
+                     The slowest part of playing Monopoly is handling the money and crunching numbers. While it's fantastic when someone lands on your monopoly with four houses on it, 90% of the time it is counting and passing back and forth less than $95.<br> What if there was a faster way? What if there were monopoly bank accounts?
+                 </p>
+             <h2>The Approach</h2>
+                 <p class="paragraphContent">
+                     I made a table tall enough to fit up to 10 players and made it wide enough to fit enough actions to play the board game without touching the paper bills. I had just learned how to create and use Modals and I applied them to the project as well, creating the Start and Repair screens. I also used SVG icons instead of PNG or JPGs to take advantage of their speed and scalability. I wanted to make it customizable when playing so I added the ability to change the font, color theme, and the player names.
+                 </p>
+             <h2>The Challenge</h2>
+                <p class="paragraphContent">
+                    This project presented two challenges. <br>
+                    First, as I coded the modals it got increasingly hard to stop bugs from popping up, especially in the repairs modals. I would edit a modal and not find the changes taking place, only to realize that I was coding in the wrong modal. <br>
+                    Second, the dropdown select element that I had coded for the alternate themes/fonts looked ugly and was unappealing to use. 
+                 </p>
+             <h2>The Solution</h2>
+                <p class="paragraphContent">
+                    I solved the modals challenge with clear commenting above each modal in the HTML file. This made it easy to know for sure which modal I was editing and how it functioned in relation to the rest of the modals. An ounce of prevention is worth a pound of cure. 
+                    <br>
+                    Second, I replaced my dropdown/select elements with toggle tokens coded in vanilla HTML/CSS/JS. I liked these because it made it clear which one was selected, it gave the user a preview of what they were choosing, and they looked significantly better.
+                </p>
+             <h2>My Favorite Part</h2>
+                <p class="paragraphContent">
+                    The piece of code I am most proud of is the JavaScript  function the takes the number of houses and hotels a player has and charges them accordingly based on whether they landed on Chance or Community Chest. Stopping a game of monopoly to crunch those numbers was always annoying, and I love how a problem like that can be solved in so few lines of code. 
+                    <br>
+                    <br>
+                    Here's the code: <br>
+                </p>
+                <div class="sampleCode">
+                    <pre>
+                    <code>
+                        // Calculates the repair bill
+                        function calculateRepairBill(a) {
+                          if (a === 'communityChest') {
+                            communityChestHouses = document.getElementById("communityChestHouses").value;
+                            communityChestHotels = document.getElementById("communityChestHotels").value;
+                            communityChestHouses = Number(communityChestHouses);
+                            communityChestHotels = Number(communityChestHotels);
+                            housesRepairCost = communityChestHouses * 40;
+                            hotelsRepairCost = communityChestHotels * 115;
+                            repairBillTotal = housesRepairCost + hotelsRepairCost;
+                            document.getElementById("repairsTotal").innerHTML = "$" + repairBillTotal;
+                            document.getElementById("repairsCommunityChest1").style.display = "none";
+                            document.getElementById("repairsChance1").style.display = "none";
+                            document.getElementById("repairsFinalBill").style.display = "block";
+                          } else if (a === "chance") {
+                            chanceHouses = document.getElementById("chanceHouses").value;
+                            chanceHotels = document.getElementById("chanceHotels").value;
+                            chanceHouses = Number(chanceHouses);
+                            chanceHotels = Number(chanceHotels);
+                            housesRepairCost = chanceHouses * 25;
+                            hotelsRepairCost = chanceHotels * 100;
+                            repairBillTotal = housesRepairCost + hotelsRepairCost;
+                            document.getElementById("repairsTotal").innerHTML = "$" + repairBillTotal;
+                            document.getElementById("repairsCommunityChest1").style.display = "none";
+                            document.getElementById("repairsChance1").style.display = "none";
+                            document.getElementById("repairsFinalBill").style.display = "block";
+                          }
+                        }
+                    </code>
+                    </pre>
+                    </div>
+                <br>
+                <a href="monopoly/monopoly.html" class="linkButton" target="_blank">Try it out</a>
+                <br>
+    </main>
+    <footer class="containerRow">
+    </footer>
+</body>
+</html>

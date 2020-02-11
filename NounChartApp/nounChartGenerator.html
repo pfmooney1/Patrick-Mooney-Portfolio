@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Latin Noun Chart Generator</title>
+  <link rel="stylesheet" href="nounChartStylesheet.css">
+</head>
+<body>
+    <header id="header">
+        <h1>Noun Chart Generator</h1>
+    </header>
+    <main id="mainColumn">
+        <hr>
+        <div id="mainMenu" class="containercolumn screen">
+            <h2 class="selectionsHeader">Select an option below: </h2>
+            <div class="containerRow menuIcons">
+                <img src="gladiusIcon.svg" alt="">
+                <select id=“selectedNoun”  alt="">
+                    <optgroup label="1ST DECLENSION">
+                        <option value="">amica - (friend)</option>
+                        <option value="">culpa - (fault)</option>
+                        <option value="">cura - (care)</option>
+                        <option value="">discipula - (student)</option>
+                        <option value="">fama - (rumor)</option>
+                        <option value="">forma - (form)</option>
+                        <option value="">ira - (rage)</option>
+                        <option value="">magistra - (teacher)</option>
+                        <option value="">mora - (delay)</option>
+                        <option value="">nauta - (sailor)</option>
+                        <option value="">pecunia - (money)</option>
+                        <option value="">pirata - (pirate)</option>
+                        <option value="">poena - (penalty)</option>	
+                        <option value="">poeta - (poet)</option>
+                        <option value="">porta - (gate)</option>
+                        <option value="">puella - (girl)</option>
+                        <option value="">rosa - (rose)</option>
+                        <option value="">vicina - (neighbor)</option>
+                        <option value="">vita - (life)</option>
+                    </optgroup>
+                    <optgroup label="2ND DECLENSION MASCULINE">
+                        <option value="">ager - (field)</option>
+                        <option value="">amicus - (friend)</option>
+                        <option value="">animus - (soul)</option>
+                        <option value="">discipulus - (student)</option>
+                        <option value="">faber - (smith)</option>
+                        <option value="">filius - (son)</option>
+                        <option value="">liber - (book)</option>
+                        <option value="">ludus - (game)</option>
+                        <option value="">magister - (teacher)</option>
+                        <option value="">mundus - (world)</option>
+                        <option value="">oculus - (eye)</option>
+                        <option value="">puer - (boy)</option>
+                        <option value="">stultus - (fool)</option>
+                        <option value="">vicinus - (neighbor)</option>
+                        <option value="">vir - (man)</option>
+                        <option value="">vulgus - (mob)</option>
+                    </optgroup>
+                    <optgroup label="2ND DECLENSION NEUTER">
+                        <option value="">aedificium - (building)</option>
+                        <option value="">basium - (kiss)</option>
+                        <option value="">bellum - (war)</option>
+                        <option value="">caelum - (heaven)</option>
+                        <option value="">consilium - (plan)</option>
+                        <option value="">donum - (gift)</option>
+                        <option value="">exitium - (ruin)</option>
+                        <option value="">forum - (marketplace)</option>
+                        <option value="">iudicium - (judgement)</option>
+                        <option value="">officium - (duty)</option>
+                        <option value="">otium - (peace)</option>
+                        <option value="">periculum - (danger)</option>
+                        <option value="">remedium - (cure)</option>	
+                        <option value="">saxum - (rock)</option>
+                        <option value="">verbum - (word)</option>
+                   </optgroup>
+                    <optgroup label="3RD DECLENSION MASC/FEM">
+                        <option value="">aestas - (age)</option>
+                        <option value="">civitas - (city)</option>
+                        <option value="">consul - (consul)</option>
+                        <option value="">dux - (leader)</option>
+                        <option value="">frater - (brother)</option>
+                        <option value="">homo - (human)</option>
+                        <option value="">lux - (light)</option>
+                        <option value="">mater - (mother)</option>
+                        <option value="">miles - (soldier)</option>
+                        <option value="">pars - (part)</option>
+                        <option value="">pater - (father)</option>
+                        <option value="">pax - (peace)</option>
+                        <option value="">rex - (king)</option>
+                        <option value="">soror - (sister)</option>
+                        <option value="">vox - (voice)</option>
+                   </optgroup>
+                    <optgroup label="3RD DECLENSION NEUTER">
+                        <option value="">caput - (head)</option>
+                        <option value="">carmen - (song)</option>
+                        <option value="">corpus - (body)</option>
+                        <option value="">diploma - (diploma)</option>
+                        <option value="">epigramma - (epigram)</option>
+                        <option value="">flumen - (river)</option>
+                        <option value="">iter - (trip)</option>
+                        <option value="">ius - (law)</option>
+                        <option value="">limen - (threshold)</option>
+                        <option value="">liquamen - (fish sauce)</option>
+                        <option value="">nomen - (name)</option>
+                        <option value="">opus - (work)</option>
+                        <option value="">scelus - (crime)</option>
+                        <option value="">sidus - (constellation)</option>
+                        <option value="">tempus - (storm)</option>
+                        <option value="">vulnus - (wound)</option>
+                    </optgroup>
+                    <optgroup label="4TH DECLENSION MASC/FEM">
+                        <option value="">arcus - (bow)</option>
+                        <option value="">cantus - (song)</option>
+                        <option value="">currus - (chariot)</option>
+                        <option value="">equitatus - (cavalry)</option>
+                        <option value="">exercitus - (army)</option>
+                        <option value="">fructus - (fruit)</option>
+                        <option value="">gressus - (step)</option>
+                        <option value="">morsus - (bite)</option>
+                        <option value="">natus - (birth)</option>
+                        <option value="">potus - (drink)</option>
+                        <option value="">senatus - (senate)</option>
+                        <option value="">sensus - (feeling)</option>
+                        <option value="">situs - (site)</option>
+                        <option value="">risus - (laugh)</option>
+                        <option value="">ritus - (rite)</option>
+                    </optgroup>
+                    <optgroup label="4TH DECLENSION MASC/FEM">
+                        <option value="">cornu - (horn)</option>
+                        <option value="">gelu - (frost)</option>
+                        <option value="">genu - (knee)</option>
+                        <option value="">pecu - (cow)</option>
+                        <option value="">venu - (javelin)</option>
+                        <option value="">veru - (javelin-tip)</option>
+                    </optgroup>
+                    <optgroup label="5TH DECLENSION">
+                        <option value="">acies - (edge)</option>
+                        <option value="">caries - (corruption)</option>
+                        <option value="">congeries - (heap)</option>	
+                        <option value="">durities - (hardship)</option>
+                        <option value="">effigies - (image)</option>
+                        <option value="">facies - (shape)</option>
+                        <option value="">fides - (pledge)</option>
+                        <option value="">glacies - (ice)</option>
+                        <option value="">luxuries - (luxury)</option>
+                        <option value="">macies - (poverty)</option>
+                        <option value="">meridies - (noon)</option>
+                        <option value="">pernicies - (ruin)</option>
+                        <option value="">series - (row)</option>
+                        <option value="">species - (sight)</option>
+                        <option value="">spes - (hope)</option>
+                    </optgroup>
+    </select> 
+            </div>
+            <div class="containerRow menuIcons">
+                <img src="magicBookIcon.svg"  alt="">
+                <select id="otherChartsSelection">
+                        <option value="relative">qui, quae, quod - (relative pronouns)</option>
+                        <option value="is">is, ea, id - (3rd person pronouns)</option>
+                        <option value="hic">hic, hae, hoc - (this, these)</option>
+                        <option value="ille">ille, illa, illud - (that, those)</option>
+                        <option value="iste">iste, ista, istud - (that, those)</option>
+                        <option value="interogative">interogative pronouns</option>
+                        <option value="reflexive">reflexive pronouns</option>
+                    </select>
+            </div>
+                <div class="containerRow menuIcons">
+                <img src="quillIcon.svg"  alt=""><button>Enter a Noun</button>
+            </div>
+                <div class="containerRow menuIcons">
+                <img src="diceIcon.svg"  alt=""><button>Random Noun</button>
+            </div>
+                <div class="containerRow menuIcons">
+                <img src="tabletIcon.svg"  alt=""><button>Noun Endings</button>
+            </div>
+                <div class="containerRow menuIcons">
+                <img src="blankScrollIcon.svg"  alt=""><button>Blank Chart</button>
+            </div>
+                <div class="containerRow menuIcons">
+                <img src="anvilIcon.svg"  alt=""><button>Settings</button>
+            </div>
+                <div class="containerRow menuIcons">
+                <img src="caesarIcon.svg"  alt=""><button>About</button>
+            </div>
+        </div> <!-- Main Menu-->
+        <hr>
+        <div id="assignmentPage" class="screen">
+            <h2 class="selectionsHeader">Assignment:</h2>
+            <p class="assignmentText">
+                Please decline <ins id="assignmentNoun" class="overrideText">NOUN TO DECLINE</ins><br>
+                in <ins id="assignmentLanguages" class="overrideText">LATIN AND ENGLISH</ins>.
+            </p>
+            <button class="sideBySide">See Answer</button>
+            <button class="sideBySide">Main Menu</button>
+        </div> <!-- Assignment Page-->
+        <hr>        
+        <div id="enterANounScreen" class="screen">
+            <h2>Enter the noun of your choosing below:</h2>
+            <fieldset>
+                Noun (e.g. <i>rex, regis</i>, m): <input type="text" id="userLatinNoun"><br>
+                English Meaning: <input type="text" id="userEnglishNoun"><br>
+                <button class="toggleToken" id="assignmentChoiceA" onClick="selectButton(id);">Assignment page</button>
+                <button class="toggleToken" id="copyPasteChoiceA" onClick="selectButton(id);">Copy/Paste Mode</button>
+                <button class="toggleToken" id="englishChoiceA" onClick="selectButton(id);">Include English</button>
+                <button class="toggleToken" id="vocativeChoiceA" onClick="selectButton(id);">Include vocative</button>
+            </fieldset>
+            <button>Go!</button><br>
+            <button>Main Menu</button>
+        </div> <!-- Enter your own noun-->
+        <hr>
+        <div id="aboutScreen" class="screen">
+            <h2>About</h2>
+            <p>This application was created by Patrick Mooney. <br>
+            Icons made by Delapouite, Skoll, and Lorc. <br>
+            They are available on https://game-icons.net</p>
+            <button>Close</button>
+        </div> <!-- About Screen-->
+        <hr>
+        <div id="settingScreen" class="screen">
+            <h2 id="settingsLabel">Settings:</h2>
+                <button class="toggleToken" id="assignmentChoiceB" onClick="selectButton(id);">Assignment page</button>
+                <button class="toggleToken" id="copyPasteChoiceB" onClick="selectButton(id);">Copy/Paste Mode</button>
+                <button class="toggleToken" id="englishChoiceB" onClick="selectButton(id);">Include English</button>
+                <button class="toggleToken" id="vocativeChoiceB" onClick="selectButton(id);">Include vocative</button>
+            <button>Close</button>
+        </div> <!-- Setting Screen -->
+        <hr>
+    </main>
+    <footer class="containerRow">
+        <a href="#header">Back to the top</a>
+    </footer>
+    <script src="nounChartScripts.js"></script>
+</body>
+</html>

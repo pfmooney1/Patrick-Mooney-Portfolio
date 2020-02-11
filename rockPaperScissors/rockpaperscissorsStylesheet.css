@@ -1,0 +1,76 @@
+/*-------------------------------------------*\
+        Rock, Paper, Scissors CSS
+\*-------------------------------------------*/
+
+:root {
+  --backgroundColor: #005cb2;
+  --opponentColor: #d12317;
+  --yourColor: green;
+  --resetButtonColor: #00b0ff;
+}
+
+
+body {
+    background-color: var(--backgroundColor);
+}
+.containerRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: space-around;
+}
+.containerRow h2 {
+    display: inline;
+}
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1em;
+    border: 2px solid darkgray;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+}
+h1{
+    text-align: center;
+    font-size: 3em;
+}
+h3, h2 {
+    margin: 1em 0 0 0;
+    font-size: 2em;
+    text-align: center;
+}
+svg {
+    height: 150px;
+    background-color: var(--yourColor);
+    border: 3px solid black;
+    border-radius: 3px;
+    box-shadow: 4px 4px 2px rgb(0, 0, 0, 0.5);
+}
+svg.bad {
+    background-color: var(--opponentColor);
+    margin: 1em auto 1em auto;
+}
+.good:hover {
+    transform: scale(1.1);
+}
+div.opponent {
+    margin: 1em auto 1em auto;
+}
+table {
+    margin: 1em auto 1em auto;
+}
+button#reset {
+    min-height: 50px;
+    min-width: 300px;
+    display: block;
+    margin: 0 auto 0 auto;
+    font-size: 1.2em;
+    border: 2px solid black;
+    border-radius: 3px;
+    background-color: var(--resetButtonColor);
+    font-weight: 900;
+    box-shadow: 4px 4px 2px rgb(0, 0, 0, 0.5);
+}
+button:hover {
+    transform: scale(1.1);
+}
