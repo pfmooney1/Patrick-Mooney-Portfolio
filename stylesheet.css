@@ -324,4 +324,9 @@ a.linkButton:hover {
     margin: 0 auto;
     border: 1px dashed black;
 }
+.goToTopLink {
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+}
 

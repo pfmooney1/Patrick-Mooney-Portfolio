@@ -7,8 +7,8 @@
 </head>
 <body>
     <!-- Header-->
-    <header class="containerRow">
-        <h1 class="headerContent">Patrick Mooney</h1>
+    <header class="containerRow" id="topOfPage">
+        <h1 class="headerContent"><a href="index.html" class="link">Patrick Mooney</a></h1>
     </header>
     <!-- NavBar Here-->
       <nav id="rowNav">
@@ -26,19 +26,19 @@
                  </p>
              <h2>The Approach</h2>
                  <p class="paragraphContent">
-                    The user types the dictionary entry of any Latin verb (for example, do, dare, dedi, datum) in the input field and regular expressions takes it apart, forms the appropriate stems, and IDs the conjugations. After that, it’s a giant program of manipulating and editing strings then placing them in the appropriate boxes. 
+                     The user types the dictionary entry of any Latin verb (for example, <i>do, dare, dedi, datum</i>) in the input field and regular expressions takes it apart, forms the appropriate stems, and IDs the conjugations. After that, it’s a giant program of manipulating and editing strings then placing them in the appropriate boxes. 
                 </p>
              <h2>The Challenge</h2>
                 <p class="paragraphContent">
-                    The most unexpected challenge I encountered was dealing with all the different ways that teachers and students could input the same verb. Some textbooks teach using commas, as in <i>do, dare, dedi, datum</i>, others use hyphens, others still use only spaces. I have even see semi-colons. 
+                    The most unexpected challenge I encountered was dealing with all the different ways that teachers and students could input the same verb. Some textbooks teach using commas, as in <i>do, dare, dedi, datum</i>, others use hyphens, others still use only spaces. I have even seen semi-colons from time to time. 
                  </p>
              <h2>The Solution</h2>
                 <p class="paragraphContent">
-                    The solution was regular expressions, and this was the project that made me break out flashcards and just master them. Without out regular expressions I would have had to code for every possible way that a user could input the same verb. With regular expressions, all I needed to add was <code>/\w+/g</code>, and no matter how the user input the code, it would still work.
+                    The solution was regular expressions, and this was the project that made me break out flashcards and just master them. Without regular expressions I would have had to code for every possible way that a user could input the same verb. With regular expressions, all I needed to add was <code>/\w+/g</code>, and no matter how the user input the code, it would still work.
                 </p>
              <h2>My Favorite Part</h2>
                 <p class="paragraphContent">
-                    My favorite part of the code takes the input, assigns to a variable, then breaks that string into the necessary four principle parts. Seven lines of JavaScript code and a regular expression eliminate the need for four separate text elements in the HTML and accommodates users accustomed to different ways of writing Latin.
+                    My favorite part of the code takes the input, assigns to a variable, then breaks that string into the necessary four principle parts. Seven lines of JavaScript code and a regular expression eliminate the need for four separate input elements in the HTML and accommodates users accustomed to different ways of writing Latin.
                     <br>Short, elegant, and user-friendly.
                     <br>
                     <br>
@@ -62,6 +62,7 @@ var fourthPP = verbParts[3];
                     </div>
     </main>
     <footer class="containerRow">
+        <a href="#top" class="goToTopLink">Top of page</a>
     </footer>
 </body>
 </html>

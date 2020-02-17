@@ -7,8 +7,8 @@
 </head>
 <body>
     <!-- Header-->
-    <header class="containerRow">
-        <h1 class="headerContent">Patrick Mooney</h1>
+    <header class="containerRow" id="topOfPage">
+        <h1 class="headerContent"><a href="index.html" class="link">Patrick Mooney</a></h1>
     </header>
     <!-- NavBar Here-->
       <nav id="rowNav">
@@ -22,27 +22,27 @@
              <h2>The Idea</h2>
                  <p class="paragraphContent">
                      What if you could play Monopoly without touching the bills? <br>
-                     The slowest part of playing Monopoly is handling the money and crunching numbers. While it's fantastic when someone lands on your monopoly with four houses on it, 90% of the time it is counting and passing back and forth less than $95.<br> What if there was a faster way? What if there were monopoly bank accounts?
+                     For many, the slowest part of playing Monopoly is handling the money and crunching numbers. While it's fantastic when someone lands on your monopoly with four houses on it, 90% of the time it is counting and passing back and forth less than $50.<br> What if there was a faster way? What if there were monopoly bank accounts?
                  </p>
              <h2>The Approach</h2>
                  <p class="paragraphContent">
-                     I made a table tall enough to fit up to 10 players and made it wide enough to fit enough actions to play the board game without touching the paper bills. I had just learned how to create and use Modals and I applied them to the project as well, creating the Start and Repair screens. I also used SVG icons instead of PNG or JPGs to take advantage of their speed and scalability. I wanted to make it customizable when playing so I added the ability to change the font, color theme, and the player names.
+                     I made a table tall enough to fit up to 10 players and made it wide enough to fit enough actions to play the board game without touching the paper bills. I had just learned how to create and use Modals and I applied them to the project as well, creating the Start and Repair screens. I also used SVG icons instead of PNGs or JPGs to take advantage of their speed and scalability. I also wanted to make it customizable so I added the ability to change the font, color theme, and the player names with a button click.
                  </p>
              <h2>The Challenge</h2>
                 <p class="paragraphContent">
-                    This project presented two challenges. <br>
+                    This project presented two small challenges. <br>
                     First, as I coded the modals it got increasingly hard to stop bugs from popping up, especially in the repairs modals. I would edit a modal and not find the changes taking place, only to realize that I was coding in the wrong modal. <br>
-                    Second, the dropdown select element that I had coded for the alternate themes/fonts looked ugly and was unappealing to use. 
+                    Second, the dropdown select element that I had coded for the alternate themes/fonts looked ugly and was unappealing to use. You had to click it before you could see what it would look like.
                  </p>
              <h2>The Solution</h2>
                 <p class="paragraphContent">
                     I solved the modals challenge with clear commenting above each modal in the HTML file. This made it easy to know for sure which modal I was editing and how it functioned in relation to the rest of the modals. An ounce of prevention is worth a pound of cure. 
                     <br>
-                    Second, I replaced my dropdown/select elements with toggle tokens coded in vanilla HTML/CSS/JS. I liked these because it made it clear which one was selected, it gave the user a preview of what they were choosing, and they looked significantly better.
+                    Second, I replaced my dropdown/select elements with toggle tokens coded in vanilla HTML/CSS/JS. I liked these because it made it clear which one was selected, it gave the user a preview of what they were choosing, and they just looked significantly better.
                 </p>
              <h2>My Favorite Part</h2>
                 <p class="paragraphContent">
-                    The piece of code I am most proud of is the JavaScript function that takes the number of houses and hotels a player has and charges them accordingly based on whether they landed on Chance or Community Chest. Stopping a game of monopoly to crunch those numbers was always annoying, and I love how a problem like that can be solved in so few lines of code. 
+                    The piece of code that I am most proud of is the JavaScript function that takes the number of houses and hotels a player has and charges them accordingly based on whether they landed on Chance or Community Chest. Stopping a game of monopoly to crunch those numbers was always annoying for me, and I love how a problem like that can be solved in just few lines of code. 
                     <br>
                     <br>
                     Here's the code: <br>
@@ -86,6 +86,7 @@ function calculateRepairBill(a) {
                 <br>
     </main>
     <footer class="containerRow">
+        <a href="#top" class="goToTopLink">Top of page</a>
     </footer>
 </body>
 </html>
