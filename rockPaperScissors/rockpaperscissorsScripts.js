@@ -26,6 +26,9 @@ function choice(a) {
     if (gameIsReset === false) {
         reset();
         gameIsReset = true;
+        computerCounterH2.style.border = "none";
+        tiesCounterH2.style.border = "none";
+        yourCounterH2.style.border = "none";
     }
     else {
         gameIsReset = false;
@@ -48,24 +51,31 @@ function choice(a) {
         }
         if (yourChoice === opponentChoice) {
             ties++;
+            tiesCounterH2.style.border = "2px solid black";
         }
         else if (yourChoice === "rock" && opponentChoice === "paper") {
                 opponentWins++;
+                computerCounterH2.style.border = "3px solid black";
         }
         else if (yourChoice === "rock" && opponentChoice === "scissors") {
                 yourWins++;
+                yourCounterH2.style.border = "3px solid black";
         }
         else if (yourChoice === "paper" && opponentChoice === "rock") {
                 yourWins++;
+                yourCounterH2.style.border = "3px solid black";
         }
         else if (yourChoice === "paper" && opponentChoice === "scissors") {
                 opponentWins++;
+                computerCounterH2.style.border = "3px solid black";
         }
         else if (yourChoice === "scissors" && opponentChoice === "rock") {
                 opponentWins++;
+                computerCounterH2.style.border = "3px solid black";
         }
         else if (yourChoice === "scissors" && opponentChoice === "paper") {
                 yourWins++;
+                yourCounterH2.style.border = "3px solid black";
         }
         else {
           alert("ERROR! Cannot determine winner!");
