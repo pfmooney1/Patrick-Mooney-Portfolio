@@ -115,7 +115,6 @@ header {
 footer {
     background-color: var(--primaryColor);
     text-align: center;
-    position: relative;
     border: 2px solid black;
     width: 100%;
     right: 0; 
@@ -185,6 +184,7 @@ nav#rowNav {
     background-color: var(--secondaryColor);
     text-align: center;
     border: 2px solid black;
+    margin: auto 0;
     padding: 0.25em 0em;
     display: flex;
     flex-direction: row;
