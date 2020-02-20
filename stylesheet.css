@@ -95,10 +95,13 @@
 body {
     background-color: var(--background-color);
     color: black;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
+    position: relative;
     font-size: 18px;
     font-family: helvetica;
+    box-sizing: border-box;
 }
 header {
     background-color: var(--primaryColor);
@@ -110,6 +113,7 @@ header {
     top: 0; 
     color: snow;
     margin: 0;
+    box-sizing: border-box;
 }
 
 footer {
@@ -117,11 +121,13 @@ footer {
     text-align: center;
     border: 2px solid black;
     width: 100%;
+    position: absolute;
     right: 0; 
     bottom: 0; 
     color: snow;
     padding: 2em 0;
     margin: 0;
+    box-sizing: border-box;
 }
 .containerRow {
     display: flex;
@@ -152,6 +158,11 @@ div.aboutMeDiv {
 .marginWide {
     margin: 1em 2em;
     text-align: inherit;
+}
+
+main {
+    min-height: 100%;
+    padding-bottom: 4em;
 }
 /* =========================== */
 /*          Headings           */
@@ -194,6 +205,7 @@ nav#rowNav {
     font-size: 1.5em;
     width: 100%;
     color: black;
+    box-sizing: border-box;
 }
 .link {
     text-decoration: none;

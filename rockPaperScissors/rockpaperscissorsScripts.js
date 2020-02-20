@@ -28,7 +28,7 @@ function choice(a) {
         gameIsReset = true;
         computerCounterH2.style.border = "none";
         tiesCounterH2.style.border = "none";
-        yourCounterH2.style.border = "none";
+        yourCounterH2.style.border = "3px solid rgba(0, 0, 0, 0)";
     }
     else {
         gameIsReset = false;
