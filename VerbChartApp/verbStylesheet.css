@@ -91,4 +91,5 @@ select {
     min-height: 30px;
     font-family: inherit;
     border: 1px solid black;
+    background-color: white;
 }

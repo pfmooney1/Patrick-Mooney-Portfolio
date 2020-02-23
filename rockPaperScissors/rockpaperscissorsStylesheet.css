@@ -110,7 +110,14 @@ button#reset {
 button:hover {
     transform: scale(1.1);
 }
-
+.attributions {
+    color: black;
+    font-size: 1.5em;
+    text-align: center;
+}
+.attributions a {
+    color: black;
+}
 @media only screen and (max-width: 600px) {
     body {
         background-color: var(--backgroundColor);

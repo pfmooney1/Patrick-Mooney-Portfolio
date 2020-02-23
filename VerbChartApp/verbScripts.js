@@ -1,3 +1,5 @@
+//
+// This function takes the user input and conjugates the verb based on user selections
 function conjugateTheWholeDamnVerb(id) {
     //
     // Verb Conjugation IDer

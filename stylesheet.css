@@ -67,27 +67,6 @@
 }
 
 
-/* =========================== *\
-        Media queries      
-\* =========================== */
-/*
-@media only screen and (min-width : 300px) and (max-width : 570px) {
-    body {
-        font-size: 8px;
-    }
-}
-@media only screen and (min-width : 410px) and (max-width : 700px) {
-    body {
-        font-size: 10px;
-    }
-}
-@media only screen and (min-width : 701px) {
-    body {
-        font-size: 18px;
-    }
-}
-*/
-
 
 /* =========================== *\
       Main Styled Parts      
@@ -100,7 +79,7 @@ body {
     padding: 0;
     position: relative;
     font-size: 18px;
-    font-family: helvetica;
+    font-family: helvetica, serif;
     box-sizing: border-box;
 }
 header {
@@ -120,14 +99,16 @@ footer {
     background-color: var(--primaryColor);
     text-align: center;
     border: 2px solid black;
+    display: flex;
     width: 100%;
     position: absolute;
     right: 0; 
     bottom: 0; 
     color: snow;
-    padding: 2em 0;
-    margin: 0;
+    margin: 2em auto 0em auto;
     box-sizing: border-box;
+    vertical-align: center;
+    justify-content: space-around;
 }
 .containerRow {
     display: flex;
@@ -161,7 +142,6 @@ div.aboutMeDiv {
 }
 
 main {
-    min-height: 100%;
     padding-bottom: 4em;
 }
 /* =========================== */
@@ -169,7 +149,7 @@ main {
 /* =========================== */
 h1 {
     font-weight: 800;
-    margin: 0.5em 0.5em 0.5em 1.5em;
+    margin: 0em 0.5em 0em 1em;
     text-align: left;
 }
 h1.headerContent {
@@ -196,10 +176,12 @@ nav#rowNav {
     text-align: center;
     border: 2px solid black;
     margin: auto 0;
-    padding: 0.25em 0em;
+    padding: 0em 0em;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    align-items: center;
+    vertical-align: center;
     text-transform: uppercase;
     font-weight: 800;
     font-size: 1.5em;
@@ -210,6 +192,8 @@ nav#rowNav {
 .link {
     text-decoration: none;
     color: white;
+    font-size: 1em;
+    font-family: helvetica, serif;
 }
 
 
@@ -274,7 +258,15 @@ img.projectIcon {
     float: left;
 }
 
-
+.fittedIcon {
+    min-height: 100%;
+    max-height: 45px;
+    width: auto;
+    margin: auto;
+    padding: 5px 0px 0px 0px;
+    vertical-align: center;
+    background-color: 
+}
 /* =========================== */
 /*      Porfolio Icons         */
 /* =========================== */
@@ -336,9 +328,78 @@ a.linkButton:hover {
     margin: 0 auto;
     border: 1px dashed black;
 }
+
 .goToTopLink {
     color: white;
     text-align: center;
     margin: 0 auto;
 }
 
+.footerContent { 
+    display: inline;
+    color: white;
+}
+
+ul#mySkills {
+    font-size: 1.5em;
+    font-family: inherit;
+    list-style-position: inside;
+    line-height: 1.5em
+}
+
+/* =========================== *\
+        Media queries      
+\* =========================== */
+@media only screen and (max-width: 800px) {
+    body {
+        font-size: 14px;
+    }
+    nav#rowNav {
+        background-color: var(--secondaryColor);
+        flex-direction: column;
+        vertical-align: center;
+        justify-content: center;
+        align-content: center;
+    }
+    nav#rowNav > a {
+        border: 1px solid black;
+        border-width: 100%;
+        width: 100%;
+        height: 35px;
+        font-size: 1.3em;
+    }
+    .fittedIcon {
+        height: 100%;
+        width: auto;
+        margin: auto;
+        padding: 0px 0px 0px 0px;
+        vertical-align: center;
+}
+    header {
+        text-align: center;
+        font-size: 0.8em;
+        font-weight: 900;
+    }
+    #photoOfMeImg {
+        width: 100%;
+        height: auto;
+        background-color: var(--secondaryColor);
+        padding: 0em;
+        border: 0;
+        border-radius: 0;
+        box-shadow: 0;
+        margin: 0 auto 1em;
+        box-sizing: border-box;
+    }
+    div.aboutMeDiv {
+        width: 100%;
+        margin: 0em 0em 2em 0em;
+        padding: 0em;
+    }
+    .aboutMeText {
+        padding: 0 1em;
+    }
+    .paragraphContent {
+        width: 95%
+    }
+}

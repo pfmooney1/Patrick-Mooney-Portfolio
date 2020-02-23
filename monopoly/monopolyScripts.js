@@ -198,7 +198,7 @@ function showOptions() {
 //Change player name
 function rename(id) {
   var target = document.getElementById(id);
-  var x = prompt("Pick a name!", "Tiffany");
+  var x = prompt("Pick a name!", "Patrick");
   target.innerHTML = x;
 }
 //
