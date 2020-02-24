@@ -1,3 +1,14 @@
+/* Intial variables */
+var mainMenuScreen = document.getElementById("mainMenu");
+var assignmentScreen = document.getElementById("assignmentPage");
+var enterANounScreen = document.getElementById("enterANounScreen");
+var aboutScreen = document.getElementById("aboutScreen");
+var settingScreen = document.getElementById("settingScreen");
+var nounEndingsScreen = document.getElementById("nounEndingsScreen");
+var blankChartScreen = document.getElementById("blankChartScreen");
+var randomNounScreen = document.getElementById("randomNounScreen");
+//
+//
 function selectButton(id) {
   var target = document.getElementById(id);
   if (target.className !== "toggleToken checked") {
@@ -8,10 +19,107 @@ function selectButton(id) {
   }
 }
 //
-//
-//
+// Initial div-hiders
+assignmentScreen.style.display = "none";
+enterANounScreen.style.display = "none";
+aboutScreen.style.display = "none";
+randomNounScreen.style.display = "none";
+settingScreen.style.display = "none";
+settingScreen.style.display = "none";
+settingScreen.style.display = "none";
 
+
+
+
+
+
+
+
+function goToBlankChartScreen() {
+    mainMenuScreen.style.display = "none";
+    assignmentScreen.style.display = "none";
+    enterANounScreen.style.display = "none";
+    aboutScreen.style.display = "none";
+    settingScreen.style.display = "none";  
+    nounEndingsScreen.style.display = "none";
+    blankChartScreen.style.display = "block";
+}
+function goToNounEndingsScreen() {
+    mainMenuScreen.style.display = "none";
+    assignmentScreen.style.display = "none";
+    enterANounScreen.style.display = "none";
+    aboutScreen.style.display = "none";
+    settingScreen.style.display = "none";  
+    nounEndingsScreen.style.display = "block";
+    blankChartScreen.style.display = "none";
+}
+function goToRandomNounScreen() {
+    mainMenuScreen.style.display = "none";
+    assignmentScreen.style.display = "none";
+    enterANounScreen.style.display = "none";
+    aboutScreen.style.display = "none";
+    settingScreen.style.display = "none";
+    nounEndingsScreen.style.display = "none";
+    blankChartScreen.style.display = "none";
+    randomNounScreen.style.display = "none";
+}
+
+
+function goToSettingsScreen() {
+    mainMenuScreen.style.display = "none";
+    assignmentScreen.style.display = "none";
+    enterANounScreen.style.display = "none";
+    aboutScreen.style.display = "none";
+    settingScreen.style.display = "block";
+    nounEndingsScreen.style.display = "none";
+    blankChartScreen.style.display = "none";
+}
+
+function goToAboutScreen() {
+    mainMenuScreen.style.display = "none";
+    assignmentScreen.style.display = "none";
+    enterANounScreen.style.display = "none";
+    aboutScreen.style.display = "block";
+    settingScreen.style.display = "none";
+    nounEndingsScreen.style.display = "none";
+    blankChartScreen.style.display = "none";
+}
+function goToMainMenuScreen() {
+    mainMenuScreen.style.display = "block";
+    assignmentScreen.style.display = "none";
+    enterANounScreen.style.display = "none";
+    aboutScreen.style.display = "none";
+    settingScreen.style.display = "none";
+    nounEndingsScreen.style.display = "none";
+    blankChartScreen.style.display = "none";
+}
+function goToAssignmentScreenScreen() {
+    mainMenuScreen.style.display = "none";
+    assignmentScreen.style.display = "block";
+    enterANounScreen.style.display = "none";
+    aboutScreen.style.display = "none";
+    settingScreen.style.display = "none";
+    nounEndingsScreen.style.display = "none";
+    blankChartScreen.style.display = "none";
+}
+function goToEnterANounScreenScreen() {
+    mainMenuScreen.style.display = "none";
+    assignmentScreen.style.display = "none";
+    enterANounScreen.style.display = "block";
+    aboutScreen.style.display = "none";
+    settingScreen.style.display = "none";
+    nounEndingsScreen.style.display = "none";
+    blankChartScreen.style.display = "none";
+}
 /*
+mainMenuScreen.style.display = "none";
+assignmentScreen.style.display = "none";
+enterANounScreen.style.display = "none";
+aboutScreen.style.display = "none";
+settingScreen.style.display = "none";
+*/
+
+
 var vocabIncluded = true;
 var englishIncluded = true;
 var showAssignmentPage = false;
@@ -19,6 +127,7 @@ var nounEndingsOnlyChoice = "1st declension";
 var copyPasteMode = false;
 var declension;
 var nounBase;
+/*
 
 //
 // Noun declension parser
@@ -91,106 +200,106 @@ function genderFinder() {
 // gives all of the english meanings
 function englishMeaningSetter() {
     if (englishMeaning === "man") {
-        englishMeaningPlural to "men";
+        englishMeaningPlural = "men";
     }
     else if (englishMeaning === "body") {
-        englishMeaningPlural to "bodies";
+        englishMeaningPlural = "bodies";
     }
     else if (englishMeaning === "knife") {
-        englishMeaningPlural to "knives";
+        englishMeaningPlural = "knives";
     }
     else if (englishMeaning === "wolf") {
-        englishMeaningPlural to "wolves";
+        englishMeaningPlural = "wolves";
     }
     else if (englishMeaning === "mouse") {
-        englishMeaningPlural to "mice";
+        englishMeaningPlural = "mice";
     }
     else if (englishMeaning === "foot") {
-        englishMeaningPlural to "feet";
+        englishMeaningPlural = "feet";
     }
     else if (englishMeaning === "child") {
-        englishMeaningPlural to "children";
+        englishMeaningPlural = "children";
     }
     else if (englishMeaning === "goose") {
-        englishMeaningPlural to "geese";
+        englishMeaningPlural = "geese";
     }
     else if (englishMeaning === "tooth") {
-        englishMeaningPlural to "teeth";
+        englishMeaningPlural = "teeth";
     }
     else if (englishMeaning === "cactus") {
-        englishMeaningPlural to "cacti";
+        englishMeaningPlural = "cacti";
     }
     else if (englishMeaning === "ox") {
-        englishMeaningPlural to "oxen";
+        englishMeaningPlural = "oxen";
     }
     else if (englishMeaning === "codex") {
-        englishMeaningPlural to "codices";
+        englishMeaningPlural = "codices";
     }
     else if (englishMeaning === "crisis") {
-        englishMeaningPlural to "crises";
+        englishMeaningPlural = "crises";
     }
     else if (englishMeaning === "deer") {
-        englishMeaningPlural to "deer";
+        englishMeaningPlural = "deer";
     }
     else if (englishMeaning === "fish") {
-        englishMeaningPlural to "fishes";
+        englishMeaningPlural = "fishes";
     }
     else if (englishMeaning === "half") {
-        englishMeaningPlural to "halves";
+        englishMeaningPlural = "halves";
     }
     else if (englishMeaning === "moose") {
-        englishMeaningPlural to "moose";
+        englishMeaningPlural = "moose";
     }
     else if (englishMeaning === "oasis") {
-        englishMeaningPlural to "oases";
+        englishMeaningPlural = "oases";
     }
     else if (englishMeaning === "quiz") {
-        englishMeaningPlural to "quizzes";
+        englishMeaningPlural = "quizzes";
     }
     else if (englishMeaning === "salmon") {
-        englishMeaningPlural to "salmon";
+        englishMeaningPlural = "salmon";
     }
     else if (englishMeaning === "sheep") {
-        englishMeaningPlural to "sheep";
+        englishMeaningPlural = "sheep";
     }
     else if (englishMeaning === "syllabus") {
-        englishMeaningPlural to "syllabi";
+        englishMeaningPlural = "syllabi";
     }
     else if (englishMeaning === "thief") {
-        englishMeaningPlural to "thieves";
+        englishMeaningPlural = "thieves";
     }
     else if (englishMeaning === "wife") {
-        englishMeaningPlural to "wives";
+        englishMeaningPlural = "wives";
     }
     else if (englishMeaning === "woman") {
-        englishMeaningPlural to "women";
+        englishMeaningPlural = "women";
     }
     else if (englishMeaning === "kiss") {
-        englishMeaningPlural to "kisses";
+        englishMeaningPlural = "kisses";
     }
     else if (englishMeaning === "duty") {
-        englishMeaningPlural to "duties";
+        englishMeaningPlural = "duties";
     }
     else if (englishMeaning === "life") {
-        englishMeaningPlural to "lives";
+        englishMeaningPlural = "lives";
     }
     else if (englishMeaning === "glory") {
-        englishMeaningPlural to "glories";
+        englishMeaningPlural = "glories";
     }
     else if (englishMeaning === "penalty") {
-        englishMeaningPlural to "penalties";
+        englishMeaningPlural = "penalties";
     }
     else if (englishMeaning === "philosophy") {
-        englishMeaningPlural to "philosophies";
+        englishMeaningPlural = "philosophies";
     }
     else if (englishMeaning === "luxury") {
-        englishMeaningPlural to "luxuries";
+        englishMeaningPlural = "luxuries";
     }
     else if (englishMeaning === "poverty") {
-        englishMeaningPlural to "poverty";
+        englishMeaningPlural = "poverty";
     }
     else if (englishMeaning === "city") {
-        englishMeaningPlural to "cities";
+        englishMeaningPlural = "cities";
     }
     else {
         englishMeaningPlural = englishMeaning + "s";
@@ -204,139 +313,139 @@ function englishMeaningSetter() {
 function latinEndingSetter() {
     if (declension === "1st") {
         //=== 1ST DECLENSION ===
-        nomSing to nominative;
-        genSing to base + "ae";
-        datSing to base + "ae";
-        accSing to base + "am";
-        ablSing to base + "ā";
-        vocSing to nomSing;
-        nomPl to base + "ae";
-        genPl to base + "arum";
-        datPl to base + "is";
-        accPl to base + "as";
-        ablPl to base + "is";
-        vocPl to nomPl;
+        nomSing = nominative;
+        genSing = base + "ae";
+        datSing = base + "ae";
+        accSing = base + "am";
+        ablSing = base + "ā";
+        vocSing = nomSing;
+        nomPl = base + "ae";
+        genPl = base + "arum";
+        datPl = base + "is";
+        accPl = base + "as";
+        ablPl = base + "is";
+        vocPl = nomPl;
     }
     else if ((declension === "2nd") && (gender === "m") && (nomLastLetter === "s")) {
         //=== 2ND DECLENSION MASCULINE === 
-        nomSing to nominative;
-        genSing to base + "i";
-        datSing to base + "o";
-        accSing to base + "um";
-        ablSing to base + "o";
-        vocSing to base + "e";
-        nomPl to base + "i";
-        genPl to base + "orum";
-        datPl to base + "is";
-        accPl to base + "os";
-        ablPl to base + "is";
-        vocPl to nomPl;
+        nomSing = nominative;
+        genSing = base + "i";
+        datSing = base + "o";
+        accSing = base + "um";
+        ablSing = base + "o";
+        vocSing = base + "e";
+        nomPl = base + "i";
+        genPl = base + "orum";
+        datPl = base + "is";
+        accPl = base + "os";
+        ablPl = base + "is";
+        vocPl = nomPl;
     }
     
     else if ((declension === "2nd") && (gender === "m") && (nomLastLetter === "r")) {
         //=== 2ND DECLENSION MASCULINE R=== 
-        nomSing to nominative;
-        genSing to base + "i";
-        datSing to base + "o";
-        accSing to base + "um";
-        ablSing to base + "o";
-        vocSing to nominative;
-        nomPl to base + "i";
-        genPl to base + "orum";
-        datPl to base + "is";
-        accPl to base + "os";
-        ablPl to base + "is";
-        vocPl to nomPl;
+        nomSing = nominative;
+        genSing = base + "i";
+        datSing = base + "o";
+        accSing = base + "um";
+        ablSing = base + "o";
+        vocSing = nominative;
+        nomPl = base + "i";
+        genPl = base + "orum";
+        datPl = base + "is";
+        accPl = base + "os";
+        ablPl = base + "is";
+        vocPl = nomPl;
     }
     else if ((declension === "2nd") && (gender === "n")) {
         //=== 2ND DECLENSION NEUTER === 
-        nomSing to nominative;
-        genSing to base + "i";
-        datSing to base + "o";
-        accSing to nominative;
-        ablSing to base + "o";
-        vocSing to nominative;
-        nomPl to base + "a";
-        genPl to base + "orum";
-        datPl to base + "is";
-        accPl to nomPl;
-        ablPl to base + "is";
-        vocPl to nomPl;
+        nomSing = nominative;
+        genSing = base + "i";
+        datSing = base + "o";
+        accSing = nominative;
+        ablSing = base + "o";
+        vocSing = nominative;
+        nomPl = base + "a";
+        genPl = base + "orum";
+        datPl = base + "is";
+        accPl = nomPl;
+        ablPl = base + "is";
+        vocPl = nomPl;
     }
     else if (declension === "3rd" && gender !== "n") {
         //=== 3RD DECLENSION MASCULINE OR FEMININE === 
-        nomSing to nominative;
-        genSing to base + "is";
-        datSing to base + "i";
-        accSing to base + "em";
-        ablSing to base + "e";
-        vocSing to nomSing;
-        nomPl to base + "es";
-        genPl to base + "um";
-        datPl to base + "ibus";
-        accPl to base + "es";
-        ablPl to base + "ibus";
-        vocPl to nomPl;
+        nomSing = nominative;
+        genSing = base + "is";
+        datSing = base + "i";
+        accSing = base + "em";
+        ablSing = base + "e";
+        vocSing = nomSing;
+        nomPl = base + "es";
+        genPl = base + "um";
+        datPl = base + "ibus";
+        accPl = base + "es";
+        ablPl = base + "ibus";
+        vocPl = nomPl;
         }
     else if (declension === "3rd" && gender === "n") {
         //=== 3RD DECLENSION NEUTER === 
-        nomSing to nominative;
-        genSing to base + "is";
-        datSing to base + "i";
-        accSing to nomSing;
-        ablSing to base + "e";
-        vocSing to nomSing;
-        nomPl to base + "a";
-        genPl to base + "um";
-        datPl to base + "ibus";
-        accPl to nomPl;
-        ablPl to base + "ibus";
-        vocPl to nomPl;
+        nomSing = nominative;
+        genSing = base + "is";
+        datSing = base + "i";
+        accSing = nomSing;
+        ablSing = base + "e";
+        vocSing = nomSing;
+        nomPl = base + "a";
+        genPl = base + "um";
+        datPl = base + "ibus";
+        accPl = nomPl;
+        ablPl = base + "ibus";
+        vocPl = nomPl;
     }
     else if (declension === "4th" && gender === "n") {
         //=== 4TH DECLENSION NEUTER === 
-        nomSing to nominative;
-        genSing to base + "us";
-        datSing to base + "u";
-        accSing to base + "u";
-        ablSing to base + "u";
-        vocSing to base + "u";
-        nomPl to base + "ua";
-        genPl to base + "uum";
-        datPl to base + "ibus";
-        accPl to nomPl;
-        ablPl to base + "ibus";
-        vocPl to nomPl;
+        nomSing = nominative;
+        genSing = base + "us";
+        datSing = base + "u";
+        accSing = base + "u";
+        ablSing = base + "u";
+        vocSing = base + "u";
+        nomPl = base + "ua";
+        genPl = base + "uum";
+        datPl = base + "ibus";
+        accPl = nomPl;
+        ablPl = base + "ibus";
+        vocPl = nomPl;
     }
     else if (declension === "4th" && (gender === "m" || "f")) {
         //=== 4TH DECLENSION MASCULINE AND FEMININE === 
-        nomSing to nominative;
-        genSing to base + "us";
-        datSing to base + "ui";
-        accSing to base + "um";
-        ablSing to base + "u";
-        vocSing to nomSing;
-        nomPl to base + "us";
-        genPl to base + "uum";
-        datPl to base + "ibus";
-        accPl to nomPl;
-        ablPl to base + "ibus";
-        vocPl to nomPl;
+        nomSing = nominative;
+        genSing = base + "us";
+        datSing = base + "ui";
+        accSing = base + "um";
+        ablSing = base + "u";
+        vocSing = nomSing;
+        nomPl = base + "us";
+        genPl = base + "uum";
+        datPl = base + "ibus";
+        accPl = nomPl;
+        ablPl = base + "ibus";
+        vocPl = nomPl;
     }
     else if (declension === "5th") {
         //=== 5TH DECLENSION  === 
-        nomSing to nominative;
-        genSing to base + "ei";
-        datSing to base + "ei";
-        accSing to base + "em";
-        ablSing to base + "e";
-        vocSing to base + "es";
-        nomPl to base + "es";
-        genPl to base + "erum";
-        datPl to base + "ebus";
-        accPl to nomPl;
-        ablPl to base + "ebus";
-        vocPl to nomPl;
+        nomSing = nominative;
+        genSing = base + "ei";
+        datSing = base + "ei";
+        accSing = base + "em";
+        ablSing = base + "e";
+        vocSing = base + "es";
+        nomPl = base + "es";
+        genPl = base + "erum";
+        datPl = base + "ebus";
+        accPl = nomPl;
+        ablPl = base + "ebus";
+        vocPl = nomPl;
     }
     else {
         alert("ERROR! Noun endings could not be chosed");
@@ -353,44 +462,44 @@ function selectedNounSetter() {
         alert("ERROR! No noun selected!");
     }
     else if (selectedNoun === "filius - (son)") {
-            noun to "filius, filii, m"; 
-            englishMeaning to "son";	
+            noun = "filius, filii, m"; 
+            englishMeaning = "son";	
     }
     else if	(selectedNoun === "ludus - (game)") {
-            noun to "ludus, ludi, m"; 
-            englishMeaning to "game";	
+            noun = "ludus, ludi, m"; 
+            englishMeaning = "game";	
     }
     else if	(selectedNoun === "mundus - (world)") {
-            noun to "mundus, mundi, m"; 
-            englishMeaning to "world";		
+            noun = "mundus, mundi, m"; 
+            englishMeaning = "world";		
     }
     else if	(selectedNoun === "vicinus - (neighbor)") {
-            noun to "vicinus, vicini, m"; 
-            englishMeaning to "neighbor";		
+            noun = "vicinus, vicini, m"; 
+            englishMeaning = "neighbor";		
     }
     else if	(selectedNoun === "vulgus - (mob)") {
-            noun to "vulgus, vulgi, m"; 
-            englishMeaning to "mob";		
+            noun = "vulgus, vulgi, m"; 
+            englishMeaning = "mob";		
     }
     else if	(selectedNoun === "vicina - (neighbor)") {
-            noun to "vicina, vicinae, f"; 
-            englishMeaning to "neighbor";		
+            noun = "vicina, vicinae, f"; 
+            englishMeaning = "neighbor";		
     }
     else if	(selectedNoun === "iudicium - (judgement)") {
-            noun to "iudicium, iudicii, n"; 
-            englishMeaning to "judgement";		
+            noun = "iudicium, iudicii, n"; 
+            englishMeaning = "judgement";		
     }
     else if	(selectedNoun === "forum - (marketplace)") {
-            noun to "forum, fori, n"; 
-            englishMeaning to "marketplace";		
+            noun = "forum, fori, n"; 
+            englishMeaning = "marketplace";		
     }
     else if	(selectedNoun === "aedificium - (building)") {
-            noun to "aedificium, aedificii, n"; 
-            englishMeaning to "building";		
+            noun = "aedificium, aedificii, n"; 
+            englishMeaning = "building";		
     }
     else if	(selectedNoun === "saxum - (rock)") {
-            noun to "saxum, saxi, n"; 
-            englishMeaning to "rock";		
+            noun = "saxum, saxi, n"; 
+            englishMeaning = "rock";		
     }
     /*
     ==============================
@@ -399,76 +508,76 @@ function selectedNounSetter() {
     */
 /*
     else if	(selectedNoun === "magistra - (teacher)") {
-            noun to "magistra, magistrae, f";
-            englishMeaning to "teacher";
+            noun = "magistra, magistrae, f";
+            englishMeaning = "teacher";
     }
     else if  (selectedNoun === "discipula - (student)") {
-            noun to "discipula, discipulae, f";
-            englishMeaning to "student";
+            noun = "discipula, discipulae, f";
+            englishMeaning = "student";
     }
     else if  (selectedNoun === "poeta - (poet)") {
-            noun to "poeta, -ae, m."; 
-            englishMeaning to "poet";
+            noun = "poeta, -ae, m."; 
+            englishMeaning = "poet";
     }
     else if  (selectedNoun === "fama - (rumor)") {
-            noun to "fama, -ae, f."; 
-            englishMeaning to "rumor";
+            noun = "fama, -ae, f."; 
+            englishMeaning = "rumor";
     }
     else if  (selectedNoun === "cura - (care)") {
-            noun to "cura, -ae, f."; 
-            englishMeaning to "care";
+            noun = "cura, -ae, f."; 
+            englishMeaning = "care";
     }
     else if  (selectedNoun === "puella - (girl)") {
-            noun to "puella, -ae, f."; 
-            englishMeaning to "girl";
+            noun = "puella, -ae, f."; 
+            englishMeaning = "girl";
     }
     else if  (selectedNoun === "rosa - (rose)") {
-            noun to "rosa, -ae, f."; 
-            englishMeaning to "rose";
+            noun = "rosa, -ae, f."; 
+            englishMeaning = "rose";
     }
     else if  (selectedNoun === "vita - (life)") {
-            noun to "vita, -ae, f."; 
-            englishMeaning to "life";
+            noun = "vita, -ae, f."; 
+            englishMeaning = "life";
     }
     else if  (selectedNoun === "mora - (delay)") {
-            noun to "mora, -ae, f."; 
-            englishMeaning to "delay";
+            noun = "mora, -ae, f."; 
+            englishMeaning = "delay";
     }
     else if  (selectedNoun === "nauta - (sailor)") {
-            noun to "nauta, -ae, m."; 
-            englishMeaning to "sailor";
+            noun = "nauta, -ae, m."; 
+            englishMeaning = "sailor";
     }
     else if  (selectedNoun === "culpa - (fault)") {
-            noun to "culpa, -ae, f."; 
-            englishMeaning to "fault";
+            noun = "culpa, -ae, f."; 
+            englishMeaning = "fault";
     }
     else if  (selectedNoun === "forma - (form)") {
-            noun to "forma, -ae, f."; 
-            englishMeaning to "form";
+            noun = "forma, -ae, f."; 
+            englishMeaning = "form";
     }
     else if  (selectedNoun === "poena - (penalty)") {
-            noun to "poena, -ae, f."; 
-            englishMeaning to "penalty";
+            noun = "poena, -ae, f."; 
+            englishMeaning = "penalty";
     }
     else if  (selectedNoun === "amica - (friend)") {
-            noun to "amica, amicae, f ";
-            englishMeaning to "friend";
+            noun = "amica, amicae, f ";
+            englishMeaning = "friend";
     }
     else if  (selectedNoun === "ira - (rage)") {
-            noun to "ira, irae, f ";
-            englishMeaning to "rage";
+            noun = "ira, irae, f ";
+            englishMeaning = "rage";
     }
     else if  (selectedNoun === "pecunia - (money)") {
-            noun to "pecunia, pecuniae, f";
-            englishMeaning to "money";
+            noun = "pecunia, pecuniae, f";
+            englishMeaning = "money";
     }
     else if  (selectedNoun === "porta - (gate)") {
-            noun to "porta, portae, f";
-            englishMeaning to "gate";	
+            noun = "porta, portae, f";
+            englishMeaning = "gate";	
     }
     else if  (selectedNoun === "pirata - (pirate)") {
-            noun to "pirata, piratae, m";
-            englishMeaning to "pirate";	
+            noun = "pirata, piratae, m";
+            englishMeaning = "pirate";	
     }
     /*
     ========================================
@@ -477,48 +586,48 @@ function selectedNounSetter() {
     */
 /*
     else if  (selectedNoun === "amicus - (friend)") {
-            noun to "amicus, amici, m ";
-            englishMeaning to "friend";
+            noun = "amicus, amici, m ";
+            englishMeaning = "friend";
     }
     else if  (selectedNoun === "oculus - (eye)") {
-            noun to "oculus, -i, m."; 
-            englishMeaning to "eye";
+            noun = "oculus, -i, m."; 
+            englishMeaning = "eye";
     }
     else if  (selectedNoun === "animus - (soul)") {
-            noun to "animus, -i, m."; 
-            englishMeaning to "soul";
+            noun = "animus, -i, m."; 
+            englishMeaning = "soul";
     }
     else if  (selectedNoun === "stultus - (fool)") {
-            noun to "stultus, -i, m."; 
-            englishMeaning to "fool";
+            noun = "stultus, -i, m."; 
+            englishMeaning = "fool";
     }
     else if  (selectedNoun === "discipulus - (student)") {
-            noun to "discipulus, discipuli, m";
-            englishMeaning to "student";
+            noun = "discipulus, discipuli, m";
+            englishMeaning = "student";
     }
     else if  (selectedNoun === "puer - (boy)") {
-            noun to "puer, pueri, m."; 
-            englishMeaning to "boy";
+            noun = "puer, pueri, m."; 
+            englishMeaning = "boy";
     }
     else if  (selectedNoun === "magister - (teacher)") {
-            noun to "magister, magistri, m."; 
-            englishMeaning to "teacher";
+            noun = "magister, magistri, m."; 
+            englishMeaning = "teacher";
     }
     else if  (selectedNoun === "vir - (man)") {
-            noun to "vir, viri, m."; 
-            englishMeaning to "man";
+            noun = "vir, viri, m."; 
+            englishMeaning = "man";
     }
     else if  (selectedNoun === "ager - (field)") {
-            noun to "ager, agri, m."; 
-            englishMeaning to "field";
+            noun = "ager, agri, m."; 
+            englishMeaning = "field";
     }
     else if  (selectedNoun === "faber - (smith)") {
-            noun to "faber, fabri, m."; 
-            englishMeaning to "smith";
+            noun = "faber, fabri, m."; 
+            englishMeaning = "smith";
     }
     else if  (selectedNoun === "liber - (book)") {
-            noun to "liber, libri, m."; 
-            englishMeaning to "book";
+            noun = "liber, libri, m."; 
+            englishMeaning = "book";
     }
     /*
     =====================================
@@ -527,48 +636,48 @@ function selectedNounSetter() {
     */
 /*
     else if  (selectedNoun === "basium - (kiss)") {
-            noun to "basium, basii, n";
-            englishMeaning to "kiss";
+            noun = "basium, basii, n";
+            englishMeaning = "kiss";
     }
     else if  (selectedNoun === "bellum - (war)") {
-            noun to "bellum, belli, n";
-            englishMeaning to "war";
+            noun = "bellum, belli, n";
+            englishMeaning = "war";
     }
     else if  (selectedNoun === "consilium - (plan)") {
-            noun to "consilium, consilii, n";
-            englishMeaning to "plan";
+            noun = "consilium, consilii, n";
+            englishMeaning = "plan";
     }
     else if  (selectedNoun === "donum - (gift)") {
-            noun to "donum, doni, n ";
-            englishMeaning to "gift";
+            noun = "donum, doni, n ";
+            englishMeaning = "gift";
     }
     else if  (selectedNoun === "exitium - (ruin)") {
-            noun to "exitium, exitii, n"; 
-            englishMeaning to "ruin";
+            noun = "exitium, exitii, n"; 
+            englishMeaning = "ruin";
     }
     else if  (selectedNoun === "officium - (duty)") {
-            noun to "officium, officii, n"; 
-            englishMeaning to "duty";
+            noun = "officium, officii, n"; 
+            englishMeaning = "duty";
     }
     else if  (selectedNoun === "verbum - (word)") {
-            noun to "verbum, verbi, n"; 
-            englishMeaning to "word";
+            noun = "verbum, verbi, n"; 
+            englishMeaning = "word";
     }
     else if  (selectedNoun === "caelum - (heaven)") {
-            noun to "caelum, caeli, n "; 
-            englishMeaning to "heaven";
+            noun = "caelum, caeli, n "; 
+            englishMeaning = "heaven";
     }
     else if  (selectedNoun === "otium - (peace)") {
-            noun to "otium, otii, n";
-            englishMeaning to "peace";
+            noun = "otium, otii, n";
+            englishMeaning = "peace";
     }
     else if  (selectedNoun === "periculum - (danger)") {
-            noun to "periculum, periculi, n";
-            englishMeaning to "danger";
+            noun = "periculum, periculi, n";
+            englishMeaning = "danger";
     }
     else if  (selectedNoun === "remedium - (cure)") {
-            noun to "remedium, remedii, n";
-            englishMeaning to "cure";
+            noun = "remedium, remedii, n";
+            englishMeaning = "cure";
     }
     /*
     =====================================================
@@ -577,64 +686,64 @@ function selectedNounSetter() {
     */
 /*
     else if  (selectedNoun === "pater - (father)") {
-            noun to "pater, patris, m"; 
-            englishMeaning to "father";
+            noun = "pater, patris, m"; 
+            englishMeaning = "father";
     }
     else if  (selectedNoun === "mater - (mother)") {
-            noun to "mater, matris, f"; 
-            englishMeaning to "mother";
+            noun = "mater, matris, f"; 
+            englishMeaning = "mother";
     }
     else if  (selectedNoun === "vox - (voice)") {
-            noun to "vox, vocis, f"; 
-            englishMeaning to "voice";
+            noun = "vox, vocis, f"; 
+            englishMeaning = "voice";
     }
     else if  (selectedNoun === "dux - (leader)") {
-            noun to "dux, ducis, m"; 
-            englishMeaning to "leader";
+            noun = "dux, ducis, m"; 
+            englishMeaning = "leader";
     }
     else if  (selectedNoun === "miles - (soldier)") {
-            noun to "miles, militis, m"; 
-            englishMeaning to "soldier";
+            noun = "miles, militis, m"; 
+            englishMeaning = "soldier";
     }
     else if  (selectedNoun === "homo - (human)") {
-            noun to "homo, hominis, m"; 
-            englishMeaning to "human";
+            noun = "homo, hominis, m"; 
+            englishMeaning = "human";
     }
     else if  (selectedNoun === "aestas - (age)") {
-            noun to "aestas, aestatis, f"; 
-            englishMeaning to "age";
+            noun = "aestas, aestatis, f"; 
+            englishMeaning = "age";
     }
     else if  (selectedNoun === "pax - (peace)") {
-            noun to "pax, pacis, f"; 
-            englishMeaning to "peace";
+            noun = "pax, pacis, f"; 
+            englishMeaning = "peace";
     }
     else if  (selectedNoun === "consul - (consul)") {
-            noun to "consul, consulis, m"; 
-            englishMeaning to "consul";
+            noun = "consul, consulis, m"; 
+            englishMeaning = "consul";
     }
     else if  (selectedNoun === "soror - (sister)") {
-            noun to "soror, sororis, f"; 
-            englishMeaning to "sister";
+            noun = "soror, sororis, f"; 
+            englishMeaning = "sister";
     }
     else if  (selectedNoun === "frater - (brother)") {
-            noun to "frater, fratris, m"; 
-            englishMeaning to "brother">
+            noun = "frater, fratris, m"; 
+            englishMeaning = "brother">
     }
     else if  (selectedNoun === "civitas - (city)") {
-            noun to "civitas, civitatis, f"; 
-            englishMeaning to "city";
+            noun = "civitas, civitatis, f"; 
+            englishMeaning = "city";
     }
     else if  (selectedNoun === "pars - (part)") {
-            noun to "pars, partis, f"; 
-            englishMeaning to "part";
+            noun = "pars, partis, f"; 
+            englishMeaning = "part";
     }
     else if  (selectedNoun === "lux - (light)") {
-            noun to "lux, lucis, f"; 
-            englishMeaning to "light";
+            noun = "lux, lucis, f"; 
+            englishMeaning = "light";
     }
     else if  (selectedNoun === "rex - (king)") {
-            noun to "rex, regis, m";
-            englishMeaning to "king";
+            noun = "rex, regis, m";
+            englishMeaning = "king";
     }
     /*
     =====================================
@@ -643,68 +752,68 @@ function selectedNounSetter() {
     */
 /*
     else if  (selectedNoun === "corpus - (body)") {
-            noun to "corpus, corporis, n";
-            englishMeaning to "body";
+            noun = "corpus, corporis, n";
+            englishMeaning = "body";
     }
     else if  (selectedNoun === "scelus - (crime)") {
-            noun to "scelus, sceleris, n"; 
-            englishMeaning to "crime";
+            noun = "scelus, sceleris, n"; 
+            englishMeaning = "crime";
     }
     else if  (selectedNoun === "sidus - (constellation)") {
-            noun to "sidus, sideris, n"; 
-            englishMeaning to "constellation";
+            noun = "sidus, sideris, n"; 
+            englishMeaning = "constellation";
     }
     else if  (selectedNoun === "ius - (law)") {
-            noun to "ius, iuris, n"; 
-            englishMeaning to "law";
+            noun = "ius, iuris, n"; 
+            englishMeaning = "law";
     }
     else if  (selectedNoun === "limen - (threshold)") {
-            noun to "limen, liminis, n"; 
-            englishMeaning to "threshold";
+            noun = "limen, liminis, n"; 
+            englishMeaning = "threshold";
     }
     else if  (selectedNoun === "liquamen - (fish sauce)") {
-            noun to "liquamen, liquaminis, n"; 
-            englishMeaning to "fish sauce";
+            noun = "liquamen, liquaminis, n"; 
+            englishMeaning = "fish sauce";
     }
     else if  (selectedNoun === "epigramma - (epigram)") {
-            noun to "epigramma, epigrammatis, n"; 
-            englishMeaning to "epigram";
+            noun = "epigramma, epigrammatis, n"; 
+            englishMeaning = "epigram";
     }
     else if  (selectedNoun === "diploma - (diploma)") {
-            noun to "diploma, diplomatis, n"; 
-            englishMeaning to "diploma";
+            noun = "diploma, diplomatis, n"; 
+            englishMeaning = "diploma";
     }
     else if  (selectedNoun === "opus - (work)") {
-            noun to "opus, operis, n"; 
-            englishMeaning to "work";
+            noun = "opus, operis, n"; 
+            englishMeaning = "work";
     }
     else if  (selectedNoun === "caput - (head)") {
-            noun to "caput, capitis, n"; 
-            englishMeaning to "head";
+            noun = "caput, capitis, n"; 
+            englishMeaning = "head";
     }
     else if  (selectedNoun === "carmen - (song)") {
-            noun to "carmen, carminis, n"; 
-            englishMeaning to "song";
+            noun = "carmen, carminis, n"; 
+            englishMeaning = "song";
     }
     else if  (selectedNoun === "flumen - (river)") {
-            noun to "flumen, fluminis, n"; 
-            englishMeaning to "river";
+            noun = "flumen, fluminis, n"; 
+            englishMeaning = "river";
     }
     else if  (selectedNoun === "iter - (trip)") {
-            noun to "iter, itineris, n"; 
-            englishMeaning to "trip";
+            noun = "iter, itineris, n"; 
+            englishMeaning = "trip";
     }
     else if  (selectedNoun === "nomen - (name)") {
-            noun to "nomen, nominis, n"; 
-            englishMeaning to "name";
+            noun = "nomen, nominis, n"; 
+            englishMeaning = "name";
     }
     else if  (selectedNoun === "tempus - (storm)") {
-            noun to "tempus, temporis, n"; 
-            englishMeaning to "storm";
+            noun = "tempus, temporis, n"; 
+            englishMeaning = "storm";
     }
     else if  (selectedNoun === "vulnus - (wound)") {
-            noun to "vulnus, vulneris, n"; 
-            englishMeaning to "wound";
+            noun = "vulnus, vulneris, n"; 
+            englishMeaning = "wound";
     }
     /*
     =====================================================
@@ -713,64 +822,64 @@ function selectedNounSetter() {
     */
 /*
     else if  (selectedNoun === "exercitus - (army)") {
-            noun to "exercitus, exercitus, m";
-            englishMeaning to "army";
+            noun = "exercitus, exercitus, m";
+            englishMeaning = "army";
     }
     else if  (selectedNoun === "arcus - (bow)") {
-            noun to "arcus, -us, m"; 
-            englishMeaning to "bow";
+            noun = "arcus, -us, m"; 
+            englishMeaning = "bow";
     }
     else if  (selectedNoun === "cantus - (song)") {
-            noun to "cantus, -us, m"; 
-            englishMeaning to "song";
+            noun = "cantus, -us, m"; 
+            englishMeaning = "song";
     }
     else if  (selectedNoun === "currus - (chariot)") {
-            noun to "currus, us, m"; 
-            englishMeaning to "chariot";
+            noun = "currus, us, m"; 
+            englishMeaning = "chariot";
     }
     else if  (selectedNoun === "equitatus - (cavalry)") {
-            noun to "equitatus, us, m"; 
-            englishMeaning to "cavalry ";
+            noun = "equitatus, us, m"; 
+            englishMeaning = "cavalry ";
     }
     else if  (selectedNoun === "gressus - (step)") {
-            noun to "gressus, us, m"; 
-            englishMeaning to "step";
+            noun = "gressus, us, m"; 
+            englishMeaning = "step";
     }
     else if  (selectedNoun === "fructus - (fruit)") {
-            noun to "fructus, us, m"; 
-            englishMeaning to "fruit";
+            noun = "fructus, us, m"; 
+            englishMeaning = "fruit";
     }
     else if  (selectedNoun === "natus - (birth)") {
-            noun to "natus, us, m"; 
-            englishMeaning to "birth";
+            noun = "natus, us, m"; 
+            englishMeaning = "birth";
     }
     else if  (selectedNoun === "potus - (drink)") {
-            noun to "potus, us, m"; 
-            englishMeaning to "drink";
+            noun = "potus, us, m"; 
+            englishMeaning = "drink";
     }
     else if  (selectedNoun === "risus - (laugh)") {
-            noun to "risus, us, m"; 
-            englishMeaning to "laugh";
+            noun = "risus, us, m"; 
+            englishMeaning = "laugh";
     }
     else if  (selectedNoun === "senatus - (senate)") {
-            noun to "senatus, us, m"; 
-            englishMeaning to "senate";
+            noun = "senatus, us, m"; 
+            englishMeaning = "senate";
     }
     else if  (selectedNoun === "sensus - (feeling)") {
-            noun to "sensus, -us, m"; 
-            englishMeaning to "feeling";
+            noun = "sensus, -us, m"; 
+            englishMeaning = "feeling";
     }
     else if  (selectedNoun === "ritus - (rite)") {
-            noun to "ritus, -us, m."; 
-            englishMeaning to "rite";
+            noun = "ritus, -us, m."; 
+            englishMeaning = "rite";
     }
     else if  (selectedNoun === "situs - (site)") {
-            noun to "situs, -us, m."; 
-            englishMeaning to "site";
+            noun = "situs, -us, m."; 
+            englishMeaning = "site";
     }
     else if  (selectedNoun === "morsus - (bite)") {
-            noun to "morsus, -us, m."; 
-            englishMeaning to "bite";
+            noun = "morsus, -us, m."; 
+            englishMeaning = "bite";
     }
     /*
     =====================================
@@ -779,28 +888,28 @@ function selectedNounSetter() {
     */
 /*
     else if  (selectedNoun === "venu - (javelin)") {
-            noun to "venu, venus, n"; 
-            englishMeaning to "javelin";
+            noun = "venu, venus, n"; 
+            englishMeaning = "javelin";
     }
     else if  (selectedNoun === "cornu - (horn)") {
-            noun to "cornu, -us, n."; 
-            englishMeaning to "horn";
+            noun = "cornu, -us, n."; 
+            englishMeaning = "horn";
     }
     else if  (selectedNoun === "genu - (knee)") {
-            noun to "genu, -us, n."; 
-            englishMeaning to "knee";
+            noun = "genu, -us, n."; 
+            englishMeaning = "knee";
     }
     else if  (selectedNoun === "gelu - (frost)") {
-            noun to "gelu, -us, n"; 
-            englishMeaning to "frost";
+            noun = "gelu, -us, n"; 
+            englishMeaning = "frost";
     }
     else if  (selectedNoun === "pecu - (cow)") {
-            noun to "pecu, pecus, n"; 
-            englishMeaning to "cow";
+            noun = "pecu, pecus, n"; 
+            englishMeaning = "cow";
     }
     else if  (selectedNoun === "veru - (javelin-tip)") {
-            noun to "veru, verus, n."; 
-            englishMeaning to "javelin-tip";
+            noun = "veru, verus, n."; 
+            englishMeaning = "javelin-tip";
     }
     /*
     ==============================
@@ -809,64 +918,64 @@ function selectedNounSetter() {
     */
 /*
     else if  (selectedNoun === "congeries - (heap)") {
-            noun to "congeries, congeriei, f."; 
-            englishMeaning to "heap";
+            noun = "congeries, congeriei, f."; 
+            englishMeaning = "heap";
     }
     else if  (selectedNoun === "caries - (corruption)") {
-            noun to "caries, cariei, f."; 
-            englishMeaning to "corruption";
+            noun = "caries, cariei, f."; 
+            englishMeaning = "corruption";
     }
     else if  (selectedNoun === "durities - (hardship)") {
-            noun to "durities, duritiei, f."; 
-            englishMeaning to "hardship";
+            noun = "durities, duritiei, f."; 
+            englishMeaning = "hardship";
     }
     else if  (selectedNoun === "macies - (poverty)") {
-            noun to "macies, maciei, f."; 
-            englishMeaning to "poverty";
+            noun = "macies, maciei, f."; 
+            englishMeaning = "poverty";
     }
     else if  (selectedNoun === "pernicies - (ruin)") {
-            noun to "pernicies, perniciei, f."; 
-            englishMeaning to "ruin";
+            noun = "pernicies, perniciei, f."; 
+            englishMeaning = "ruin";
     }
     else if  (selectedNoun === "luxuries - (luxury)") {
-            noun to "luxuries, luxuriei, f."; 
-            englishMeaning to "luxury";
+            noun = "luxuries, luxuriei, f."; 
+            englishMeaning = "luxury";
     }
     else if  (selectedNoun === "meridies - (noon)") {
-            noun to "meridies, meridiei, m."; 
-            englishMeaning to "noon";
+            noun = "meridies, meridiei, m."; 
+            englishMeaning = "noon";
     }
     else if  (selectedNoun === "acies - (edge)") {
-            noun to "acies, aciei, f";
-            englishMeaning to "edge";
+            noun = "acies, aciei, f";
+            englishMeaning = "edge";
     }
     else if  (selectedNoun === "facies - (shape)") {
-            noun to "facies, faciei, f";
-            englishMeaning to "shape";
+            noun = "facies, faciei, f";
+            englishMeaning = "shape";
     }
     else if  (selectedNoun === "effigies - (image)") {
-            noun to "effigies, effigiei, f";
-            englishMeaning to "image";
+            noun = "effigies, effigiei, f";
+            englishMeaning = "image";
     }
     else if  (selectedNoun === "glacies - (ice)") {
-            noun to "glacies, glaciei, f";
-            englishMeaning to "ice";
+            noun = "glacies, glaciei, f";
+            englishMeaning = "ice";
     }
     else if  (selectedNoun === "fides - (pledge)") {
-            noun to "fides, fidei, f";
-            englishMeaning to "pledge";
+            noun = "fides, fidei, f";
+            englishMeaning = "pledge";
     }
     else if  (selectedNoun === "spes - (hope)") {
-            noun to "spes, spei, f";
-            englishMeaning to "hope";
+            noun = "spes, spei, f";
+            englishMeaning = "hope";
     }
     else if  (selectedNoun === "series - (row)") {
-            noun to "series, seriei, f";
-            englishMeaning to "row";
+            noun = "series, seriei, f";
+            englishMeaning = "row";
     }
     else if  (selectedNoun === "species - (sight)") {
-            noun to "species, speciei, f";
-            englishMeaning to "sight";
+            noun = "species, speciei, f";
+            englishMeaning = "sight";
     }
 }
 

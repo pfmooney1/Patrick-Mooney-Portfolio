@@ -1,3 +1,18 @@
+/*-------------------------------------------*\
+           Verb Chart Generator CSS
+        Index
+        - Body, div, etc
+        - Headers
+        - Links
+        - Table
+        - Inputs
+        - Other
+\*-------------------------------------------*/
+
+
+/*-------------------------------------------*\
+                Main parts
+\*-------------------------------------------*/
 body {
     align-content: center;
     font-size: 2em;
@@ -7,6 +22,37 @@ body {
 main { 
     margin: 2.8em auto;
 }
+.containerRow {
+    display: flex;
+    flex-direction: row;
+}
+.containerColumn {
+    display: flex;
+    flex-direction: column;
+}
+section {
+    width: 80%;
+    margin: 0 auto 0 auto;
+}
+
+
+
+/*-------------------------------------------*\
+                Headers
+\*-------------------------------------------*/
+h2 {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 3px;
+    width: 95%;
+    margin: 1em auto 1em auto;
+}
+
+
+
+/*-------------------------------------------*\
+                Links
+\*-------------------------------------------*/
 .linkToPortfolio {
     background-color: black;
     width: 100%;
@@ -25,17 +71,12 @@ main {
 .portfolioLink {
     font-size: 25px;
 }
-section {
-    width: 80%;
-    margin: 0 auto 0 auto;
-}
-input {
-    font-size: 0.7em;
-    background-color: white;
-} 
-input[type=text] {
-    width: 500px;
-}
+
+
+
+/*-------------------------------------------*\
+                Table
+\*-------------------------------------------*/
 table { 
     width: 95%;
     border: 1px solid black;
@@ -53,36 +94,18 @@ td {
     border: 1px solid black;
     background-color: white;
 }
-h2 {
-    background-color: white;
-    border: 2px solid black;
-    border-radius: 3px;
-    width: 95%;
-    margin: 1em auto 1em auto;
-}
+
+
+
+
+/*-------------------------------------------*\
+            Inputs, fields, etc
+\*-------------------------------------------*/
 fieldset#userInput { 
     min-width: 800px;
     margin: 0 auto;
     display: inline-block;
     text-align: left;
-}
-.containerRow {
-    display: flex;
-    flex-direction: row;
-}
-.containerColumn {
-    display: flex;
-    flex-direction: column;
-}
-.centeredAndNarrow {
-    text-align: center;
-    line-height: 0;
-    margin: 0.5em;
-}
-.centeredAndLeft {
-    text-align: left;
-    line-height: 0;
-    margin: 0.5em;
 }
 select {
     font-size: 0.8em;
@@ -93,3 +116,28 @@ select {
     border: 1px solid black;
     background-color: white;
 }
+input {
+    font-size: 0.7em;
+    background-color: white;
+} 
+input[type=text] {
+    width: 500px;
+}
+
+
+/*-------------------------------------------*\
+                Other
+\*-------------------------------------------*/
+.centeredAndNarrow {
+    text-align: center;
+    line-height: 0;
+    margin: 0.5em;
+}
+.centeredAndLeft {
+    text-align: left;
+    line-height: 0;
+    margin: 0.5em;
+}
+
+
+

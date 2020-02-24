@@ -1,4 +1,9 @@
 /*-------------------------------------------*\
+           Rock Paper Scissors CSS
+\*-------------------------------------------*/
+
+
+/*-------------------------------------------*\
         Rock, Paper, Scissors CSS
 \*-------------------------------------------*/
 
@@ -9,10 +14,21 @@
   --resetButtonColor: #00b0ff;
 }
 
-
+/*-------------------------------------------*\
+        Main parts, Flexbox
+\*-------------------------------------------*/
 body {
     background-color: var(--backgroundColor);
     font-size: 1em;
+    box-sizing: content-box;
+}
+main {
+    max-width: 1000px;
+    margin: 4em auto;
+    padding: 1em;
+    border: 2px solid darkgray;
+    border-radius: 5px;
+    background-color: #f5f5f5;
     box-sizing: content-box;
 }
 .containerRow {
@@ -29,6 +45,11 @@ body {
     max-width: 100%;
 }
 
+
+
+/*-------------------------------------------*\
+        Links
+\*-------------------------------------------*/
 .linkToPortfolio {
     background-color: black;
     width: 100%;
@@ -44,15 +65,12 @@ body {
     color: snow;
     padding-left: 1em;
 }
-main {
-    max-width: 1000px;
-    margin: 4em auto;
-    padding: 1em;
-    border: 2px solid darkgray;
-    border-radius: 5px;
-    background-color: #f5f5f5;
-    box-sizing: content-box;
-}
+
+
+
+/*-------------------------------------------*\
+        Headers
+\*-------------------------------------------*/
 h1{
     text-align: center;
     font-size: 3em;
@@ -68,6 +86,12 @@ h3, h2 {
     border: 3px solid rgba(0, 0, 0, 0);
     box-sizing: border-box;
 }
+
+
+
+/*-------------------------------------------*\
+        Icons and images
+\*-------------------------------------------*/
 svg {
     height: 150px;
     width: auto;
@@ -87,12 +111,24 @@ svg.bad {
 div.opponent {
     margin: 1em auto 1em auto;
 }
+
+
+
+/*-------------------------------------------*\
+        Icons and images
+\*-------------------------------------------*/
 table {
     margin: 0.5em auto 0.5em auto;
 }
 tr {
     max-width: 100%;
 }
+
+
+
+/*-------------------------------------------*\
+        Buttons
+\*-------------------------------------------*/
 button#reset {
     min-height: 30px;
     min-width: 100px;
@@ -110,6 +146,12 @@ button#reset {
 button:hover {
     transform: scale(1.1);
 }
+
+
+
+/*-------------------------------------------*\
+        Other
+\*-------------------------------------------*/
 .attributions {
     color: black;
     font-size: 1.5em;
@@ -118,6 +160,12 @@ button:hover {
 .attributions a {
     color: black;
 }
+
+
+
+/*-------------------------------------------*\
+        Media queries
+\*-------------------------------------------*/
 @media only screen and (max-width: 600px) {
     body {
         background-color: var(--backgroundColor);

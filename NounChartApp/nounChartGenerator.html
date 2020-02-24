@@ -14,8 +14,8 @@
         <div id="mainMenu" class="containercolumn screen">
             <h2 class="selectionsHeader">Select an option below: </h2>
             <div class="containerRow menuIcons">
-                <img src="gladiusIcon.svg" alt="">
-                <select id=“selectedNoun”  alt="">
+                <img src="gladiusIcon.svg">
+                <select id=“selectedNoun”>
                     <optgroup label="1ST DECLENSION">
                         <option value="">amica - (friend)</option>
                         <option value="">culpa - (fault)</option>
@@ -163,22 +163,22 @@
                         <option value="reflexive">reflexive pronouns</option>
                     </select>
             </div>
-                <div class="containerRow menuIcons">
+                <div class="containerRow menuIcons" onClick="goToEnterANounScreenScreen();">
                 <img src="quillIcon.svg"  alt=""><button>Enter a Noun</button>
             </div>
-                <div class="containerRow menuIcons">
+                <div class="containerRow menuIcons" onClick="goToRandomNounScreen();">
                 <img src="diceIcon.svg"  alt=""><button>Random Noun</button>
             </div>
-                <div class="containerRow menuIcons">
+                <div class="containerRow menuIcons" onClick="goToNounEndingsScreen();">
                 <img src="tabletIcon.svg"  alt=""><button>Noun Endings</button>
             </div>
-                <div class="containerRow menuIcons">
+                <div class="containerRow menuIcons" onClick="goToBlankChartScreen();">
                 <img src="blankScrollIcon.svg"  alt=""><button>Blank Chart</button>
             </div>
-                <div class="containerRow menuIcons">
+                <div class="containerRow menuIcons" onClick="goToSettingsScreen();">
                 <img src="anvilIcon.svg"  alt=""><button>Settings</button>
             </div>
-                <div class="containerRow menuIcons">
+                <div class="containerRow menuIcons" onClick="goToAboutScreen();">
                 <img src="caesarIcon.svg"  alt=""><button>About</button>
             </div>
         </div> <!-- Main Menu-->
@@ -204,7 +204,7 @@
                 <button class="toggleToken" id="vocativeChoiceA" onClick="selectButton(id);">Include vocative</button>
             </fieldset>
             <button>Go!</button><br>
-            <button>Main Menu</button>
+            <button onClick="goToMainMenuScreen();">Main Menu</button>
         </div> <!-- Enter your own noun-->
         <hr>
         <div id="aboutScreen" class="screen">
@@ -213,22 +213,113 @@
         Icons made by Lorc and Delapouite.<br> 
         Available on https://game-icons.net"<br>
         Copyright 2020 Patrick Mooney</p>
-            <button>Close</button>
+            <button onClick="goToMainMenuScreen();">Close</button>
+        </div> <!-- About Screen-->
+        <hr>
+        <div id="randomNounScreen" class="screen">
+            <h2>Random Noun</h2>
+        <p>Random noun generated right here. Copyright 2020 Patrick Mooney</p>
+            <button onClick="goToMainMenuScreen();">Close</button>
+        </div> <!-- About Screen-->
+        <hr>
+        <div id="nounEndingsScreen" class="screen">
+            <h2>Noun Endings Chart</h2>
+            <table>
+                <tr>
+                    <td class="firstColumn"></td>
+                    <td>Singular</td>
+                    <td>Plural</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Nominative</td>
+                    <td>a</td>
+                    <td>ae</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Genitive</td>
+                    <td class="firstColumn">ae</td>
+                    <td>arum</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Dative</td>
+                    <td>ae</td>
+                    <td>is</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Accusative</td>
+                    <td>am</td>
+                    <td>as</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Ablative</td>
+                    <td>ā</td>
+                    <td>is</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Vocative</td>
+                    <td>a</td>
+                    <td>ae</td>
+                </tr>
+            </table>
+            <button onClick="goToMainMenuScreen();">Close</button>
+        </div> <!-- About Screen-->
+        <hr>
+        <div id="blankChartScreen" class="screen">
+            <h2>Blank Chart</h2>
+            <h2>Noun Endings Chart</h2>
+            <table>
+                <tr>
+                    <td class="firstColumn"></td>
+                    <td>Singular</td>
+                    <td>Plural</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Nominative</td>
+                    <td>   </td>
+                    <td>   </td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Genitive</td>
+                    <td>   </td>
+                    <td>   </td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Dative</td>
+                    <td>   </td>
+                    <td>   </td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Accusative</td>
+                    <td></td>
+                    <td>   </td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Ablative</td>
+                    <td>   </td>
+                    <td>   </td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Vocative</td>
+                    <td>   </td>
+                    <td>   </td>
+                </tr>
+            </table>
+            <button onClick="goToMainMenuScreen();">Close</button>
         </div> <!-- About Screen-->
         <hr>
         <div id="settingScreen" class="screen">
             <h2 id="settingsLabel">Settings:</h2>
-                <button class="toggleToken" id="assignmentChoiceB" onClick="selectButton(id);">Assignment page</button>
-                <button class="toggleToken" id="copyPasteChoiceB" onClick="selectButton(id);">Copy/Paste Mode</button>
-                <button class="toggleToken" id="englishChoiceB" onClick="selectButton(id);">Include English</button>
-                <button class="toggleToken" id="vocativeChoiceB" onClick="selectButton(id);">Include vocative</button>
-            <button>Close</button>
+                <button class="toggleToken" id="assignmentChoiceB" onClick="selectButton(id);">Assignment page</button><br>
+                <button class="toggleToken" id="copyPasteChoiceB" onClick="selectButton(id);">Copy/Paste Mode</button> <br>
+                <button class="toggleToken" id="englishChoiceB" onClick="selectButton(id);">Include English</button><br>
+                <button class="toggleToken" id="vocativeChoiceB" onClick="selectButton(id);">Include vocative</button><br>
+            <button onClick="goToMainMenuScreen();">Close</button>
         </div> <!-- Setting Screen -->
         <hr>
     </main>
     <footer class="containerRow">
         <a href="#header">Back to the top</a>
     </footer>
-    <script src="nounChartScripts.js"></script>
+    <!--<script src="nounChartScripts.js"></script>-->
 </body>
 </html>

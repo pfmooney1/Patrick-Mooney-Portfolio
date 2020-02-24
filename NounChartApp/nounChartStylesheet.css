@@ -60,7 +60,7 @@ body {
     margin: 0;
     padding: 0;
     font-size: 18px;
- 	font-family: "Times New Roman", Helvetica, Times; sans-serif;  
+ 	font-family: "Times New Roman", Helvetica, Times; "sans-serif";  
 }
 header {
     background-color: black;
@@ -101,7 +101,8 @@ footer a {
 div.screen {
     border: 8px solid black;
     padding: 2em;
-    width: 80%
+    width: 80%;
+    min-height: 70vh;
 }
 #aboutScreen {
     padding: 2em;
@@ -289,7 +290,19 @@ button:hover {
 /* ============================================= *\
                 Tables
 \* ============================================= */
-
+table {
+    border: 3px solid black; 
+    border-collapse: collapse;
+    width: 80%;
+    margin: 0 auto;
+    font-size: 3em;
+}
+td, tr {
+    border: 3px solid black; 
+}
+td.firstColumn {
+    width: 30%;
+}
 table.copyPasteMode {
 	text-align: center;
   	margin: 0;
