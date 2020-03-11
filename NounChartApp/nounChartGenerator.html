@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -7,319 +7,1145 @@
 </head>
 <body>
     <header id="header">
-        <h1>Noun Chart Generator</h1>
+        <h1>Latin Noun Generator</h1>
     </header>
     <main id="mainColumn">
-        <hr>
-        <div id="mainMenu" class="containercolumn screen">
-            <h2 class="selectionsHeader">Select an option below: </h2>
-            <div class="containerRow menuIcons">
-                <img src="gladiusIcon.svg">
-                <select id=“selectedNoun”>
+    
+        
+        
+        
+        <div id="mainMenu" class="">
+            <div class="MMbutton" onClick="goToSelectANounScreen();">
+                <img src="gladiusIcon.svg" alt="Selected Noun">
+                <button>Select a Noun</button>
+            </div> <!-- Pick a noun -->
+            
+            <div class="MMbutton" onClick="goToOtherChartsScreen();">
+                <img src="magicBookIcon.svg"  alt="">
+                <button>Other charts</button>
+            </div> <!-- Other charts -->
+            <div class="MMbutton" onClick="goToEnterANounScreenScreen();">
+                <img src="quillIcon.svg"  alt=""><button>Enter a Noun</button>
+            </div> <!-- Enter a noun -->
+            
+            <div class="MMbutton" onClick="goToRandomNounScreen();">
+                <img src="diceIcon.svg"  alt=""><button>Random Noun</button>
+            </div> <!-- Random noun -->
+            
+            <div class="MMbutton" onClick="goToNounEndingsScreen();">
+                <img src="tabletIcon.svg"  alt=""><button>Noun Endings</button>
+            </div> <!-- Noun endings -->
+            
+            <div class="MMbutton" onClick="goToBlankChartScreen();">
+                <img src="blankScrollIcon.svg"  alt=""><button>Blank Chart</button>
+            </div> <!-- Blank Chart -->
+            
+            <div class="MMbutton" onClick="goToSettingsScreen();">
+                <img src="anvilIcon.svg"  alt=""><button>Settings</button>
+            </div> <!-- Settings -->
+            
+            <div class="MMbutton" onClick="goToAboutScreen();">
+                <img src="caesarIcon.svg"  alt=""><button>About</button>
+            </div> <!-- About -->
+        </div> <!-- Main Menu-->
+        <hr class="debug">
+
+        
+        
+        
+        
+        
+        
+        
+        <div id="assignmentPage" class="simpleGrid">
+            <h2 class="">Assignment</h2>
+            <p class="centeredAndLarge">
+                Please decline 
+                <br><ins id="assignmentNoun" class="">NOUN TO DECLINE</ins><br>
+                in
+                <br> <ins id="assignmentLanguages" class="">LATIN AND ENGLISH</ins>.
+            </p>
+            <button class="">See Answer</button>
+            <button class="">Main Menu</button>
+        </div> <!-- Assignment Page-->
+        <hr class="debug">
+   
+        
+        
+        
+        
+        
+        
+        
+        <div id="enterANounScreen" class="simpleGrid">
+            <h2>Enter any noun below</h2>
+            <fieldset id="enterANounFieldSet">
+                <p>
+                Latin Noun: 
+                <br>
+                <input type="text" id="userLatinNoun" placeholder="rex, regis, m" spellcheck="false">
+                <br>
+                English Meaning: 
+                <br>
+                <input type="text" id="userEnglishNoun" placeholder="king"><br>
+                </p>
+                <button class="toggleToken" id="assignmentChoiceA" onClick="selectButton(id);">Assignment page</button>
+                <button class="toggleToken" id="copyPasteChoiceA" onClick="selectButton(id);">Copy/Paste Mode</button>
+                <button class="toggleToken" id="englishChoiceA" onClick="selectButton(id);">Include English</button>
+                <button class="toggleToken" id="VocChoiceA" onClick="vocativeButtonFunctions(id);">Include Voc.</button>
+            </fieldset>
+            <button>Go!</button>
+            <button onClick="goToMainMenuScreen();">Main Menu</button>
+        </div> <!-- Enter your own noun-->
+        <hr class="debug">
+
+        
+        
+        
+        
+        
+        <div id="aboutScreen" class="simpleGrid">
+            <h2>About</h2>
+            <p class="footerContent">
+            This is a teacher resource for both the classroom and the office. Need to put an example noun chart on the board, but don't want to waste class time writing it out? Add enter a noun. Need to generate answer keys rapidly? Now you'll be ready no matter if it is making the answer key for a test or putting the answers on the board for trading-and-grading a pop-quiz.
+            <br>
+            <br>
+            Coded by Patrick Mooney<br>
+            <a href="mailto:pfmooney@me.com" class="link" style="color: black;">Click here to contact Me.</a><br>
+            <a href="https://pfmooney1.github.io/Patrick-Mooney-Portfolio/" class="link" style="color: black;">Link to my website</a><br>
+            Copyright 2020 Patrick Mooney</p>
+            <br>
+            <br>    
+            Icons made by Lorc and Delapouite.<br> 
+            Available on https://game-icons.net"<br>
+            <button onClick="goToMainMenuScreen();" class="closeButton">Close</button>
+        </div> <!-- About Screen-->
+        <hr class="debug">
+
+        
+        
+        
+        
+        
+        
+        <div id="randomNounScreen" class="simpleGrid">
+            <h2>Random Noun</h2>
+            <p class="footerContent">Random noun generated right here. Copyright 2020 Patrick Mooney</p>
+            <button onClick="goToMainMenuScreen();" class="closeButton">Close</button>
+        </div> <!-- About Screen-->
+        <hr class="debug">
+
+        
+        
+        
+        
+        
+        <div id="nounEndingsScreen" class="simpleGrid">
+            <h2>Noun Endings</h2>
+            <table class="nounEndingsTable" id="firstDecl">
+                <caption>1st Declension</caption>
+                <tr>
+                    <td class="firstColumn"></td>
+                    <td class="boldedCell">Singular</td>
+                    <td class="boldedCell">Plural</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Nom.</td>
+                    <td>a</td>
+                    <td>ae</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Gen.</td>
+                    <td>ae</td>
+                    <td>arum</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Dat.</td>
+                    <td>ae</td>
+                    <td>is</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Acc.</td>
+                    <td>am</td>
+                    <td>as</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Abl.</td>
+                    <td>ā</td>
+                    <td>is</td>
+                </tr>
+                <tr class="vocativeRow">
+                    <td class="firstColumn">Voc.</td>
+                    <td>a</td>
+                    <td>ae</td>
+                </tr>
+            </table> <!-- 1st Decl -->
+            <hr>
+            <table class="nounEndingsTable" id="secondDeclM">
+                <caption>2nd Declension Masculine</caption>
+                <tr>
+                    <td class="firstColumn"></td>
+                    <td class="boldedCell">Singular</td>
+                    <td class="boldedCell">Plural</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Nom.</td>
+                    <td>us / r</td>
+                    <td>i</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Gen.</td>
+                    <td>i</td>
+                    <td>orum</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Dat.</td>
+                    <td>o</td>
+                    <td>is</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Acc.</td>
+                    <td>um</td>
+                    <td>os</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Abl.</td>
+                    <td>o</td>
+                    <td>is</td>
+                </tr>
+                <tr class="vocativeRow">
+                    <td class="firstColumn">Voc.</td>
+                    <td>e / r</td>
+                    <td>i</td>
+                </tr>
+            </table> <!-- 2nd Decl M-->
+            <hr>
+            <table class="nounEndingsTable" id="secondDeclN">
+                <caption>2nd Declension Neuter</caption>
+                <tr>
+                    <td class="firstColumn"></td>
+                    <td class="boldedCell">Singular</td>
+                    <td class="boldedCell">Plural</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Nom.</td>
+                    <td>um</td>
+                    <td>a</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Gen.</td>
+                    <td>i</td>
+                    <td>orum</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Dat.</td>
+                    <td>o</td>
+                    <td>is</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Acc.</td>
+                    <td>um</td>
+                    <td>a</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Abl.</td>
+                    <td>o</td>
+                    <td>is</td>
+                </tr>
+                <tr class="vocativeRow">
+                    <td class="firstColumn">Voc.</td>
+                    <td>um</td>
+                    <td>a</td>
+                </tr>
+            </table> <!-- 2nd Decl N -->
+            <hr>
+            <table class="nounEndingsTable" id="thirdDeclMF">
+                <caption>3rd Declension Masc. / Fem.</caption>
+                <tr>
+                    <td class="firstColumn"></td>
+                    <td class="boldedCell">Singular</td>
+                    <td class="boldedCell">Plural</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Nom.</td>
+                    <td>-</td>
+                    <td>es</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Gen.</td>
+                    <td>is</td>
+                    <td>um</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Dat.</td>
+                    <td>i</td>
+                    <td>ibus</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Acc.</td>
+                    <td>em</td>
+                    <td>es</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Abl.</td>
+                    <td>e</td>
+                    <td>ibus</td>
+                </tr>
+                <tr class="vocativeRow">
+                    <td class="firstColumn">Voc.</td>
+                    <td>-</td>
+                    <td>es</td>
+                </tr>
+            </table> <!-- 3rd Decl MF-->
+            <hr>
+            <table class="nounEndingsTable" id="thirdDeclN">
+                <caption>3rd Declension Neuter</caption>
+                <tr>
+                    <td class="firstColumn"></td>
+                    <td class="boldedCell">Singular</td>
+                    <td class="boldedCell">Plural</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Nom.</td>
+                    <td>-</td>
+                    <td>a</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Gen.</td>
+                    <td>is</td>
+                    <td>um</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Dat.</td>
+                    <td>i</td>
+                    <td>ibus</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Acc.</td>
+                    <td>-</td>
+                    <td>a</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Abl.</td>
+                    <td>e</td>
+                    <td>ibus</td>
+                </tr>
+                <tr class="vocativeRow">
+                    <td class="firstColumn">Voc.</td>
+                    <td>-</td>
+                    <td>a</td>
+                </tr>
+            </table> <!-- 3rd Decl N-->
+            <hr>
+            <table class="nounEndingsTable" id="fourthDeclMF">
+                <caption>4th Declension Masc. / Fem.</caption>
+                <tr>
+                    <td class="firstColumn"></td>
+                    <td class="boldedCell">Singular</td>
+                    <td class="boldedCell">Plural</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Nom.</td>
+                    <td>us</td>
+                    <td>us</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Gen.</td>
+                    <td>us</td>
+                    <td>uum</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Dat.</td>
+                    <td>ui</td>
+                    <td>ibus</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Acc.</td>
+                    <td>um</td>
+                    <td>us</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Abl.</td>
+                    <td>u</td>
+                    <td>ibus</td>
+                </tr>
+                <tr class="vocativeRow">
+                    <td class="firstColumn">Voc.</td>
+                    <td>us</td>
+                    <td>us</td>
+                </tr>
+            </table> <!-- 4th Decl MF-->
+            <hr>
+            <table class="nounEndingsTable" id="fourthDeclN">
+                <caption>4th Declension Neuter</caption>
+                <tr>
+                    <td class="firstColumn"></td>
+                    <td class="boldedCell">Singular</td>
+                    <td class="boldedCell">Plural</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Nom.</td>
+                    <td>u</td>
+                    <td>ua</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Gen.</td>
+                    <td>us</td>
+                    <td>uum</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Dat.</td>
+                    <td>u</td>
+                    <td>ibus</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Acc.</td>
+                    <td>u</td>
+                    <td>ua</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Abl.</td>
+                    <td>u</td>
+                    <td>ibus</td>
+                </tr>
+                <tr class="vocativeRow">
+                    <td class="firstColumn">Voc.</td>
+                    <td>u</td>
+                    <td>ua</td>
+                </tr>
+            </table> <!-- 4th Decl N-->
+            <hr>
+            <table class="nounEndingsTable" id="fifthDecl">
+                <caption>5th Declension</caption>
+                <tr>
+                    <td class="firstColumn"></td>
+                    <td class="boldedCell">Singular</td>
+                    <td class="boldedCell">Plural</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Nom.</td>
+                    <td>es</td>
+                    <td>es</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Gen.</td>
+                    <td>ei</td>
+                    <td>erum</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Dat.</td>
+                    <td>ei</td>
+                    <td>ebus</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Acc.</td>
+                    <td>em</td>
+                    <td>es</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Abl.</td>
+                    <td>e</td>
+                    <td>ebus</td>
+                </tr>
+                <tr class="vocativeRow">
+                    <td class="firstColumn">Voc.</td>
+                    <td>es</td>
+                    <td>es</td>
+                </tr>
+            </table> <!-- 5th Decl -->
+            <button class="toggleToken checked" id="VocChoiceD" onClick="vocativeButtonFunctions(id);">Include Voc.</button><br>
+            <button onClick="goToMainMenuScreen();" class="closeButton">Close</button>
+        </div> <!-- About Screen-->
+        <hr class="debug">
+        
+        
+        
+        
+        
+        
+        <div id="blankChartScreen" class="simpleGrid">
+            <h2>Blank Chart</h2>
+            <table>
+                <tr>
+                    <td class="firstColumn"></td>
+                    <td class="boldedCell">Singular</td>
+                    <td class="boldedCell">Plural</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Nom.</td>
+                    <td>   </td>
+                    <td>   </td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Gen.</td>
+                    <td>   </td>
+                    <td>   </td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Dat.</td>
+                    <td>   </td>
+                    <td>   </td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Acc.</td>
+                    <td></td>
+                    <td>   </td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Abl.</td>
+                    <td>   </td>
+                    <td>   </td>
+                </tr>
+                <tr class="vocativeRow">
+                    <td class="firstColumn">Voc.</td>
+                    <td>   </td>
+                    <td>   </td>
+                </tr>
+            </table>
+            <button class="toggleToken" id="VocChoiceE" onClick="vocativeButtonFunctions(id);">Include Voc.</button>
+            <button onClick="goToMainMenuScreen();" class="closeButton">Close</button>
+        </div> <!-- About Screen-->
+        <hr class="debug">
+
+        
+        
+        <div id="selectANoun" class="simpleGrid">
+            <h2 id="">Select A Noun</h2>
+                <select id=“selectedNounChoice” onchange="declineSelectedNoun(id)">
                     <optgroup label="1ST DECLENSION">
-                        <option value="">amica - (friend)</option>
-                        <option value="">culpa - (fault)</option>
-                        <option value="">cura - (care)</option>
-                        <option value="">discipula - (student)</option>
-                        <option value="">fama - (rumor)</option>
-                        <option value="">forma - (form)</option>
-                        <option value="">ira - (rage)</option>
-                        <option value="">magistra - (teacher)</option>
-                        <option value="">mora - (delay)</option>
-                        <option value="">nauta - (sailor)</option>
-                        <option value="">pecunia - (money)</option>
-                        <option value="">pirata - (pirate)</option>
-                        <option value="">poena - (penalty)</option>	
-                        <option value="">poeta - (poet)</option>
-                        <option value="">porta - (gate)</option>
-                        <option value="">puella - (girl)</option>
-                        <option value="">rosa - (rose)</option>
-                        <option value="">vicina - (neighbor)</option>
-                        <option value="">vita - (life)</option>
+                        <option value="amica">amica - (friend)</option>
+                        <option value="culpa">culpa - (fault)</option>
+                        <option value="cura">cura - (care)</option>
+                        <option value="discipula">discipula - (student)</option>
+                        <option value="fama">fama - (rumor)</option>
+                        <option value="forma">forma - (form)</option>
+                        <option value="ira">ira - (rage)</option>
+                        <option value="magistra">magistra - (teacher)</option>
+                        <option value="mora">mora - (delay)</option>
+                        <option value="nauta">nauta - (sailor)</option>
+                        <option value="pecunia">pecunia - (money)</option>
+                        <option value="pirata">pirata - (pirate)</option>
+                        <option value="poena">poena - (penalty)</option>	
+                        <option value="poeta">poeta - (poet)</option>
+                        <option value="porta">porta - (gate)</option>
+                        <option value="puella">puella - (girl)</option>
+                        <option value="rosa">rosa - (rose)</option>
+                        <option value="vicina">vicina - (neighbor)</option>
+                        <option value="vita">vita - (life)</option>
                     </optgroup>
                     <optgroup label="2ND DECLENSION MASCULINE">
-                        <option value="">ager - (field)</option>
-                        <option value="">amicus - (friend)</option>
-                        <option value="">animus - (soul)</option>
-                        <option value="">discipulus - (student)</option>
-                        <option value="">faber - (smith)</option>
-                        <option value="">filius - (son)</option>
-                        <option value="">liber - (book)</option>
-                        <option value="">ludus - (game)</option>
-                        <option value="">magister - (teacher)</option>
-                        <option value="">mundus - (world)</option>
-                        <option value="">oculus - (eye)</option>
-                        <option value="">puer - (boy)</option>
-                        <option value="">stultus - (fool)</option>
-                        <option value="">vicinus - (neighbor)</option>
-                        <option value="">vir - (man)</option>
-                        <option value="">vulgus - (mob)</option>
+                        <option value="ager">ager - (field)</option>
+                        <option value="amicus">amicus - (friend)</option>
+                        <option value="animus">animus - (soul)</option>
+                        <option value="discipulus">discipulus - (student)</option>
+                        <option value="faber">faber - (smith)</option>
+                        <option value="filius">filius - (son)</option>
+                        <option value="liber">liber - (book)</option>
+                        <option value="ludus">ludus - (game)</option>
+                        <option value="magister">magister - (teacher)</option>
+                        <option value="mundus">mundus - (world)</option>
+                        <option value="oculus">oculus - (eye)</option>
+                        <option value="puer">puer - (boy)</option>
+                        <option value="stultus">stultus - (fool)</option>
+                        <option value="vicinus">vicinus - (neighbor)</option>
+                        <option value="vir">vir - (man)</option>
+                        <option value="vulgus">vulgus - (mob)</option>
                     </optgroup>
                     <optgroup label="2ND DECLENSION NEUTER">
-                        <option value="">aedificium - (building)</option>
-                        <option value="">basium - (kiss)</option>
-                        <option value="">bellum - (war)</option>
-                        <option value="">caelum - (heaven)</option>
-                        <option value="">consilium - (plan)</option>
-                        <option value="">donum - (gift)</option>
-                        <option value="">exitium - (ruin)</option>
-                        <option value="">forum - (marketplace)</option>
-                        <option value="">iudicium - (judgement)</option>
-                        <option value="">officium - (duty)</option>
-                        <option value="">otium - (peace)</option>
-                        <option value="">periculum - (danger)</option>
-                        <option value="">remedium - (cure)</option>	
-                        <option value="">saxum - (rock)</option>
-                        <option value="">verbum - (word)</option>
+                        <option value="aedificium">aedificium - (building)</option>
+                        <option value="basium">basium - (kiss)</option>
+                        <option value="bellum">bellum - (war)</option>
+                        <option value="caelum">caelum - (heaven)</option>
+                        <option value="consilium">consilium - (plan)</option>
+                        <option value="donum">donum - (gift)</option>
+                        <option value="exitium">exitium - (ruin)</option>
+                        <option value="forum">forum - (marketplace)</option>
+                        <option value="iudicium">iudicium - (judgement)</option>
+                        <option value="officium">officium - (duty)</option>
+                        <option value="otium">otium - (peace)</option>
+                        <option value="periculum">periculum - (danger)</option>
+                        <option value="remedium">remedium - (cure)</option>	
+                        <option value="saxum">saxum - (rock)</option>
+                        <option value="verbum">verbum - (word)</option>
                    </optgroup>
                     <optgroup label="3RD DECLENSION MASC/FEM">
-                        <option value="">aestas - (age)</option>
-                        <option value="">civitas - (city)</option>
-                        <option value="">consul - (consul)</option>
-                        <option value="">dux - (leader)</option>
-                        <option value="">frater - (brother)</option>
-                        <option value="">homo - (human)</option>
-                        <option value="">lux - (light)</option>
-                        <option value="">mater - (mother)</option>
-                        <option value="">miles - (soldier)</option>
-                        <option value="">pars - (part)</option>
-                        <option value="">pater - (father)</option>
-                        <option value="">pax - (peace)</option>
-                        <option value="">rex - (king)</option>
-                        <option value="">soror - (sister)</option>
-                        <option value="">vox - (voice)</option>
+                        <option value="aestas">aestas - (age)</option>
+                        <option value="civitas">civitas - (city)</option>
+                        <option value="consul">consul - (consul)</option>
+                        <option value="dux">dux - (leader)</option>
+                        <option value="frater">frater - (brother)</option>
+                        <option value="homo">homo - (human)</option>
+                        <option value="lux">lux - (light)</option>
+                        <option value="mater">mater - (mother)</option>
+                        <option value="miles">miles - (soldier)</option>
+                        <option value="pars">pars - (part)</option>
+                        <option value="pater">pater - (father)</option>
+                        <option value="pax">pax - (peace)</option>
+                        <option value="rex">rex - (king)</option>
+                        <option value="soror">soror - (sister)</option>
+                        <option value="vox">vox - (voice)</option>
                    </optgroup>
                     <optgroup label="3RD DECLENSION NEUTER">
-                        <option value="">caput - (head)</option>
-                        <option value="">carmen - (song)</option>
-                        <option value="">corpus - (body)</option>
-                        <option value="">diploma - (diploma)</option>
-                        <option value="">epigramma - (epigram)</option>
-                        <option value="">flumen - (river)</option>
-                        <option value="">iter - (trip)</option>
-                        <option value="">ius - (law)</option>
-                        <option value="">limen - (threshold)</option>
-                        <option value="">liquamen - (fish sauce)</option>
-                        <option value="">nomen - (name)</option>
-                        <option value="">opus - (work)</option>
-                        <option value="">scelus - (crime)</option>
-                        <option value="">sidus - (constellation)</option>
-                        <option value="">tempus - (storm)</option>
-                        <option value="">vulnus - (wound)</option>
+                        <option value="caput">caput - (head)</option>
+                        <option value="carmen">carmen - (song)</option>
+                        <option value="corpus">corpus - (body)</option>
+                        <option value="diploma">diploma - (diploma)</option>
+                        <option value="epigramma">epigramma - (epigram)</option>
+                        <option value="flumen">flumen - (river)</option>
+                        <option value="iter">iter - (trip)</option>
+                        <option value="ius">ius - (law)</option>
+                        <option value="limen">limen - (threshold)</option>
+                        <option value="liquamen">liquamen - (fish sauce)</option>
+                        <option value="nomen">nomen - (name)</option>
+                        <option value="opus">opus - (work)</option>
+                        <option value="scelus">scelus - (crime)</option>
+                        <option value="sidus">sidus - (constellation)</option>
+                        <option value="tempus">tempus - (storm)</option>
+                        <option value="vulnus">vulnus - (wound)</option>
                     </optgroup>
                     <optgroup label="4TH DECLENSION MASC/FEM">
-                        <option value="">arcus - (bow)</option>
-                        <option value="">cantus - (song)</option>
-                        <option value="">currus - (chariot)</option>
-                        <option value="">equitatus - (cavalry)</option>
-                        <option value="">exercitus - (army)</option>
-                        <option value="">fructus - (fruit)</option>
-                        <option value="">gressus - (step)</option>
-                        <option value="">morsus - (bite)</option>
-                        <option value="">natus - (birth)</option>
-                        <option value="">potus - (drink)</option>
-                        <option value="">senatus - (senate)</option>
-                        <option value="">sensus - (feeling)</option>
-                        <option value="">situs - (site)</option>
-                        <option value="">risus - (laugh)</option>
-                        <option value="">ritus - (rite)</option>
+                        <option value="arcus">arcus - (bow)</option>
+                        <option value="cantus">cantus - (song)</option>
+                        <option value="currus">currus - (chariot)</option>
+                        <option value="equitatus">equitatus - (cavalry)</option>
+                        <option value="exercitus">exercitus - (army)</option>
+                        <option value="fructus">fructus - (fruit)</option>
+                        <option value="gressus">gressus - (step)</option>
+                        <option value="morsus">morsus - (bite)</option>
+                        <option value="natus">natus - (birth)</option>
+                        <option value="potus">potus - (drink)</option>
+                        <option value="senatus">senatus - (senate)</option>
+                        <option value="sensus">sensus - (feeling)</option>
+                        <option value="situs">situs - (site)</option>
+                        <option value="risus">risus - (laugh)</option>
+                        <option value="ritus">ritus - (rite)</option>
                     </optgroup>
                     <optgroup label="4TH DECLENSION MASC/FEM">
-                        <option value="">cornu - (horn)</option>
-                        <option value="">gelu - (frost)</option>
-                        <option value="">genu - (knee)</option>
-                        <option value="">pecu - (cow)</option>
-                        <option value="">venu - (javelin)</option>
-                        <option value="">veru - (javelin-tip)</option>
+                        <option value="cornu">cornu - (horn)</option>
+                        <option value="gelu">gelu - (frost)</option>
+                        <option value="genu">genu - (knee)</option>
+                        <option value="pecu">pecu - (cow)</option>
+                        <option value="venu">venu - (javelin)</option>
+                        <option value="veru">veru - (javelin-tip)</option>
                     </optgroup>
                     <optgroup label="5TH DECLENSION">
-                        <option value="">acies - (edge)</option>
-                        <option value="">caries - (corruption)</option>
-                        <option value="">congeries - (heap)</option>	
-                        <option value="">durities - (hardship)</option>
-                        <option value="">effigies - (image)</option>
-                        <option value="">facies - (shape)</option>
-                        <option value="">fides - (pledge)</option>
-                        <option value="">glacies - (ice)</option>
-                        <option value="">luxuries - (luxury)</option>
-                        <option value="">macies - (poverty)</option>
-                        <option value="">meridies - (noon)</option>
-                        <option value="">pernicies - (ruin)</option>
-                        <option value="">series - (row)</option>
-                        <option value="">species - (sight)</option>
-                        <option value="">spes - (hope)</option>
+                        <option value="acies">acies - (edge)</option>
+                        <option value="caries">caries - (corruption)</option>
+                        <option value="congeries">congeries - (heap)</option>	
+                        <option value="durities">durities - (hardship)</option>
+                        <option value="effigies">effigies - (image)</option>
+                        <option value="facies">facies - (shape)</option>
+                        <option value="fides">fides - (pledge)</option>
+                        <option value="glacies">glacies - (ice)</option>
+                        <option value="luxuries">luxuries - (luxury)</option>
+                        <option value="macies">macies - (poverty)</option>
+                        <option value="meridies">meridies - (noon)</option>
+                        <option value="pernicies">pernicies - (ruin)</option>
+                        <option value="series">series - (row)</option>
+                        <option value="species">species - (sight)</option>
+                        <option value="spes">spes - (hope)</option>
                     </optgroup>
-    </select> 
-            </div>
-            <div class="containerRow menuIcons">
-                <img src="magicBookIcon.svg"  alt="">
-                <select id="otherChartsSelection">
+                </select>
+            <table>
+                <caption id="SelectNounChartCaption">amica, amicae, f. (friend)</caption>
+                <tr>
+                    <td class="firstColumn"></td>
+                    <td class="boldedCell">Singular</td>
+                    <td class="boldedCell">Plural</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Nom.</td>
+                    <td id="SelectNounChart_NomSing">amica</td>
+                    <td id="SelectNounChart_NomPl">amicae</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Gen.</td>
+                    <td id="SelectNounChart_GenSing">amicae</td>
+                    <td id="SelectNounChart_GenPl">amicarum</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Dat.</td>
+                    <td id="SelectNounChart_DatSing">amicae</td>
+                    <td id="SelectNounChart_DatPl">amicis</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Acc.</td>
+                    <td id="SelectNounChart_AccSing">amicam</td>
+                    <td id="SelectNounChart_AccPl">amicas</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Abl.</td>
+                    <td id="SelectNounChart_AblSing">amicā</td>
+                    <td id="SelectNounChart_AblPl">amicis</td>
+                </tr>
+                <tr id="SelectNounChart_VocRow" class="vocativeRow">
+                    <td class="firstColumn">Voc.</td>
+                    <td id="SelectNounChart_VocSing">amica</td>
+                    <td id="SelectNounChart_VocPl">amicae</td>
+                </tr>
+            </table>
+            <button class="toggleToken" id="englishChoiceC" onClick="selectButton(id);">Include English</button>
+            <button class="toggleToken" id="VocChoiceC" onClick="vocativeButtonFunctions(id);">Include Voc.</button>
+            <button onClick="goToMainMenuScreen();" class="closeButton">Close</button>
+        </div>
+        <hr class="debug">
+        
+        
+        
+        
+        <div id="otherCharts" class="simpleGrid">
+            <h2 id="">Other Charts</h2>
+                    <select id="otherChartsSelection" onInput="selectOtherChart();">
                         <option value="relative">qui, quae, quod - (relative pronouns)</option>
                         <option value="is">is, ea, id - (3rd person pronouns)</option>
                         <option value="hic">hic, hae, hoc - (this, these)</option>
                         <option value="ille">ille, illa, illud - (that, those)</option>
                         <option value="iste">iste, ista, istud - (that, those)</option>
-                        <option value="interogative">interogative pronouns</option>
-                        <option value="reflexive">reflexive pronouns</option>
                     </select>
-            </div>
-                <div class="containerRow menuIcons" onClick="goToEnterANounScreenScreen();">
-                <img src="quillIcon.svg"  alt=""><button>Enter a Noun</button>
-            </div>
-                <div class="containerRow menuIcons" onClick="goToRandomNounScreen();">
-                <img src="diceIcon.svg"  alt=""><button>Random Noun</button>
-            </div>
-                <div class="containerRow menuIcons" onClick="goToNounEndingsScreen();">
-                <img src="tabletIcon.svg"  alt=""><button>Noun Endings</button>
-            </div>
-                <div class="containerRow menuIcons" onClick="goToBlankChartScreen();">
-                <img src="blankScrollIcon.svg"  alt=""><button>Blank Chart</button>
-            </div>
-                <div class="containerRow menuIcons" onClick="goToSettingsScreen();">
-                <img src="anvilIcon.svg"  alt=""><button>Settings</button>
-            </div>
-                <div class="containerRow menuIcons" onClick="goToAboutScreen();">
-                <img src="caesarIcon.svg"  alt=""><button>About</button>
-            </div>
-        </div> <!-- Main Menu-->
-        <hr>
-        <div id="assignmentPage" class="screen">
-            <h2 class="selectionsHeader">Assignment:</h2>
-            <p class="assignmentText">
-                Please decline <ins id="assignmentNoun" class="overrideText">NOUN TO DECLINE</ins><br>
-                in <ins id="assignmentLanguages" class="overrideText">LATIN AND ENGLISH</ins>.
-            </p>
-            <button class="sideBySide">See Answer</button>
-            <button class="sideBySide">Main Menu</button>
-        </div> <!-- Assignment Page-->
-        <hr>        
-        <div id="enterANounScreen" class="screen">
-            <h2>Enter the noun of your choosing below:</h2>
-            <fieldset>
-                Noun (e.g. <i>rex, regis</i>, m): <input type="text" id="userLatinNoun"><br>
-                English Meaning: <input type="text" id="userEnglishNoun"><br>
-                <button class="toggleToken" id="assignmentChoiceA" onClick="selectButton(id);">Assignment page</button>
-                <button class="toggleToken" id="copyPasteChoiceA" onClick="selectButton(id);">Copy/Paste Mode</button>
-                <button class="toggleToken" id="englishChoiceA" onClick="selectButton(id);">Include English</button>
-                <button class="toggleToken" id="vocativeChoiceA" onClick="selectButton(id);">Include vocative</button>
-            </fieldset>
-            <button>Go!</button><br>
-            <button onClick="goToMainMenuScreen();">Main Menu</button>
-        </div> <!-- Enter your own noun-->
-        <hr>
-        <div id="aboutScreen" class="screen">
-            <h2>About</h2>
-        <p class="footerContent"><a href="mailto:pfmooney@me.com" class="link" style="color: black;">Coded by Patrick Mooney</a><br>
-        Icons made by Lorc and Delapouite.<br> 
-        Available on https://game-icons.net"<br>
-        Copyright 2020 Patrick Mooney</p>
-            <button onClick="goToMainMenuScreen();">Close</button>
-        </div> <!-- About Screen-->
-        <hr>
-        <div id="randomNounScreen" class="screen">
-            <h2>Random Noun</h2>
-        <p>Random noun generated right here. Copyright 2020 Patrick Mooney</p>
-            <button onClick="goToMainMenuScreen();">Close</button>
-        </div> <!-- About Screen-->
-        <hr>
-        <div id="nounEndingsScreen" class="screen">
-            <h2>Noun Endings Chart</h2>
-            <table>
+            <table class="otherChartsTable" id="relativePronounChartA">
+                <caption>Relative Pronouns (qui, quae, quod)</caption>
+                <caption>Singular</caption>
                 <tr>
                     <td class="firstColumn"></td>
-                    <td>Singular</td>
-                    <td>Plural</td>
+                    <td class="boldedCell">Masc.</td>
+                    <td class="boldedCell">Fem.</td>
+                    <td class="boldedCell">Neut.</td>
                 </tr>
                 <tr>
-                    <td class="firstColumn">Nominative</td>
-                    <td>a</td>
-                    <td>ae</td>
+                    <td class="firstColumn">Nom.</td>
+                    <td>qui</td>
+                    <td>quae</td>
+                    <td>quod</td>
+
                 </tr>
                 <tr>
-                    <td class="firstColumn">Genitive</td>
-                    <td class="firstColumn">ae</td>
-                    <td>arum</td>
+                    <td class="firstColumn">Gen.</td>
+                    <td>cuius</td>
+                    <td>cuius</td>
+                    <td>cuius</td>
                 </tr>
                 <tr>
-                    <td class="firstColumn">Dative</td>
-                    <td>ae</td>
-                    <td>is</td>
+                    <td class="firstColumn">Dat.</td>
+                    <td>cui</td>
+                    <td>cui</td>
+                    <td>cui</td>
                 </tr>
                 <tr>
-                    <td class="firstColumn">Accusative</td>
-                    <td>am</td>
-                    <td>as</td>
+                    <td class="firstColumn">Acc.</td>
+                    <td>quem</td>
+                    <td>quam</td>
+                    <td>quod</td>
                 </tr>
                 <tr>
-                    <td class="firstColumn">Ablative</td>
-                    <td>ā</td>
-                    <td>is</td>
-                </tr>
-                <tr>
-                    <td class="firstColumn">Vocative</td>
-                    <td>a</td>
-                    <td>ae</td>
+                    <td class="firstColumn">Abl.</td>
+                    <td>quo</td>
+                    <td>quā</td>
+                    <td>quo</td>
                 </tr>
             </table>
-            <button onClick="goToMainMenuScreen();">Close</button>
-        </div> <!-- About Screen-->
-        <hr>
-        <div id="blankChartScreen" class="screen">
-            <h2>Blank Chart</h2>
-            <h2>Noun Endings Chart</h2>
-            <table>
+            <table class="otherChartsTable" id="relativePronounChartB"> <!-- Singular -->
+                <caption>Plural</caption>
                 <tr>
                     <td class="firstColumn"></td>
-                    <td>Singular</td>
-                    <td>Plural</td>
+                    <td class="boldedCell">Masc.</td>
+                    <td class="boldedCell">Fem.</td>
+                    <td class="boldedCell">Neut.</td>
                 </tr>
                 <tr>
-                    <td class="firstColumn">Nominative</td>
-                    <td>   </td>
-                    <td>   </td>
+                    <td class="firstColumn">Nom.</td>
+                    <td>qui</td>
+                    <td>quae</td>
+                    <td>quae</td>
+
                 </tr>
                 <tr>
-                    <td class="firstColumn">Genitive</td>
-                    <td>   </td>
-                    <td>   </td>
+                    <td class="firstColumn">Gen.</td>
+                    <td>quorum</td>
+                    <td>quarum</td>
+                    <td>quorum</td>
                 </tr>
                 <tr>
-                    <td class="firstColumn">Dative</td>
-                    <td>   </td>
-                    <td>   </td>
+                    <td class="firstColumn">Dat.</td>
+                    <td>quibus</td>
+                    <td>quibus</td>
+                    <td>quibus</td>
                 </tr>
                 <tr>
-                    <td class="firstColumn">Accusative</td>
-                    <td></td>
-                    <td>   </td>
+                    <td class="firstColumn">Acc.</td>
+                    <td>quos</td>
+                    <td>quas</td>
+                    <td>quae</td>
                 </tr>
                 <tr>
-                    <td class="firstColumn">Ablative</td>
-                    <td>   </td>
-                    <td>   </td>
+                    <td class="firstColumn">Abl.</td>
+                    <td>quibus</td>
+                    <td>quibus</td>
+                    <td>quibus</td>
+                </tr>
+            </table> <!-- Relative Pronoun -->
+            
+            
+            <table class="otherChartsTable" id="thirdPersonPronounChartA">
+                <caption>3rd Person Pronouns (is, ea, id)</caption>
+                <caption>Singular</caption>
+                <tr>
+                    <td class="firstColumn"></td>
+                    <td class="boldedCell">Masc.</td>
+                    <td class="boldedCell">Fem.</td>
+                    <td class="boldedCell">Neut.</td>
                 </tr>
                 <tr>
-                    <td class="firstColumn">Vocative</td>
-                    <td>   </td>
-                    <td>   </td>
+                    <td class="firstColumn">Nom.</td>
+                    <td>is</td>
+                    <td>ea</td>
+                    <td>id</td>
+
+                </tr>
+                <tr>
+                    <td class="firstColumn">Gen.</td>
+                    <td>eius</td>
+                    <td>eius</td>
+                    <td>eius</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Dat.</td>
+                    <td>ei</td>
+                    <td>ei</td>
+                    <td>ei</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Acc.</td>
+                    <td>eum</td>
+                    <td>eam</td>
+                    <td>id</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Abl.</td>
+                    <td>eo</td>
+                    <td>eā</td>
+                    <td>eo</td>
                 </tr>
             </table>
-            <button onClick="goToMainMenuScreen();">Close</button>
-        </div> <!-- About Screen-->
-        <hr>
-        <div id="settingScreen" class="screen">
-            <h2 id="settingsLabel">Settings:</h2>
+            <table class="otherChartsTable" id="thirdPersonPronounChartB"> <!-- Singular -->
+                <caption>Plural</caption>
+                <tr>
+                    <td class="firstColumn"></td>
+                    <td class="boldedCell">Masc.</td>
+                    <td class="boldedCell">Fem.</td>
+                    <td class="boldedCell">Neut.</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Nom.</td>
+                    <td>ei, ii</td>
+                    <td>eae</td>
+                    <td>ea</td>
+
+                </tr>
+                <tr>
+                    <td class="firstColumn">Gen.</td>
+                    <td>eorum</td>
+                    <td>earum</td>
+                    <td>eorum</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Dat.</td>
+                    <td>eis</td>
+                    <td>eis</td>
+                    <td>eis</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Acc.</td>
+                    <td>eos</td>
+                    <td>eas</td>
+                    <td>ea</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Abl.</td>
+                    <td>eis</td>
+                    <td>eis</td>
+                    <td>eis</td>
+                </tr>
+            </table> <!-- 3rd person pronouns -->
+
+         
+            
+            <table class="otherChartsTable" id="hicChartA">
+                <caption>hic, haec, hoc - (this, these)</caption>
+                <caption>Singular</caption>
+                <tr>
+                    <td class="firstColumn"></td>
+                    <td class="boldedCell">Masc.</td>
+                    <td class="boldedCell">Fem.</td>
+                    <td class="boldedCell">Neut.</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Nom.</td>
+                    <td>hic</td>
+                    <td>haec</td>
+                    <td>hoc</td>
+
+                </tr>
+                <tr>
+                    <td class="firstColumn">Gen.</td>
+                    <td>huius</td>
+                    <td>huius</td>
+                    <td>huius</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Dat.</td>
+                    <td>huic</td>
+                    <td>huic</td>
+                    <td>huic</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Acc.</td>
+                    <td>hunc</td>
+                    <td>hanc</td>
+                    <td>hoc</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Abl.</td>
+                    <td>hoc</td>
+                    <td>hac</td>
+                    <td>hoc</td>
+                </tr>
+            </table>
+            <table class="otherChartsTable" id="hicChartB"> <!-- Singular -->
+                <caption>Plural</caption>
+                <tr>
+                    <td class="firstColumn"></td>
+                    <td class="boldedCell">Masc.</td>
+                    <td class="boldedCell">Fem.</td>
+                    <td class="boldedCell">Neut.</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Nom.</td>
+                    <td>hi</td>
+                    <td>hae</td>
+                    <td>haec</td>
+
+                </tr>
+                <tr>
+                    <td class="firstColumn">Gen.</td>
+                    <td>horum</td>
+                    <td>harum</td>
+                    <td>horum</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Dat.</td>
+                    <td>his</td>
+                    <td>his</td>
+                    <td>his</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Acc.</td>
+                    <td>hos</td>
+                    <td>has</td>
+                    <td>haec</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Abl.</td>
+                    <td>his</td>
+                    <td>his</td>
+                    <td>his</td>
+                </tr>
+            </table> <!-- 1st Decl -->
+
+
+        
+            
+            <table class="otherChartsTable" id="illeChartA">
+                <caption>ille, illa, illud - (that, those)</caption>
+                <caption>Singular</caption>
+                <tr>
+                    <td class="firstColumn"></td>
+                    <td class="boldedCell">Masc.</td>
+                    <td class="boldedCell">Fem.</td>
+                    <td class="boldedCell">Neut.</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Nom.</td>
+                    <td>ille</td>
+                    <td>illa</td>
+                    <td>illud</td>
+
+                </tr>
+                <tr>
+                    <td class="firstColumn">Gen.</td>
+                    <td>illius</td>
+                    <td>illius</td>
+                    <td>illius</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Dat.</td>
+                    <td>illi</td>
+                    <td>illi</td>
+                    <td>illi</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Acc.</td>
+                    <td>illum</td>
+                    <td>illam</td>
+                    <td>illud</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Abl.</td>
+                    <td>illo</td>
+                    <td>illā</td>
+                    <td>illo</td>
+                </tr>
+            </table>
+            <table class="otherChartsTable" id="illeChartB"> <!-- Singular -->
+                <caption>Plural</caption>
+                <tr>
+                    <td class="firstColumn"></td>
+                    <td class="boldedCell">Masc.</td>
+                    <td class="boldedCell">Fem.</td>
+                    <td class="boldedCell">Neut.</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Nom.</td>
+                    <td>illi</td>
+                    <td>illae</td>
+                    <td>illa</td>
+
+                </tr>
+                <tr>
+                    <td class="firstColumn">Gen.</td>
+                    <td>illorum</td>
+                    <td>illarum</td>
+                    <td>illorum</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Dat.</td>
+                    <td>illis</td>
+                    <td>illis</td>
+                    <td>illis</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Acc.</td>
+                    <td>illos</td>
+                    <td>illas</td>
+                    <td>illa</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Abl.</td>
+                    <td>illis</td>
+                    <td>illis</td>
+                    <td>illis</td>
+                </tr>
+            </table> <!-- 1st Decl -->
+            
+
+            <table class="otherChartsTable" id="isteChartA">
+                <caption>iste, ista, istud - (that, those)</caption>
+                <caption>Singular</caption>
+                <tr>
+                    <td class="firstColumn"></td>
+                    <td class="boldedCell">Masc.</td>
+                    <td class="boldedCell">Fem.</td>
+                    <td class="boldedCell">Neut.</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Nom.</td>
+                    <td>iste</td>
+                    <td>ista</td>
+                    <td>istud</td>
+
+                </tr>
+                <tr>
+                    <td class="firstColumn">Gen.</td>
+                    <td>istius</td>
+                    <td>istius</td>
+                    <td>istius</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Dat.</td>
+                    <td>isti</td>
+                    <td>isti</td>
+                    <td>isti</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Acc.</td>
+                    <td>istum</td>
+                    <td>istam</td>
+                    <td>istud</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Abl.</td>
+                    <td>isto</td>
+                    <td>istā</td>
+                    <td>isto</td>
+                </tr>
+            </table>
+            <table class="otherChartsTable" id="isteChartB"> <!-- Singular -->
+                <caption>Plural</caption>
+                <tr>
+                    <td class="firstColumn"></td>
+                    <td class="boldedCell">Masc.</td>
+                    <td class="boldedCell">Fem.</td>
+                    <td class="boldedCell">Neut.</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Nom.</td>
+                    <td>isti</td>
+                    <td>istae</td>
+                    <td>ista</td>
+
+                </tr>
+                <tr>
+                    <td class="firstColumn">Gen.</td>
+                    <td>istorum</td>
+                    <td>istarum</td>
+                    <td>istorum</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Dat.</td>
+                    <td>istis</td>
+                    <td>istis</td>
+                    <td>istis</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Acc.</td>
+                    <td>istos</td>
+                    <td>istas</td>
+                    <td>ista</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Abl.</td>
+                    <td>istis</td>
+                    <td>istis</td>
+                    <td>istis</td>
+                </tr>
+            </table> <!-- 1st Decl -->
+            <button onClick="goToMainMenuScreen();" class="closeButton">Close</button>
+        </div>
+        <hr class="debug">
+            
+        
+        
+    
+        
+        <div id="settingScreen" class="simpleGrid">
+            <h2 id="">Settings</h2>
                 <button class="toggleToken" id="assignmentChoiceB" onClick="selectButton(id);">Assignment page</button><br>
                 <button class="toggleToken" id="copyPasteChoiceB" onClick="selectButton(id);">Copy/Paste Mode</button> <br>
-                <button class="toggleToken" id="englishChoiceB" onClick="selectButton(id);">Include English</button><br>
-                <button class="toggleToken" id="vocativeChoiceB" onClick="selectButton(id);">Include vocative</button><br>
-            <button onClick="goToMainMenuScreen();">Close</button>
+                <button class="toggleToken checked" id="englishChoiceB" onClick="selectButton(id);">Include English</button><br>
+                <button class="toggleToken checked" id="VocChoiceB" onClick="vocativeButtonFunctions(id);">Include Vocative</button><br>
+            <button onClick="goToMainMenuScreen();" class="closeButton">Close</button>
         </div> <!-- Setting Screen -->
-        <hr>
+        <hr class="debug">
+
+        <button onClick="onShowAll();" id="debugButton1">DEBUG: Unhide all divs </button>
+        <button onClick="onHideAll();" id="debugButton2">DEBUG: Hide all divs </button>
+        <button onClick="testFinalProduct();" id="debugButton3">DEBUG: Test final product </button>
+        <button onClick="" id="debugButton4">DEBUG: DESCRIPTION </button>
+        
     </main>
-    <footer class="containerRow">
-        <a href="#header">Back to the top</a>
+    <footer class="">
+        <a href="https://pfmooney1.github.io/Patrick-Mooney-Portfolio/" class="">Link to my website</a>
+        <br>Copyright 2020 Patrick Mooney
     </footer>
-    <!--<script src="nounChartScripts.js"></script>-->
+    <script src="nounChartScripts.js"></script>
 </body>
 </html>

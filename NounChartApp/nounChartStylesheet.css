@@ -15,13 +15,7 @@
 \* ============================================= */
 
 :root {
-    --primaryColor: #001600;
-    --secondaryColor: #245E25;
-    --tertiaryColor: #21386D;
-    --background-color: #F5F5F5;
-    --buttons: snow;
-    --portfolioCards: white;
-    --black: #07020D;
+    --primaryColor: #000000;
 }
 
 
@@ -47,102 +41,114 @@
     }
 }
 */
-
-
-
 /* ============================================= *\
                 Main Styled Parts
 \* ============================================= */
 
-body {
-    color: black;
-    background-color: darkslategray;
-    margin: 0;
-    padding: 0;
-    font-size: 18px;
- 	font-family: "Times New Roman", Helvetica, Times; "sans-serif";  
-}
+/*Body stylings are below in the CSS grid portion */
+
 header {
-    background-color: black;
-    text-align: left;
-    position: static;
-    display: flex;
-    width: 100%;
-    right: 0; 
-    top: 0; 
-    color: snow;
-    margin: 0;
-    padding: 0 0 0 2em;
+    grid-area: header;
+    background-color: darkgreen;
+    border: 2px solid black;
+    box-sizing: border-box;
+    color: black;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 0.9em;
 }
-main#mainColumn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+main {
+    grid-area: main;
+    box-sizing: border-box;
+    padding: 1em;
+    min-height: 100vh;
+    justify-items: center;
 }
 footer {
-    background-color: var(--primaryColor);
+    grid-area: footer;
+    background-color: darkgreen;
+    border: 2px solid black;
+    box-sizing: border-box;
     text-align: center;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    width: 100%;
-    right: 0; 
-    bottom: 0; 
-    color: snow;
-    padding: 1em 0;
-    margin: 0;
+    padding: .3em 0;
+    color: white;
 }
 footer a {
     color: white;
 }
 
 
-
-div.screen {
-    border: 8px solid black;
-    padding: 2em;
-    width: 80%;
-    min-height: 70vh;
+/* ============================================= *\
+                CSS Grid
+\* ============================================= */
+body { 
+    margin: 0em;
+    padding: 0em;
+    height: 100%;
+    width: 100%;
+    background-color: darkgray;
+    font-size: 0.85em;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+        "header header header"
+        "main main main"
+        "footer footer footer";
+    font-family: Georgia;
 }
-#aboutScreen {
-    padding: 2em;
+.simpleGrid {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    align-items: center;
+    justify-items: center;
 }
-#aboutScreen > p, h2 {
-    font-size: 2em;
-}
-
-
-
 /* ============================================= *\
                 Headings
 \* ============================================= */
 
-.selectionsHeader {
-    margin: 1em 3em;
-    font-size: 2em;
+h1 {
+    vertical-align: middle;
+    margin: 0em;
+    padding: 0.2em 0em 0.2em 0em;
 }
+h1, h2, h3, h4, h5 {
+    text-align: center;
+    font-family: inherit;
 
+}
+/* ============================================= *\
+                Main Menu
+\* ============================================= */
+#mainMenu {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(8, auto);
+    justify-items: center;
+    align-items: center;
+}
+#mainMenu button{
+    font-size: 1.5em;
+    width: 170pt;
+    margin: 0 0 0 0.2em;
+    font-family: inherit;
+    font-weight: 700;
+}
+div.MMbutton {
+    display: flex;
+    margin: .5em 0 0 0;
+    box-sizing: border-box;
+}
 
 
 /* ============================================= *\
                Paragraphs
 \* ============================================= */
 
-#assignmentPage {
-        text-align: center;
-}
-p.assignmentText {
-    font-size: 2em;
-    margin: 1em 3em;
-    font-weight: 800;
-    line-height: 2em;
-    vertical-align: center;
-}
-.overrideText {
-    font-size: inherit;
-    font-weight: inherit;
-    text-decoration: none;
-}
 
 
 
@@ -150,24 +156,7 @@ p.assignmentText {
                 Links and Nav
 \* ============================================= */
 
-nav#rowNav {
-    background-color: var(--secondaryColor);
-    text-align: center;
-    border: 2px 0px solid black;
-    padding: 0.25em 0em;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    text-transform: uppercase;
-    font-weight: 800;
-    font-size: 1.5em;
-    width: 100%;
-    color: black;
-}
-.link {
-    text-decoration: none;
-    color: white;
-}
+
 
 
 
@@ -175,51 +164,46 @@ nav#rowNav {
                 Inputs
 \* ============================================= */
 
+button {
+    width: 200pt;
+    font-size: 1.2em;
+    box-sizing: border-box;
+}
+button.closeButton {
+    margin: 1em auto 1em auto;
+}
 input[type=text] {
-  	color: black;
-  	background-color: white;
-  	border: 2px solid black;
+    width: 100%;
+    font-size: 1.3em;
+    border: 1px solid black;
+    box-sizing: border-box;
 }
 input[type=text]:focus {
-  	color: black;
-  	background-color: white;
-  	border: 2px solid black;
+    border: 2px solid black;
 }
-input[type=text]:hover {
-  	color: black;
-  	background-color: white;
-  	border: 2px solid black;
+#enterANounFieldSet {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    justify-items: center;
+    width: 95%;
+    margin: 0 0 1.5em 0;
+    box-sizing: border-box;
 }
 select {
- 	background-color: white;
-  	color: black;
-    border: 3px solid black;
+    border: 1px solid black;
     border-radius: 0px;
-  	margin: 0 0 1pt 0.2em;
-    font-size: 2em;
+    box-sizing: border-box;
+    font-size: 1.1em;
 }
-select:focus {
- 	background-color: white;
-  	color: black;
-}
-select:hover {
- 	background-color: white;
-  	color: black;
-}
-select:active  {
- 	background-color: white;
-  	color: black;
-}
-
-
 
 /* ============================================= *\
                 Icons, images
 \* ============================================= */
 
 img, svg {
-    height: 70px;
-    width: 70px;
+    height: 50px;
+    width: auto;
 }
     
     
@@ -228,111 +212,63 @@ img, svg {
                 Buttons
 \* ============================================= */
 
-button {
-    color: black;
-    border: 3px solid black;
-    border-radius: 2px;
-    box-shadow: 2px 2px rgba(0, 0, 0, 0.5);
-    background-color: lightgray;
-    text-align: center;
-    font-size: 2em;
-    margin: 0 0 0 0.2em;
-    width: 400px
-}
-
-button.sideBySide {
-    display: inline;
-}
-
-button:hover {
-    transform: scale(1.03);
-}
-
-.menuIcons {
-    margin: 0.4em 4em;
-}
 
 
-
-/* =========================== */
+/* ======================================== */
 /*          Toggle Tabs        */
-/* =========================== */
-
-#settingScreen {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-}
-
-#settingsLabel {
-    align-self: flex-start;
-}
-
+/* ======================================== */
 .toggleToken {
-    color: black;
-    border-radius: 3px;
-    border: 2px solid black;
-    color: black;
-    margin-top: .2em;
-    margin-bottom: .2em;
-    width: 400px;
+    width: 80%;
+    border: 1px solid black;
+    border-radius: 10px;
     background-color: lightgray;
-    box-shadow: 4px 4px 3px #888888;
+    box-shadow: 3px 3px black;
 }
-
 .checked {
     background-color: cornflowerblue;
-    box-shadow: 3px 3px 4px black inset;
+    box-shadow: -1px -1px black;
 }
-
 
 
 /* ============================================= *\
                 Tables
 \* ============================================= */
+
 table {
-    border: 3px solid black; 
+    border: 1px solid black;
     border-collapse: collapse;
-    width: 80%;
-    margin: 0 auto;
-    font-size: 3em;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 1em;
 }
-td, tr {
-    border: 3px solid black; 
+tr, td {
+    border: 1px solid black;
+}
+table.nounEndingsTable {
+    text-align: center;
+}
+table.otherChartsTable {
+    text-align: center;
 }
 td.firstColumn {
-    width: 30%;
+    width: 10%;
+    text-align: left;
+    font-weight: 900;
 }
-table.copyPasteMode {
-	text-align: center;
-  	margin: 0;
-    padding: 0;
-	border: 1px solid black;
-  	line-height: normal;
-	text-align: center;
-  	font-size: 12pt;
-  	font-family: "Times New Roman", Times, serif;
-  	width: 600px;
-  	font-weight: normal;
+td {
 }
-
-
+caption {
+    text-align: left;
+    font-weight: 800;
+}
+td.boldedCell {
+    font-weight: 800;
+}
 
 /* ============================================= *\
                 FlexBox
 \* ============================================= */
 
-.containerRow {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.containerColumn {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-}
 
 
 
@@ -340,6 +276,20 @@ table.copyPasteMode {
                 Other
 \* ============================================= */
 
+hr {
+    border: 1px solid black;
+    width: 90%;
+    margin: 1em auto;
+    box-sizing: border-box;
 
+}
+hr.debug {
+    border: 10px solid black;
+}
+
+.centeredAndLarge {
+    text-align: center;
+    font-size: 1.4em;
+}
 
 

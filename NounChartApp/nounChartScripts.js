@@ -1,4 +1,4 @@
-/* Intial variables */
+// Intial variables
 var mainMenuScreen = document.getElementById("mainMenu");
 var assignmentScreen = document.getElementById("assignmentPage");
 var enterANounScreen = document.getElementById("enterANounScreen");
@@ -7,117 +7,8 @@ var settingScreen = document.getElementById("settingScreen");
 var nounEndingsScreen = document.getElementById("nounEndingsScreen");
 var blankChartScreen = document.getElementById("blankChartScreen");
 var randomNounScreen = document.getElementById("randomNounScreen");
-//
-//
-function selectButton(id) {
-  var target = document.getElementById(id);
-  if (target.className !== "toggleToken checked") {
-    target.className = "toggleToken checked";
-  }
-  else if (target.className === "toggleToken checked") {
-    target.className = "toggleToken";
-  }
-}
-//
-// Initial div-hiders
-assignmentScreen.style.display = "none";
-enterANounScreen.style.display = "none";
-aboutScreen.style.display = "none";
-randomNounScreen.style.display = "none";
-settingScreen.style.display = "none";
-settingScreen.style.display = "none";
-settingScreen.style.display = "none";
-
-
-
-
-
-
-
-
-function goToBlankChartScreen() {
-    mainMenuScreen.style.display = "none";
-    assignmentScreen.style.display = "none";
-    enterANounScreen.style.display = "none";
-    aboutScreen.style.display = "none";
-    settingScreen.style.display = "none";  
-    nounEndingsScreen.style.display = "none";
-    blankChartScreen.style.display = "block";
-}
-function goToNounEndingsScreen() {
-    mainMenuScreen.style.display = "none";
-    assignmentScreen.style.display = "none";
-    enterANounScreen.style.display = "none";
-    aboutScreen.style.display = "none";
-    settingScreen.style.display = "none";  
-    nounEndingsScreen.style.display = "block";
-    blankChartScreen.style.display = "none";
-}
-function goToRandomNounScreen() {
-    mainMenuScreen.style.display = "none";
-    assignmentScreen.style.display = "none";
-    enterANounScreen.style.display = "none";
-    aboutScreen.style.display = "none";
-    settingScreen.style.display = "none";
-    nounEndingsScreen.style.display = "none";
-    blankChartScreen.style.display = "none";
-    randomNounScreen.style.display = "none";
-}
-
-
-function goToSettingsScreen() {
-    mainMenuScreen.style.display = "none";
-    assignmentScreen.style.display = "none";
-    enterANounScreen.style.display = "none";
-    aboutScreen.style.display = "none";
-    settingScreen.style.display = "block";
-    nounEndingsScreen.style.display = "none";
-    blankChartScreen.style.display = "none";
-}
-
-function goToAboutScreen() {
-    mainMenuScreen.style.display = "none";
-    assignmentScreen.style.display = "none";
-    enterANounScreen.style.display = "none";
-    aboutScreen.style.display = "block";
-    settingScreen.style.display = "none";
-    nounEndingsScreen.style.display = "none";
-    blankChartScreen.style.display = "none";
-}
-function goToMainMenuScreen() {
-    mainMenuScreen.style.display = "block";
-    assignmentScreen.style.display = "none";
-    enterANounScreen.style.display = "none";
-    aboutScreen.style.display = "none";
-    settingScreen.style.display = "none";
-    nounEndingsScreen.style.display = "none";
-    blankChartScreen.style.display = "none";
-}
-function goToAssignmentScreenScreen() {
-    mainMenuScreen.style.display = "none";
-    assignmentScreen.style.display = "block";
-    enterANounScreen.style.display = "none";
-    aboutScreen.style.display = "none";
-    settingScreen.style.display = "none";
-    nounEndingsScreen.style.display = "none";
-    blankChartScreen.style.display = "none";
-}
-function goToEnterANounScreenScreen() {
-    mainMenuScreen.style.display = "none";
-    assignmentScreen.style.display = "none";
-    enterANounScreen.style.display = "block";
-    aboutScreen.style.display = "none";
-    settingScreen.style.display = "none";
-    nounEndingsScreen.style.display = "none";
-    blankChartScreen.style.display = "none";
-}
-/*
-mainMenuScreen.style.display = "none";
-assignmentScreen.style.display = "none";
-enterANounScreen.style.display = "none";
-aboutScreen.style.display = "none";
-settingScreen.style.display = "none";
-*/
+var otherCharts = document.getElementById("otherCharts");
+var selectANoun = document.getElementById("selectANoun");
 
 
 var vocabIncluded = true;
@@ -127,6 +18,319 @@ var nounEndingsOnlyChoice = "1st declension";
 var copyPasteMode = false;
 var declension;
 var nounBase;
+var vocativeIncluded = true;
+//
+//
+// Initial div-hiders
+/*
+assignmentScreen.style.display = "none";
+enterANounScreen.style.display = "none";
+aboutScreen.style.display = "none";
+randomNounScreen.style.display = "none";
+settingScreen.style.display = "none";
+settingScreen.style.display = "none";
+settingScreen.style.display = "none";
+otherCharts.style.display = "none";
+selectANoun.style.display = "none";
+*/
+//
+//
+function vocativeButtonFunctions(id) {
+    selectButton(id);
+    showHideVocatives();
+}
+function selectButton(id) {
+    var target = document.getElementById(id);
+    if (target.className !== "toggleToken checked") {
+        target.className = "toggleToken checked";
+    }
+    else if (target.className === "toggleToken checked") {
+        target.className = "toggleToken";
+    }
+}
+//
+function showHideVocatives() {
+    var vocativeTableRows = document.getElementsByClassName("vocativeRow");
+    if (vocativeIncluded == true || undefined) {
+        vocativeTableRows[0].style.visibility = "hidden";
+        vocativeTableRows[1].style.visibility = "hidden";
+        vocativeTableRows[2].style.visibility = "hidden";
+        vocativeTableRows[3].style.visibility = "hidden";
+        vocativeTableRows[4].style.visibility = "hidden";
+        vocativeTableRows[5].style.visibility = "hidden";
+        vocativeTableRows[6].style.visibility = "hidden";
+        vocativeTableRows[7].style.visibility = "hidden";
+        vocativeTableRows[8].style.visibility = "hidden";
+        vocativeTableRows[9].style.visibility = "hidden";
+        vocativeIncluded = false;
+        document.getElementById("VocChoiceA").style.className = "toggleToken";
+        document.getElementById("VocChoiceB").style.className = "toggleToken";
+        document.getElementById("VocChoiceC").style.className = "toggleToken";
+        document.getElementById("VocChoiceD").style.className = "toggleToken";
+        document.getElementById("VocChoiceE").style.className = "toggleToken";
+    }
+    else if (vocativeIncluded == false) {
+        vocativeTableRows[0].style.visibility = "visible";
+        vocativeTableRows[1].style.visibility = "visible";
+        vocativeTableRows[2].style.visibility = "visible";
+        vocativeTableRows[3].style.visibility = "visible";
+        vocativeTableRows[4].style.visibility = "visible";
+        vocativeTableRows[5].style.visibility = "visible";
+        vocativeTableRows[6].style.visibility = "visible";
+        vocativeTableRows[7].style.visibility = "visible";
+        vocativeTableRows[8].style.visibility = "visible";
+        vocativeTableRows[9].style.visibility = "visible";
+        vocativeIncluded = true;
+        document.getElementById("VocChoiceA").style.className = "toggleToken checked";
+        document.getElementById("VocChoiceB").style.className = "toggleToken checked";
+        document.getElementById("VocChoiceC").style.className = "toggleToken checked";
+        document.getElementById("VocChoiceD").style.className = "toggleToken checked";
+        document.getElementById("VocChoiceE").style.className = "toggleToken checked";
+    }
+    else {
+        alert("Error! Conditions in the showHideVocatives function are not met");
+    }
+}
+//
+function testFinalProduct() {
+    var x = document.getElementsByClassName("debug");
+    for (var i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    document.getElementById("debugButton1").style.display = "none";
+    document.getElementById("debugButton2").style.display = "none";
+    document.getElementById("debugButton3").style.display = "none";
+    document.getElementById("debugButton4").style.display = "none";
+    onHideAll();
+}
+
+
+function onHideAll() {
+    mainMenuScreen.style.display = "grid";
+    assignmentScreen.style.display = "none";
+    enterANounScreen.style.display = "none";
+    aboutScreen.style.display = "none";
+    settingScreen.style.display = "none";
+    nounEndingsScreen.style.display = "none";
+    blankChartScreen.style.display = "none";
+    randomNounScreen.style.display = "none";
+    otherCharts.style.display = "none";
+    selectANoun.style.display = "none";
+}
+function onShowAll() {
+    mainMenuScreen.style.display = "grid";
+    assignmentScreen.style.display = "grid";
+    enterANounScreen.style.display = "grid";
+    aboutScreen.style.display = "grid";
+    settingScreen.style.display = "grid";
+    nounEndingsScreen.style.display = "grid";
+    blankChartScreen.style.display = "grid";
+    randomNounScreen.style.display = "grid";
+    otherCharts.style.display = "grid";
+    selectANoun.style.display = "grid";
+}
+
+
+
+function goToOtherChartsScreen() {
+    mainMenuScreen.style.display = "none";
+    assignmentScreen.style.display = "none";
+    enterANounScreen.style.display = "none";
+    aboutScreen.style.display = "none";
+    settingScreen.style.display = "none";  
+    nounEndingsScreen.style.display = "none";
+    blankChartScreen.style.display = "none";
+    randomNounScreen.style.display = "none";
+    otherCharts.style.display = "grid";
+    selectANoun.style.display = "none";
+}
+
+function goToSelectANounScreen() {
+    mainMenuScreen.style.display = "none";
+    assignmentScreen.style.display = "none";
+    enterANounScreen.style.display = "none";
+    aboutScreen.style.display = "none";
+    settingScreen.style.display = "none";  
+    nounEndingsScreen.style.display = "none";
+    blankChartScreen.style.display = "none";
+    randomNounScreen.style.display = "none";
+    otherCharts.style.display = "none";
+    selectANoun.style.display = "grid";
+}
+
+function goToBlankChartScreen() {
+    mainMenuScreen.style.display = "none";
+    assignmentScreen.style.display = "none";
+    enterANounScreen.style.display = "none";
+    aboutScreen.style.display = "none";
+    settingScreen.style.display = "none";  
+    nounEndingsScreen.style.display = "none";
+    blankChartScreen.style.display = "grid";
+    randomNounScreen.style.display = "none";
+    otherCharts.style.display = "none";
+    selectANoun.style.display = "none";
+}
+function goToNounEndingsScreen() {
+    mainMenuScreen.style.display = "none";
+    assignmentScreen.style.display = "none";
+    enterANounScreen.style.display = "none";
+    aboutScreen.style.display = "none";
+    settingScreen.style.display = "none";  
+    nounEndingsScreen.style.display = "grid";
+    randomNounScreen.style.display = "none";
+    blankChartScreen.style.display = "none";
+    otherCharts.style.display = "none";
+    selectANoun.style.display = "none";
+}
+function goToRandomNounScreen() {
+    mainMenuScreen.style.display = "none";
+    assignmentScreen.style.display = "none";
+    enterANounScreen.style.display = "none";
+    aboutScreen.style.display = "none";
+    settingScreen.style.display = "none";
+    nounEndingsScreen.style.display = "none";
+    blankChartScreen.style.display = "none";
+    randomNounScreen.style.display = "grid";
+    otherCharts.style.display = "none";
+    selectANoun.style.display = "none";
+}
+
+
+function goToSettingsScreen() {
+    mainMenuScreen.style.display = "none";
+    assignmentScreen.style.display = "none";
+    enterANounScreen.style.display = "none";
+    aboutScreen.style.display = "none";
+    settingScreen.style.display = "grid";
+    nounEndingsScreen.style.display = "none";
+    blankChartScreen.style.display = "none";
+    otherCharts.style.display = "none";
+    selectANoun.style.display = "none";
+    randomNounScreen.style.display = "none";
+}
+
+function goToAboutScreen() {
+    mainMenuScreen.style.display = "none";
+    assignmentScreen.style.display = "none";
+    enterANounScreen.style.display = "none";
+    aboutScreen.style.display = "grid";
+    settingScreen.style.display = "none";
+    nounEndingsScreen.style.display = "none";
+    blankChartScreen.style.display = "none";
+    otherCharts.style.display = "none";
+    selectANoun.style.display = "none";
+    randomNounScreen.style.display = "none";
+}
+function goToMainMenuScreen() {
+    mainMenuScreen.style.display = "grid";
+    assignmentScreen.style.display = "none";
+    enterANounScreen.style.display = "none";
+    aboutScreen.style.display = "none";
+    settingScreen.style.display = "none";
+    nounEndingsScreen.style.display = "none";
+    blankChartScreen.style.display = "none";
+    randomNounScreen.style.display = "none";
+    otherCharts.style.display = "none";
+    selectANoun.style.display = "none";
+}
+function goToAssignmentScreenScreen() {
+    mainMenuScreen.style.display = "none";
+    assignmentScreen.style.display = "grid";
+    enterANounScreen.style.display = "none";
+    aboutScreen.style.display = "none";
+    settingScreen.style.display = "none";
+    nounEndingsScreen.style.display = "none";
+    blankChartScreen.style.display = "none";
+    otherCharts.style.display = "none";
+    selectANoun.style.display = "none";
+    randomNounScreen.style.display = "none";
+}
+function goToEnterANounScreenScreen() {
+    mainMenuScreen.style.display = "none";
+    assignmentScreen.style.display = "none";
+    enterANounScreen.style.display = "grid";
+    aboutScreen.style.display = "none";
+    settingScreen.style.display = "none";
+    nounEndingsScreen.style.display = "none";
+    blankChartScreen.style.display = "none";
+    otherCharts.style.display = "none";
+    selectANoun.style.display = "none";
+    randomNounScreen.style.display = "none";
+}
+
+
+
+
+//
+// Other Charts
+//
+var relativePronounChartA = document.getElementById("relativePronounChartA");
+var relativePronounChartB = document.getElementById("relativePronounChartB");
+var thirdPersonPronounChartA = document.getElementById("thirdPersonPronounChartA");
+var thirdPersonPronounChartB = document.getElementById("thirdPersonPronounChartB");
+var hicChartA = document.getElementById("hicChartA");
+var hicChartB = document.getElementById("hicChartB");
+var illeChartA = document.getElementById("illeChartA");
+var illeChartB = document.getElementById("illeChartB");
+var isteChartA = document.getElementById("isteChartA");
+var isteChartB = document.getElementById("isteChartB");
+
+/*
+Once the coding is finished, remove the comment so that only one chart pops up at a time on startup
+
+relativePronounChartA.style.display = "table";
+relativePronounChartB.style.display = "table";
+thirdPersonPronounChartA.style.display = "none";
+thirdPersonPronounChartB.style.display = "none";
+hicChartA.style.display = "none";
+hicChartB.style.display = "none";
+illeChartA.style.display = "none";
+illeChartB.style.display = "none";
+isteChartA.style.display = "none";
+isteChartB.style.display = "none";
+
+*/
+
+function selectOtherChart() {
+    relativePronounChartA.style.display = "none";
+    relativePronounChartB.style.display = "none";
+    thirdPersonPronounChartA.style.display = "none";
+    thirdPersonPronounChartB.style.display = "none";
+    hicChartA.style.display = "none";
+    hicChartB.style.display = "none";
+    illeChartA.style.display = "none";
+    illeChartB.style.display = "none";
+    isteChartA.style.display = "none";
+    isteChartB.style.display = "none";
+    
+    var otherChartSelection = document.getElementById("otherChartsSelection").value;
+    if (otherChartSelection === "relative") {
+        relativePronounChartA.style.display = "table";
+        relativePronounChartB.style.display = "table";
+    }
+    else if (otherChartSelection === "is") {
+        thirdPersonPronounChartA.style.display = "table";
+        thirdPersonPronounChartB.style.display = "table";
+    }
+    else if (otherChartSelection === "hic") {
+        hicChartA.style.display = "table";
+        hicChartB.style.display = "table";
+    }
+    else if (otherChartSelection === "ille") {
+        illeChartA.style.display = "table";
+        illeChartB.style.display = "table";
+    }
+    else if (otherChartSelection === "iste") {
+        isteChartA.style.display = "table";
+        isteChartB.style.display = "table";
+    }   
+    else {
+        alert("ERROR! Other chart selection cannot be made!");
+    }
+}
+
+
+
 /*
 
 //
@@ -154,11 +358,11 @@ function declensionID() {
         declension = "3rd";
         base = genitive.slice(0, genLength - 2);
     }
-    else if (genitiveSingularInput.endsWith("us") {
+    else if (genitiveSingularInput.endsWith("us")) {
         declension = "4th";
         base = genitive.slice(0, genLength - 2);
     }
-    else if (genitiveSingularInput.endsWith("ei") {
+    else if (genitiveSingularInput.endsWith("ei")) {
         declension = "5th";
         base = genitive.slice(0, genLength - 2);
     }
@@ -312,7 +516,6 @@ function englishMeaningSetter() {
 // Sets all of the Latin endings
 function latinEndingSetter() {
     if (declension === "1st") {
-        //=== 1ST DECLENSION ===
         nomSing = nominative;
         genSing = base + "ae";
         datSing = base + "ae";
@@ -327,7 +530,6 @@ function latinEndingSetter() {
         vocPl = nomPl;
     }
     else if ((declension === "2nd") && (gender === "m") && (nomLastLetter === "s")) {
-        //=== 2ND DECLENSION MASCULINE === 
         nomSing = nominative;
         genSing = base + "i";
         datSing = base + "o";
@@ -343,7 +545,6 @@ function latinEndingSetter() {
     }
     
     else if ((declension === "2nd") && (gender === "m") && (nomLastLetter === "r")) {
-        //=== 2ND DECLENSION MASCULINE R=== 
         nomSing = nominative;
         genSing = base + "i";
         datSing = base + "o";
@@ -358,7 +559,6 @@ function latinEndingSetter() {
         vocPl = nomPl;
     }
     else if ((declension === "2nd") && (gender === "n")) {
-        //=== 2ND DECLENSION NEUTER === 
         nomSing = nominative;
         genSing = base + "i";
         datSing = base + "o";
@@ -373,7 +573,6 @@ function latinEndingSetter() {
         vocPl = nomPl;
     }
     else if (declension === "3rd" && gender !== "n") {
-        //=== 3RD DECLENSION MASCULINE OR FEMININE === 
         nomSing = nominative;
         genSing = base + "is";
         datSing = base + "i";
@@ -388,7 +587,6 @@ function latinEndingSetter() {
         vocPl = nomPl;
         }
     else if (declension === "3rd" && gender === "n") {
-        //=== 3RD DECLENSION NEUTER === 
         nomSing = nominative;
         genSing = base + "is";
         datSing = base + "i";
@@ -403,7 +601,6 @@ function latinEndingSetter() {
         vocPl = nomPl;
     }
     else if (declension === "4th" && gender === "n") {
-        //=== 4TH DECLENSION NEUTER === 
         nomSing = nominative;
         genSing = base + "us";
         datSing = base + "u";
@@ -418,7 +615,6 @@ function latinEndingSetter() {
         vocPl = nomPl;
     }
     else if (declension === "4th" && (gender === "m" || "f")) {
-        //=== 4TH DECLENSION MASCULINE AND FEMININE === 
         nomSing = nominative;
         genSing = base + "us";
         datSing = base + "ui";
@@ -451,532 +647,501 @@ function latinEndingSetter() {
         alert("ERROR! Noun endings could not be chosed");
     }
 }
-
+*/
 
 
 //
 // PRE-MADE NOUN SETTER
 // Sets all of the Latin endings of selected nouns
-function selectedNounSetter() {
+
+function declineSelectedNoun(id) {
+    var selectedNoun = document.getElementById(id).value;
+    var selectedLatinNoun;
+    var englishMeaning;
     if (selectedNoun === "") {
         alert("ERROR! No noun selected!");
     }
-    else if (selectedNoun === "filius - (son)") {
-            noun = "filius, filii, m"; 
+    else if (selectedNoun === "filius") {
+            selectedLatinNoun = "filius, filii, m"; 
             englishMeaning = "son";	
     }
-    else if	(selectedNoun === "ludus - (game)") {
-            noun = "ludus, ludi, m"; 
+    else if	(selectedNoun === "ludus") {
+            selectedLatinNoun = "ludus, ludi, m"; 
             englishMeaning = "game";	
     }
-    else if	(selectedNoun === "mundus - (world)") {
-            noun = "mundus, mundi, m"; 
+    else if	(selectedNoun === "mundus") {
+            selectedLatinNoun = "mundus, mundi, m"; 
             englishMeaning = "world";		
     }
-    else if	(selectedNoun === "vicinus - (neighbor)") {
-            noun = "vicinus, vicini, m"; 
+    else if	(selectedNoun === "vicinus") {
+            selectedLatinNoun = "vicinus, vicini, m"; 
             englishMeaning = "neighbor";		
     }
-    else if	(selectedNoun === "vulgus - (mob)") {
-            noun = "vulgus, vulgi, m"; 
+    else if	(selectedNoun === "vulgus") {
+            selectedLatinNoun = "vulgus, vulgi, m"; 
             englishMeaning = "mob";		
     }
-    else if	(selectedNoun === "vicina - (neighbor)") {
-            noun = "vicina, vicinae, f"; 
+    else if	(selectedNoun === "vicina") {
+            selectedLatinNoun = "vicina, vicinae, f"; 
             englishMeaning = "neighbor";		
     }
-    else if	(selectedNoun === "iudicium - (judgement)") {
-            noun = "iudicium, iudicii, n"; 
+    else if	(selectedNoun === "iudicium") {
+            selectedLatinNoun = "iudicium, iudicii, n"; 
             englishMeaning = "judgement";		
     }
-    else if	(selectedNoun === "forum - (marketplace)") {
-            noun = "forum, fori, n"; 
+    else if	(selectedNoun === "forum") {
+            selectedLatinNoun = "forum, fori, n"; 
             englishMeaning = "marketplace";		
     }
-    else if	(selectedNoun === "aedificium - (building)") {
-            noun = "aedificium, aedificii, n"; 
+    else if	(selectedNoun === "aedificium") {
+            selectedLatinNoun = "aedificium, aedificii, n"; 
             englishMeaning = "building";		
     }
-    else if	(selectedNoun === "saxum - (rock)") {
-            noun = "saxum, saxi, n"; 
+    else if	(selectedNoun === "saxum") {
+            selectedLatinNoun = "saxum, saxi, n"; 
             englishMeaning = "rock";		
     }
-    /*
-    ==============================
-    ======= 1st Declension =======
-    ==============================
-    */
-/*
-    else if	(selectedNoun === "magistra - (teacher)") {
-            noun = "magistra, magistrae, f";
+    
+
+    else if	(selectedNoun === "magistra") {
+            selectedLatinNoun = "magistra, magistrae, f";
             englishMeaning = "teacher";
     }
-    else if  (selectedNoun === "discipula - (student)") {
-            noun = "discipula, discipulae, f";
+    else if  (selectedNoun === "discipula") {
+            selectedLatinNoun = "discipula, discipulae, f";
             englishMeaning = "student";
     }
-    else if  (selectedNoun === "poeta - (poet)") {
-            noun = "poeta, -ae, m."; 
+    else if  (selectedNoun === "poeta") {
+            selectedLatinNoun = "poeta, -ae, m."; 
             englishMeaning = "poet";
     }
-    else if  (selectedNoun === "fama - (rumor)") {
-            noun = "fama, -ae, f."; 
+    else if  (selectedNoun === "fama") {
+            selectedLatinNoun = "fama, -ae, f."; 
             englishMeaning = "rumor";
     }
-    else if  (selectedNoun === "cura - (care)") {
-            noun = "cura, -ae, f."; 
+    else if  (selectedNoun === "cura") {
+            selectedLatinNoun = "cura, -ae, f."; 
             englishMeaning = "care";
     }
-    else if  (selectedNoun === "puella - (girl)") {
-            noun = "puella, -ae, f."; 
+    else if  (selectedNoun === "puella") {
+            selectedLatinNoun = "puella, -ae, f."; 
             englishMeaning = "girl";
     }
-    else if  (selectedNoun === "rosa - (rose)") {
-            noun = "rosa, -ae, f."; 
+    else if  (selectedNoun === "rosa") {
+            selectedLatinNoun = "rosa, -ae, f."; 
             englishMeaning = "rose";
     }
-    else if  (selectedNoun === "vita - (life)") {
-            noun = "vita, -ae, f."; 
+    else if  (selectedNoun === "vita") {
+            selectedLatinNoun = "vita, -ae, f."; 
             englishMeaning = "life";
     }
-    else if  (selectedNoun === "mora - (delay)") {
-            noun = "mora, -ae, f."; 
+    else if  (selectedNoun === "mora") {
+            selectedLatinNoun = "mora, -ae, f."; 
             englishMeaning = "delay";
     }
-    else if  (selectedNoun === "nauta - (sailor)") {
-            noun = "nauta, -ae, m."; 
+    else if  (selectedNoun === "nauta") {
+            selectedLatinNoun = "nauta, -ae, m."; 
             englishMeaning = "sailor";
     }
-    else if  (selectedNoun === "culpa - (fault)") {
-            noun = "culpa, -ae, f."; 
+    else if  (selectedNoun === "culpa") {
+            selectedLatinNoun = "culpa, -ae, f."; 
             englishMeaning = "fault";
     }
-    else if  (selectedNoun === "forma - (form)") {
-            noun = "forma, -ae, f."; 
+    else if  (selectedNoun === "forma") {
+            selectedLatinNoun = "forma, -ae, f."; 
             englishMeaning = "form";
     }
-    else if  (selectedNoun === "poena - (penalty)") {
-            noun = "poena, -ae, f."; 
+    else if  (selectedNoun === "poena") {
+            selectedLatinNoun = "poena, -ae, f."; 
             englishMeaning = "penalty";
     }
-    else if  (selectedNoun === "amica - (friend)") {
-            noun = "amica, amicae, f ";
+    else if  (selectedNoun === "amica") {
+            selectedLatinNoun = "amica, amicae, f ";
             englishMeaning = "friend";
     }
-    else if  (selectedNoun === "ira - (rage)") {
-            noun = "ira, irae, f ";
+    else if  (selectedNoun === "ira") {
+            selectedLatinNoun = "ira, irae, f ";
             englishMeaning = "rage";
     }
-    else if  (selectedNoun === "pecunia - (money)") {
-            noun = "pecunia, pecuniae, f";
+    else if  (selectedNoun === "pecunia") {
+            selectedLatinNoun = "pecunia, pecuniae, f";
             englishMeaning = "money";
     }
-    else if  (selectedNoun === "porta - (gate)") {
-            noun = "porta, portae, f";
+    else if  (selectedNoun === "porta") {
+            selectedLatinNoun = "porta, portae, f";
             englishMeaning = "gate";	
     }
-    else if  (selectedNoun === "pirata - (pirate)") {
-            noun = "pirata, piratae, m";
+    else if  (selectedNoun === "pirata") {
+            selectedLatinNoun = "pirata, piratae, m";
             englishMeaning = "pirate";	
     }
-    /*
-    ========================================
-    ======= 2nd Declension Masculine =======
-    ========================================
-    */
-/*
-    else if  (selectedNoun === "amicus - (friend)") {
-            noun = "amicus, amici, m ";
+    
+
+    else if  (selectedNoun === "amicus") {
+            selectedLatinNoun = "amicus, amici, m ";
             englishMeaning = "friend";
     }
-    else if  (selectedNoun === "oculus - (eye)") {
-            noun = "oculus, -i, m."; 
+    else if  (selectedNoun === "oculus") {
+            selectedLatinNoun = "oculus, -i, m."; 
             englishMeaning = "eye";
     }
-    else if  (selectedNoun === "animus - (soul)") {
-            noun = "animus, -i, m."; 
+    else if  (selectedNoun === "animus") {
+            selectedLatinNoun = "animus, -i, m."; 
             englishMeaning = "soul";
     }
-    else if  (selectedNoun === "stultus - (fool)") {
-            noun = "stultus, -i, m."; 
+    else if  (selectedNoun === "stultus") {
+            selectedLatinNoun = "stultus, -i, m."; 
             englishMeaning = "fool";
     }
-    else if  (selectedNoun === "discipulus - (student)") {
-            noun = "discipulus, discipuli, m";
+    else if  (selectedNoun === "discipulus") {
+            selectedLatinNoun = "discipulus, discipuli, m";
             englishMeaning = "student";
     }
-    else if  (selectedNoun === "puer - (boy)") {
-            noun = "puer, pueri, m."; 
+    else if  (selectedNoun === "puer") {
+            selectedLatinNoun = "puer, pueri, m."; 
             englishMeaning = "boy";
     }
-    else if  (selectedNoun === "magister - (teacher)") {
-            noun = "magister, magistri, m."; 
+    else if  (selectedNoun === "magister") {
+            selectedLatinNoun = "magister, magistri, m."; 
             englishMeaning = "teacher";
     }
-    else if  (selectedNoun === "vir - (man)") {
-            noun = "vir, viri, m."; 
+    else if  (selectedNoun === "vir") {
+            selectedLatinNoun = "vir, viri, m."; 
             englishMeaning = "man";
     }
-    else if  (selectedNoun === "ager - (field)") {
-            noun = "ager, agri, m."; 
+    else if  (selectedNoun === "ager") {
+            selectedLatinNoun = "ager, agri, m."; 
             englishMeaning = "field";
     }
-    else if  (selectedNoun === "faber - (smith)") {
-            noun = "faber, fabri, m."; 
+    else if  (selectedNoun === "faber") {
+            selectedLatinNoun = "faber, fabri, m."; 
             englishMeaning = "smith";
     }
-    else if  (selectedNoun === "liber - (book)") {
-            noun = "liber, libri, m."; 
+    else if  (selectedNoun === "liber") {
+            selectedLatinNoun = "liber, libri, m."; 
             englishMeaning = "book";
     }
-    /*
-    =====================================
-    ======= 2nd Declension Neuter =======
-    =====================================
-    */
-/*
-    else if  (selectedNoun === "basium - (kiss)") {
-            noun = "basium, basii, n";
+
+    else if  (selectedNoun === "basium") {
+            selectedLatinNoun = "basium, basii, n";
             englishMeaning = "kiss";
     }
-    else if  (selectedNoun === "bellum - (war)") {
-            noun = "bellum, belli, n";
+    else if  (selectedNoun === "bellum") {
+            selectedLatinNoun = "bellum, belli, n";
             englishMeaning = "war";
     }
-    else if  (selectedNoun === "consilium - (plan)") {
-            noun = "consilium, consilii, n";
+    else if  (selectedNoun === "consilium") {
+            selectedLatinNoun = "consilium, consilii, n";
             englishMeaning = "plan";
     }
-    else if  (selectedNoun === "donum - (gift)") {
-            noun = "donum, doni, n ";
+    else if  (selectedNoun === "donum") {
+            selectedLatinNoun = "donum, doni, n ";
             englishMeaning = "gift";
     }
-    else if  (selectedNoun === "exitium - (ruin)") {
-            noun = "exitium, exitii, n"; 
+    else if  (selectedNoun === "exitium") {
+            selectedLatinNoun = "exitium, exitii, n"; 
             englishMeaning = "ruin";
     }
-    else if  (selectedNoun === "officium - (duty)") {
-            noun = "officium, officii, n"; 
+    else if  (selectedNoun === "officium") {
+            selectedLatinNoun = "officium, officii, n"; 
             englishMeaning = "duty";
     }
-    else if  (selectedNoun === "verbum - (word)") {
-            noun = "verbum, verbi, n"; 
+    else if  (selectedNoun === "verbum") {
+            selectedLatinNoun = "verbum, verbi, n"; 
             englishMeaning = "word";
     }
-    else if  (selectedNoun === "caelum - (heaven)") {
-            noun = "caelum, caeli, n "; 
+    else if  (selectedNoun === "caelum") {
+            selectedLatinNoun = "caelum, caeli, n "; 
             englishMeaning = "heaven";
     }
-    else if  (selectedNoun === "otium - (peace)") {
-            noun = "otium, otii, n";
+    else if  (selectedNoun === "otium") {
+            selectedLatinNoun = "otium, otii, n";
             englishMeaning = "peace";
     }
-    else if  (selectedNoun === "periculum - (danger)") {
-            noun = "periculum, periculi, n";
+    else if  (selectedNoun === "periculum") {
+            selectedLatinNoun = "periculum, periculi, n";
             englishMeaning = "danger";
     }
-    else if  (selectedNoun === "remedium - (cure)") {
-            noun = "remedium, remedii, n";
+    else if  (selectedNoun === "remedium") {
+            selectedLatinNoun = "remedium, remedii, n";
             englishMeaning = "cure";
     }
-    /*
-    =====================================================
-    ======= 3rd Declension Masculine and Feminine =======
-    =====================================================
-    */
-/*
-    else if  (selectedNoun === "pater - (father)") {
-            noun = "pater, patris, m"; 
+    
+
+    else if  (selectedNoun === "pater") {
+            selectedLatinNoun = "pater, patris, m"; 
             englishMeaning = "father";
     }
-    else if  (selectedNoun === "mater - (mother)") {
-            noun = "mater, matris, f"; 
+    else if  (selectedNoun === "mater") {
+            selectedLatinNoun = "mater, matris, f"; 
             englishMeaning = "mother";
     }
-    else if  (selectedNoun === "vox - (voice)") {
-            noun = "vox, vocis, f"; 
+    else if  (selectedNoun === "vox") {
+            selectedLatinNoun = "vox, vocis, f"; 
             englishMeaning = "voice";
     }
-    else if  (selectedNoun === "dux - (leader)") {
-            noun = "dux, ducis, m"; 
+    else if  (selectedNoun === "dux") {
+            selectedLatinNoun = "dux, ducis, m"; 
             englishMeaning = "leader";
     }
-    else if  (selectedNoun === "miles - (soldier)") {
-            noun = "miles, militis, m"; 
+    else if  (selectedNoun === "miles") {
+            selectedLatinNoun = "miles, militis, m"; 
             englishMeaning = "soldier";
     }
-    else if  (selectedNoun === "homo - (human)") {
-            noun = "homo, hominis, m"; 
+    else if  (selectedNoun === "homo") {
+            selectedLatinNoun = "homo, hominis, m"; 
             englishMeaning = "human";
     }
-    else if  (selectedNoun === "aestas - (age)") {
-            noun = "aestas, aestatis, f"; 
+    else if  (selectedNoun === "aestas") {
+            selectedLatinNoun = "aestas, aestatis, f"; 
             englishMeaning = "age";
     }
-    else if  (selectedNoun === "pax - (peace)") {
-            noun = "pax, pacis, f"; 
+    else if  (selectedNoun === "pax") {
+            selectedLatinNoun = "pax, pacis, f"; 
             englishMeaning = "peace";
     }
-    else if  (selectedNoun === "consul - (consul)") {
-            noun = "consul, consulis, m"; 
+    else if  (selectedNoun === "consul") {
+            selectedLatinNoun = "consul, consulis, m"; 
             englishMeaning = "consul";
     }
-    else if  (selectedNoun === "soror - (sister)") {
-            noun = "soror, sororis, f"; 
+    else if  (selectedNoun === "soror") {
+            selectedLatinNoun = "soror, sororis, f"; 
             englishMeaning = "sister";
     }
-    else if  (selectedNoun === "frater - (brother)") {
-            noun = "frater, fratris, m"; 
-            englishMeaning = "brother">
+    else if  (selectedNoun === "frater") {
+            selectedLatinNoun = "frater, fratris, m"; 
+            englishMeaning = "brother";
     }
-    else if  (selectedNoun === "civitas - (city)") {
-            noun = "civitas, civitatis, f"; 
+    else if  (selectedNoun === "civitas") {
+            selectedLatinNoun = "civitas, civitatis, f"; 
             englishMeaning = "city";
     }
-    else if  (selectedNoun === "pars - (part)") {
-            noun = "pars, partis, f"; 
+    else if  (selectedNoun === "pars") {
+            selectedLatinNoun = "pars, partis, f"; 
             englishMeaning = "part";
     }
-    else if  (selectedNoun === "lux - (light)") {
-            noun = "lux, lucis, f"; 
+    else if  (selectedNoun === "lux") {
+            selectedLatinNoun = "lux, lucis, f"; 
             englishMeaning = "light";
     }
-    else if  (selectedNoun === "rex - (king)") {
-            noun = "rex, regis, m";
+    else if  (selectedNoun === "rex") {
+            selectedLatinNoun = "rex, regis, m";
             englishMeaning = "king";
     }
-    /*
-    =====================================
-    ======= 3rd Declension Neuter =======
-    =====================================
-    */
-/*
-    else if  (selectedNoun === "corpus - (body)") {
-            noun = "corpus, corporis, n";
+
+
+    else if  (selectedNoun === "corpus") {
+            selectedLatinNoun = "corpus, corporis, n";
             englishMeaning = "body";
     }
-    else if  (selectedNoun === "scelus - (crime)") {
-            noun = "scelus, sceleris, n"; 
+    else if  (selectedNoun === "scelus") {
+            selectedLatinNoun = "scelus, sceleris, n"; 
             englishMeaning = "crime";
     }
-    else if  (selectedNoun === "sidus - (constellation)") {
-            noun = "sidus, sideris, n"; 
+    else if  (selectedNoun === "sidus") {
+            selectedLatinNoun = "sidus, sideris, n"; 
             englishMeaning = "constellation";
     }
-    else if  (selectedNoun === "ius - (law)") {
-            noun = "ius, iuris, n"; 
+    else if  (selectedNoun === "ius") {
+            selectedLatinNoun = "ius, iuris, n"; 
             englishMeaning = "law";
     }
-    else if  (selectedNoun === "limen - (threshold)") {
-            noun = "limen, liminis, n"; 
+    else if  (selectedNoun === "limen") {
+            selectedLatinNoun = "limen, liminis, n"; 
             englishMeaning = "threshold";
     }
-    else if  (selectedNoun === "liquamen - (fish sauce)") {
-            noun = "liquamen, liquaminis, n"; 
+    else if  (selectedNoun === "liquamen") {
+            selectedLatinNoun = "liquamen, liquaminis, n"; 
             englishMeaning = "fish sauce";
     }
-    else if  (selectedNoun === "epigramma - (epigram)") {
-            noun = "epigramma, epigrammatis, n"; 
+    else if  (selectedNoun === "epigramma") {
+            selectedLatinNoun = "epigramma, epigrammatis, n"; 
             englishMeaning = "epigram";
     }
-    else if  (selectedNoun === "diploma - (diploma)") {
-            noun = "diploma, diplomatis, n"; 
+    else if  (selectedNoun === "diploma") {
+            selectedLatinNoun = "diploma, diplomatis, n"; 
             englishMeaning = "diploma";
     }
-    else if  (selectedNoun === "opus - (work)") {
-            noun = "opus, operis, n"; 
+    else if  (selectedNoun === "opus") {
+            selectedLatinNoun = "opus, operis, n"; 
             englishMeaning = "work";
     }
-    else if  (selectedNoun === "caput - (head)") {
-            noun = "caput, capitis, n"; 
+    else if  (selectedNoun === "caput") {
+            selectedLatinNoun = "caput, capitis, n"; 
             englishMeaning = "head";
     }
-    else if  (selectedNoun === "carmen - (song)") {
-            noun = "carmen, carminis, n"; 
+    else if  (selectedNoun === "carmen") {
+            selectedLatinNoun = "carmen, carminis, n"; 
             englishMeaning = "song";
     }
-    else if  (selectedNoun === "flumen - (river)") {
-            noun = "flumen, fluminis, n"; 
+    else if  (selectedNoun === "flumen") {
+            selectedLatinNoun = "flumen, fluminis, n"; 
             englishMeaning = "river";
     }
-    else if  (selectedNoun === "iter - (trip)") {
-            noun = "iter, itineris, n"; 
+    else if  (selectedNoun === "iter") {
+            selectedLatinNoun = "iter, itineris, n"; 
             englishMeaning = "trip";
     }
-    else if  (selectedNoun === "nomen - (name)") {
-            noun = "nomen, nominis, n"; 
+    else if  (selectedNoun === "nomen") {
+            selectedLatinNoun = "nomen, nominis, n"; 
             englishMeaning = "name";
     }
-    else if  (selectedNoun === "tempus - (storm)") {
-            noun = "tempus, temporis, n"; 
+    else if  (selectedNoun === "tempus") {
+            selectedLatinNoun = "tempus, temporis, n"; 
             englishMeaning = "storm";
     }
-    else if  (selectedNoun === "vulnus - (wound)") {
-            noun = "vulnus, vulneris, n"; 
+    else if  (selectedNoun === "vulnus") {
+            selectedLatinNoun = "vulnus, vulneris, n"; 
             englishMeaning = "wound";
     }
-    /*
-    =====================================================
-    ======= 4th Declension Masculine and Feminine =======
-    =====================================================
-    */
-/*
-    else if  (selectedNoun === "exercitus - (army)") {
-            noun = "exercitus, exercitus, m";
+    
+
+    else if  (selectedNoun === "exercitus") {
+            selectedLatinNoun = "exercitus, exercitus, m";
             englishMeaning = "army";
     }
-    else if  (selectedNoun === "arcus - (bow)") {
-            noun = "arcus, -us, m"; 
+    else if  (selectedNoun === "arcus") {
+            selectedLatinNoun = "arcus, -us, m"; 
             englishMeaning = "bow";
     }
-    else if  (selectedNoun === "cantus - (song)") {
-            noun = "cantus, -us, m"; 
+    else if  (selectedNoun === "cantus") {
+            selectedLatinNoun = "cantus, -us, m"; 
             englishMeaning = "song";
     }
-    else if  (selectedNoun === "currus - (chariot)") {
-            noun = "currus, us, m"; 
+    else if  (selectedNoun === "currus") {
+            selectedLatinNoun = "currus, us, m"; 
             englishMeaning = "chariot";
     }
-    else if  (selectedNoun === "equitatus - (cavalry)") {
-            noun = "equitatus, us, m"; 
+    else if  (selectedNoun === "equitatus") {
+            selectedLatinNoun = "equitatus, us, m"; 
             englishMeaning = "cavalry ";
     }
-    else if  (selectedNoun === "gressus - (step)") {
-            noun = "gressus, us, m"; 
+    else if  (selectedNoun === "gressus") {
+            selectedLatinNoun = "gressus, us, m"; 
             englishMeaning = "step";
     }
-    else if  (selectedNoun === "fructus - (fruit)") {
-            noun = "fructus, us, m"; 
+    else if  (selectedNoun === "fructus") {
+            selectedLatinNoun = "fructus, us, m"; 
             englishMeaning = "fruit";
     }
-    else if  (selectedNoun === "natus - (birth)") {
-            noun = "natus, us, m"; 
+    else if  (selectedNoun === "natus") {
+            selectedLatinNoun = "natus, us, m"; 
             englishMeaning = "birth";
     }
-    else if  (selectedNoun === "potus - (drink)") {
-            noun = "potus, us, m"; 
+    else if  (selectedNoun === "potus") {
+            selectedLatinNoun = "potus, us, m"; 
             englishMeaning = "drink";
     }
-    else if  (selectedNoun === "risus - (laugh)") {
-            noun = "risus, us, m"; 
+    else if  (selectedNoun === "risus") {
+            selectedLatinNoun = "risus, us, m"; 
             englishMeaning = "laugh";
     }
-    else if  (selectedNoun === "senatus - (senate)") {
-            noun = "senatus, us, m"; 
+    else if  (selectedNoun === "senatus") {
+            selectedLatinNoun = "senatus, us, m"; 
             englishMeaning = "senate";
     }
-    else if  (selectedNoun === "sensus - (feeling)") {
-            noun = "sensus, -us, m"; 
+    else if  (selectedNoun === "sensus") {
+            selectedLatinNoun = "sensus, -us, m"; 
             englishMeaning = "feeling";
     }
-    else if  (selectedNoun === "ritus - (rite)") {
-            noun = "ritus, -us, m."; 
+    else if  (selectedNoun === "ritus") {
+            selectedLatinNoun = "ritus, -us, m."; 
             englishMeaning = "rite";
     }
-    else if  (selectedNoun === "situs - (site)") {
-            noun = "situs, -us, m."; 
+    else if  (selectedNoun === "situs") {
+            selectedLatinNoun = "situs, -us, m."; 
             englishMeaning = "site";
     }
-    else if  (selectedNoun === "morsus - (bite)") {
-            noun = "morsus, -us, m."; 
+    else if  (selectedNoun === "morsus") {
+            selectedLatinNoun = "morsus, -us, m."; 
             englishMeaning = "bite";
     }
-    /*
-    =====================================
-    ======= 4th Declension Neuter =======
-    =====================================
-    */
-/*
-    else if  (selectedNoun === "venu - (javelin)") {
-            noun = "venu, venus, n"; 
+    
+    else if  (selectedNoun === "venu") {
+            selectedLatinNoun = "venu, venus, n"; 
             englishMeaning = "javelin";
     }
-    else if  (selectedNoun === "cornu - (horn)") {
-            noun = "cornu, -us, n."; 
+    else if  (selectedNoun === "cornu") {
+            selectedLatinNoun = "cornu, -us, n."; 
             englishMeaning = "horn";
     }
-    else if  (selectedNoun === "genu - (knee)") {
-            noun = "genu, -us, n."; 
+    else if  (selectedNoun === "genu") {
+            selectedLatinNoun = "genu, -us, n."; 
             englishMeaning = "knee";
     }
-    else if  (selectedNoun === "gelu - (frost)") {
-            noun = "gelu, -us, n"; 
+    else if  (selectedNoun === "gelu") {
+            selectedLatinNoun = "gelu, -us, n"; 
             englishMeaning = "frost";
     }
-    else if  (selectedNoun === "pecu - (cow)") {
-            noun = "pecu, pecus, n"; 
+    else if  (selectedNoun === "pecu") {
+            selectedLatinNoun = "pecu, pecus, n"; 
             englishMeaning = "cow";
     }
-    else if  (selectedNoun === "veru - (javelin-tip)") {
-            noun = "veru, verus, n."; 
+    else if  (selectedNoun === "veru") {
+            selectedLatinNoun = "veru, verus, n."; 
             englishMeaning = "javelin-tip";
     }
-    /*
-    ==============================
-    ======= 5th Declension =======
-    ==============================
-    */
-/*
-    else if  (selectedNoun === "congeries - (heap)") {
-            noun = "congeries, congeriei, f."; 
+
+
+    else if  (selectedNoun === "congeries") {
+            selectedLatinNoun = "congeries, congeriei, f."; 
             englishMeaning = "heap";
     }
-    else if  (selectedNoun === "caries - (corruption)") {
-            noun = "caries, cariei, f."; 
+    else if  (selectedNoun === "caries") {
+            selectedLatinNoun = "caries, cariei, f."; 
             englishMeaning = "corruption";
     }
-    else if  (selectedNoun === "durities - (hardship)") {
-            noun = "durities, duritiei, f."; 
+    else if  (selectedNoun === "durities") {
+            selectedLatinNoun = "durities, duritiei, f."; 
             englishMeaning = "hardship";
     }
-    else if  (selectedNoun === "macies - (poverty)") {
-            noun = "macies, maciei, f."; 
+    else if  (selectedNoun === "macies") {
+            selectedLatinNoun = "macies, maciei, f."; 
             englishMeaning = "poverty";
     }
-    else if  (selectedNoun === "pernicies - (ruin)") {
-            noun = "pernicies, perniciei, f."; 
+    else if  (selectedNoun === "pernicies") {
+            selectedLatinNoun = "pernicies, perniciei, f."; 
             englishMeaning = "ruin";
     }
-    else if  (selectedNoun === "luxuries - (luxury)") {
-            noun = "luxuries, luxuriei, f."; 
+    else if  (selectedNoun === "luxuries") {
+            selectedLatinNoun = "luxuries, luxuriei, f."; 
             englishMeaning = "luxury";
     }
-    else if  (selectedNoun === "meridies - (noon)") {
-            noun = "meridies, meridiei, m."; 
+    else if  (selectedNoun === "meridies") {
+            selectedLatinNoun = "meridies, meridiei, m."; 
             englishMeaning = "noon";
     }
-    else if  (selectedNoun === "acies - (edge)") {
-            noun = "acies, aciei, f";
+    else if  (selectedNoun === "acies") {
+            selectedLatinNoun = "acies, aciei, f";
             englishMeaning = "edge";
     }
-    else if  (selectedNoun === "facies - (shape)") {
-            noun = "facies, faciei, f";
+    else if  (selectedNoun === "facies") {
+            selectedLatinNoun = "facies, faciei, f";
             englishMeaning = "shape";
     }
-    else if  (selectedNoun === "effigies - (image)") {
-            noun = "effigies, effigiei, f";
+    else if  (selectedNoun === "effigies") {
+            selectedLatinNoun = "effigies, effigiei, f";
             englishMeaning = "image";
     }
-    else if  (selectedNoun === "glacies - (ice)") {
-            noun = "glacies, glaciei, f";
+    else if  (selectedNoun === "glacies") {
+            selectedLatinNoun = "glacies, glaciei, f";
             englishMeaning = "ice";
     }
-    else if  (selectedNoun === "fides - (pledge)") {
-            noun = "fides, fidei, f";
+    else if  (selectedNoun === "fides") {
+            selectedLatinNoun = "fides, fidei, f";
             englishMeaning = "pledge";
     }
-    else if  (selectedNoun === "spes - (hope)") {
-            noun = "spes, spei, f";
+    else if  (selectedNoun === "spes") {
+            selectedLatinNoun = "spes, spei, f";
             englishMeaning = "hope";
     }
-    else if  (selectedNoun === "series - (row)") {
-            noun = "series, seriei, f";
+    else if  (selectedNoun === "series") {
+            selectedLatinNoun = "series, seriei, f";
             englishMeaning = "row";
     }
-    else if  (selectedNoun === "species - (sight)") {
-            noun = "species, speciei, f";
+    else if  (selectedNoun === "species") {
+            selectedLatinNoun = "species, speciei, f";
             englishMeaning = "sight";
     }
+    document.getElementById("SelectNounChartCaption").innerHTML = selectedLatinNoun + " (" + englishMeaning + ")";
 }
-
-*/
