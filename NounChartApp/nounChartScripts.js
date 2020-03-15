@@ -16,14 +16,9 @@ var randomNounScreen = document.getElementById("randomNounScreen");
 var otherCharts = document.getElementById("otherCharts");
 var selectANoun = document.getElementById("selectANoun");
 
-var vocabIncluded = true;
-var englishIncluded = true;
-var showAssignmentPage = false;
-var declension;
-var nounBase;
-//
-//
+
 // Initial div-hiders
+//
 /*
 assignmentScreen.style.display = "none";
 enterANounScreen.style.display = "none";
@@ -35,22 +30,10 @@ settingScreen.style.display = "none";
 otherCharts.style.display = "none";
 selectANoun.style.display = "none";
 */
-//
-//
 
 
-// The original button checker
-/*
-function selectButton(id) {
-    var target = document.getElementById(id);
-    if (target.className !== "toggleToken checked") {
-        target.className = "toggleToken checked";
-    }
-    else if (target.className === "toggleToken checked") {
-        target.className = "toggleToken";
-    }
-}
-*/
+
+
 
 
 // ====================================================
@@ -59,8 +42,6 @@ function selectButton(id) {
 // ====================================================
 // ====================================================
 
-//
-//
 // Hides/shows the VOCATIVE table rows
 // 
 function showHideVocatives() {
@@ -88,12 +69,10 @@ function showHideVocatives() {
         }
     }
 }
-//
-//
-//
-//
+
+
 // Hides/shows the ENGLISH meanings
-// 
+//
 function showHideEnglish() {
     var englishLineBreaks = document.getElementsByClassName("englishBR");
     var englishMeanings = document.getElementsByClassName("englishMeaning");
@@ -128,7 +107,9 @@ function showHideEnglish() {
         }
     }
 }
-//
+
+
+
 
 
 
@@ -138,8 +119,8 @@ function showHideEnglish() {
 // ====================================================
 // ====================================================
 
-//
 // Shows what the final product would look like.
+//
 function testFinalProduct() {
     var x = document.getElementsByClassName("debug");
     for (var i = 0; i < x.length; i++) {
@@ -151,6 +132,7 @@ function testFinalProduct() {
     document.getElementById("debugButton4").style.display = "none";
     onHideAll();
 }
+
 
 // Hide all the windows except the main menu.
 //
@@ -166,6 +148,7 @@ function onHideAll() {
     otherCharts.style.display = "none";
     selectANoun.style.display = "none";
 }
+
 
 // Show all the windows except the main menu.
 //
@@ -185,13 +168,15 @@ function onShowAll() {
 
 
 
+
+
 // ====================================================
 // ====================================================
 //  Navigation buttons: allows the user 
 //    to show/hide different parts of the page
 // ====================================================
 // ====================================================
-//
+
 // Sets other charts to variables
 //
 function goToOtherChartsScreen() {
@@ -317,12 +302,15 @@ function goToEnterANounScreenScreen() {
 
 
 
+
+
+
 // ====================================================
 // ====================================================
 // Other Charts: Hides/displays Other Charts when chosen
 // ====================================================
 // ====================================================
-//
+
 // Sets other charts to variables
 //
 var relativePronounChartA = document.getElementById("relativePronounChartA");
@@ -392,12 +380,36 @@ function selectOtherChart() {
 }
 
 
-/*
 
+
+
+
+// ====================================================
+// ====================================================
+//      Functions to decline the entire noun
+// ====================================================
+// ====================================================
+
+// Completely decline a noun in Latin and English
 //
-// Noun declension parser
-// Takes user-input and takes apart the principle parts of the noun
-function splitTheNoun() {
+function declineNounCompletely () {
+    computeAndWriteEnglish();
+    computeAndWriteLatin();
+}
+
+
+
+
+
+
+// ====================================================
+// ====================================================
+//      Decline the Latin half of the noun 
+// ====================================================
+// ====================================================
+
+function getUserInputLatin () {
+    /*
     var userEnteredNoun = document.getElementById(id).value;
     userEnteredNoun = userEnteredNoun.toLowerCase();
     userEnteredNoun = userEnteredNoun.trim();
@@ -406,11 +418,12 @@ function splitTheNoun() {
     var nominativeSingularInput = nounParts[0];
     var genitiveSingularInput = nounParts[1];
     var genderInput = nounParts[2];
+    */
 }
-//
-// Noun declension IDer
-// Returns the noun's declension
-function declensionID() {
+
+function computeDeclension () {
+    /*
+    var declension
     if (genitiveSingularInput.endsWith("ae")) {
         declension = "1st";
         nounBase = genitiveSingularInput.slice(0, genLength - 2);
@@ -434,14 +447,16 @@ function declensionID() {
     else {
         alert("ERROR! Declension not figured out!");
     }
+    return declension;
+    */
 }
 
+function computeAndWriteLatin() {
+    computeDeclension();
+}
 
-
-//
-// Noun declension IDer
-// Returns the noun's declension
-function genderFinder() {
+function getGender () {
+    /*
     nounParts[2].toLowerCase();
     if (nounParts[2].includes(/f/gi)) {
         return "feminine";
@@ -455,127 +470,12 @@ function genderFinder() {
     else {
         alert("ERROR! Gender could not be determined!");
     }
+    }
+    */
 }
 
-
-
-
-//
-// ENGLISH MEANINGS
-// gives all of the english meanings
-function englishMeaningSetter() {
-    if (englishMeaning === "man") {
-        englishMeaningPlural = "men";
-    }
-    else if (englishMeaning === "body") {
-        englishMeaningPlural = "bodies";
-    }
-    else if (englishMeaning === "knife") {
-        englishMeaningPlural = "knives";
-    }
-    else if (englishMeaning === "wolf") {
-        englishMeaningPlural = "wolves";
-    }
-    else if (englishMeaning === "mouse") {
-        englishMeaningPlural = "mice";
-    }
-    else if (englishMeaning === "foot") {
-        englishMeaningPlural = "feet";
-    }
-    else if (englishMeaning === "child") {
-        englishMeaningPlural = "children";
-    }
-    else if (englishMeaning === "goose") {
-        englishMeaningPlural = "geese";
-    }
-    else if (englishMeaning === "tooth") {
-        englishMeaningPlural = "teeth";
-    }
-    else if (englishMeaning === "cactus") {
-        englishMeaningPlural = "cacti";
-    }
-    else if (englishMeaning === "ox") {
-        englishMeaningPlural = "oxen";
-    }
-    else if (englishMeaning === "codex") {
-        englishMeaningPlural = "codices";
-    }
-    else if (englishMeaning === "crisis") {
-        englishMeaningPlural = "crises";
-    }
-    else if (englishMeaning === "deer") {
-        englishMeaningPlural = "deer";
-    }
-    else if (englishMeaning === "fish") {
-        englishMeaningPlural = "fishes";
-    }
-    else if (englishMeaning === "half") {
-        englishMeaningPlural = "halves";
-    }
-    else if (englishMeaning === "moose") {
-        englishMeaningPlural = "moose";
-    }
-    else if (englishMeaning === "oasis") {
-        englishMeaningPlural = "oases";
-    }
-    else if (englishMeaning === "quiz") {
-        englishMeaningPlural = "quizzes";
-    }
-    else if (englishMeaning === "salmon") {
-        englishMeaningPlural = "salmon";
-    }
-    else if (englishMeaning === "sheep") {
-        englishMeaningPlural = "sheep";
-    }
-    else if (englishMeaning === "syllabus") {
-        englishMeaningPlural = "syllabi";
-    }
-    else if (englishMeaning === "thief") {
-        englishMeaningPlural = "thieves";
-    }
-    else if (englishMeaning === "wife") {
-        englishMeaningPlural = "wives";
-    }
-    else if (englishMeaning === "woman") {
-        englishMeaningPlural = "women";
-    }
-    else if (englishMeaning === "kiss") {
-        englishMeaningPlural = "kisses";
-    }
-    else if (englishMeaning === "duty") {
-        englishMeaningPlural = "duties";
-    }
-    else if (englishMeaning === "life") {
-        englishMeaningPlural = "lives";
-    }
-    else if (englishMeaning === "glory") {
-        englishMeaningPlural = "glories";
-    }
-    else if (englishMeaning === "penalty") {
-        englishMeaningPlural = "penalties";
-    }
-    else if (englishMeaning === "philosophy") {
-        englishMeaningPlural = "philosophies";
-    }
-    else if (englishMeaning === "luxury") {
-        englishMeaningPlural = "luxuries";
-    }
-    else if (englishMeaning === "poverty") {
-        englishMeaningPlural = "poverty";
-    }
-    else if (englishMeaning === "city") {
-        englishMeaningPlural = "cities";
-    }
-    else {
-        englishMeaningPlural = englishMeaning + "s";
-    }
-}
-    
-    
-//
-// LATIN ENDINGS
-// Sets all of the Latin endings
-function latinEndingSetter() {
+function calculateLatinEndings () {
+    /*
     if (declension === "1st") {
         nomSing = nominative;
         genSing = base + "ae";
@@ -709,12 +609,168 @@ function latinEndingSetter() {
     }
 }
 */
+}
+
+function declineLatinHalfOfNoun () {
+    
+}
+
+function writeLatinNounInHTML () {
+    
+}
 
 
-//
-// PRE-MADE NOUN SETTER
+
+
+
+
+// ====================================================
+// ====================================================
+//      Decline the English half of the noun 
+// ====================================================
+// ====================================================
+
+function getUserInputEnglish () {
+
+}
+
+function getPluralEnglishMeaning(x) {
+    var englishMeaning = x;
+    var englishMeaningPlural;
+    if (englishMeaning === "man") {
+        englishMeaningPlural = "men";
+    }
+    else if (englishMeaning === "body") {
+        englishMeaningPlural = "bodies";
+    }
+    else if (englishMeaning === "knife") {
+        englishMeaningPlural = "knives";
+    }
+    else if (englishMeaning === "wolf") {
+        englishMeaningPlural = "wolves";
+    }
+    else if (englishMeaning === "mouse") {
+        englishMeaningPlural = "mice";
+    }
+    else if (englishMeaning === "foot") {
+        englishMeaningPlural = "feet";
+    }
+    else if (englishMeaning === "child") {
+        englishMeaningPlural = "children";
+    }
+    else if (englishMeaning === "goose") {
+        englishMeaningPlural = "geese";
+    }
+    else if (englishMeaning === "tooth") {
+        englishMeaningPlural = "teeth";
+    }
+    else if (englishMeaning === "cactus") {
+        englishMeaningPlural = "cacti";
+    }
+    else if (englishMeaning === "ox") {
+        englishMeaningPlural = "oxen";
+    }
+    else if (englishMeaning === "codex") {
+        englishMeaningPlural = "codices";
+    }
+    else if (englishMeaning === "crisis") {
+        englishMeaningPlural = "crises";
+    }
+    else if (englishMeaning === "deer") {
+        englishMeaningPlural = "deer";
+    }
+    else if (englishMeaning === "fish") {
+        englishMeaningPlural = "fishes";
+    }
+    else if (englishMeaning === "half") {
+        englishMeaningPlural = "halves";
+    }
+    else if (englishMeaning === "moose") {
+        englishMeaningPlural = "moose";
+    }
+    else if (englishMeaning === "oasis") {
+        englishMeaningPlural = "oases";
+    }
+    else if (englishMeaning === "quiz") {
+        englishMeaningPlural = "quizzes";
+    }
+    else if (englishMeaning === "salmon") {
+        englishMeaningPlural = "salmon";
+    }
+    else if (englishMeaning === "sheep") {
+        englishMeaningPlural = "sheep";
+    }
+    else if (englishMeaning === "syllabus") {
+        englishMeaningPlural = "syllabi";
+    }
+    else if (englishMeaning === "thief") {
+        englishMeaningPlural = "thieves";
+    }
+    else if (englishMeaning === "wife") {
+        englishMeaningPlural = "wives";
+    }
+    else if (englishMeaning === "woman") {
+        englishMeaningPlural = "women";
+    }
+    else if (englishMeaning === "kiss") {
+        englishMeaningPlural = "kisses";
+    }
+    else if (englishMeaning === "duty") {
+        englishMeaningPlural = "duties";
+    }
+    else if (englishMeaning === "life") {
+        englishMeaningPlural = "lives";
+    }
+    else if (englishMeaning === "glory") {
+        englishMeaningPlural = "glories";
+    }
+    else if (englishMeaning === "penalty") {
+        englishMeaningPlural = "penalties";
+    }
+    else if (englishMeaning === "philosophy") {
+        englishMeaningPlural = "philosophies";
+    }
+    else if (englishMeaning === "luxury") {
+        englishMeaningPlural = "luxuries";
+    }
+    else if (englishMeaning === "poverty") {
+        englishMeaningPlural = "poverty";
+    }
+    else if (englishMeaning === "city") {
+        englishMeaningPlural = "cities";
+    }
+    else {
+        englishMeaningPlural = englishMeaning + "s";
+    }
+    return englishMeaningPlural;
+}
+    
+function computeAndWriteEnglish() {
+    var englishMeaningSingular;
+    var englishMeaningPlural = getPluralEnglishMeaning(englishMeaningSingular);
+}
+
+function declineEnglishHalfOfNoun () {
+    
+}
+
+function writeEnglishNounInHTML () {
+    
+}
+
+
+
+
+
+
+// ====================================================
+// ====================================================
+//      PRE-MADE NOUN SETTER
+// ====================================================
+// ====================================================
+
 // Sets all of the Latin endings of selected nouns
-
+// 
 function declineSelectedNoun(id) {
     var selectedNoun = document.getElementById(id).value;
     var selectedLatinNoun;
@@ -1206,3 +1262,9 @@ function declineSelectedNoun(id) {
     }
     document.getElementById("SelectNounChartCaption").innerHTML = selectedLatinNoun + " (" + englishMeaning + ")";
 }
+
+
+
+
+
+// End of JS
