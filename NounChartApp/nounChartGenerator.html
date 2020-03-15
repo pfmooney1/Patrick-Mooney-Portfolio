@@ -53,10 +53,6 @@
         
         
         
-        
-        
-        
-        
         <div id="assignmentPage" class="simpleGrid">
             <h2 class="">Assignment</h2>
             <p class="centeredAndLarge">
@@ -91,8 +87,8 @@
                 </p>
                 <button class="toggleToken" id="assignmentChoiceA" onClick="selectButton(id);">Assignment page</button>
                 <button class="toggleToken" id="copyPasteChoiceA" onClick="selectButton(id);">Copy/Paste Mode</button>
-                <button class="toggleToken" id="englishChoiceA" onClick="selectButton(id);">Include English</button>
-                <button class="toggleToken" id="VocChoiceA" onClick="vocativeButtonFunctions(id);">Include Voc.</button>
+                <button class="englishButton toggleToken checked" id="englishChoiceA" onClick="showHideEnglish();">Include English</button>
+                <button class="vocativeButton toggleToken checked" id="VocChoiceA" onClick="showHideVocatives();">Include Voc.</button>
             </fieldset>
             <button>Go!</button>
             <button onClick="goToMainMenuScreen();">Main Menu</button>
@@ -453,7 +449,7 @@
                     <td>es</td>
                 </tr>
             </table> <!-- 5th Decl -->
-            <button class="toggleToken checked" id="VocChoiceD" onClick="vocativeButtonFunctions(id);">Include Voc.</button><br>
+            <button class="vocativeButton toggleToken checked" id="VocChoiceD" onClick="showHideVocatives()">Include Voc.</button><br>
             <button onClick="goToMainMenuScreen();" class="closeButton">Close</button>
         </div> <!-- About Screen-->
         <hr class="debug">
@@ -502,7 +498,7 @@
                     <td>   </td>
                 </tr>
             </table>
-            <button class="toggleToken" id="VocChoiceE" onClick="vocativeButtonFunctions(id);">Include Voc.</button>
+            <button class="vocativeButton toggleToken checked" id="VocChoiceE" onClick="showHideVocatives();">Include Voc.</button>
             <button onClick="goToMainMenuScreen();" class="closeButton">Close</button>
         </div> <!-- About Screen-->
         <hr class="debug">
@@ -655,37 +651,88 @@
                 </tr>
                 <tr>
                     <td class="firstColumn">Nom.</td>
-                    <td id="SelectNounChart_NomSing">amica</td>
-                    <td id="SelectNounChart_NomPl">amicae</td>
+                    <td id="SelectNounChart_NomSing">
+                        <ins class="lat_sing_nom">amica</ins>
+                        <br class="englishBR">
+                        <ins class="englishMeaning eng_sing_nom">the friend</ins>
+                    </td>
+                    <td id="SelectNounChart_NomPl">
+                        <ins class="lat_sing_nom">amicae</ins>
+                        <br class="englishBR">
+                        <ins class="englishMeaning eng_sing_nom">the friends</ins>
+                    </td>
                 </tr>
                 <tr>
                     <td class="firstColumn">Gen.</td>
-                    <td id="SelectNounChart_GenSing">amicae</td>
-                    <td id="SelectNounChart_GenPl">amicarum</td>
+                    <td id="SelectNounChart_GenSing">
+                        <ins class="lat_sing_nom">amicae</ins>
+                        <br class="englishBR">
+                        <ins class="englishMeaning eng_sing_nom">of the friend</ins>
+                    </td>
+                    <td id="SelectNounChart_GenPl">  
+                        <ins class="lat_sing_nom">amicarum</ins>
+                        <br class="englishBR">
+                        <ins class="englishMeaning eng_sing_nom">of the friends</ins>
+                    </td>
                 </tr>
                 <tr>
                     <td class="firstColumn">Dat.</td>
-                    <td id="SelectNounChart_DatSing">amicae</td>
-                    <td id="SelectNounChart_DatPl">amicis</td>
+                    <td id="SelectNounChart_DatSing">
+                        <ins class="lat_sing_nom">amicae</ins>
+                        <br class="englishBR">
+                        <ins class="englishMeaning eng_sing_nom">to/for the friend</ins>
+                    </td>
+                    <td id="SelectNounChart_DatPl">
+                        <ins class="lat_sing_nom">amicis</ins>
+                        <br class="englishBR">
+                        <ins class="englishMeaning eng_sing_nom">to/for the friends</ins>
+                    </td>
                 </tr>
                 <tr>
                     <td class="firstColumn">Acc.</td>
-                    <td id="SelectNounChart_AccSing">amicam</td>
-                    <td id="SelectNounChart_AccPl">amicas</td>
+                    <td id="SelectNounChart_AccSing">
+                        <ins class="lat_sing_nom">amicam</ins>
+                        <br class="englishBR">
+                        <ins class="englishMeaning eng_sing_nom">the friend</ins>
+
+                    </td>
+                    <td id="SelectNounChart_AccPl">
+                        <ins class="lat_sing_nom">amicas</ins>
+                        <br class="englishBR">
+                        <ins class="englishMeaning eng_sing_nom">the friends</ins>
+                    </td>
                 </tr>
                 <tr>
                     <td class="firstColumn">Abl.</td>
-                    <td id="SelectNounChart_AblSing">amicā</td>
-                    <td id="SelectNounChart_AblPl">amicis</td>
+                    <td id="SelectNounChart_AblSing">
+                    
+                        <ins class="lat_sing_nom">amicā</ins>
+                        <br class="englishBR">
+                        <ins class="englishMeaning eng_sing_nom">by/with/from the friend</ins>
+                    
+                    </td>
+                    <td id="SelectNounChart_AblPl">
+                        <ins class="lat_sing_nom">amicis</ins>
+                        <br class="englishBR">
+                        <ins class="englishMeaning eng_sing_nom">by/with/from the friends</ins>
+                    </td>
                 </tr>
                 <tr id="SelectNounChart_VocRow" class="vocativeRow">
                     <td class="firstColumn">Voc.</td>
-                    <td id="SelectNounChart_VocSing">amica</td>
-                    <td id="SelectNounChart_VocPl">amicae</td>
+                    <td id="SelectNounChart_VocSing">
+                        <ins class="lat_sing_nom">amica</ins>
+                        <br class="englishBR">
+                        <ins class="englishMeaning eng_sing_nom">oh friend!</ins>
+                    </td>
+                    <td id="SelectNounChart_VocPl">
+                        <ins class="lat_sing_nom">amicae</ins>
+                        <br class="englishBR">
+                        <ins class="englishMeaning eng_sing_nom">oh friends!</ins>
+                    </td>
                 </tr>
             </table>
-            <button class="toggleToken" id="englishChoiceC" onClick="selectButton(id);">Include English</button>
-            <button class="toggleToken" id="VocChoiceC" onClick="vocativeButtonFunctions(id);">Include Voc.</button>
+            <button class="englishButton toggleToken checked" id="englishChoiceC" onClick="showHideEnglish();">Include English</button>
+            <button class="vocativeButton toggleToken checked" id="VocChoiceC" onClick="showHideVocatives();">Include Voc.</button>
             <button onClick="goToMainMenuScreen();" class="closeButton">Close</button>
         </div>
         <hr class="debug">
@@ -1130,8 +1177,8 @@
             <h2 id="">Settings</h2>
                 <button class="toggleToken" id="assignmentChoiceB" onClick="selectButton(id);">Assignment page</button><br>
                 <button class="toggleToken" id="copyPasteChoiceB" onClick="selectButton(id);">Copy/Paste Mode</button> <br>
-                <button class="toggleToken checked" id="englishChoiceB" onClick="selectButton(id);">Include English</button><br>
-                <button class="toggleToken checked" id="VocChoiceB" onClick="vocativeButtonFunctions(id);">Include Vocative</button><br>
+                <button class="englishButton toggleToken checked" id="englishChoiceB" onClick="showHideEnglish();">Include English</button><br>
+                <button class="vocativeButton toggleToken checked" id="VocChoiceB" onClick="showHideVocatives();">Include Vocative</button><br>
             <button onClick="goToMainMenuScreen();" class="closeButton">Close</button>
         </div> <!-- Setting Screen -->
         <hr class="debug">

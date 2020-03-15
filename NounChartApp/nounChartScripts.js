@@ -1,4 +1,10 @@
+// ======================================
+//      Noun chart generator JS
+//      Coded by Patrick Mooney
+// ======================================
+
 // Intial variables
+//
 var mainMenuScreen = document.getElementById("mainMenu");
 var assignmentScreen = document.getElementById("assignmentPage");
 var enterANounScreen = document.getElementById("enterANounScreen");
@@ -10,15 +16,11 @@ var randomNounScreen = document.getElementById("randomNounScreen");
 var otherCharts = document.getElementById("otherCharts");
 var selectANoun = document.getElementById("selectANoun");
 
-
 var vocabIncluded = true;
 var englishIncluded = true;
 var showAssignmentPage = false;
-var nounEndingsOnlyChoice = "1st declension";
-var copyPasteMode = false;
 var declension;
 var nounBase;
-var vocativeIncluded = true;
 //
 //
 // Initial div-hiders
@@ -35,10 +37,10 @@ selectANoun.style.display = "none";
 */
 //
 //
-function vocativeButtonFunctions(id) {
-    selectButton(id);
-    showHideVocatives();
-}
+
+
+// The original button checker
+/*
 function selectButton(id) {
     var target = document.getElementById(id);
     if (target.className !== "toggleToken checked") {
@@ -48,50 +50,96 @@ function selectButton(id) {
         target.className = "toggleToken";
     }
 }
+*/
+
+
+// ====================================================
+// ====================================================
+//              Settings and Options
+// ====================================================
+// ====================================================
+
 //
+//
+// Hides/shows the VOCATIVE table rows
+// 
 function showHideVocatives() {
     var vocativeTableRows = document.getElementsByClassName("vocativeRow");
-    if (vocativeIncluded == true || undefined) {
-        vocativeTableRows[0].style.visibility = "hidden";
-        vocativeTableRows[1].style.visibility = "hidden";
-        vocativeTableRows[2].style.visibility = "hidden";
-        vocativeTableRows[3].style.visibility = "hidden";
-        vocativeTableRows[4].style.visibility = "hidden";
-        vocativeTableRows[5].style.visibility = "hidden";
-        vocativeTableRows[6].style.visibility = "hidden";
-        vocativeTableRows[7].style.visibility = "hidden";
-        vocativeTableRows[8].style.visibility = "hidden";
-        vocativeTableRows[9].style.visibility = "hidden";
-        vocativeIncluded = false;
-        document.getElementById("VocChoiceA").style.className = "toggleToken";
-        document.getElementById("VocChoiceB").style.className = "toggleToken";
-        document.getElementById("VocChoiceC").style.className = "toggleToken";
-        document.getElementById("VocChoiceD").style.className = "toggleToken";
-        document.getElementById("VocChoiceE").style.className = "toggleToken";
+    var vocativeButtons = document.getElementsByClassName("vocativeButton");
+    var vocativeButtonClassName = vocativeButtons[0].className;
+    if (vocativeButtonClassName.includes("checked") === true) {
+        // Hides the vocative rows
+        for (i = 0; i < vocativeTableRows.length; i++) {
+            vocativeTableRows[i].style.visibility = "hidden";
+        }
+        // Changes the buttons to unchecked
+        for (i = 0; i < vocativeButtons.length; i++) {
+            vocativeButtons[i].className = "vocativeButton toggleToken";
+        }
     }
-    else if (vocativeIncluded == false) {
-        vocativeTableRows[0].style.visibility = "visible";
-        vocativeTableRows[1].style.visibility = "visible";
-        vocativeTableRows[2].style.visibility = "visible";
-        vocativeTableRows[3].style.visibility = "visible";
-        vocativeTableRows[4].style.visibility = "visible";
-        vocativeTableRows[5].style.visibility = "visible";
-        vocativeTableRows[6].style.visibility = "visible";
-        vocativeTableRows[7].style.visibility = "visible";
-        vocativeTableRows[8].style.visibility = "visible";
-        vocativeTableRows[9].style.visibility = "visible";
-        vocativeIncluded = true;
-        document.getElementById("VocChoiceA").style.className = "toggleToken checked";
-        document.getElementById("VocChoiceB").style.className = "toggleToken checked";
-        document.getElementById("VocChoiceC").style.className = "toggleToken checked";
-        document.getElementById("VocChoiceD").style.className = "toggleToken checked";
-        document.getElementById("VocChoiceE").style.className = "toggleToken checked";
-    }
-    else {
-        alert("Error! Conditions in the showHideVocatives function are not met");
+    else if (vocativeButtonClassName.includes("checked") === false) {
+        // Displays the vocative rows
+        for (i = 0; i < vocativeTableRows.length; i++) {
+            vocativeTableRows[i].style.visibility = "visible";
+        }
+        // Changes the buttons to checked
+        for (i = 0; i < vocativeButtons.length; i++) {
+            vocativeButtons[i].className = "vocativeButton toggleToken checked";
+        }
     }
 }
 //
+//
+//
+//
+// Hides/shows the ENGLISH meanings
+// 
+function showHideEnglish() {
+    var englishLineBreaks = document.getElementsByClassName("englishBR");
+    var englishMeanings = document.getElementsByClassName("englishMeaning");
+    var englishButtons = document.getElementsByClassName("englishButton");
+    var englishButtonClassName = englishButtons[0].className;
+    if (englishButtonClassName.includes("checked") === true) {
+        // Hides the english linebreaks
+        for (i = 0; i < englishLineBreaks.length; i++) {
+            englishLineBreaks[i].style.display = "none";
+        }
+        // Hides the english meanings
+        for (i = 0; i < englishMeanings.length; i++) {
+            englishMeanings[i].style.display = "none";
+        }
+        // Changes the buttons to unchecked
+        for (i = 0; i < englishButtons.length; i++) {
+            englishButtons[i].className = "englishButton toggleToken";
+        }
+    }
+    else if (englishButtonClassName.includes("checked") === false) {
+        // Displays the english linebreaks
+        for (i = 0; i < englishLineBreaks.length; i++) {
+            englishLineBreaks[i].style.display = "inline";
+        }
+        // Displays the english meanings
+        for (i = 0; i < englishMeanings.length; i++) {
+            englishMeanings[i].style.display = "inline";
+        }
+        // Changes the buttons to checked
+        for (i = 0; i < englishButtons.length; i++) {
+            englishButtons[i].className = "englishButton toggleToken checked";
+        }
+    }
+}
+//
+
+
+
+// ====================================================
+// ====================================================
+//      Debug buttons 
+// ====================================================
+// ====================================================
+
+//
+// Shows what the final product would look like.
 function testFinalProduct() {
     var x = document.getElementsByClassName("debug");
     for (var i = 0; i < x.length; i++) {
@@ -104,7 +152,8 @@ function testFinalProduct() {
     onHideAll();
 }
 
-
+// Hide all the windows except the main menu.
+//
 function onHideAll() {
     mainMenuScreen.style.display = "grid";
     assignmentScreen.style.display = "none";
@@ -117,6 +166,9 @@ function onHideAll() {
     otherCharts.style.display = "none";
     selectANoun.style.display = "none";
 }
+
+// Show all the windows except the main menu.
+//
 function onShowAll() {
     mainMenuScreen.style.display = "grid";
     assignmentScreen.style.display = "grid";
@@ -132,6 +184,16 @@ function onShowAll() {
 
 
 
+
+// ====================================================
+// ====================================================
+//  Navigation buttons: allows the user 
+//    to show/hide different parts of the page
+// ====================================================
+// ====================================================
+//
+// Sets other charts to variables
+//
 function goToOtherChartsScreen() {
     mainMenuScreen.style.display = "none";
     assignmentScreen.style.display = "none";
@@ -144,7 +206,6 @@ function goToOtherChartsScreen() {
     otherCharts.style.display = "grid";
     selectANoun.style.display = "none";
 }
-
 function goToSelectANounScreen() {
     mainMenuScreen.style.display = "none";
     assignmentScreen.style.display = "none";
@@ -157,7 +218,6 @@ function goToSelectANounScreen() {
     otherCharts.style.display = "none";
     selectANoun.style.display = "grid";
 }
-
 function goToBlankChartScreen() {
     mainMenuScreen.style.display = "none";
     assignmentScreen.style.display = "none";
@@ -194,8 +254,6 @@ function goToRandomNounScreen() {
     otherCharts.style.display = "none";
     selectANoun.style.display = "none";
 }
-
-
 function goToSettingsScreen() {
     mainMenuScreen.style.display = "none";
     assignmentScreen.style.display = "none";
@@ -208,7 +266,6 @@ function goToSettingsScreen() {
     selectANoun.style.display = "none";
     randomNounScreen.style.display = "none";
 }
-
 function goToAboutScreen() {
     mainMenuScreen.style.display = "none";
     assignmentScreen.style.display = "none";
@@ -260,9 +317,13 @@ function goToEnterANounScreenScreen() {
 
 
 
-
+// ====================================================
+// ====================================================
+// Other Charts: Hides/displays Other Charts when chosen
+// ====================================================
+// ====================================================
 //
-// Other Charts
+// Sets other charts to variables
 //
 var relativePronounChartA = document.getElementById("relativePronounChartA");
 var relativePronounChartB = document.getElementById("relativePronounChartB");
@@ -275,9 +336,9 @@ var illeChartB = document.getElementById("illeChartB");
 var isteChartA = document.getElementById("isteChartA");
 var isteChartB = document.getElementById("isteChartB");
 
-/*
-Once the coding is finished, remove the comment so that only one chart pops up at a time on startup
 
+// Hides all but one set of other charts on load.
+//
 relativePronounChartA.style.display = "table";
 relativePronounChartB.style.display = "table";
 thirdPersonPronounChartA.style.display = "none";
@@ -289,8 +350,9 @@ illeChartB.style.display = "none";
 isteChartA.style.display = "none";
 isteChartB.style.display = "none";
 
-*/
 
+// Allows the user to display/hide other charts
+//
 function selectOtherChart() {
     relativePronounChartA.style.display = "none";
     relativePronounChartB.style.display = "none";
@@ -328,7 +390,6 @@ function selectOtherChart() {
         alert("ERROR! Other chart selection cannot be made!");
     }
 }
-
 
 
 /*
