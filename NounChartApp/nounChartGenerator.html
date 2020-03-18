@@ -86,7 +86,7 @@
                 <button class="englishButton toggleToken checked" id="englishChoiceA" onClick="showHideEnglish();">Include English</button>
                 <button class="vocativeButton toggleToken checked" id="VocChoiceA" onClick="showHideVocatives();">Include Voc.</button>
             </fieldset>
-            <button>Go!</button>
+            <button onClick="declineUserEnteredNoun();">Go!</button>
             <button onClick="goToMainMenuScreen();">Main Menu</button>
         </div> <!-- Enter your own noun-->
         <hr class="debug">
@@ -645,77 +645,77 @@
                         <ins class="englishMeaning eng_sing_nom">the friend</ins>
                     </td>
                     <td id="SelectNounChart_NomPl">
-                        <ins class="lat_sing_nom">amicae</ins>
+                        <ins class="lat_plural_nom">amicae</ins>
                         <br class="englishBR">
-                        <ins class="englishMeaning eng_sing_nom">the friends</ins>
+                        <ins class="englishMeaning eng_plural_nom">the friends</ins>
                     </td>
                 </tr>
                 <tr>
                     <td class="firstColumn">Gen.</td>
                     <td id="SelectNounChart_GenSing">
-                        <ins class="lat_sing_nom">amicae</ins>
+                        <ins class="lat_sing_gen">amicae</ins>
                         <br class="englishBR">
-                        <ins class="englishMeaning eng_sing_nom">of the friend</ins>
+                        <ins class="englishMeaning eng_sing_gen">of the friend</ins>
                     </td>
                     <td id="SelectNounChart_GenPl">  
-                        <ins class="lat_sing_nom">amicarum</ins>
+                        <ins class="lat_plural_gen">amicarum</ins>
                         <br class="englishBR">
-                        <ins class="englishMeaning eng_sing_nom">of the friends</ins>
+                        <ins class="englishMeaning eng_plural_gen">of the friends</ins>
                     </td>
                 </tr>
                 <tr>
                     <td class="firstColumn">Dat.</td>
                     <td id="SelectNounChart_DatSing">
-                        <ins class="lat_sing_nom">amicae</ins>
+                        <ins class="lat_sing_dat">amicae</ins>
                         <br class="englishBR">
-                        <ins class="englishMeaning eng_sing_nom">to/for the friend</ins>
+                        <ins class="englishMeaning eng_sing_dat">to/for the friend</ins>
                     </td>
                     <td id="SelectNounChart_DatPl">
-                        <ins class="lat_sing_nom">amicis</ins>
+                        <ins class="lat_plural_dat">amicis</ins>
                         <br class="englishBR">
-                        <ins class="englishMeaning eng_sing_nom">to/for the friends</ins>
+                        <ins class="englishMeaning eng_plural_dat">to/for the friends</ins>
                     </td>
                 </tr>
                 <tr>
                     <td class="firstColumn">Acc.</td>
                     <td id="SelectNounChart_AccSing">
-                        <ins class="lat_sing_nom">amicam</ins>
+                        <ins class="lat_sing_acc">amicam</ins>
                         <br class="englishBR">
-                        <ins class="englishMeaning eng_sing_nom">the friend</ins>
+                        <ins class="englishMeaning eng_sing_acc">the friend</ins>
 
                     </td>
                     <td id="SelectNounChart_AccPl">
-                        <ins class="lat_sing_nom">amicas</ins>
+                        <ins class="lat_plural_acc">amicas</ins>
                         <br class="englishBR">
-                        <ins class="englishMeaning eng_sing_nom">the friends</ins>
+                        <ins class="englishMeaning eng_plural_acc">the friends</ins>
                     </td>
                 </tr>
                 <tr>
                     <td class="firstColumn">Abl.</td>
                     <td id="SelectNounChart_AblSing">
                     
-                        <ins class="lat_sing_nom">amicā</ins>
+                        <ins class="lat_sing_abl">amicā</ins>
                         <br class="englishBR">
-                        <ins class="englishMeaning eng_sing_nom">by/with/from the friend</ins>
+                        <ins class="englishMeaning eng_sing_abl">by/with/from the friend</ins>
                     
                     </td>
                     <td id="SelectNounChart_AblPl">
-                        <ins class="lat_sing_nom">amicis</ins>
+                        <ins class="lat_plural_abl">amicis</ins>
                         <br class="englishBR">
-                        <ins class="englishMeaning eng_sing_nom">by/with/from the friends</ins>
+                        <ins class="englishMeaning eng_plural_abl">by/with/from the friends</ins>
                     </td>
                 </tr>
                 <tr id="SelectNounChart_VocRow" class="vocativeRow">
                     <td class="firstColumn">Voc.</td>
                     <td id="SelectNounChart_VocSing">
-                        <ins class="lat_sing_nom">amica</ins>
+                        <ins class="lat_sing_voc">amica</ins>
                         <br class="englishBR">
-                        <ins class="englishMeaning eng_sing_nom">oh friend!</ins>
+                        <ins class="englishMeaning eng_sing_voc">oh friend!</ins>
                     </td>
                     <td id="SelectNounChart_VocPl">
-                        <ins class="lat_sing_nom">amicae</ins>
+                        <ins class="lat_plural_voc">amicae</ins>
                         <br class="englishBR">
-                        <ins class="englishMeaning eng_sing_nom">oh friends!</ins>
+                        <ins class="englishMeaning eng_plural_voc">oh friends!</ins>
                     </td>
                 </tr>
             </table>

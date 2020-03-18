@@ -392,9 +392,11 @@ function selectOtherChart() {
 
 // Completely decline a noun in Latin and English
 //
-function declineNounCompletely () {
-    computeAndWriteEnglish();
-    computeAndWriteLatin();
+function declineNounCompletely(a, b) {
+    var latinNounUnparsed = a;
+    var englishMeaning = b;
+    computeAndWriteLatin(latinNounUnparsed);
+    computeAndWriteEnglish(englishMeaning);
 }
 
 
@@ -408,74 +410,98 @@ function declineNounCompletely () {
 // ====================================================
 // ====================================================
 
-function getUserInputLatin () {
-    /*
-    var userEnteredNoun = document.getElementById(id).value;
+function computeAndWriteLatin(latinNounUnparsed) {
+    var nounParts = getNounParts(latinNounUnparsed);    
+    var nominativeSingularInput = nounParts[0];    
+    var genitiveSingularInput = nounParts[1];
+    var genderInput = nounParts[2];
+    var gender = getGender(genderInput);
+    var declension = computeDeclension(genitiveSingularInput);    
+    var base = computeNounBase(declension, nominativeSingularInput, genitiveSingularInput, gender);
+       // alert("base: " + base);
+
+    declineLatinHalfOfNoun(declension, nominativeSingularInput, genitiveSingularInput, gender, base);
+}
+function getNounParts(latinNounUnparsed) {
+    var userEnteredNoun = latinNounUnparsed;
     userEnteredNoun = userEnteredNoun.toLowerCase();
     userEnteredNoun = userEnteredNoun.trim();
     //
-    var verbParts = chosenVerb.match(/\w+/g);
-    var nominativeSingularInput = nounParts[0];
-    var genitiveSingularInput = nounParts[1];
-    var genderInput = nounParts[2];
-    */
+    var nounParts = userEnteredNoun.match(/\w+/g);
+    return nounParts;
 }
-
-function computeDeclension () {
-    /*
-    var declension
-    if (genitiveSingularInput.endsWith("ae")) {
-        declension = "1st";
-        nounBase = genitiveSingularInput.slice(0, genLength - 2);
+function computeNounBase(declension, nominativeSingularInput, genitiveSingularInput) {
+    var base;
+    var genLength = genitiveSingularInput.length;
+    if (declension === "1st") {
+        base = genitiveSingularInput.slice(0, genLength - 2);
     }
-    else if (genitiveSingularInput.endsWith("is")) {
-        declension = "3rd";
-        base = genitive.slice(0, genLength - 2);
+    else if (declension === "3rd") {
+        base = genitiveSingularInput.slice(0, genLength - 2);
     }
-    else if (genitiveSingularInput.endsWith("us")) {
-        declension = "4th";
-        base = genitive.slice(0, genLength - 2);
+    else if (declension === "4th") {
+        base = genitiveSingularInput.slice(0, genLength - 2);
     }
-    else if (genitiveSingularInput.endsWith("ei")) {
-        declension = "5th";
-        base = genitive.slice(0, genLength - 2);
+    else if (declension === "5th") {
+        base = genitiveSingularInput.slice(0, genLength - 2);
     }
-    else if (genEnding !== "ei") && (genLastLetter === "i") {
-        declension = "2nd";
-        base = genitive.slice(0, genLength - 1);
+    else if (declension === "2nd") {
+        base = genitiveSingularInput.slice(0, genLength - 1);
     }
     else {
         alert("ERROR! Declension not figured out!");
     }
-    return declension;
-    */
+    return base;
 }
-
-function computeAndWriteLatin() {
-    computeDeclension();
+function computeDeclension(genitiveSingularInput) {
+    if (genitiveSingularInput.endsWith("ae")) {
+        return "1st";
+    }
+    else if (genitiveSingularInput.endsWith("is")) {
+        return "3rd";
+    }
+    else if (genitiveSingularInput.endsWith("us")) {
+        return "4th";
+    }
+    else if (genitiveSingularInput.endsWith("ei")) {
+        return "5th";
+    }
+    else if (genitiveSingularInput.endsWith("i")) {
+        return "2nd";
+    }
+    else {
+        alert("ERROR! Declension not figured out!");
+    }
 }
-
-function getGender () {
-    /*
-    nounParts[2].toLowerCase();
-    if (nounParts[2].includes(/f/gi)) {
+function getGender(genderInput) {
+    genderInput = genderInput.toLowerCase();
+    if (/f/gi.test(genderInput)) {
         return "feminine";
     }
-    else if (nounParts[2].includes(/m/gi)) {
+    else if (/m/gi.test(genderInput)) {
          return "masculine";
     }
-    else if (nounParts[2].includes(/n/gi)) {
+    else if (/n/gi.test(genderInput)) {
         return "neuter";
     }
     else {
         alert("ERROR! Gender could not be determined!");
     }
-    }
-    */
 }
-
-function calculateLatinEndings () {
-    /*
+function declineLatinHalfOfNoun(declension, nominativeSingularInput, genitiveSingularInput, gender, base) {
+        var nominative = nominativeSingularInput;
+        var nomSing;
+        var genSing;
+        var datSing;
+        var accSing;
+        var ablSing;
+        var vocSing;
+        var nomPl;
+        var genPl;
+        var datPl;
+        var accPl;
+        var ablPl;
+        var vocPl;
     if (declension === "1st") {
         nomSing = nominative;
         genSing = base + "ae";
@@ -490,7 +516,7 @@ function calculateLatinEndings () {
         ablPl = base + "is";
         vocPl = nomPl;
     }
-    else if ((declension === "2nd") && (gender === "m") && (nomLastLetter === "s")) {
+    else if ((declension === "2nd") && (gender === "masculine") && (nominative.endsWith("s"))) {
         nomSing = nominative;
         genSing = base + "i";
         datSing = base + "o";
@@ -504,8 +530,7 @@ function calculateLatinEndings () {
         ablPl = base + "is";
         vocPl = nomPl;
     }
-    
-    else if ((declension === "2nd") && (gender === "m") && (nomLastLetter === "r")) {
+    else if ((declension === "2nd") && (gender === "masculine") && (nominative.endsWith("r"))) {
         nomSing = nominative;
         genSing = base + "i";
         datSing = base + "o";
@@ -519,7 +544,7 @@ function calculateLatinEndings () {
         ablPl = base + "is";
         vocPl = nomPl;
     }
-    else if ((declension === "2nd") && (gender === "n")) {
+    else if ((declension === "2nd") && (gender === "neuter")) {
         nomSing = nominative;
         genSing = base + "i";
         datSing = base + "o";
@@ -533,7 +558,7 @@ function calculateLatinEndings () {
         ablPl = base + "is";
         vocPl = nomPl;
     }
-    else if (declension === "3rd" && gender !== "n") {
+    else if ((declension === "3rd") && (gender !== "neuter")) {
         nomSing = nominative;
         genSing = base + "is";
         datSing = base + "i";
@@ -547,7 +572,7 @@ function calculateLatinEndings () {
         ablPl = base + "ibus";
         vocPl = nomPl;
         }
-    else if (declension === "3rd" && gender === "n") {
+    else if ((declension === "3rd") && (gender === "neuter")) {
         nomSing = nominative;
         genSing = base + "is";
         datSing = base + "i";
@@ -561,7 +586,7 @@ function calculateLatinEndings () {
         ablPl = base + "ibus";
         vocPl = nomPl;
     }
-    else if (declension === "4th" && gender === "n") {
+    else if ((declension === "4th") && (gender === "neuter")) {
         nomSing = nominative;
         genSing = base + "us";
         datSing = base + "u";
@@ -575,7 +600,7 @@ function calculateLatinEndings () {
         ablPl = base + "ibus";
         vocPl = nomPl;
     }
-    else if (declension === "4th" && (gender === "m" || "f")) {
+    else if ((declension === "4th") && (gender === "masculine" || "feminine")) {
         nomSing = nominative;
         genSing = base + "us";
         datSing = base + "ui";
@@ -605,23 +630,79 @@ function calculateLatinEndings () {
         vocPl = nomPl;
     }
     else {
-        alert("ERROR! Noun endings could not be chosed");
+        alert("ERROR! Noun endings could not be chosen");
+    }
+
+
+    var lat_Sing_Nom = nomSing;
+    var lat_Sing_Gen = genSing;
+    var lat_Sing_Dat = datSing;
+    var lat_Sing_Acc = accSing;
+    var lat_Sing_Abl = ablSing;
+    var lat_Sing_Voc = vocSing;
+    var lat_Plural_Nom = nomPl;
+    var lat_Plural_Gen = genPl;
+    var lat_Plural_Dat = datPl;
+    var lat_Plural_Acc = accPl;
+    var lat_Plural_Abl = ablPl;
+    var lat_Plural_Voc = vocPl;
+    
+    var target_lat_sing_nom = document.getElementsByClassName("lat_sing_nom");
+    var target_lat_sing_gen = document.getElementsByClassName("lat_sing_gen");
+    var target_lat_sing_dat = document.getElementsByClassName("lat_sing_dat");
+    var target_lat_sing_acc = document.getElementsByClassName("lat_sing_acc");
+    var target_lat_sing_abl = document.getElementsByClassName("lat_sing_abl");
+    var target_lat_sing_voc = document.getElementsByClassName("lat_sing_voc");
+    var target_lat_plural_nom = document.getElementsByClassName("lat_plural_nom");
+    var target_lat_plural_gen = document.getElementsByClassName("lat_plural_gen");
+    var target_lat_plural_dat = document.getElementsByClassName("lat_plural_dat");
+    var target_lat_plural_acc = document.getElementsByClassName("lat_plural_acc");
+    var target_lat_plural_abl = document.getElementsByClassName("lat_plural_abl");
+    var target_lat_plural_voc = document.getElementsByClassName("lat_plural_voc");
+    
+    
+    
+    // Takes the correct Latin and inserts them in the HTML
+    // SINGULAR 
+    for (var i = 0; i < target_lat_sing_nom.length; i++) {
+        target_lat_sing_nom[i].innerHTML = lat_Sing_Nom;
+    }
+    for (i = 0; i < target_lat_sing_gen.length; i++) {
+        target_lat_sing_gen[i].innerHTML = lat_Sing_Gen;
+    }
+    for (i = 0; i < target_lat_sing_dat.length; i++) {
+        target_lat_sing_dat[i].innerHTML = lat_Sing_Dat;
+    }
+    for (i = 0; i < target_lat_sing_acc.length; i++) {
+        target_lat_sing_acc[i].innerHTML = lat_Sing_Acc;
+    }
+    for (i = 0; i < target_lat_sing_abl.length; i++) {
+        target_lat_sing_abl[i].innerHTML = lat_Sing_Abl;
+    }
+    for (i = 0; i < target_lat_sing_voc.length; i++) {
+        target_lat_sing_voc[i].innerHTML = lat_Sing_Voc;
+    }
+    
+    // PLURAL 
+    for (i = 0; i < target_lat_plural_nom.length; i++) {
+        target_lat_plural_nom[i].innerHTML = lat_Plural_Nom;
+    }
+    for (i = 0; i < target_lat_plural_gen.length; i++) {
+        target_lat_plural_gen[i].innerHTML = lat_Plural_Gen;
+    }
+    for (i = 0; i < target_lat_plural_dat.length; i++) {
+        target_lat_plural_dat[i].innerHTML = lat_Plural_Dat;
+    }
+    for (i = 0; i < target_lat_plural_acc.length; i++) {
+        target_lat_plural_acc[i].innerHTML = lat_Plural_Acc;
+    }    
+    for (i = 0; i < target_lat_plural_abl.length; i++) {
+        target_lat_plural_abl[i].innerHTML = lat_Plural_Abl;
+    }
+    for (i = 0; i < target_lat_plural_voc.length; i++) {
+        target_lat_plural_voc[i].innerHTML = lat_Plural_Voc;
     }
 }
-*/
-}
-
-function declineLatinHalfOfNoun () {
-    
-}
-
-function writeLatinNounInHTML () {
-    
-}
-
-
-
-
 
 
 // ====================================================
@@ -629,13 +710,14 @@ function writeLatinNounInHTML () {
 //      Decline the English half of the noun 
 // ====================================================
 // ====================================================
-
-function getUserInputEnglish () {
-
+function computeAndWriteEnglish(englishMeaning) {
+    var englishMeaningSingular = englishMeaning;
+    englishMeaningSingular = englishMeaningSingular.trim();
+    var englishMeaningPlural = getPluralEnglishMeaning(englishMeaningSingular);
+    declineEnglishHalfOfNoun(englishMeaningSingular, englishMeaningPlural);
 }
-
-function getPluralEnglishMeaning(x) {
-    var englishMeaning = x;
+function getPluralEnglishMeaning(englishMeaningSingular) {
+    var englishMeaning = englishMeaningSingular;
     var englishMeaningPlural;
     if (englishMeaning === "man") {
         englishMeaningPlural = "men";
@@ -724,6 +806,9 @@ function getPluralEnglishMeaning(x) {
     else if (englishMeaning === "glory") {
         englishMeaningPlural = "glories";
     }
+    else if (englishMeaning === "cavalry") {
+        englishMeaningPlural = "cavalry";
+    }
     else if (englishMeaning === "penalty") {
         englishMeaningPlural = "penalties";
     }
@@ -744,22 +829,86 @@ function getPluralEnglishMeaning(x) {
     }
     return englishMeaningPlural;
 }
+function declineEnglishHalfOfNoun (englishMeaningSingular, englishMeaningPlural) {
+    var eng_Sing_Nom = "the " + englishMeaningSingular;
+    var eng_Sing_Gen = "of the " + englishMeaningSingular;
+    var eng_Sing_Dat = "to/for the " + englishMeaningSingular;
+    var eng_Sing_Acc = "by/with/from the " + englishMeaningSingular;
+    var eng_Sing_Abl = "the " + englishMeaningSingular;
+    var eng_Sing_Voc = "oh " + englishMeaningSingular;
+    var eng_Plural_Nom = "the " + englishMeaningPlural;
+    var eng_Plural_Gen = "of the " + englishMeaningPlural;
+    var eng_Plural_Dat = "to/for the " + englishMeaningPlural;
+    var eng_Plural_Acc = "by/with/from the " + englishMeaningPlural;
+    var eng_Plural_Abl = "the " + englishMeaningPlural;
+    var eng_Plural_Voc = "oh " + englishMeaningPlural;
     
-function computeAndWriteEnglish() {
-    var englishMeaningSingular;
-    var englishMeaningPlural = getPluralEnglishMeaning(englishMeaningSingular);
-}
-
-function declineEnglishHalfOfNoun () {
+    var target_eng_sing_nom = document.getElementsByClassName("eng_sing_nom");
+    var target_eng_sing_gen = document.getElementsByClassName("eng_sing_gen");
+    var target_eng_sing_dat = document.getElementsByClassName("eng_sing_dat");
+    var target_eng_sing_acc = document.getElementsByClassName("eng_sing_acc");
+    var target_eng_sing_abl = document.getElementsByClassName("eng_sing_abl");
+    var target_eng_sing_voc = document.getElementsByClassName("eng_sing_voc");
+    var target_eng_plural_nom = document.getElementsByClassName("eng_plural_nom");
+    var target_eng_plural_gen = document.getElementsByClassName("eng_plural_gen");
+    var target_eng_plural_dat = document.getElementsByClassName("eng_plural_dat");
+    var target_eng_plural_acc = document.getElementsByClassName("eng_plural_acc");
+    var target_eng_plural_abl = document.getElementsByClassName("eng_plural_abl");
+    var target_eng_plural_voc = document.getElementsByClassName("eng_plural_voc");
     
-}
-
-function writeEnglishNounInHTML () {
     
+    
+    // Takes the correct English and inserts them in the HTML
+    // SINGULAR 
+    for (var i = 0; i < target_eng_sing_nom.length; i++) {
+        target_eng_sing_nom[i].innerHTML = eng_Sing_Nom;
+    }
+    
+    for (i = 0; i < target_eng_sing_gen.length; i++) {
+        target_eng_sing_gen[i].innerHTML = eng_Sing_Gen;
+    }
+    
+    for (i = 0; i < target_eng_sing_dat.length; i++) {
+        target_eng_sing_dat[i].innerHTML = eng_Sing_Dat;
+    }
+    
+    for (i = 0; i < target_eng_sing_acc.length; i++) {
+        target_eng_sing_acc[i].innerHTML = eng_Sing_Acc;
+    }
+    
+    for (i = 0; i < target_eng_sing_abl.length; i++) {
+        target_eng_sing_abl[i].innerHTML = eng_Sing_Abl;
+    }
+    
+    for (i = 0; i < target_eng_sing_voc.length; i++) {
+        target_eng_sing_voc[i].innerHTML = eng_Sing_Voc;
+    }
+    
+    // PLURAL 
+    for (i = 0; i < target_eng_plural_nom.length; i++) {
+        target_eng_plural_nom[i].innerHTML = eng_Plural_Nom;
+    }
+    
+    for (i = 0; i < target_eng_plural_gen.length; i++) {
+        target_eng_plural_gen[i].innerHTML = eng_Plural_Gen;
+    }
+    
+    for (i = 0; i < target_eng_plural_dat.length; i++) {
+        target_eng_plural_dat[i].innerHTML = eng_Plural_Dat;
+    }
+    
+    for (i = 0; i < target_eng_plural_acc.length; i++) {
+        target_eng_plural_acc[i].innerHTML = eng_Plural_Acc;
+    }
+    
+    for (i = 0; i < target_eng_plural_abl.length; i++) {
+        target_eng_plural_abl[i].innerHTML = eng_Plural_Abl;
+    }
+    
+    for (i = 0; i < target_eng_plural_voc.length; i++) {
+        target_eng_plural_voc[i].innerHTML = eng_Plural_Voc;
+    }
 }
-
-
-
 
 
 
@@ -829,47 +978,47 @@ function declineSelectedNoun(id) {
             englishMeaning = "student";
     }
     else if  (selectedNoun === "poeta") {
-            selectedLatinNoun = "poeta, -ae, m."; 
+            selectedLatinNoun = "poeta, poetae, m."; 
             englishMeaning = "poet";
     }
     else if  (selectedNoun === "fama") {
-            selectedLatinNoun = "fama, -ae, f."; 
+            selectedLatinNoun = "fama, famae, f."; 
             englishMeaning = "rumor";
     }
     else if  (selectedNoun === "cura") {
-            selectedLatinNoun = "cura, -ae, f."; 
+            selectedLatinNoun = "cura, curae, f."; 
             englishMeaning = "care";
     }
     else if  (selectedNoun === "puella") {
-            selectedLatinNoun = "puella, -ae, f."; 
+            selectedLatinNoun = "puella, puellae, f."; 
             englishMeaning = "girl";
     }
     else if  (selectedNoun === "rosa") {
-            selectedLatinNoun = "rosa, -ae, f."; 
+            selectedLatinNoun = "rosa, rosae, f."; 
             englishMeaning = "rose";
     }
     else if  (selectedNoun === "vita") {
-            selectedLatinNoun = "vita, -ae, f."; 
+            selectedLatinNoun = "vita, vitae, f."; 
             englishMeaning = "life";
     }
     else if  (selectedNoun === "mora") {
-            selectedLatinNoun = "mora, -ae, f."; 
+            selectedLatinNoun = "mora, morae, f."; 
             englishMeaning = "delay";
     }
     else if  (selectedNoun === "nauta") {
-            selectedLatinNoun = "nauta, -ae, m."; 
+            selectedLatinNoun = "nauta, nautae, m."; 
             englishMeaning = "sailor";
     }
     else if  (selectedNoun === "culpa") {
-            selectedLatinNoun = "culpa, -ae, f."; 
+            selectedLatinNoun = "culpa, culpae, f."; 
             englishMeaning = "fault";
     }
     else if  (selectedNoun === "forma") {
-            selectedLatinNoun = "forma, -ae, f."; 
+            selectedLatinNoun = "forma, formae, f."; 
             englishMeaning = "form";
     }
     else if  (selectedNoun === "poena") {
-            selectedLatinNoun = "poena, -ae, f."; 
+            selectedLatinNoun = "poena, poenae, f."; 
             englishMeaning = "penalty";
     }
     else if  (selectedNoun === "amica") {
@@ -899,15 +1048,15 @@ function declineSelectedNoun(id) {
             englishMeaning = "friend";
     }
     else if  (selectedNoun === "oculus") {
-            selectedLatinNoun = "oculus, -i, m."; 
+            selectedLatinNoun = "oculus, oculi, m."; 
             englishMeaning = "eye";
     }
     else if  (selectedNoun === "animus") {
-            selectedLatinNoun = "animus, -i, m."; 
+            selectedLatinNoun = "animus, animi, m."; 
             englishMeaning = "soul";
     }
     else if  (selectedNoun === "stultus") {
-            selectedLatinNoun = "stultus, -i, m."; 
+            selectedLatinNoun = "stultus, stulti, m."; 
             englishMeaning = "fool";
     }
     else if  (selectedNoun === "discipulus") {
@@ -938,6 +1087,7 @@ function declineSelectedNoun(id) {
             selectedLatinNoun = "liber, libri, m."; 
             englishMeaning = "book";
     }
+
 
     else if  (selectedNoun === "basium") {
             selectedLatinNoun = "basium, basii, n";
@@ -1118,59 +1268,59 @@ function declineSelectedNoun(id) {
             englishMeaning = "army";
     }
     else if  (selectedNoun === "arcus") {
-            selectedLatinNoun = "arcus, -us, m"; 
+            selectedLatinNoun = "arcus, arcus, m"; 
             englishMeaning = "bow";
     }
     else if  (selectedNoun === "cantus") {
-            selectedLatinNoun = "cantus, -us, m"; 
+            selectedLatinNoun = "cantus, cantus, m"; 
             englishMeaning = "song";
     }
     else if  (selectedNoun === "currus") {
-            selectedLatinNoun = "currus, us, m"; 
+            selectedLatinNoun = "currus, currus, m"; 
             englishMeaning = "chariot";
     }
     else if  (selectedNoun === "equitatus") {
-            selectedLatinNoun = "equitatus, us, m"; 
-            englishMeaning = "cavalry ";
+            selectedLatinNoun = "equitatus, equitatus, m"; 
+            englishMeaning = "cavalry";
     }
     else if  (selectedNoun === "gressus") {
-            selectedLatinNoun = "gressus, us, m"; 
+            selectedLatinNoun = "gressus, gressus, m"; 
             englishMeaning = "step";
     }
     else if  (selectedNoun === "fructus") {
-            selectedLatinNoun = "fructus, us, m"; 
+            selectedLatinNoun = "fructus, fructus, m"; 
             englishMeaning = "fruit";
     }
     else if  (selectedNoun === "natus") {
-            selectedLatinNoun = "natus, us, m"; 
+            selectedLatinNoun = "natus, natus, m"; 
             englishMeaning = "birth";
     }
     else if  (selectedNoun === "potus") {
-            selectedLatinNoun = "potus, us, m"; 
+            selectedLatinNoun = "potus, potus, m"; 
             englishMeaning = "drink";
     }
     else if  (selectedNoun === "risus") {
-            selectedLatinNoun = "risus, us, m"; 
+            selectedLatinNoun = "risus, risus, m"; 
             englishMeaning = "laugh";
     }
     else if  (selectedNoun === "senatus") {
-            selectedLatinNoun = "senatus, us, m"; 
+            selectedLatinNoun = "senatus, senatus, m"; 
             englishMeaning = "senate";
     }
     else if  (selectedNoun === "sensus") {
-            selectedLatinNoun = "sensus, -us, m"; 
+            selectedLatinNoun = "sensus, sensus, m"; 
             englishMeaning = "feeling";
     }
     else if  (selectedNoun === "ritus") {
-            selectedLatinNoun = "ritus, -us, m."; 
+            selectedLatinNoun = "ritus, ritus, m."; 
             englishMeaning = "rite";
     }
     else if  (selectedNoun === "situs") {
-            selectedLatinNoun = "situs, -us, m."; 
+            selectedLatinNoun = "situs, situs, m."; 
             englishMeaning = "site";
     }
     else if  (selectedNoun === "morsus") {
-            selectedLatinNoun = "morsus, -us, m."; 
+            selectedLatinNoun = "morsus, morsus, m."; 
             englishMeaning = "bite";
     }
     
@@ -1179,15 +1329,15 @@ function declineSelectedNoun(id) {
             englishMeaning = "javelin";
     }
     else if  (selectedNoun === "cornu") {
-            selectedLatinNoun = "cornu, -us, n."; 
+            selectedLatinNoun = "cornu, cornus, n."; 
             englishMeaning = "horn";
     }
     else if  (selectedNoun === "genu") {
-            selectedLatinNoun = "genu, -us, n."; 
+            selectedLatinNoun = "genu, genus, n."; 
             englishMeaning = "knee";
     }
     else if  (selectedNoun === "gelu") {
-            selectedLatinNoun = "gelu, -us, n"; 
+            selectedLatinNoun = "gelu, gelus, n"; 
             englishMeaning = "frost";
     }
     else if  (selectedNoun === "pecu") {
@@ -1261,10 +1411,34 @@ function declineSelectedNoun(id) {
             englishMeaning = "sight";
     }
     document.getElementById("SelectNounChartCaption").innerHTML = selectedLatinNoun + " (" + englishMeaning + ")";
+    declineNounCompletely(selectedLatinNoun, englishMeaning);
 }
 
 
 
 
+// ====================================================
+// ====================================================
+//      Enter your own noun
+// ====================================================
+// ====================================================
+
+// Sets all of the Latin endings of selected nouns
+// 
+function declineUserEnteredNoun(id) {
+    var selectedLatinNoun = document.getElementById("userLatinNoun").value;
+    var englishMeaning = document.getElementById("userEnglishNoun").value;
+    if (englishMeaning === "") {
+        englishMeaning = "noun";
+    }
+    document.getElementById("SelectNounChartCaption").innerHTML = selectedLatinNoun + " (" + englishMeaning + ")";
+    declineNounCompletely(selectedLatinNoun, englishMeaning);
+}
+
+
+
+
+
+// End of JS
 
 // End of JS
