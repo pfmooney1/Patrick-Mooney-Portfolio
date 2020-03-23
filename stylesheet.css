@@ -110,11 +110,13 @@ footer {
     vertical-align: center;
     justify-content: space-around;
 }
+section {
+    justify-content: center;
+}
 .containerRow {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
 }
 .containerColumn {
     display: flex;
