@@ -18,18 +18,17 @@ var selectANoun = document.getElementById("selectANoun");
 
 
 // Initial div-hiders
-//
-/*
+
 assignmentScreen.style.display = "none";
 enterANounScreen.style.display = "none";
 aboutScreen.style.display = "none";
 randomNounScreen.style.display = "none";
 settingScreen.style.display = "none";
-settingScreen.style.display = "none";
-settingScreen.style.display = "none";
+blankChartScreen.style.display = "none";
+nounEndingsScreen.style.display = "none";
 otherCharts.style.display = "none";
 selectANoun.style.display = "none";
-*/
+
 
 
 
@@ -41,6 +40,40 @@ selectANoun.style.display = "none";
 //              Settings and Options
 // ====================================================
 // ====================================================
+
+
+
+
+
+// Hides/shows the VOCATIVE table rows
+// 
+function toggleDarkMode() {
+    var body = document.getElementById("body");
+    var darkModeButton = document.getElementsByClassName("darkModeButton");
+    var darkModeButtonClassName = darkModeButton[0].className;
+    if (darkModeButtonClassName.includes("checked") === true) {
+        body.style.backgroundImage = "url(whitePatternA.png)";
+        body.style.color = "black";
+        // Changes the buttons to unchecked
+        for (i = 0; i < darkModeButton.length; i++) {
+            darkModeButton[i].className = "darkModeButton toggleToken";
+        }
+    }
+    else if (darkModeButtonClassName.includes("checked") === false) {
+        body.style.backgroundImage = "url(blackPatternA.png)";
+        body.style.color = "white";
+        // Changes the buttons to checked
+        for (i = 0; i < darkModeButton.length; i++) {
+            darkModeButton[i].className = "darkModeButton toggleToken checked";
+        }
+    }
+}
+
+
+
+
+
+
 
 // Hides/shows the VOCATIVE table rows
 // 
@@ -882,6 +915,12 @@ function getPluralEnglishMeaning(englishMeaningSingular) {
     }
     else if (englishMeaning === "navy") {
         englishMeaningPlural = "navies";
+    }
+    else if (englishMeaning === "ally") {
+        englishMeaningPlural = "allies";
+    }
+    else if (englishMeaning === "enemy") {
+        englishMeaningPlural = "enemies";
     }
     else {
         englishMeaningPlural = englishMeaning + "s";

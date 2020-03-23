@@ -5,9 +5,9 @@
   <title>Latin Noun Chart Generator</title>
   <link rel="stylesheet" href="nounChartStylesheet.css">
 </head>
-<body>
+<body id="body">
     <header id="header">
-        <h1>Latin Noun Generator</h1>
+        <h1><a href="https://pfmooney1.github.io/Patrick-Mooney-Portfolio/" target="_blank" class="headerTextBlack">Patrick Mooney's  Latin Noun Generator</a></h1>
     </header>
     <main id="mainColumn">
     
@@ -54,7 +54,7 @@
                 <button>About</button>
             </div> <!-- About -->
         </div> <!-- Main Menu-->
-        <hr class="debug">
+
 
         
         
@@ -71,7 +71,7 @@
             <button onClick="goToMainMenuScreen();">Main Menu</button>
 
         </div> <!-- Assignment Page-->
-        <hr class="debug">
+
    
         
         
@@ -186,7 +186,7 @@
             <button onClick="declineUserEnteredNoun();">Go!</button>
             <button onClick="goToMainMenuScreen();">Main Menu</button>
         </div> <!-- Enter your own noun-->
-        <hr class="debug">
+
 
         
         
@@ -207,17 +207,17 @@
             Available on https://game-icons.net"<br>
             <button onClick="goToMainMenuScreen();" class="closeButton">Close</button>
         </div> <!-- About Screen-->
-        <hr class="debug">
+
 
         
         
         
         <div id="randomNounScreen" class="simpleGrid">
             <h2>Random Noun</h2>
-            <p class="footerContent">Random noun generated right here. Copyright 2020 Patrick Mooney</p>
+            <p class="footerContent">Random noun generated right here. <br> Feature coming soon!</p>
             <button onClick="goToMainMenuScreen();" class="closeButton">Close</button>
         </div> <!-- About Screen-->
-        <hr class="debug">
+
 
         
         
@@ -538,7 +538,7 @@
             <button class="vocativeButton toggleToken checked" id="VocChoiceD" onClick="showHideVocatives()">Include Voc.</button><br>
             <button onClick="goToMainMenuScreen();" class="closeButton">Close</button>
         </div> <!-- About Screen-->
-        <hr class="debug">
+
         
         
         
@@ -553,39 +553,39 @@
                 </tr>
                 <tr>
                     <td class="firstColumn">Nom.</td>
-                    <td>   </td>
+                    <td><br><br></td>
                     <td>   </td>
                 </tr>
                 <tr>
                     <td class="firstColumn">Gen.</td>
-                    <td>   </td>
+                    <td><br><br></td>
                     <td>   </td>
                 </tr>
                 <tr>
                     <td class="firstColumn">Dat.</td>
-                    <td>   </td>
+                    <td><br><br></td>
                     <td>   </td>
                 </tr>
                 <tr>
                     <td class="firstColumn">Acc.</td>
+                    <td><br><br></td>
                     <td></td>
-                    <td>   </td>
                 </tr>
                 <tr>
                     <td class="firstColumn">Abl.</td>
-                    <td>   </td>
+                    <td><br><br></td>
                     <td>   </td>
                 </tr>
                 <tr class="vocativeRow">
                     <td class="firstColumn">Voc.</td>
-                    <td>   </td>
+                    <td><br><br></td>
                     <td>   </td>
                 </tr>
             </table>
             <button class="vocativeButton toggleToken checked" id="VocChoiceE" onClick="showHideVocatives();">Include Voc.</button>
             <button onClick="goToMainMenuScreen();" class="closeButton">Close</button>
         </div> <!-- About Screen-->
-        <hr class="debug">
+
 
         
 
@@ -821,7 +821,7 @@
             <button class="copyPasteButton toggleToken" id="copyPasteChoiceA" onClick="makeChartsCopyPaste();">Copy/Paste Mode</button>
             <button onClick="goToMainMenuScreen();" class="closeButton">Close</button>
         </div>
-        <hr class="debug">
+
         
         
         
@@ -1253,7 +1253,7 @@
             </table> <!-- 1st Decl -->
             <button onClick="goToMainMenuScreen();" class="closeButton">Close</button>
         </div>
-        <hr class="debug">
+
         
         
     
@@ -1264,19 +1264,13 @@
                 <button class="copyPasteButton toggleToken" id="copyPasteChoiceB" onClick="makeChartsCopyPaste();">Copy/Paste Mode</button> <br>
                 <button class="englishButton toggleToken checked" id="englishChoiceB" onClick="showHideEnglish();">Include English</button><br>
                 <button class="vocativeButton toggleToken checked" id="VocChoiceB" onClick="showHideVocatives();">Include Vocative</button><br>
+                <hr>
+                <button class="darkModeButton toggleToken" id="darkMode" onClick="toggleDarkMode();">Toggle Darkmode</button><br>
+
             <button onClick="goToMainMenuScreen();" class="closeButton">Close</button>
         </div> <!-- Setting Screen -->
-        <hr class="debug">
 
-        
-        
-        
-        
-        <button onClick="onShowAll();" id="debugButton1">DEBUG: Unhide all divs </button>
-        <button onClick="onHideAll();" id="debugButton2">DEBUG: Hide all divs </button>
-        <button onClick="testFinalProduct();" id="debugButton3">DEBUG: Test final product </button>
-        <button onClick="" id="debugButton4">DEBUG: DESCRIPTION </button>
-        
+
     </main>
     <footer class="">
         <a href="https://pfmooney1.github.io/Patrick-Mooney-Portfolio/" class="">Link to my website</a>

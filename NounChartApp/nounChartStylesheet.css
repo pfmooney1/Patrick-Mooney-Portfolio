@@ -33,8 +33,10 @@ header {
     box-sizing: border-box;
     color: black;
     vertical-align: middle;
-    text-align: center;
-    font-size: 0.9em;
+    text-align: left;
+    font-size: 0.8em;
+    background-image: url(greenPatternA.png);
+
 }
 main {
     grid-area: main;
@@ -45,7 +47,7 @@ main {
 }
 footer {
     grid-area: footer;
-    background-color: darkgreen;
+    background-image: url(greenPatternA.png);
     border: 2px solid black;
     box-sizing: border-box;
     text-align: center;
@@ -65,8 +67,9 @@ body {
     padding: 0em;
     height: 100%;
     width: 100%;
-    background-color: darkgray;
-    font-size: 16px;
+    background-color: black;
+    background-image: url(whitePatternA.png);
+    font-size: 13px;
     box-sizing: border-box;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -75,7 +78,7 @@ body {
         "header header header"
         "main main main"
         "footer footer footer";
-    font-family: Georgia, serif;
+    font-family: "Bookman copy", times, serif;
 }
 .simpleGrid {
     box-sizing: border-box;
@@ -89,15 +92,22 @@ body {
                 Headings
 \* ============================================= */
 
-h1 {
-    vertical-align: middle;
-    margin: 0em;
-    padding: 0.2em 0em 0.2em 0em;
-}
+
 h1, h2, h3, h4, h5 {
     text-align: center;
     font-family: inherit;
 
+}
+h1 {
+    vertical-align: middle;
+    margin: 0em;
+    padding: 0.2em 0em 0.2em 0.5em;
+    text-align: left;
+    font-family: "candara header", serif;
+}
+.headerTextBlack { 
+    color: black;
+    text-decoration: none;
 }
 /* ============================================= *\
                 Main Menu
@@ -106,23 +116,35 @@ div#mainMenu {
     box-sizing: border-box;
     margin: 1em;
     display: grid;
-    
+    grid-column: auto;
 
 }
 div.MMbutton {
-    box-sizing: border-box;
     width: 100%;
-    display: grid;
-
-
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    padding: 0em;
+    margin: 0.2em;
+    border: 3px solid black;
+    border-radius: 5px;
 }
+
 div.MMbutton button{
     font-size: 1.7em;
+    background-color: inherit;
     font-family: inherit;
     font-weight: 700;
+    margin: 0em 0.3em;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    border: 0px solid black;
 }
-img.MMIcon {
-    
+div.MMbutton img.MMIcon {
+    height: cover;
+    background-color: black;
 }
 
 /* ============================================= *\
@@ -147,12 +169,12 @@ ins {
 \* ============================================= */
 
 button {
-    width: 200pt;
     font-size: 1.2em;
     box-sizing: border-box;
+    width: 200px;
 }
 button.closeButton {
-    margin: 1em auto 1em auto;
+    margin: 1em auto 1em auto;    
 }
 input[type=text] {
     width: 100%;
@@ -171,12 +193,18 @@ input[type=text]:focus {
     width: 95%;
     margin: 0 0 1.5em 0;
     box-sizing: border-box;
+    font-weight: bolder;
 }
 select {
     border: 1px solid black;
     border-radius: 0px;
     box-sizing: border-box;
     font-size: 1.1em;
+    font-weight: bold;
+}
+legend {
+    font-size: 1.3em;
+    font-weight: bolder;
 }
 
 /* ============================================= *\
@@ -200,7 +228,8 @@ img, svg {
 /*          Toggle Tabs        */
 /* ======================================== */
 .toggleToken {
-    width: 80%;
+    min-width: 250px;
+    max-width: 450px;
     border: 1px solid black;
     border-radius: 10px;
     background-color: lightgray;
@@ -217,12 +246,12 @@ img, svg {
 \* ============================================= */
 
 table {
-    border: 1px solid black;
+    border: 2px solid black;
     border-collapse: collapse;
     box-sizing: border-box;
     width: 100%;
     margin: 1em;
-    font-size: 1.1em;
+    font-size: 1.2em;
 }
 tr, td {
     border: 1px solid black;
@@ -285,30 +314,90 @@ hr.debug {
                 Media Queries
 \* ============================================= */
 
-/*
-@media only screen and (min-width : 100) {
+
+@media only screen and (min-width : 200) {
     body {
-        font-size: 16px;
+        font-size: 10px;
+    }
+    
+    div.MMbutton img.MMIcon {
+        height: 20px;
+    }
+    main {
+        width: 100%;
+        margin: 0 auto;
     }
 }
 @media only screen and (min-width : 410px) {
     body {
         font-size: 16px;
     }
+    div.MMbutton img.MMIcon {
+        height: 60px;
+    }
+    main {
+        width: 90%;
+        margin: 0 auto;
+    }
 }
 @media only screen and (min-width : 701px) {
     body {
         font-size: 20px;
+    }
+    div.MMbutton img.MMIcon {
+        height: 70px;
+    }
+    main {
+        width: 80%;
+        margin: 0 auto;
     }
 }
 @media only screen and (min-width : 901px) {
     body {
         font-size: 22px;
     }
+    div.MMbutton img.MMIcon {
+        height: 70px;
+    }
+    main {
+        width: 75%;
+        margin: 0 auto;
+    }
 }
 @media only screen and (min-width : 1070px) {
     body {
-        font-size: 24px;
+        font-size: 22px;
+    }
+    div.MMbutton img.MMIcon {
+        height: 70px;
+    }
+    main {
+        width: 70%;
+        margin: 0 auto;
     }
 }
-*/
+@media only screen and (min-width : 1270px) {
+    body {
+        font-size: 22px;
+    }
+    div.MMbutton img.MMIcon {
+        height: 70px;
+    }
+    main {
+        width: 65%;
+        margin: 0 auto;
+    }
+}
+@media only screen and (min-width : 1670px) {
+    body {
+        font-size: 22px;
+    }
+    div.MMbutton img.MMIcon {
+        height: 70px;
+    }
+    main {
+        width: 60%;
+        margin: 0 auto;
+    }
+}
+
