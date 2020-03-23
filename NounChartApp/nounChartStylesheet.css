@@ -2,15 +2,14 @@
                 Noun Chart Generator
         Index
         - Root
-        - Media Queries
         - Body, div, footer, etc
         - Headeing
         - Buttons and inputs
         - Toggle tabs
-        -
-        -
         - FlexBox related
         - Other
+        - Media Queries
+
 
 \* ============================================= */
 
@@ -20,27 +19,7 @@
 
 
 
-/* ============================================= *\
-                Media Queries
-\* ============================================= */
 
-/*
-@media only screen and (min-width : 300px) and (max-width : 570px) {
-    body {
-        font-size: 8px;
-    }
-}
-@media only screen and (min-width : 410px) and (max-width : 700px) {
-    body {
-        font-size: 10px;
-    }
-}
-@media only screen and (min-width : 701px) {
-    body {
-        font-size: 18px;
-    }
-}
-*/
 /* ============================================= *\
                 Main Styled Parts
 \* ============================================= */
@@ -87,7 +66,7 @@ body {
     height: 100%;
     width: 100%;
     background-color: darkgray;
-    font-size: 0.85em;
+    font-size: 16px;
     box-sizing: border-box;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -96,7 +75,7 @@ body {
         "header header header"
         "main main main"
         "footer footer footer";
-    font-family: Georgia;
+    font-family: Georgia, serif;
 }
 .simpleGrid {
     box-sizing: border-box;
@@ -123,27 +102,28 @@ h1, h2, h3, h4, h5 {
 /* ============================================= *\
                 Main Menu
 \* ============================================= */
-#mainMenu {
+div#mainMenu {
     box-sizing: border-box;
+    margin: 1em;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(8, auto);
-    justify-items: center;
-    align-items: center;
+    
+
 }
-#mainMenu button{
-    font-size: 1.5em;
-    width: 170pt;
-    margin: 0 0 0 0.2em;
+div.MMbutton {
+    box-sizing: border-box;
+    width: 100%;
+    display: grid;
+
+
+}
+div.MMbutton button{
+    font-size: 1.7em;
     font-family: inherit;
     font-weight: 700;
 }
-div.MMbutton {
-    display: flex;
-    margin: .5em 0 0 0;
-    box-sizing: border-box;
+img.MMIcon {
+    
 }
-
 
 /* ============================================= *\
                Paragraphs
@@ -242,6 +222,7 @@ table {
     box-sizing: border-box;
     width: 100%;
     margin: 1em;
+    font-size: 1.1em;
 }
 tr, td {
     border: 1px solid black;
@@ -267,6 +248,11 @@ td.boldedCell {
     font-weight: 800;
 }
 
+table.copyPasteFormat {
+    font-size: 12pt;
+    font-family: "Times New Roman", times, serif;
+    font-weight: normal;
+}
 /* ============================================= *\
                 FlexBox
 \* ============================================= */
@@ -295,3 +281,34 @@ hr.debug {
 }
 
 
+/* ============================================= *\
+                Media Queries
+\* ============================================= */
+
+/*
+@media only screen and (min-width : 100) {
+    body {
+        font-size: 16px;
+    }
+}
+@media only screen and (min-width : 410px) {
+    body {
+        font-size: 16px;
+    }
+}
+@media only screen and (min-width : 701px) {
+    body {
+        font-size: 20px;
+    }
+}
+@media only screen and (min-width : 901px) {
+    body {
+        font-size: 22px;
+    }
+}
+@media only screen and (min-width : 1070px) {
+    body {
+        font-size: 24px;
+    }
+}
+*/

@@ -16,36 +16,42 @@
         
         <div id="mainMenu" class="">
             <div class="MMbutton" onClick="goToSelectANounScreen();">
-                <img src="gladiusIcon.svg" alt="Selected Noun">
+                <img src="gladiusIcon.svg" alt="Selected Noun" class="MMIcon">
                 <button>Select a Noun</button>
             </div> <!-- Pick a noun -->
             
             <div class="MMbutton" onClick="goToOtherChartsScreen();">
-                <img src="magicBookIcon.svg"  alt="">
+                <img src="magicBookIcon.svg"  alt="" class="MMIcon">
                 <button>Other charts</button>
             </div> <!-- Other charts -->
             <div class="MMbutton" onClick="goToEnterANounScreenScreen();">
-                <img src="quillIcon.svg"  alt=""><button>Enter a Noun</button>
+                <img src="quillIcon.svg"  alt="" class="MMIcon">
+                <button>Enter a Noun</button>
             </div> <!-- Enter a noun -->
             
             <div class="MMbutton" onClick="goToRandomNounScreen();">
-                <img src="diceIcon.svg"  alt=""><button>Random Noun</button>
+                <img src="diceIcon.svg"  alt="" class="MMIcon">
+                <button>Random Noun</button>
             </div> <!-- Random noun -->
             
             <div class="MMbutton" onClick="goToNounEndingsScreen();">
-                <img src="tabletIcon.svg"  alt=""><button>Noun Endings</button>
+                <img src="tabletIcon.svg"  alt="" class="MMIcon">
+                <button>Noun Endings</button>
             </div> <!-- Noun endings -->
             
             <div class="MMbutton" onClick="goToBlankChartScreen();">
-                <img src="blankScrollIcon.svg"  alt=""><button>Blank Chart</button>
+                <img src="blankScrollIcon.svg"  alt="" class="MMIcon">
+                <button>Blank Chart</button>
             </div> <!-- Blank Chart -->
             
             <div class="MMbutton" onClick="goToSettingsScreen();">
-                <img src="anvilIcon.svg"  alt=""><button>Settings</button>
+                <img src="anvilIcon.svg"  alt="" class="MMIcon">
+                <button>Settings</button>
             </div> <!-- Settings -->
             
             <div class="MMbutton" onClick="goToAboutScreen();">
-                <img src="caesarIcon.svg"  alt=""><button>About</button>
+                <img src="caesarIcon.svg"  alt="" class="MMIcon">
+                <button>About</button>
             </div> <!-- About -->
         </div> <!-- Main Menu-->
         <hr class="debug">
@@ -57,12 +63,13 @@
             <h2 class="">Assignment</h2>
             <p class="centeredAndLarge">
                 Please decline 
-                <br><ins id="assignmentNoun" class="">NOUN TO DECLINE</ins><br>
-                in
-                <br> <ins id="assignmentLanguages" class="">LATIN AND ENGLISH</ins>.
+                <br><ins id="assignmentNoun">NOUN TO DECLINE</ins>
+                <br> <ins id="assignmentLanguages">in Latin and English.</ins>
             </p>
-            <button class="">See Answer</button>
-            <button class="">Main Menu</button>
+            <button onClick="goToEnterANounScreenScreen();">See Answer</button>
+            <button onClick="goToEnterANounScreenScreen();">Go back</button>
+            <button onClick="goToMainMenuScreen();">Main Menu</button>
+
         </div> <!-- Assignment Page-->
         <hr class="debug">
    
@@ -70,8 +77,8 @@
         
         
         <div id="enterANounScreen" class="simpleGrid">
-            <h2>Enter any noun below</h2>
             <fieldset id="enterANounFieldSet">
+            <legend>Enter any noun below</legend>
                 <p>
                 Latin Noun: 
                 <br>
@@ -79,13 +86,103 @@
                 <br>
                 English Meaning: 
                 <br>
-                <input type="text" id="userEnglishNoun" placeholder="king"><br>
+                <input type="text" id="userEnglishNoun" placeholder="king">
                 </p>
-                <button class="toggleToken" id="assignmentChoiceA" onClick="selectButton(id);">Assignment page</button>
-                <button class="toggleToken" id="copyPasteChoiceA" onClick="selectButton(id);">Copy/Paste Mode</button>
+                <button class="assignmentButton toggleToken" id="assignmentChoiceA" onClick="startWithAssignmentPage();">Assignment page</button>
+                <button class="copyPasteButton toggleToken" id="copyPasteChoiceA" onClick="makeChartsCopyPaste();">Copy/Paste Mode</button>
                 <button class="englishButton toggleToken checked" id="englishChoiceA" onClick="showHideEnglish();">Include English</button>
                 <button class="vocativeButton toggleToken checked" id="VocChoiceA" onClick="showHideVocatives();">Include Voc.</button>
+                <button onClick="declineUserEnteredNoun();">Go!</button>
             </fieldset>
+            <table is="enterNounChart">
+                <caption id="SelectNounChartCaption">amica, amicae, f. (friend)</caption>
+                <tr>
+                    <td class="firstColumn"></td>
+                    <td class="boldedCell">Singular</td>
+                    <td class="boldedCell">Plural</td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Nom.</td>
+                    <td id="SelectNounChart_NomSing">
+                        <ins class="lat_sing_nom">amica</ins>
+                        <br class="englishBR">
+                        <ins class="englishMeaning eng_sing_nom">the friend</ins>
+                    </td>
+                    <td id="SelectNounChart_NomPl">
+                        <ins class="lat_plural_nom">amicae</ins>
+                        <br class="englishBR">
+                        <ins class="englishMeaning eng_plural_nom">the friends</ins>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Gen.</td>
+                    <td id="SelectNounChart_GenSing">
+                        <ins class="lat_sing_gen">amicae</ins>
+                        <br class="englishBR">
+                        <ins class="englishMeaning eng_sing_gen">of the friend</ins>
+                    </td>
+                    <td id="SelectNounChart_GenPl">  
+                        <ins class="lat_plural_gen">amicarum</ins>
+                        <br class="englishBR">
+                        <ins class="englishMeaning eng_plural_gen">of the friends</ins>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Dat.</td>
+                    <td id="SelectNounChart_DatSing">
+                        <ins class="lat_sing_dat">amicae</ins>
+                        <br class="englishBR">
+                        <ins class="englishMeaning eng_sing_dat">to/for the friend</ins>
+                    </td>
+                    <td id="SelectNounChart_DatPl">
+                        <ins class="lat_plural_dat">amicis</ins>
+                        <br class="englishBR">
+                        <ins class="englishMeaning eng_plural_dat">to/for the friends</ins>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Acc.</td>
+                    <td id="SelectNounChart_AccSing">
+                        <ins class="lat_sing_acc">amicam</ins>
+                        <br class="englishBR">
+                        <ins class="englishMeaning eng_sing_acc">the friend</ins>
+
+                    </td>
+                    <td id="SelectNounChart_AccPl">
+                        <ins class="lat_plural_acc">amicas</ins>
+                        <br class="englishBR">
+                        <ins class="englishMeaning eng_plural_acc">the friends</ins>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Abl.</td>
+                    <td id="SelectNounChart_AblSing">
+                    
+                        <ins class="lat_sing_abl">amicā</ins>
+                        <br class="englishBR">
+                        <ins class="englishMeaning eng_sing_abl">by/with/from the friend</ins>
+                    
+                    </td>
+                    <td id="SelectNounChart_AblPl">
+                        <ins class="lat_plural_abl">amicis</ins>
+                        <br class="englishBR">
+                        <ins class="englishMeaning eng_plural_abl">by/with/from the friends</ins>
+                    </td>
+                </tr>
+                <tr id="SelectNounChart_VocRow" class="vocativeRow">
+                    <td class="firstColumn">Voc.</td>
+                    <td id="SelectNounChart_VocSing">
+                        <ins class="lat_sing_voc">amica</ins>
+                        <br class="englishBR">
+                        <ins class="englishMeaning eng_sing_voc">oh friend!</ins>
+                    </td>
+                    <td id="SelectNounChart_VocPl">
+                        <ins class="lat_plural_voc">amicae</ins>
+                        <br class="englishBR">
+                        <ins class="englishMeaning eng_plural_voc">oh friends!</ins>
+                    </td>
+                </tr>
+            </table>
             <button onClick="declineUserEnteredNoun();">Go!</button>
             <button onClick="goToMainMenuScreen();">Main Menu</button>
         </div> <!-- Enter your own noun-->
@@ -721,6 +818,7 @@
             </table>
             <button class="englishButton toggleToken checked" id="englishChoiceC" onClick="showHideEnglish();">Include English</button>
             <button class="vocativeButton toggleToken checked" id="VocChoiceC" onClick="showHideVocatives();">Include Voc.</button>
+            <button class="copyPasteButton toggleToken" id="copyPasteChoiceA" onClick="makeChartsCopyPaste();">Copy/Paste Mode</button>
             <button onClick="goToMainMenuScreen();" class="closeButton">Close</button>
         </div>
         <hr class="debug">
@@ -1162,8 +1260,8 @@
         
         <div id="settingScreen" class="simpleGrid">
             <h2 id="">Settings</h2>
-                <button class="toggleToken" id="assignmentChoiceB" onClick="selectButton(id);">Assignment page</button><br>
-                <button class="toggleToken" id="copyPasteChoiceB" onClick="selectButton(id);">Copy/Paste Mode</button> <br>
+                <button class="assignmentButton toggleToken" id="assignmentChoiceB" onClick="startWithAssignmentPage();">Assignment page</button><br>
+                <button class="copyPasteButton toggleToken" id="copyPasteChoiceB" onClick="makeChartsCopyPaste();">Copy/Paste Mode</button> <br>
                 <button class="englishButton toggleToken checked" id="englishChoiceB" onClick="showHideEnglish();">Include English</button><br>
                 <button class="vocativeButton toggleToken checked" id="VocChoiceB" onClick="showHideVocatives();">Include Vocative</button><br>
             <button onClick="goToMainMenuScreen();" class="closeButton">Close</button>

@@ -111,6 +111,58 @@ function showHideEnglish() {
 
 
 
+// Hides/shows the ENGLISH meanings
+//
+function startWithAssignmentPage() {
+    var assignmentButtons = document.getElementsByClassName("assignmentButton");
+    var assignmentButtonsClassName = assignmentButtons[0].className;
+    if (assignmentButtonsClassName.includes("checked") === true) {
+        // Changes the buttons to unchecked
+        for (i = 0; i < assignmentButtons.length; i++) {
+            assignmentButtons[i].className = "assignmentButton toggleToken";
+        }
+    }
+    else if (assignmentButtonsClassName.includes("checked") === false) {
+        // Changes the buttons to checked
+        for (i = 0; i < assignmentButtons.length; i++) {
+            assignmentButtons[i].className = "assignmentButton toggleToken checked";
+        }
+    }
+}
+
+
+
+// Turns all charts into Copy/Paste friendly (Times New Roman, 12pt font)
+//
+function makeChartsCopyPaste() {
+    var copyPasteButtons = document.getElementsByClassName("copyPasteButton");
+    var copyPasteButtonsClassName = copyPasteButtons[0].className;
+    
+    var allTables = document.getElementsByTagName("table");
+    if (copyPasteButtonsClassName.includes("checked") === true) {
+        // Changes the buttons to unchecked
+        for (i = 0; i < copyPasteButtons.length; i++) {
+            copyPasteButtons[i].className = "copyPasteButton toggleToken";
+        }
+        // Changes the tables to the default styling
+        for (i = 0; i < allTables.length; i++) {
+            allTables[i].className -= " copyPasteFormat";
+        }
+    }
+    else if (copyPasteButtonsClassName.includes("checked") === false) {
+        // Changes the buttons to checked
+        for (i = 0; i < copyPasteButtons.length; i++) {
+            copyPasteButtons[i].className = "copyPasteButton toggleToken checked";
+        }
+        // Changes the tables to Copy Paste format
+        for (i = 0; i < allTables.length; i++) {
+            allTables[i].className += " copyPasteFormat";
+        }
+    }
+}
+
+
+
 
 
 // ====================================================
@@ -419,7 +471,6 @@ function computeAndWriteLatin(latinNounUnparsed) {
     var declension = computeDeclension(genitiveSingularInput);    
     var base = computeNounBase(declension, nominativeSingularInput, genitiveSingularInput, gender);
        // alert("base: " + base);
-
     declineLatinHalfOfNoun(declension, nominativeSingularInput, genitiveSingularInput, gender, base);
 }
 function getNounParts(latinNounUnparsed) {
@@ -488,6 +539,8 @@ function getGender(genderInput) {
         alert("ERROR! Gender could not be determined!");
     }
 }
+
+
 function declineLatinHalfOfNoun(declension, nominativeSingularInput, genitiveSingularInput, gender, base) {
         var nominative = nominativeSingularInput;
         var nomSing;
@@ -823,6 +876,12 @@ function getPluralEnglishMeaning(englishMeaningSingular) {
     }
     else if (englishMeaning === "city") {
         englishMeaningPlural = "cities";
+    }
+    else if (englishMeaning === "army") {
+        englishMeaningPlural = "armies";
+    }
+    else if (englishMeaning === "navy") {
+        englishMeaningPlural = "navies";
     }
     else {
         englishMeaningPlural = englishMeaning + "s";
@@ -1429,16 +1488,31 @@ function declineUserEnteredNoun(id) {
     var selectedLatinNoun = document.getElementById("userLatinNoun").value;
     var englishMeaning = document.getElementById("userEnglishNoun").value;
     if (englishMeaning === "") {
-        englishMeaning = "noun";
+        englishMeaning = "* Please enter a noun to decline *";
     }
     document.getElementById("SelectNounChartCaption").innerHTML = selectedLatinNoun + " (" + englishMeaning + ")";
     declineNounCompletely(selectedLatinNoun, englishMeaning);
+    
+    // Checks to see if the user has selected "Assignment screen"
+    let assignmentButtons = document.getElementsByClassName("assignmentButton");
+    let assignmentButtonsClassName = assignmentButtons[0].className;
+    if (assignmentButtonsClassName.includes("checked") === true) {
+        goToAssignmentScreenScreen();
+            document.getElementById("assignmentNoun").innerHTML = selectedLatinNoun + " (" + englishMeaning + ")";
+    }
+    // If English is included, show that on the assignment page
+    var englButtons = document.getElementsByClassName("englishButton");
+    var englButtonsClassName = englButtons[0].className;
+    if (englButtonsClassName.includes("checked") === true) {
+        document.getElementById("assignmentLanguages").innerHTML = "in Latin and English.";
+    }
+    else {
+        document.getElementById("assignmentLanguages").innerHTML = "in Latin.";
+    }
 }
 
 
 
 
-
-// End of JS
 
 // End of JS
