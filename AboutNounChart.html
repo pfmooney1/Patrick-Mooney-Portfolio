@@ -24,13 +24,14 @@
                  <p class="paragraphContent">
                      The most time consuming part of teaching (aside from grading) is creating answer keys. This program solves that problem.<br>
                      Before, you would need to turn your back to thirty hyper 6th graders to write on the board and hope everyone behaves while you write out all the forms. Now you can just press a few buttons and then it's on the board! Javascript has done all the heavy lifting for you.<br>
+                     Not only does it allow teachers to keep better tabs on their students, but it also saves valuable class and preparation time!
                  </p>
-         <!--
              <h2>The Approach</h2>
                  <p class="paragraphContent">
-                     Lorem Ipsum
+                     This is my most Javascript-heavy project to date. I wrote the program to take a single Latin input (for example <i>rex, regis, m</i>) and parse it correctly no matter how the user separates the parts. Next, it identifies the noun's declension, which endings it should use, and the base. Next it puts it all together correctly in each of the twelve forms and displays them on the page. <br>The english half was easier. I take the user's input and run it through a function that checks to see if it is an irregular plural (ox -> oxen), then returns the proper plural form. <br>
+                     Additional features include the ability to quickly throw common irregular charts, random nouns, and blank charts on the board. For good measure, I even added a dark mode.
                  </p>
-             <h2>The Challenge</h2>
+<!--             <h2>The Challenge</h2>
                 <p class="paragraphContent">
                     Lorem Ipsum<br>
                     Lorem Ipsum 
@@ -40,10 +41,14 @@
                     Lorem Ipsum 
                     <br>
                     Lorem Ipsum
-                </p>
+                </p> 
+-->
              <h2>My Favorite Part</h2>
                 <p class="paragraphContent">
-                    Lorem Ipsum
+                    Having taught Latin for almost 5 years, it has been fascinating to create programs to do things that I teach my students how to do every day. 
+                    Teaching my students how to identify the declension of any given Latin noun is one of those things. It's funny to see it in Javascript after all of these years.
+                    <br>
+                    Sometimes I wish it were that easy for my 6th graders to get it.
                     <br>
                     <br>
                     Here's the code: <br>
@@ -51,39 +56,30 @@
                 <div class="sampleCode">
                     <pre>
                     <code>
-                        // Calculates the repair bill
-                        function calculateRepairBill(a) {
-                          if (a === 'communityChest') {
-                            communityChestHouses = document.getElementById("communityChestHouses").value;
-                            communityChestHotels = document.getElementById("communityChestHotels").value;
-                            communityChestHouses = Number(communityChestHouses);
-                            communityChestHotels = Number(communityChestHotels);
-                            housesRepairCost = communityChestHouses * 40;
-                            hotelsRepairCost = communityChestHotels * 115;
-                            repairBillTotal = housesRepairCost + hotelsRepairCost;
-                            document.getElementById("repairsTotal").innerHTML = "$" + repairBillTotal;
-                            document.getElementById("repairsCommunityChest1").style.display = "none";
-                            document.getElementById("repairsChance1").style.display = "none";
-                            document.getElementById("repairsFinalBill").style.display = "block";
-                          } else if (a === "chance") {
-                            chanceHouses = document.getElementById("chanceHouses").value;
-                            chanceHotels = document.getElementById("chanceHotels").value;
-                            chanceHouses = Number(chanceHouses);
-                            chanceHotels = Number(chanceHotels);
-                            housesRepairCost = chanceHouses * 25;
-                            hotelsRepairCost = chanceHotels * 100;
-                            repairBillTotal = housesRepairCost + hotelsRepairCost;
-                            document.getElementById("repairsTotal").innerHTML = "$" + repairBillTotal;
-                            document.getElementById("repairsCommunityChest1").style.display = "none";
-                            document.getElementById("repairsChance1").style.display = "none";
-                            document.getElementById("repairsFinalBill").style.display = "block";
-                          }
-                        }
+function computeDeclension(genitiveSingularInput) {
+    if (genitiveSingularInput.endsWith("ae")) {
+        return "1st";
+    }
+    else if (genitiveSingularInput.endsWith("is")) {
+        return "3rd";
+    }
+    else if (genitiveSingularInput.endsWith("us")) {
+        return "4th";
+    }
+    else if (genitiveSingularInput.endsWith("ei")) {
+        return "5th";
+    }
+    else if (genitiveSingularInput.endsWith("i")) {
+        return "2nd";
+    }
+    else {
+        alert("ERROR! Declension not figured out!");
+    }
+}
                     </code>
                     </pre>
                     </div>
                          <br>
--->
                 <a href="https://github.com/pfmooney1/Patrick-Mooney-Portfolio/tree/master/NounChartApp" class="linkButton" target="_blank">See the Code</a>
                 <a href="NounChartApp/nounChartGenerator.html" class="linkButton" target="_blank">Try it out</a>
                 <br>
