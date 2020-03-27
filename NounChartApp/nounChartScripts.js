@@ -53,7 +53,8 @@ function toggleDarkMode() {
     var darkModeButtonClassName = darkModeButton[0].className;
     if (darkModeButtonClassName.includes("checked") === true) {
         body.style.backgroundImage = "url(NounChartImages/whitePatternA.png)";
-        body.style.color = "black";
+        document.documentElement.style.setProperty('--black', 'black');
+        document.documentElement.style.setProperty('--white', 'white');
         // Changes the buttons to unchecked
         for (i = 0; i < darkModeButton.length; i++) {
             darkModeButton[i].className = "darkModeButton toggleToken";
@@ -61,13 +62,16 @@ function toggleDarkMode() {
     }
     else if (darkModeButtonClassName.includes("checked") === false) {
         body.style.backgroundImage = "url(NounChartImages/blackPatternA.png)";
-        body.style.color = "white";
+        document.documentElement.style.setProperty('--black', 'white');
+        document.documentElement.style.setProperty('--white', 'black');
         // Changes the buttons to checked
         for (i = 0; i < darkModeButton.length; i++) {
             darkModeButton[i].className = "darkModeButton toggleToken checked";
         }
     }
 }
+
+
 
 
 
