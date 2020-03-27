@@ -35,7 +35,7 @@ header {
     vertical-align: middle;
     text-align: left;
     font-size: 0.8em;
-    background-image: url(greenPatternA.png);
+    background-image: url(NounChartImages/greenPatternA.png);
 
 }
 main {
@@ -47,7 +47,7 @@ main {
 }
 footer {
     grid-area: footer;
-    background-image: url(greenPatternA.png);
+    background-image: url(NounChartImages/greenPatternA.png);
     border: 2px solid black;
     box-sizing: border-box;
     text-align: center;
@@ -68,7 +68,7 @@ body {
     height: 100%;
     width: 100%;
     background-color: black;
-    background-image: url(whitePatternA.png);
+    background-image: url(NounChartImages/whitePatternA.png);
     font-size: 13px;
     box-sizing: border-box;
     display: grid;
@@ -298,7 +298,6 @@ hr {
     width: 90%;
     margin: 1em auto;
     box-sizing: border-box;
-
 }
 hr.debug {
     border: 10px solid black;
