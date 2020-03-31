@@ -90,6 +90,39 @@ body {
     align-items: center;
     justify-items: center;
 }
+#randomButtonsContainer {
+    margin: 0.5em 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-auto-rows: 2fr;
+    grid-template-areas: 
+        "a b d f h"
+        "a c e g h";
+}
+#randomNounGridLabel {
+    margin: 0;
+    padding: 10px;
+}
+.randomNounGridToggles {
+    width: auto;
+    max-width: 200px;
+    min-width: 50px;
+
+}
+#randomA {grid-area: a;}
+#randomB {grid-area: b;}
+#randomC {grid-area: c;}
+#randomD {grid-area: d;}
+#randomE {grid-area: e;}
+#randomF {grid-area: f;}
+#randomG {grid-area: g;}
+#randomH {grid-area: h;}
+.toggleTokenRandom {
+    border: 1px solid var(--black);
+    border-radius: 10px;
+    background-color: lightgray;
+    box-shadow: 3px 3px var(--black);
+}
 /* ============================================= *\
                 Headings
 \* ============================================= */
