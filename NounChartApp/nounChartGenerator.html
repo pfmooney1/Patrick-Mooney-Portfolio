@@ -14,7 +14,7 @@
         
         
         
-        <div id="mainMenu" class="">
+        <div id="mainMenu" class="screen">
             <div class="MMbutton" onClick="goToSelectANounScreen();">
                 <img src="NounChartImages/gladiusIcon.svg" alt="Selected Noun" class="MMIcon">
                 <button>Select a Noun</button>
@@ -59,7 +59,7 @@
         
         
         
-        <div id="assignmentPage" class="simpleGrid">
+        <div id="assignmentPage" class="simpleGrid screen">
             <h2 class="">Assignment</h2>
             <p class="centeredAndLarge">
                 Please decline 
@@ -76,7 +76,7 @@
         
         
         
-        <div id="enterANounScreen" class="simpleGrid">
+        <div id="enterANounScreen" class="simpleGrid screen">
             <fieldset id="enterANounFieldSet">
             <legend>Enter any noun below</legend>
                 <p>
@@ -191,7 +191,7 @@
         
         
 
-        <div id="aboutScreen" class="simpleGrid">
+        <div id="aboutScreen" class="simpleGrid screen">
             <h2>About</h2>
             <p class="footerContent">
             This is a teacher resource for both the classroom and the office. Need to put an example noun chart on the board, but don't want to waste class time writing it out? Add enter a noun. Need to generate answer keys rapidly? Now you'll be ready no matter if it is making the answer key for a test or putting the answers on the board for trading-and-grading a pop-quiz.
@@ -212,7 +212,7 @@
         
         
         
-        <div id="randomNounScreen" class="simpleGrid">
+        <div id="randomNounScreen" class="simpleGrid screen">
             <h2>Random Noun</h2>
             <p class="footerContent">Random noun generated right here. <br> Feature coming soon!</p>
                 <h3 id="randomNounGridLabel">Which declensions?</h3>
@@ -323,7 +323,7 @@
         
         
         
-        <div id="nounEndingsScreen" class="simpleGrid">
+        <div id="nounEndingsScreen" class="simpleGrid screen">
             <h2>Noun Endings</h2>
             <table class="nounEndingsTable" id="firstDecl">
                 <caption>1st Declension</caption>
@@ -644,7 +644,7 @@
         
         
         
-        <div id="blankChartScreen" class="simpleGrid">
+        <div id="blankChartScreen" class="simpleGrid screen">
             <h2>Blank Chart</h2>
             <table>
                 <tr>
@@ -691,7 +691,7 @@
         
 
         
-        <div id="selectANoun" class="simpleGrid">
+        <div id="selectANoun" class="simpleGrid screen">
             <h2 id="">Select A Noun</h2>
                 <select id=“selectedNounChoice” onchange="declineSelectedNoun(id)">
                     <optgroup label="1ST DECLENSION">
@@ -927,7 +927,7 @@
         
         
         
-        <div id="otherCharts" class="simpleGrid">
+        <div id="otherCharts" class="simpleGrid screen">
             <h2 id="">Other Charts</h2>
                     <select id="otherChartsSelection" onInput="selectOtherChart();">
                         <option value="relative">qui, quae, quod - (relative pronouns)</option>
@@ -1359,7 +1359,7 @@
         
     
         
-        <div id="settingScreen" class="simpleGrid">
+        <div id="settingScreen" class="simpleGrid screen">
             <h2 id="">Settings</h2>
                 <button class="assignmentButton toggleToken" id="assignmentChoiceB" onClick="startWithAssignmentPage();">Assignment page</button><br>
                 <button class="copyPasteButton toggleToken" id="copyPasteChoiceB" onClick="makeChartsCopyPaste();">Copy/Paste Mode</button> <br>

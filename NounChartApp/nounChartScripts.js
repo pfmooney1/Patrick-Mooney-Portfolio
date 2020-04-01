@@ -265,130 +265,64 @@ function onShowAll() {
 //    to show/hide different parts of the page
 // ====================================================
 // ====================================================
+function hideAllTheScreens() {
+    var divsWithClassScreen = document.getElementsByClassName("screen");
+    var numOfDivsWithClassScreen = divsWithClassScreen.length;
+    for (var i = 0; i < numOfDivsWithClassScreen; i++) {
+        divsWithClassScreen[i].style.display = "none";
+    }
+}
 
-// Sets other charts to variables
+
+// "Navigation" functions. 
+//  Hides unused "screens" and shows only user-chosen one.
 //
 function goToOtherChartsScreen() {
-    mainMenuScreen.style.display = "none";
-    assignmentScreen.style.display = "none";
-    enterANounScreen.style.display = "none";
-    aboutScreen.style.display = "none";
-    settingScreen.style.display = "none";  
-    nounEndingsScreen.style.display = "none";
-    blankChartScreen.style.display = "none";
-    randomNounScreen.style.display = "none";
+    hideAllTheScreens();
     otherCharts.style.display = "grid";
-    selectANoun.style.display = "none";
 }
 function goToSelectANounScreen() {
-    mainMenuScreen.style.display = "none";
-    assignmentScreen.style.display = "none";
-    enterANounScreen.style.display = "none";
-    aboutScreen.style.display = "none";
-    settingScreen.style.display = "none";  
-    nounEndingsScreen.style.display = "none";
-    blankChartScreen.style.display = "none";
-    randomNounScreen.style.display = "none";
-    otherCharts.style.display = "none";
+    hideAllTheScreens();
     selectANoun.style.display = "grid";
 }
 function goToBlankChartScreen() {
-    mainMenuScreen.style.display = "none";
-    assignmentScreen.style.display = "none";
-    enterANounScreen.style.display = "none";
-    aboutScreen.style.display = "none";
-    settingScreen.style.display = "none";  
-    nounEndingsScreen.style.display = "none";
+    hideAllTheScreens();
     blankChartScreen.style.display = "grid";
-    randomNounScreen.style.display = "none";
-    otherCharts.style.display = "none";
-    selectANoun.style.display = "none";
 }
 function goToNounEndingsScreen() {
-    mainMenuScreen.style.display = "none";
-    assignmentScreen.style.display = "none";
-    enterANounScreen.style.display = "none";
-    aboutScreen.style.display = "none";
-    settingScreen.style.display = "none";  
+    hideAllTheScreens();
     nounEndingsScreen.style.display = "grid";
-    randomNounScreen.style.display = "none";
-    blankChartScreen.style.display = "none";
-    otherCharts.style.display = "none";
-    selectANoun.style.display = "none";
-}
-function goToRandomNounScreen() {
-    mainMenuScreen.style.display = "none";
-    assignmentScreen.style.display = "none";
-    enterANounScreen.style.display = "none";
-    aboutScreen.style.display = "none";
-    settingScreen.style.display = "none";
-    nounEndingsScreen.style.display = "none";
-    blankChartScreen.style.display = "none";
-    randomNounScreen.style.display = "grid";
-    otherCharts.style.display = "none";
-    selectANoun.style.display = "none";
-}
-function goToSettingsScreen() {
-    mainMenuScreen.style.display = "none";
-    assignmentScreen.style.display = "none";
-    enterANounScreen.style.display = "none";
-    aboutScreen.style.display = "none";
-    settingScreen.style.display = "grid";
-    nounEndingsScreen.style.display = "none";
-    blankChartScreen.style.display = "none";
-    otherCharts.style.display = "none";
-    selectANoun.style.display = "none";
-    randomNounScreen.style.display = "none";
-}
-function goToAboutScreen() {
-    mainMenuScreen.style.display = "none";
-    assignmentScreen.style.display = "none";
-    enterANounScreen.style.display = "none";
-    aboutScreen.style.display = "grid";
-    settingScreen.style.display = "none";
-    nounEndingsScreen.style.display = "none";
-    blankChartScreen.style.display = "none";
-    otherCharts.style.display = "none";
-    selectANoun.style.display = "none";
-    randomNounScreen.style.display = "none";
-}
-function goToMainMenuScreen() {
-    mainMenuScreen.style.display = "grid";
-    assignmentScreen.style.display = "none";
-    enterANounScreen.style.display = "none";
-    aboutScreen.style.display = "none";
-    settingScreen.style.display = "none";
-    nounEndingsScreen.style.display = "none";
-    blankChartScreen.style.display = "none";
-    randomNounScreen.style.display = "none";
-    otherCharts.style.display = "none";
-    selectANoun.style.display = "none";
-}
-function goToAssignmentScreenScreen() {
-    mainMenuScreen.style.display = "none";
-    assignmentScreen.style.display = "grid";
-    enterANounScreen.style.display = "none";
-    aboutScreen.style.display = "none";
-    settingScreen.style.display = "none";
-    nounEndingsScreen.style.display = "none";
-    blankChartScreen.style.display = "none";
-    otherCharts.style.display = "none";
-    selectANoun.style.display = "none";
-    randomNounScreen.style.display = "none";
-}
-function goToEnterANounScreenScreen() {
-    mainMenuScreen.style.display = "none";
-    assignmentScreen.style.display = "none";
-    enterANounScreen.style.display = "grid";
-    aboutScreen.style.display = "none";
-    settingScreen.style.display = "none";
-    nounEndingsScreen.style.display = "none";
-    blankChartScreen.style.display = "none";
-    otherCharts.style.display = "none";
-    selectANoun.style.display = "none";
-    randomNounScreen.style.display = "none";
 }
 
+function goToRandomNounScreen() {
+    hideAllTheScreens();
+    randomNounScreen.style.display = "grid";
+}
+
+function goToSettingsScreen() {
+    hideAllTheScreens();
+    settingScreen.style.display = "grid";
+}
+
+function goToAboutScreen() {
+    hideAllTheScreens();
+    aboutScreen.style.display = "grid";
+}
+
+function goToMainMenuScreen() {
+    hideAllTheScreens();
+    mainMenuScreen.style.display = "grid";
+}
+
+function goToAssignmentScreenScreen() {
+    hideAllTheScreens();
+    assignmentScreen.style.display = "grid";
+}
+
+function goToEnterANounScreenScreen() {
+    hideAllTheScreens();
+    enterANounScreen.style.display = "grid";
+}
 
 
 
