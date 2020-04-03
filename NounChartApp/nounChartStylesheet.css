@@ -79,7 +79,7 @@ body {
         "header header header"
         "main main main"
         "footer footer footer";
-    font-family: "Bookman copy", times, serif;
+    font-family: "Times New Roman", times, serif;
     color: var(--black);
 }
 .simpleGrid {
@@ -189,6 +189,7 @@ div.MMbutton img.MMIcon {
 \* ============================================= */
 ins {
     text-decoration: none;
+    font-family: inherit;
 }
 
 
@@ -211,6 +212,8 @@ button {
     font-size: 1.2em;
     box-sizing: border-box;
     width: 200px;
+    font-family: inherit;
+
 }
 button.closeButton {
     margin: 1em auto 1em auto;    
@@ -291,6 +294,7 @@ table {
     width: 100%;
     margin: 1em;
     font-size: 1.2em;
+    background-color: var(--white);
 }
 tr, td {
     border: 1px solid var(--black);

@@ -41,7 +41,26 @@ selectANoun.style.display = "none";
 // ====================================================
 // ====================================================
 
+// Changes the font to the user's preference
+//
 
+function changeTheFont(id) {
+    var fontChoice = document.getElementById(id).value;
+    var bodyElement = document.getElementById("body");
+
+    if (fontChoice == "times") {
+        bodyElement.style.fontFamily = "'Times New Roman',serif";
+    }
+    else if (fontChoice == "arial") {
+        bodyElement.style.fontFamily = "'Arial black',sans-serif";
+    } 
+    else if (fontChoice == "verdana") {
+        bodyElement.style.fontFamily = "Verdana,serif";
+    } 
+    else if (fontChoice == "lucidaConsole") {
+        bodyElement.style.fontFamily = "'Lucida Console',monospace";
+    }
+}
 
 
 
@@ -265,6 +284,8 @@ function onShowAll() {
 //    to show/hide different parts of the page
 // ====================================================
 // ====================================================
+
+// Hide all of the "screens". Used by the "Navigation" functions
 function hideAllTheScreens() {
     var divsWithClassScreen = document.getElementsByClassName("screen");
     var numOfDivsWithClassScreen = divsWithClassScreen.length;
@@ -293,37 +314,30 @@ function goToNounEndingsScreen() {
     hideAllTheScreens();
     nounEndingsScreen.style.display = "grid";
 }
-
 function goToRandomNounScreen() {
     hideAllTheScreens();
     randomNounScreen.style.display = "grid";
 }
-
 function goToSettingsScreen() {
     hideAllTheScreens();
     settingScreen.style.display = "grid";
 }
-
 function goToAboutScreen() {
     hideAllTheScreens();
     aboutScreen.style.display = "grid";
 }
-
 function goToMainMenuScreen() {
     hideAllTheScreens();
     mainMenuScreen.style.display = "grid";
 }
-
 function goToAssignmentScreenScreen() {
     hideAllTheScreens();
     assignmentScreen.style.display = "grid";
 }
-
 function goToEnterANounScreenScreen() {
     hideAllTheScreens();
     enterANounScreen.style.display = "grid";
 }
-
 
 
 
