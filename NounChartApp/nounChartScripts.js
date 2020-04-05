@@ -43,7 +43,6 @@ selectANoun.style.display = "none";
 
 // Changes the font to the user's preference
 //
-
 function changeTheFont(id) {
     var fontChoice = document.getElementById(id).value;
     var bodyElement = document.getElementById("body");
@@ -92,12 +91,6 @@ function toggleDarkMode() {
 
 
 
-
-
-
-
-
-
 // Hides/shows the VOCATIVE table rows
 // 
 function showHideVocatives() {
@@ -125,6 +118,7 @@ function showHideVocatives() {
         }
     }
 }
+
 
 
 // Hides/shows the ENGLISH meanings
@@ -163,7 +157,6 @@ function showHideEnglish() {
         }
     }
 }
-
 
 
 
@@ -216,63 +209,6 @@ function makeChartsCopyPaste() {
         }
     }
 }
-
-
-
-
-
-// ====================================================
-// ====================================================
-//      Debug buttons 
-// ====================================================
-// ====================================================
-
-// Shows what the final product would look like.
-//
-function testFinalProduct() {
-    var x = document.getElementsByClassName("debug");
-    for (var i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-    }
-    document.getElementById("debugButton1").style.display = "none";
-    document.getElementById("debugButton2").style.display = "none";
-    document.getElementById("debugButton3").style.display = "none";
-    document.getElementById("debugButton4").style.display = "none";
-    onHideAll();
-}
-
-
-// Hide all the windows except the main menu.
-//
-function onHideAll() {
-    mainMenuScreen.style.display = "grid";
-    assignmentScreen.style.display = "none";
-    enterANounScreen.style.display = "none";
-    aboutScreen.style.display = "none";
-    settingScreen.style.display = "none";
-    nounEndingsScreen.style.display = "none";
-    blankChartScreen.style.display = "none";
-    randomNounScreen.style.display = "none";
-    otherCharts.style.display = "none";
-    selectANoun.style.display = "none";
-}
-
-
-// Show all the windows except the main menu.
-//
-function onShowAll() {
-    mainMenuScreen.style.display = "grid";
-    assignmentScreen.style.display = "grid";
-    enterANounScreen.style.display = "grid";
-    aboutScreen.style.display = "grid";
-    settingScreen.style.display = "grid";
-    nounEndingsScreen.style.display = "grid";
-    blankChartScreen.style.display = "grid";
-    randomNounScreen.style.display = "grid";
-    otherCharts.style.display = "grid";
-    selectANoun.style.display = "grid";
-}
-
 
 
 
@@ -376,6 +312,7 @@ isteChartA.style.display = "none";
 isteChartB.style.display = "none";
 
 
+
 // Allows the user to display/hide other charts
 //
 function selectOtherChart() {
@@ -455,8 +392,13 @@ function computeAndWriteLatin(latinNounUnparsed) {
     var gender = getGender(genderInput);
     var declension = computeDeclension(genitiveSingularInput);    
     var base = computeNounBase(declension, nominativeSingularInput, genitiveSingularInput, gender);
-       // alert("base: " + base);
-    declineLatinHalfOfNoun(declension, nominativeSingularInput, genitiveSingularInput, gender, base);
+    var isItIrregular = irregularChecker(nominativeSingularInput);
+    if (isItIrregular === false) {
+        declineLatinHalfOfNoun(declension, nominativeSingularInput, genitiveSingularInput, gender, base);
+    }
+    else {
+        alert("This noun is irregular!");
+    }
 }
 function getNounParts(latinNounUnparsed) {
     var userEnteredNoun = latinNounUnparsed;
@@ -524,8 +466,721 @@ function getGender(genderInput) {
         alert("ERROR! Gender could not be determined!");
     }
 }
+function irregularChecker(nominativeSingularInput) {
+    //
+    // Targets all of the Latin elements
+    var target_lat_sing_nom = document.getElementsByClassName("lat_sing_nom");
+    var target_lat_sing_gen = document.getElementsByClassName("lat_sing_gen");
+    var target_lat_sing_dat = document.getElementsByClassName("lat_sing_dat");
+    var target_lat_sing_acc = document.getElementsByClassName("lat_sing_acc");
+    var target_lat_sing_abl = document.getElementsByClassName("lat_sing_abl");
+    var target_lat_sing_voc = document.getElementsByClassName("lat_sing_voc");
+    var target_lat_plural_nom = document.getElementsByClassName("lat_plural_nom");
+    var target_lat_plural_gen = document.getElementsByClassName("lat_plural_gen");
+    var target_lat_plural_dat = document.getElementsByClassName("lat_plural_dat");
+    var target_lat_plural_acc = document.getElementsByClassName("lat_plural_acc");
+    var target_lat_plural_abl = document.getElementsByClassName("lat_plural_abl");
+    var target_lat_plural_voc = document.getElementsByClassName("lat_plural_voc");
+    //
+    // Targets all of the English elements
+    var target_eng_sing_nom = document.getElementsByClassName("eng_sing_nom");
+    var target_eng_sing_gen = document.getElementsByClassName("eng_sing_gen");
+    var target_eng_sing_dat = document.getElementsByClassName("eng_sing_dat");
+    var target_eng_sing_acc = document.getElementsByClassName("eng_sing_acc");
+    var target_eng_sing_abl = document.getElementsByClassName("eng_sing_abl");
+    var target_eng_sing_voc = document.getElementsByClassName("eng_sing_voc");
+    var target_eng_plural_nom = document.getElementsByClassName("eng_plural_nom");
+    var target_eng_plural_gen = document.getElementsByClassName("eng_plural_gen");
+    var target_eng_plural_dat = document.getElementsByClassName("eng_plural_dat");
+    var target_eng_plural_acc = document.getElementsByClassName("eng_plural_acc");
+    var target_eng_plural_abl = document.getElementsByClassName("eng_plural_abl");
+    var target_eng_plural_voc = document.getElementsByClassName("eng_plural_voc");
+    
+    if (nominativeSingularInput === "vis") {
+        // Takes the correct Latin and inserts them in the HTML
+        // SINGULAR 
+        for (var i = 0; i < target_lat_sing_nom.length; i++) {
+            target_lat_sing_nom[i].innerHTML = "vis";
+        }
+        for (i = 0; i < target_lat_sing_gen.length; i++) {
+            target_lat_sing_gen[i].innerHTML = "vis";
+        }
+        for (i = 0; i < target_lat_sing_dat.length; i++) {
+            target_lat_sing_dat[i].innerHTML = "vi";
+        }
+        for (i = 0; i < target_lat_sing_acc.length; i++) {
+            target_lat_sing_acc[i].innerHTML = "vim";
+        }
+        for (i = 0; i < target_lat_sing_abl.length; i++) {
+            target_lat_sing_abl[i].innerHTML = "vi";
+        }
+        for (i = 0; i < target_lat_sing_voc.length; i++) {
+            target_lat_sing_voc[i].innerHTML = "vis";
+        }
 
+        // PLURAL 
+        for (i = 0; i < target_lat_plural_nom.length; i++) {
+            target_lat_plural_nom[i].innerHTML = "vires";
+        }
+        for (i = 0; i < target_lat_plural_gen.length; i++) {
+            target_lat_plural_gen[i].innerHTML = "virium";
+        }
+        for (i = 0; i < target_lat_plural_dat.length; i++) {
+            target_lat_plural_dat[i].innerHTML = "viribus";
+        }
+        for (i = 0; i < target_lat_plural_acc.length; i++) {
+            target_lat_plural_acc[i].innerHTML = "vires/viris";
+        }    
+        for (i = 0; i < target_lat_plural_abl.length; i++) {
+            target_lat_plural_abl[i].innerHTML = "viribus";
+        }
+        for (i = 0; i < target_lat_plural_voc.length; i++) {
+            target_lat_plural_voc[i].innerHTML = "vires";
+        }
+        return true;
+    }
+    else if (nominativeSingularInput === "vicis") {
+        // Takes the correct Latin and inserts them in the HTML
+        // SINGULAR 
+        for (var i = 0; i < target_lat_sing_nom.length; i++) {
+            target_lat_sing_nom[i].innerHTML = " --- ";
+        }
+        for (i = 0; i < target_lat_sing_gen.length; i++) {
+            target_lat_sing_gen[i].innerHTML = "vicis";
+        }
+        for (i = 0; i < target_lat_sing_dat.length; i++) {
+            target_lat_sing_dat[i].innerHTML = "vici";
+        }
+        for (i = 0; i < target_lat_sing_acc.length; i++) {
+            target_lat_sing_acc[i].innerHTML = "vicem";
+        }
+        for (i = 0; i < target_lat_sing_abl.length; i++) {
+            target_lat_sing_abl[i].innerHTML = "vice";
+        }
+        for (i = 0; i < target_lat_sing_voc.length; i++) {
+            target_lat_sing_voc[i].innerHTML = " --- ";
+        }
+        // PLURAL 
+        for (i = 0; i < target_lat_plural_nom.length; i++) {
+            target_lat_plural_nom[i].innerHTML = "vices";
+        }
+        for (i = 0; i < target_lat_plural_gen.length; i++) {
+            target_lat_plural_gen[i].innerHTML = "vicum";
+        }
+        for (i = 0; i < target_lat_plural_dat.length; i++) {
+            target_lat_plural_dat[i].innerHTML = "vicibus";
+        }
+        for (i = 0; i < target_lat_plural_acc.length; i++) {
+            target_lat_plural_acc[i].innerHTML = "vices";
+        }    
+        for (i = 0; i < target_lat_plural_abl.length; i++) {
+            target_lat_plural_abl[i].innerHTML = "vicibus";
+        }
+        for (i = 0; i < target_lat_plural_voc.length; i++) {
+            target_lat_plural_voc[i].innerHTML = "vices";
+        }
+        return true;
+    }
+    else if (nominativeSingularInput === "sus") {
+        // Takes the correct Latin and inserts them in the HTML
+        // SINGULAR 
+        for (var i = 0; i < target_lat_sing_nom.length; i++) {
+            target_lat_sing_nom[i].innerHTML = "sus";
+        }
+        for (i = 0; i < target_lat_sing_gen.length; i++) {
+            target_lat_sing_gen[i].innerHTML = "suis";
+        }
+        for (i = 0; i < target_lat_sing_dat.length; i++) {
+            target_lat_sing_dat[i].innerHTML = "sui";
+        }
+        for (i = 0; i < target_lat_sing_acc.length; i++) {
+            target_lat_sing_acc[i].innerHTML = "suem";
+        }
+        for (i = 0; i < target_lat_sing_abl.length; i++) {
+            target_lat_sing_abl[i].innerHTML = "sue";
+        }
+        for (i = 0; i < target_lat_sing_voc.length; i++) {
+            target_lat_sing_voc[i].innerHTML = "sus";
+        }
 
+        // PLURAL 
+        for (i = 0; i < target_lat_plural_nom.length; i++) {
+            target_lat_plural_nom[i].innerHTML = "sues";
+        }
+        for (i = 0; i < target_lat_plural_gen.length; i++) {
+            target_lat_plural_gen[i].innerHTML = "suum";
+        }
+        for (i = 0; i < target_lat_plural_dat.length; i++) {
+            target_lat_plural_dat[i].innerHTML = "suibus / subus";
+        }
+        for (i = 0; i < target_lat_plural_acc.length; i++) {
+            target_lat_plural_acc[i].innerHTML = "sues";
+        }    
+        for (i = 0; i < target_lat_plural_abl.length; i++) {
+            target_lat_plural_abl[i].innerHTML = "suibus / subus";
+        }
+        for (i = 0; i < target_lat_plural_voc.length; i++) {
+            target_lat_plural_voc[i].innerHTML = "sues";
+        }
+        return true;
+    }
+    else if (nominativeSingularInput === "lexis") {
+        // Takes the correct Latin and inserts them in the HTML
+        // SINGULAR 
+        for (var i = 0; i < target_lat_sing_nom.length; i++) {
+            target_lat_sing_nom[i].innerHTML = "lexis";
+        }
+        for (i = 0; i < target_lat_sing_gen.length; i++) {
+            target_lat_sing_gen[i].innerHTML = "lexeos";
+        }
+        for (i = 0; i < target_lat_sing_dat.length; i++) {
+            target_lat_sing_dat[i].innerHTML = "---";
+        }
+        for (i = 0; i < target_lat_sing_acc.length; i++) {
+            target_lat_sing_acc[i].innerHTML = "---";
+        }
+        for (i = 0; i < target_lat_sing_abl.length; i++) {
+            target_lat_sing_abl[i].innerHTML = "---";
+        }
+        for (i = 0; i < target_lat_sing_voc.length; i++) {
+            target_lat_sing_voc[i].innerHTML = "---";
+        }
+
+        // PLURAL 
+        for (i = 0; i < target_lat_plural_nom.length; i++) {
+            target_lat_plural_nom[i].innerHTML = "---";
+        }
+        for (i = 0; i < target_lat_plural_gen.length; i++) {
+            target_lat_plural_gen[i].innerHTML = "---";
+        }
+        for (i = 0; i < target_lat_plural_dat.length; i++) {
+            target_lat_plural_dat[i].innerHTML = "---";
+        }
+        for (i = 0; i < target_lat_plural_acc.length; i++) {
+            target_lat_plural_acc[i].innerHTML = "lexeis";
+        }    
+        for (i = 0; i < target_lat_plural_abl.length; i++) {
+            target_lat_plural_abl[i].innerHTML = "---";
+        }
+        for (i = 0; i < target_lat_plural_voc.length; i++) {
+            target_lat_plural_voc[i].innerHTML = "---";
+        }
+        return true;
+    }
+    else if (nominativeSingularInput === "jugerum") {
+        // Takes the correct Latin and inserts them in the HTML
+        // SINGULAR 
+        for (var i = 0; i < target_lat_sing_nom.length; i++) {
+            target_lat_sing_nom[i].innerHTML = "jugerum";
+        }
+        for (i = 0; i < target_lat_sing_gen.length; i++) {
+            target_lat_sing_gen[i].innerHTML = "jugeri";
+        }
+        for (i = 0; i < target_lat_sing_dat.length; i++) {
+            target_lat_sing_dat[i].innerHTML = "jugero";
+        }
+        for (i = 0; i < target_lat_sing_acc.length; i++) {
+            target_lat_sing_acc[i].innerHTML = "jugerum";
+        }
+        for (i = 0; i < target_lat_sing_abl.length; i++) {
+            target_lat_sing_abl[i].innerHTML = "jugero";
+        }
+        for (i = 0; i < target_lat_sing_voc.length; i++) {
+            target_lat_sing_voc[i].innerHTML = "jugerum";
+        }
+
+        // PLURAL 
+        for (i = 0; i < target_lat_plural_nom.length; i++) {
+            target_lat_plural_nom[i].innerHTML = "jugera";
+        }
+        for (i = 0; i < target_lat_plural_gen.length; i++) {
+            target_lat_plural_gen[i].innerHTML = "jugerum";
+        }
+        for (i = 0; i < target_lat_plural_dat.length; i++) {
+            target_lat_plural_dat[i].innerHTML = "jugeribus";
+        }
+        for (i = 0; i < target_lat_plural_acc.length; i++) {
+            target_lat_plural_acc[i].innerHTML = "jugera";
+        }    
+        for (i = 0; i < target_lat_plural_abl.length; i++) {
+            target_lat_plural_abl[i].innerHTML = "jugeribus / jugeris";
+        }
+        for (i = 0; i < target_lat_plural_voc.length; i++) {
+            target_lat_plural_voc[i].innerHTML = "jugera";
+        }
+        return true;
+    }
+    else if (nominativeSingularInput === "iuppiter") {
+        // Takes the correct Latin and inserts them in the HTML
+        // SINGULAR 
+        for (var i = 0; i < target_lat_sing_nom.length; i++) {
+            target_lat_sing_nom[i].innerHTML = "iuppiter";
+        }
+        for (i = 0; i < target_lat_sing_gen.length; i++) {
+            target_lat_sing_gen[i].innerHTML = "iovis";
+        }
+        for (i = 0; i < target_lat_sing_dat.length; i++) {
+            target_lat_sing_dat[i].innerHTML = "iovi";
+        }
+        for (i = 0; i < target_lat_sing_acc.length; i++) {
+            target_lat_sing_acc[i].innerHTML = "iovem";
+        }
+        for (i = 0; i < target_lat_sing_abl.length; i++) {
+            target_lat_sing_abl[i].innerHTML = "iove";
+        }
+        for (i = 0; i < target_lat_sing_voc.length; i++) {
+            target_lat_sing_voc[i].innerHTML = "iuppiter";
+        }
+
+        // PLURAL 
+        for (i = 0; i < target_lat_plural_nom.length; i++) {
+            target_lat_plural_nom[i].innerHTML = "ioves";
+        }
+        for (i = 0; i < target_lat_plural_gen.length; i++) {
+            target_lat_plural_gen[i].innerHTML = "iovum";
+        }
+        for (i = 0; i < target_lat_plural_dat.length; i++) {
+            target_lat_plural_dat[i].innerHTML = "iovibus";
+        }
+        for (i = 0; i < target_lat_plural_acc.length; i++) {
+            target_lat_plural_acc[i].innerHTML = "ioves";
+        }    
+        for (i = 0; i < target_lat_plural_abl.length; i++) {
+            target_lat_plural_abl[i].innerHTML = "iovibus";
+        }
+        for (i = 0; i < target_lat_plural_voc.length; i++) {
+            target_lat_plural_voc[i].innerHTML = "ioves";
+        }
+        return true;
+    }
+    else if (nominativeSingularInput === "jesus") {
+        // Takes the correct Latin and inserts them in the HTML
+        // SINGULAR 
+        for (var i = 0; i < target_lat_sing_nom.length; i++) {
+            target_lat_sing_nom[i].innerHTML = "Jesus";
+        }
+        for (i = 0; i < target_lat_sing_gen.length; i++) {
+            target_lat_sing_gen[i].innerHTML = "Jesu";
+        }
+        for (i = 0; i < target_lat_sing_dat.length; i++) {
+            target_lat_sing_dat[i].innerHTML = "Jesu";
+        }
+        for (i = 0; i < target_lat_sing_acc.length; i++) {
+            target_lat_sing_acc[i].innerHTML = "Jesum";
+        }
+        for (i = 0; i < target_lat_sing_abl.length; i++) {
+            target_lat_sing_abl[i].innerHTML = "Jesu";
+        }
+        for (i = 0; i < target_lat_sing_voc.length; i++) {
+            target_lat_sing_voc[i].innerHTML = "Jesu";
+        }
+        // PLURAL 
+        for (i = 0; i < target_lat_plural_nom.length; i++) {
+            target_lat_plural_nom[i].innerHTML = "";
+        }
+        for (i = 0; i < target_lat_plural_gen.length; i++) {
+            target_lat_plural_gen[i].innerHTML = "";
+        }
+        for (i = 0; i < target_lat_plural_dat.length; i++) {
+            target_lat_plural_dat[i].innerHTML = "";
+        }
+        for (i = 0; i < target_lat_plural_acc.length; i++) {
+            target_lat_plural_acc[i].innerHTML = "";
+        }    
+        for (i = 0; i < target_lat_plural_abl.length; i++) {
+            target_lat_plural_abl[i].innerHTML = "";
+        }
+        for (i = 0; i < target_lat_plural_voc.length; i++) {
+            target_lat_plural_voc[i].innerHTML = "";
+        }
+        return true;
+    }
+    else if (nominativeSingularInput === "iugerum") {
+        // Takes the correct Latin and inserts them in the HTML
+        // SINGULAR 
+        for (var i = 0; i < target_lat_sing_nom.length; i++) {
+            target_lat_sing_nom[i].innerHTML = "iugerum";
+        }
+        for (i = 0; i < target_lat_sing_gen.length; i++) {
+            target_lat_sing_gen[i].innerHTML = "iugeri";
+        }
+        for (i = 0; i < target_lat_sing_dat.length; i++) {
+            target_lat_sing_dat[i].innerHTML = "iugero";
+        }
+        for (i = 0; i < target_lat_sing_acc.length; i++) {
+            target_lat_sing_acc[i].innerHTML = "iugerum";
+        }
+        for (i = 0; i < target_lat_sing_abl.length; i++) {
+            target_lat_sing_abl[i].innerHTML = "iugero";
+        }
+        for (i = 0; i < target_lat_sing_voc.length; i++) {
+            target_lat_sing_voc[i].innerHTML = "iugerum";
+        }
+        // PLURAL 
+        for (i = 0; i < target_lat_plural_nom.length; i++) {
+            target_lat_plural_nom[i].innerHTML = "iugera";
+        }
+        for (i = 0; i < target_lat_plural_gen.length; i++) {
+            target_lat_plural_gen[i].innerHTML = "iugerum";
+        }
+        for (i = 0; i < target_lat_plural_dat.length; i++) {
+            target_lat_plural_dat[i].innerHTML = "iugeribus";
+        }
+        for (i = 0; i < target_lat_plural_acc.length; i++) {
+            target_lat_plural_acc[i].innerHTML = "iugera";
+        }    
+        for (i = 0; i < target_lat_plural_abl.length; i++) {
+            target_lat_plural_abl[i].innerHTML = "iugeribus / iugeris";
+        }
+        for (i = 0; i < target_lat_plural_voc.length; i++) {
+            target_lat_plural_voc[i].innerHTML = "iugera";
+        }
+        return true;
+    }
+    else if (nominativeSingularInput === "iesus") {
+        for (var i = 0; i < target_lat_sing_nom.length; i++) {
+            target_lat_sing_nom[i].innerHTML = "Iesus";
+        }
+        for (i = 0; i < target_lat_sing_gen.length; i++) {
+            target_lat_sing_gen[i].innerHTML = "Iesu";
+        }
+        for (i = 0; i < target_lat_sing_dat.length; i++) {
+            target_lat_sing_dat[i].innerHTML = "Iesu";
+        }
+        for (i = 0; i < target_lat_sing_acc.length; i++) {
+            target_lat_sing_acc[i].innerHTML = "Iesum";
+        }
+        for (i = 0; i < target_lat_sing_abl.length; i++) {
+            target_lat_sing_abl[i].innerHTML = "Iesu";
+        }
+        for (i = 0; i < target_lat_sing_voc.length; i++) {
+            target_lat_sing_voc[i].innerHTML = "Iesu";
+        }
+        
+        // PLURAL 
+        for (i = 0; i < target_lat_plural_nom.length; i++) {
+            target_lat_plural_nom[i].innerHTML = "";
+        }
+        for (i = 0; i < target_lat_plural_gen.length; i++) {
+            target_lat_plural_gen[i].innerHTML = "";
+        }
+        for (i = 0; i < target_lat_plural_dat.length; i++) {
+            target_lat_plural_dat[i].innerHTML = "";
+        }
+        for (i = 0; i < target_lat_plural_acc.length; i++) {
+            target_lat_plural_acc[i].innerHTML = "";
+        }    
+        for (i = 0; i < target_lat_plural_abl.length; i++) {
+            target_lat_plural_abl[i].innerHTML = "";
+        }
+        for (i = 0; i < target_lat_plural_voc.length; i++) {
+            target_lat_plural_voc[i].innerHTML = "";
+        }
+        return true;
+    }
+    else if (nominativeSingularInput === "ethos") {
+        // Takes the correct Latin and inserts them in the HTML
+        // SINGULAR 
+        for (var i = 0; i < target_lat_sing_nom.length; i++) {
+            target_lat_sing_nom[i].innerHTML = "ethos";
+        }
+        for (i = 0; i < target_lat_sing_gen.length; i++) {
+            target_lat_sing_gen[i].innerHTML = "etheos";
+        }
+        for (i = 0; i < target_lat_sing_dat.length; i++) {
+            target_lat_sing_dat[i].innerHTML = "---";
+        }
+        for (i = 0; i < target_lat_sing_acc.length; i++) {
+            target_lat_sing_acc[i].innerHTML = "ethos";
+        }
+        for (i = 0; i < target_lat_sing_abl.length; i++) {
+            target_lat_sing_abl[i].innerHTML = "---";
+        }
+        for (i = 0; i < target_lat_sing_voc.length; i++) {
+            target_lat_sing_voc[i].innerHTML = "ethos";
+        }
+
+        // PLURAL 
+        for (i = 0; i < target_lat_plural_nom.length; i++) {
+            target_lat_plural_nom[i].innerHTML = "ethea / ethe";
+        }
+        for (i = 0; i < target_lat_plural_gen.length; i++) {
+            target_lat_plural_gen[i].innerHTML = "---";
+        }
+        for (i = 0; i < target_lat_plural_dat.length; i++) {
+            target_lat_plural_dat[i].innerHTML = "ethesi / ethesin";
+        }
+        for (i = 0; i < target_lat_plural_acc.length; i++) {
+            target_lat_plural_acc[i].innerHTML = "ethea / ethe";
+        }    
+        for (i = 0; i < target_lat_plural_abl.length; i++) {
+            target_lat_plural_abl[i].innerHTML = "ethesi / ethesin";
+        }
+        for (i = 0; i < target_lat_plural_voc.length; i++) {
+            target_lat_plural_voc[i].innerHTML = "ethea / ethe";
+        }
+        return true;
+    }
+    else if (nominativeSingularInput === "epulae") {
+         // Takes the correct Latin and inserts them in the HTML
+        // SINGULAR 
+        for (var i = 0; i < target_lat_sing_nom.length; i++) {
+            target_lat_sing_nom[i].innerHTML = "";
+        }
+        for (i = 0; i < target_lat_sing_gen.length; i++) {
+            target_lat_sing_gen[i].innerHTML = "";
+        }
+        for (i = 0; i < target_lat_sing_dat.length; i++) {
+            target_lat_sing_dat[i].innerHTML = "";
+        }
+        for (i = 0; i < target_lat_sing_acc.length; i++) {
+            target_lat_sing_acc[i].innerHTML = "";
+        }
+        for (i = 0; i < target_lat_sing_abl.length; i++) {
+            target_lat_sing_abl[i].innerHTML = "";
+        }
+        for (i = 0; i < target_lat_sing_voc.length; i++) {
+            target_lat_sing_voc[i].innerHTML = "";
+        }
+
+        // PLURAL 
+        for (i = 0; i < target_lat_plural_nom.length; i++) {
+            target_lat_plural_nom[i].innerHTML = "epulae";
+        }
+        for (i = 0; i < target_lat_plural_gen.length; i++) {
+            target_lat_plural_gen[i].innerHTML = "epularum";
+        }
+        for (i = 0; i < target_lat_plural_dat.length; i++) {
+            target_lat_plural_dat[i].innerHTML = "epulis";
+        }
+        for (i = 0; i < target_lat_plural_acc.length; i++) {
+            target_lat_plural_acc[i].innerHTML = "epulas";
+        }    
+        for (i = 0; i < target_lat_plural_abl.length; i++) {
+            target_lat_plural_abl[i].innerHTML = "epulis";
+        }
+        for (i = 0; i < target_lat_plural_voc.length; i++) {
+            target_lat_plural_voc[i].innerHTML = "epulae";
+        }
+        return true;
+    }
+    else if (nominativeSingularInput === "domus") {
+         // Takes the correct Latin and inserts them in the HTML
+        // SINGULAR 
+        for (var i = 0; i < target_lat_sing_nom.length; i++) {
+            target_lat_sing_nom[i].innerHTML = "domus";
+        }
+        for (i = 0; i < target_lat_sing_gen.length; i++) {
+            target_lat_sing_gen[i].innerHTML = "domus / domi";
+        }
+        for (i = 0; i < target_lat_sing_dat.length; i++) {
+            target_lat_sing_dat[i].innerHTML = "domui / domo / domu";
+        }
+        for (i = 0; i < target_lat_sing_acc.length; i++) {
+            target_lat_sing_acc[i].innerHTML = "domum";
+        }
+        for (i = 0; i < target_lat_sing_abl.length; i++) {
+            target_lat_sing_abl[i].innerHTML = "domu / domo";
+        }
+        for (i = 0; i < target_lat_sing_voc.length; i++) {
+            target_lat_sing_voc[i].innerHTML = "domus";
+        }
+
+        // PLURAL 
+        for (i = 0; i < target_lat_plural_nom.length; i++) {
+            target_lat_plural_nom[i].innerHTML = "domus";
+        }
+        for (i = 0; i < target_lat_plural_gen.length; i++) {
+            target_lat_plural_gen[i].innerHTML = "domuum / domorum";
+        }
+        for (i = 0; i < target_lat_plural_dat.length; i++) {
+            target_lat_plural_dat[i].innerHTML = "domibus";
+        }
+        for (i = 0; i < target_lat_plural_acc.length; i++) {
+            target_lat_plural_acc[i].innerHTML = "domus / domos";
+        }    
+        for (i = 0; i < target_lat_plural_abl.length; i++) {
+            target_lat_plural_abl[i].innerHTML = "domibus";
+        }
+        for (i = 0; i < target_lat_plural_voc.length; i++) {
+            target_lat_plural_voc[i].innerHTML = "domus";
+        }
+        return true;
+    }
+    else if (nominativeSingularInput === "deus") {
+        // Takes the correct Latin and inserts them in the HTML
+        // SINGULAR 
+        for (var i = 0; i < target_lat_sing_nom.length; i++) {
+            target_lat_sing_nom[i].innerHTML = "deus";
+        }
+        for (i = 0; i < target_lat_sing_gen.length; i++) {
+            target_lat_sing_gen[i].innerHTML = "dei";
+        }
+        for (i = 0; i < target_lat_sing_dat.length; i++) {
+            target_lat_sing_dat[i].innerHTML = "deo";
+        }
+        for (i = 0; i < target_lat_sing_acc.length; i++) {
+            target_lat_sing_acc[i].innerHTML = "deum";
+        }
+        for (i = 0; i < target_lat_sing_abl.length; i++) {
+            target_lat_sing_abl[i].innerHTML = "deo";
+        }
+        for (i = 0; i < target_lat_sing_voc.length; i++) {
+            target_lat_sing_voc[i].innerHTML = "deus / dee";
+        }
+
+        // PLURAL 
+        for (i = 0; i < target_lat_plural_nom.length; i++) {
+            target_lat_plural_nom[i].innerHTML = "di / dii / dei";
+        }
+        for (i = 0; i < target_lat_plural_gen.length; i++) {
+            target_lat_plural_gen[i].innerHTML = "deorum / deum";
+        }
+        for (i = 0; i < target_lat_plural_dat.length; i++) {
+            target_lat_plural_dat[i].innerHTML = "dis / diis / deis";
+        }
+        for (i = 0; i < target_lat_plural_acc.length; i++) {
+            target_lat_plural_acc[i].innerHTML = "deos";
+        }    
+        for (i = 0; i < target_lat_plural_abl.length; i++) {
+            target_lat_plural_abl[i].innerHTML = "dis / diis / deis";
+        }
+        for (i = 0; i < target_lat_plural_voc.length; i++) {
+            target_lat_plural_voc[i].innerHTML = "di / dii / dei";
+        }
+        return true;
+    }
+    else if (nominativeSingularInput === "cherub") {
+        // Takes the correct Latin and inserts them in the HTML
+        // SINGULAR 
+        for (var i = 0; i < target_lat_sing_nom.length; i++) {
+            target_lat_sing_nom[i].innerHTML = "cherub";
+        }
+        for (i = 0; i < target_lat_sing_gen.length; i++) {
+            target_lat_sing_gen[i].innerHTML = "cherub";
+        }
+        for (i = 0; i < target_lat_sing_dat.length; i++) {
+            target_lat_sing_dat[i].innerHTML = "cherub";
+        }
+        for (i = 0; i < target_lat_sing_acc.length; i++) {
+            target_lat_sing_acc[i].innerHTML = "cherub";
+        }
+        for (i = 0; i < target_lat_sing_abl.length; i++) {
+            target_lat_sing_abl[i].innerHTML = "cherub";
+        }
+        for (i = 0; i < target_lat_sing_voc.length; i++) {
+            target_lat_sing_voc[i].innerHTML = "cherub";
+        }
+        // PLURAL 
+        for (i = 0; i < target_lat_plural_nom.length; i++) {
+            target_lat_plural_nom[i].innerHTML = "cherubim / cherubin";
+        }
+        for (i = 0; i < target_lat_plural_gen.length; i++) {
+            target_lat_plural_gen[i].innerHTML = "cherubim / cherubin";
+        }
+        for (i = 0; i < target_lat_plural_dat.length; i++) {
+            target_lat_plural_dat[i].innerHTML = "cherubim / cherubin";
+        }
+        for (i = 0; i < target_lat_plural_acc.length; i++) {
+            target_lat_plural_acc[i].innerHTML = "cherubim / cherubin";
+        }    
+        for (i = 0; i < target_lat_plural_abl.length; i++) {
+            target_lat_plural_abl[i].innerHTML = "cherubim / cherubin";
+        }
+        for (i = 0; i < target_lat_plural_voc.length; i++) {
+            target_lat_plural_voc[i].innerHTML = "cherubim / cherubin";
+        }
+        return true;
+    }
+    else if (nominativeSingularInput === "bos") {
+        // Takes the correct Latin and inserts them in the HTML
+        // SINGULAR 
+        for (var i = 0; i < target_lat_sing_nom.length; i++) {
+            target_lat_sing_nom[i].innerHTML = "bos";
+        }
+        for (i = 0; i < target_lat_sing_gen.length; i++) {
+            target_lat_sing_gen[i].innerHTML = "bovis";
+        }
+        for (i = 0; i < target_lat_sing_dat.length; i++) {
+            target_lat_sing_dat[i].innerHTML = "bovi";
+        }
+        for (i = 0; i < target_lat_sing_acc.length; i++) {
+            target_lat_sing_acc[i].innerHTML = "bovem";
+        }
+        for (i = 0; i < target_lat_sing_abl.length; i++) {
+            target_lat_sing_abl[i].innerHTML = "bove";
+        }
+        for (i = 0; i < target_lat_sing_voc.length; i++) {
+            target_lat_sing_voc[i].innerHTML = "bos";
+        }
+        // PLURAL 
+        for (i = 0; i < target_lat_plural_nom.length; i++) {
+            target_lat_plural_nom[i].innerHTML = "boves";
+        }
+        for (i = 0; i < target_lat_plural_gen.length; i++) {
+            target_lat_plural_gen[i].innerHTML = "boum";
+        }
+        for (i = 0; i < target_lat_plural_dat.length; i++) {
+            target_lat_plural_dat[i].innerHTML = "bobus / bubus";
+        }
+        for (i = 0; i < target_lat_plural_acc.length; i++) {
+            target_lat_plural_acc[i].innerHTML = "boves";
+        }    
+        for (i = 0; i < target_lat_plural_abl.length; i++) {
+            target_lat_plural_abl[i].innerHTML = "bobus / bubus";
+        }
+        for (i = 0; i < target_lat_plural_voc.length; i++) {
+            target_lat_plural_voc[i].innerHTML = "boves";
+        }
+        return true;
+    }
+    else if (nominativeSingularInput === "athos") {
+        // Takes the correct Latin and inserts them in the HTML
+        // SINGULAR 
+        for (var i = 0; i < target_lat_sing_nom.length; i++) {
+            target_lat_sing_nom[i].innerHTML = "Athos";
+        }
+        for (i = 0; i < target_lat_sing_gen.length; i++) {
+            target_lat_sing_gen[i].innerHTML = "Atho";
+        }
+        for (i = 0; i < target_lat_sing_dat.length; i++) {
+            target_lat_sing_dat[i].innerHTML = "Atho";
+        }
+        for (i = 0; i < target_lat_sing_acc.length; i++) {
+            target_lat_sing_acc[i].innerHTML = "Atho / Athon";
+        }
+        for (i = 0; i < target_lat_sing_abl.length; i++) {
+            target_lat_sing_abl[i].innerHTML = "Atho";
+        }
+        for (i = 0; i < target_lat_sing_voc.length; i++) {
+            target_lat_sing_voc[i].innerHTML = "Athos";
+        }
+
+        // PLURAL 
+        for (i = 0; i < target_lat_plural_nom.length; i++) {
+            target_lat_plural_nom[i].innerHTML = "";
+        }
+        for (i = 0; i < target_lat_plural_gen.length; i++) {
+            target_lat_plural_gen[i].innerHTML = "";
+        }
+        for (i = 0; i < target_lat_plural_dat.length; i++) {
+            target_lat_plural_dat[i].innerHTML = "";
+        }
+        for (i = 0; i < target_lat_plural_acc.length; i++) {
+            target_lat_plural_acc[i].innerHTML = "";
+        }    
+        for (i = 0; i < target_lat_plural_abl.length; i++) {
+            target_lat_plural_abl[i].innerHTML = "";
+        }
+        for (i = 0; i < target_lat_plural_voc.length; i++) {
+            target_lat_plural_voc[i].innerHTML = "";
+        }
+        return true;
+    }
+    else {
+        return false;         
+    }    
+}
 function declineLatinHalfOfNoun(declension, nominativeSingularInput, genitiveSingularInput, gender, base) {
         var nominative = nominativeSingularInput;
         var nomSing;
