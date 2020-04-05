@@ -325,6 +325,12 @@ table.copyPasteFormat {
     font-family: "Times New Roman", times, serif;
     font-weight: normal;
 }
+.irregularWarning {
+    display: none;
+    color: red;
+    font-weight: bolder;
+    text-align: center;
+}
 /* ============================================= *\
                 FlexBox
 \* ============================================= */

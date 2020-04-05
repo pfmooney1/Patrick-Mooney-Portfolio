@@ -393,11 +393,12 @@ function computeAndWriteLatin(latinNounUnparsed) {
     var declension = computeDeclension(genitiveSingularInput);    
     var base = computeNounBase(declension, nominativeSingularInput, genitiveSingularInput, gender);
     var isItIrregular = irregularChecker(nominativeSingularInput);
+    irregularNounAlert(isItIrregular);
     if (isItIrregular === false) {
         declineLatinHalfOfNoun(declension, nominativeSingularInput, genitiveSingularInput, gender, base);
     }
     else {
-        alert("This noun is irregular!");
+
     }
 }
 function getNounParts(latinNounUnparsed) {
@@ -1396,6 +1397,22 @@ function declineLatinHalfOfNoun(declension, nominativeSingularInput, genitiveSin
         target_lat_plural_voc[i].innerHTML = lat_Plural_Voc;
     }
 }
+function irregularNounAlert(isItIrregular) {
+    var irregularWarnings = document.getElementsByClassName("irregularWarning");
+    var irregularWarningslength = irregularWarnings.length;
+    if (isItIrregular === true) {
+        for (var i = 0; i < irregularWarningslength; i++) {
+            irregularWarnings[i].style.display = "table-row";
+        }
+    }
+    else {
+        for (var i = 0; i < irregularWarnings.length; i++) {
+            irregularWarnings[i].style.display = "none";
+        }
+    }
+}
+
+
 
 
 // ====================================================
@@ -1568,23 +1585,18 @@ function declineEnglishHalfOfNoun (englishMeaningSingular, englishMeaningPlural)
     for (var i = 0; i < target_eng_sing_nom.length; i++) {
         target_eng_sing_nom[i].innerHTML = eng_Sing_Nom;
     }
-    
     for (i = 0; i < target_eng_sing_gen.length; i++) {
         target_eng_sing_gen[i].innerHTML = eng_Sing_Gen;
     }
-    
     for (i = 0; i < target_eng_sing_dat.length; i++) {
         target_eng_sing_dat[i].innerHTML = eng_Sing_Dat;
     }
-    
     for (i = 0; i < target_eng_sing_acc.length; i++) {
         target_eng_sing_acc[i].innerHTML = eng_Sing_Acc;
     }
-    
     for (i = 0; i < target_eng_sing_abl.length; i++) {
         target_eng_sing_abl[i].innerHTML = eng_Sing_Abl;
     }
-    
     for (i = 0; i < target_eng_sing_voc.length; i++) {
         target_eng_sing_voc[i].innerHTML = eng_Sing_Voc;
     }
@@ -1593,25 +1605,64 @@ function declineEnglishHalfOfNoun (englishMeaningSingular, englishMeaningPlural)
     for (i = 0; i < target_eng_plural_nom.length; i++) {
         target_eng_plural_nom[i].innerHTML = eng_Plural_Nom;
     }
-    
     for (i = 0; i < target_eng_plural_gen.length; i++) {
         target_eng_plural_gen[i].innerHTML = eng_Plural_Gen;
     }
-    
     for (i = 0; i < target_eng_plural_dat.length; i++) {
         target_eng_plural_dat[i].innerHTML = eng_Plural_Dat;
     }
-    
     for (i = 0; i < target_eng_plural_acc.length; i++) {
         target_eng_plural_acc[i].innerHTML = eng_Plural_Acc;
     }
-    
     for (i = 0; i < target_eng_plural_abl.length; i++) {
         target_eng_plural_abl[i].innerHTML = eng_Plural_Abl;
     }
-    
     for (i = 0; i < target_eng_plural_voc.length; i++) {
         target_eng_plural_voc[i].innerHTML = eng_Plural_Voc;
+    }
+    
+    if (englishMeaningSingular === "Jesus") {
+
+        // Takes the correct English and inserts them in the HTML
+        // SINGULAR 
+        for (var i = 0; i < target_eng_sing_nom.length; i++) {
+            target_eng_sing_nom[i].innerHTML = "Jesus";
+        }
+        for (i = 0; i < target_eng_sing_gen.length; i++) {
+            target_eng_sing_gen[i].innerHTML = "of Jesus";
+        }
+        for (i = 0; i < target_eng_sing_dat.length; i++) {
+            target_eng_sing_dat[i].innerHTML = "to/for Jesus";
+        }
+        for (i = 0; i < target_eng_sing_acc.length; i++) {
+            target_eng_sing_acc[i].innerHTML = "Jesus";
+        }
+        for (i = 0; i < target_eng_sing_abl.length; i++) {
+            target_eng_sing_abl[i].innerHTML = "by/with/from Jesus";
+        }
+        for (i = 0; i < target_eng_sing_voc.length; i++) {
+            target_eng_sing_voc[i].innerHTML = "oh Jesus";
+        }
+
+        // PLURAL 
+        for (i = 0; i < target_eng_plural_nom.length; i++) {
+            target_eng_plural_nom[i].innerHTML = "";
+        }
+        for (i = 0; i < target_eng_plural_gen.length; i++) {
+            target_eng_plural_gen[i].innerHTML = "";
+        }
+        for (i = 0; i < target_eng_plural_dat.length; i++) {
+            target_eng_plural_dat[i].innerHTML = "";
+        }
+        for (i = 0; i < target_eng_plural_acc.length; i++) {
+            target_eng_plural_acc[i].innerHTML = "";
+        }
+        for (i = 0; i < target_eng_plural_abl.length; i++) {
+            target_eng_plural_abl[i].innerHTML = "";
+        }
+        for (i = 0; i < target_eng_plural_voc.length; i++) {
+            target_eng_plural_voc[i].innerHTML = "";
+        }
     }
 }
 
