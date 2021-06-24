@@ -1,0 +1,170 @@
+/*  Small screens */
+@media only screen and (max-width: 500px) {
+    body {
+        color: black;
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "header"
+            "main"
+            "footer";
+        justify-content: center;
+        background-color: black;
+        background-image: url(images/backgroundpattern.png);
+        background-repeat: repeat;
+        justify-items: center;
+        font-family: 'Forum', cursive;
+        padding: 0em;
+        margin: 0em;
+    }
+    #mainArea {
+        display: grid;
+        grid-area: main;
+        box-sizing: border-box;
+        width: 90%;
+        height: auto;
+    }
+    #quoteSpace {
+        background-image: url(images/book.jpg);
+        z-index: -1;
+        border: 3px solid black;
+        border-radius: 5px;
+        display: grid;
+        justify-items: stretch;
+        align-items: center;
+        box-sizing: border-box;
+        width: 100%;
+        height: 450px;
+        background-position: 50% 0;
+        margin: 0em;
+    }
+    #actualQuote {
+        font-size: 20px;
+        color: white;
+        margin: 0;
+        padding: 5px;
+        text-align: center;
+        font-weight: 600;
+        background-color: hsla(0, 0%, 0%, 0.6);
+        box-sizing: border-box;
+        width: 100%
+    }
+    button {
+        justify-self: center;
+        background-color: white;
+        color: black;
+        font-weight: 900;
+        font-size: 1.1em;
+        width: 60%;
+        height: 30px;
+        box-sizing: border-box;
+        margin: 0 0 0.2em 0;
+    }
+    #placeForQuote {
+        color: white;
+        opacity: 1;
+    }
+    header {
+        grid-area: header;
+        width: 100%;
+        color: white;
+        text-align: center;
+        font-size: .63em;
+        padding: 0em;
+        margin: 0em;
+        box-sizing: border-box;
+        height: 50px;
+        vertical-align: middle;
+        line-height: 20px
+    }
+    footer {
+        grid-area: footer;
+        color: white;
+        padding: 5px;
+        text-align: center;
+        font-weight: 700;
+    }
+    a {
+        color: white;
+    } 
+}
+
+
+/* Large screens */
+@media only screen and (min-width: 500px) {
+    body {
+        color: black;
+        display: grid;
+        grid-template-rows: auto auto auto;
+        grid-template-columns: auto auto auto;
+        grid-template-areas: 
+            "header header header"
+            "sideA main sideB"
+            "footer footer footer";
+        justify-content: center;
+        background-color: black;
+        background-image: url(images/backgroundpattern.png);
+        background-repeat: repeat;
+        font-family: 'Forum', cursive;
+    }
+    #mainArea {
+        display: grid;
+        grid-area: main;
+        box-sizing: border-box;
+    }
+    #quoteSpace {
+        background-image: url(images/book.jpg);
+        z-index: -1;
+        border: 3px solid black;
+        border-radius: 5px;
+        display: grid;
+        justify-items: stretch;
+        align-items: center;
+        box-sizing: content-box;
+        width: 400px;
+        height: 500px;
+    }
+    #actualQuote {
+        font-size: 20px;
+        color: white;
+        margin: 0.4em;
+        padding: 5px;
+        text-align: center;
+        font-weight: 600;
+        background-color: hsla(0, 0%, 0%, 0.6);
+        box-sizing: border-box;
+    }
+    button {
+        justify-self: center;
+        background-color: white;
+        color: black;
+        font-weight: 900;
+        font-size: 1.1em;
+        width: 40%;
+        height: 30px;
+        box-sizing: border-box;
+        margin-bottom: 0.2em;
+    }
+    #placeForQuote {
+        color: white;
+        opacity: 1;
+    }
+    header {
+        grid-area: header;
+        width: 100%;
+        color: white;
+        text-align: center;
+        font-family: inherit;
+    }
+    footer {
+        grid-area: footer;
+        color: white;
+        padding: 5px;
+        text-align: center;
+        font-weight: 700;
+    }
+    a {
+        color: white;
+    }
+}

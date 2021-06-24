@@ -2213,16 +2213,73 @@ function declineUserEnteredNoun(id) {
 
 // ====================================================
 // ====================================================
-//      Random Noun Button
+//      Random Noun Buttons
 // ====================================================
 // ====================================================
 // 
 // 
+// picks and declines a random noun
+//
 function randomNounButton() {
-    
+    // Check to see which boxes are checked
+    // Make an array that references each available option
+    // Select a noun from the available options
+    // Separate the English from the Latin
+    // Feed the noun into function that declines the Latin
+    // Feed the noun into function that declines the English
+    // Profit
 }
 
+// Checks which noun declensions are eligible for random picking
+//
+function randomNounCheckboxChecker() {
+    var arrayOfCheckedBoxes = [];
+    if (document.getElementById("randomA").style.className = "checked") {
+        
+    }
 
+    
+    
+    if (document.getElementById("randomB").style.className = "checked") {
+        
+    }
+    
+    
+    if (document.getElementById("randomC").style.className = "checked") {
+        
+    }
+    
+    
+    if (document.getElementById("randomD").style.className = "checked") {
+        
+    }
+
+    
+    
+    if (document.getElementById("randomE").style.className = "checked") {
+        
+    }
+
+    
+    
+    if (document.getElementById("randomF").style.className = "checked") {
+        
+    }
+
+    
+    
+    if (document.getElementById("randomG").style.className = "checked") {
+        
+    }
+    
+    
+    if (document.getElementById("randomH").style.className = "checked") {
+        
+    }
+
+    
+    
+}
 
 
 // ====================================================
@@ -2406,97 +2463,97 @@ var thirdDeclMorFNouns = [
 ];
 
 var thirdDeclNeutNouns = [
-"aenigma aenigmatis n, figure",
-"aes, aeris, n, bronze",
-"cacumen, cacuminis, n, summit",
-"cadaver, cadaveris, n, corpse",
-"carmen, carminis, n, song",
-"cor, cordis, n, heart",
-"corpus, corporis, n, body",
-"emblema, emblematis, n, emblem",
-"flumen, fluminis, n, river",
-"gramen, graminis, n, grass",
-"iter, itineris, n, journey",
-"ius, iuris, n, law",
-"lac, lactis, n, milk",
-"marmor, marmoris, n, marble",
-"mel, mellis, n, honey",
-"nomen, nominis, n, name",
-"sulphur, sulphuris, n, sulphur",
-"scelus, sceleris, n, crime",
-"onus, oneris, n, burden",
-"opus, operis, n, work",
-"os, oris, n, mouth",
-"papaver, papaveris, n, poppy",
-"piper, piperis, n, pepper",
-"pondus, ponderis, n, weight",
-"sidus, sideris, n, constellation",
-"tempus, temporis, n, time",
-"vas, vasis, n, vessel",
-"vellus, velleris, n, fleece",
-"ver, veris, n, spring",
-"verber, verberis, n, scourge",
-"volumen, voluminis, n, book"
+    "aenigma aenigmatis n, figure",
+    "aes, aeris, n, bronze",
+    "cacumen, cacuminis, n, summit",
+    "cadaver, cadaveris, n, corpse",
+    "carmen, carminis, n, song",
+    "cor, cordis, n, heart",
+    "corpus, corporis, n, body",
+    "emblema, emblematis, n, emblem",
+    "flumen, fluminis, n, river",
+    "gramen, graminis, n, grass",
+    "iter, itineris, n, journey",
+    "ius, iuris, n, law",
+    "lac, lactis, n, milk",
+    "marmor, marmoris, n, marble",
+    "mel, mellis, n, honey",
+    "nomen, nominis, n, name",
+    "sulphur, sulphuris, n, sulphur",
+    "scelus, sceleris, n, crime",
+    "onus, oneris, n, burden",
+    "opus, operis, n, work",
+    "os, oris, n, mouth",
+    "papaver, papaveris, n, poppy",
+    "piper, piperis, n, pepper",
+    "pondus, ponderis, n, weight",
+    "sidus, sideris, n, constellation",
+    "tempus, temporis, n, time",
+    "vas, vasis, n, vessel",
+    "vellus, velleris, n, fleece",
+    "ver, veris, n, spring",
+    "verber, verberis, n, scourge",
+    "volumen, voluminis, n, book"
 ];
 
 var fourthDeclMorFNouns = [
-"actus, actus, m, act",
-"aditus, aditus, m, approach",
-"adventus, adventus, m, arrival",
-"aestus, aestus, m, heat",
-"arcus, arcus, m, bow",
-"aspectus, aspectus, m, appearance",
-"audītus, audītus, m, hearing",
-"cantus, cantus, m, song",
-"conatus, conatus, m, attempt",
-"conspectus, conspectus, m, view",
-"consulatus, consulatus, m, consulship",
-"conventus, conventus, m, meeting",
-"cultus, cultus, m, civilization",
-"currus, currus, m, chariot",
-"cursus, cursus, m, running",
-"discessus, discessus, m, departure",
-"egressus, egressus, m, departure",
-"equitatus, equitatus, m, cavalry",
-"exercitus, exercitus, m, army",
-"exitus, exitus, m, departure",
-"fletus, fletus, m, weeping",
-"fructus, fructus, m, fruit",
-"gemitus, gemitus, m, groan",
-"gradus, gradus, m, step",
-"impetus, impetus, m, attack",
-"impulsus, impulsus, m, impulse",
-"incursus, incursus, m, attack",
-"intellectus, intellectus, m, intellect",
-"introitus, introitus, m, entrance",
-"lacus, lacus, m, lake",
-"magistratus, magistratus, m, magistrate",
-"metus, metus, m, fear",
-"morsus, morsus, m, bite",
-"ornatus, ornatus, m, dress",
-"passus, passus, m, pace",
-"peditatus, peditatus, m, infantry",
-"portus, portus, m, harbor",
-"potus, potus, m, drink",
-"progress, progressus, m, advance",
-"questus, questus, m, complaint",
-"receptus, receptus, m, retreat",
-"reditus, reditus, m, return",
-"risus, risus, m, laughter",
-"ritus, ritus, m, ceremony",
-"saltus, saltus, m, woodland",
-"senatus, senatus, m, senate",
-"sensus, sensus, m, feeling",
-"situs, situs, m, position",
-"sonitus, sonitus, m, noise",
-"specus, specus, m, cave",
-"spiritus, spiritus, m, spirit",
-"status, status, m, posture",
-"tractatus, tractatus, m, treatise",
-"transitus, transitus, m, crossing",
-"tumultus, tumultus, m, commotion",
-"victus, victus, m, livelihood",
-"vultus, vultus, m, expression",
+    "actus, actus, m, act",
+    "aditus, aditus, m, approach",
+    "adventus, adventus, m, arrival",
+    "aestus, aestus, m, heat",
+    "arcus, arcus, m, bow",
+    "aspectus, aspectus, m, appearance",
+    "audītus, audītus, m, hearing",
+    "cantus, cantus, m, song",
+    "conatus, conatus, m, attempt",
+    "conspectus, conspectus, m, view",
+    "consulatus, consulatus, m, consulship",
+    "conventus, conventus, m, meeting",
+    "cultus, cultus, m, civilization",
+    "currus, currus, m, chariot",
+    "cursus, cursus, m, running",
+    "discessus, discessus, m, departure",
+    "egressus, egressus, m, departure",
+    "equitatus, equitatus, m, cavalry",
+    "exercitus, exercitus, m, army",
+    "exitus, exitus, m, departure",
+    "fletus, fletus, m, weeping",
+    "fructus, fructus, m, fruit",
+    "gemitus, gemitus, m, groan",
+    "gradus, gradus, m, step",
+    "impetus, impetus, m, attack",
+    "impulsus, impulsus, m, impulse",
+    "incursus, incursus, m, attack",
+    "intellectus, intellectus, m, intellect",
+    "introitus, introitus, m, entrance",
+    "lacus, lacus, m, lake",
+    "magistratus, magistratus, m, magistrate",
+    "metus, metus, m, fear",
+    "morsus, morsus, m, bite",
+    "ornatus, ornatus, m, dress",
+    "passus, passus, m, pace",
+    "peditatus, peditatus, m, infantry",
+    "portus, portus, m, harbor",
+    "potus, potus, m, drink",
+    "progress, progressus, m, advance",
+    "questus, questus, m, complaint",
+    "receptus, receptus, m, retreat",
+    "reditus, reditus, m, return",
+    "risus, risus, m, laughter",
+    "ritus, ritus, m, ceremony",
+    "saltus, saltus, m, woodland",
+    "senatus, senatus, m, senate",
+    "sensus, sensus, m, feeling",
+    "situs, situs, m, position",
+    "sonitus, sonitus, m, noise",
+    "specus, specus, m, cave",
+    "spiritus, spiritus, m, spirit",
+    "status, status, m, posture",
+    "tractatus, tractatus, m, treatise",
+    "transitus, transitus, m, crossing",
+    "tumultus, tumultus, m, commotion",
+    "victus, victus, m, livelihood",
+    "vultus, vultus, m, expression",
 ];
 
 var fourthDeclNeutNouns = [
