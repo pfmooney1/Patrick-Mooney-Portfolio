@@ -1,170 +1,139 @@
-/*  Small screens */
-@media only screen and (max-width: 500px) {
+body {
+    background-color: black;
+    background-image: url(images/backgroundpattern.png);
+    background-repeat: repeat;
+    box-sizing: border-box;
+    color: white;
+    display: grid;
+    font-family: 'Forum', cursive;
+    font-size: 20px;
+    font-weight: 600;
+    grid-template-areas: 
+        "header"
+        "main"
+        "footer";
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto auto;
+    justify-content: center;
+    justify-items: center;
+    margin: 0em;
+    padding: 0em;
+    text-align: center;
+}
+#mainArea {
+    box-sizing: content-box;
+    display: grid;
+    grid-area: main;
+    grid-template-areas: 
+        "imageQuoteContainer"
+        "imageQuoteContainer"
+        "imageQuoteContainer"
+        "imageQuoteContainer"
+        "imageQuoteContainer"
+        "buttonGroup";
+    grid-template-columns: 1fr;
+    grid-template-rows: 6fr;
+    margin: 0em;
+    padding: 0em;
+}
+#imageAndQuoteContainer {
+    align-content: center;
+    box-sizing: border-box;
+    display: grid;
+    grid-area: imageQuoteContainer;
+    grid-area: 1 / 1 / 6 / 2 | image;
+    grid-area: 5 / 1 / 6 / 2 | quote;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+    height: 500px;
+    justify-content: center;
+    margin-bottom: 10px;
+    padding: 0em;
+    width: 400px;
+}
+#imageForQuote {
+    background-position: 50% 0;
+    border: 3px solid black;
+    border-radius: 5px;
+    box-sizing: inherit;
+    grid-area: image;
+    height: inherit;
+    width: inherit;
+    z-index: 1;
+}
+#quoteContainer {
+    align-self: end;
+    background-color: hsla(0, 0%, 0%, 0.6);
+    font-size: 1.2em;
+    font-weight: 600;
+    grid-area: quote;
+    height: auto;
+    margin: 0;
+    padding: .6em .2em .6em .2em;
+    z-index: 2;
+}
+#buttonGroup{
+    display: grid;
+    font-size: 1em;
+    grid-area: buttonGroup;
+    height: 100%;
+    justify-items: center;
+}
+button {
+    box-sizing: border-box;
+    color: black;
+    font-weight: 700;
+    font-size: 1em;
+    height: 1.35em;
+    margin: 0 0 0.2em 0;
+    width: 50%;
+}
+header {
+    font-size: .65em;
+    font-weight: 900;
+    grid-area: header;
+    margin: 0em;
+    padding: 0em;
+}
+footer {
+    grid-area: footer;
+}
+a {
+    color: lightgray;
+} 
+
+/*  Tiny screens */
+@media (max-width: 400px){
     body {
-        color: black;
-        display: grid;
-        grid-template-rows: auto;
-        grid-template-columns: 1fr;
-        grid-template-areas: 
-            "header"
-            "main"
-            "footer";
-        justify-content: center;
-        background-color: black;
-        background-image: url(images/backgroundpattern.png);
-        background-repeat: repeat;
-        justify-items: center;
-        font-family: 'Forum', cursive;
-        padding: 0em;
-        margin: 0em;
+        font-size: 18px;
     }
-    #mainArea {
-        display: grid;
-        grid-area: main;
-        box-sizing: border-box;
-        width: 90%;
-        height: auto;
+    #imageAndQuoteContainer {
+        height: 125vw;
+        width: 100vw;
     }
-    #quoteSpace {
-        background-image: url(images/book.jpg);
-        z-index: -1;
-        border: 3px solid black;
-        border-radius: 5px;
-        display: grid;
-        justify-items: stretch;
-        align-items: center;
-        box-sizing: border-box;
-        width: 100%;
-        height: 450px;
-        background-position: 50% 0;
-        margin: 0em;
-    }
-    #actualQuote {
-        font-size: 20px;
-        color: white;
-        margin: 0;
-        padding: 5px;
-        text-align: center;
-        font-weight: 600;
-        background-color: hsla(0, 0%, 0%, 0.6);
-        box-sizing: border-box;
-        width: 100%
-    }
-    button {
-        justify-self: center;
-        background-color: white;
-        color: black;
-        font-weight: 900;
-        font-size: 1.1em;
-        width: 60%;
-        height: 30px;
-        box-sizing: border-box;
-        margin: 0 0 0.2em 0;
-    }
-    #placeForQuote {
-        color: white;
-        opacity: 1;
-    }
-    header {
-        grid-area: header;
-        width: 100%;
-        color: white;
-        text-align: center;
-        font-size: .63em;
-        padding: 0em;
-        margin: 0em;
-        box-sizing: border-box;
-        height: 50px;
-        vertical-align: middle;
-        line-height: 20px
-    }
-    footer {
-        grid-area: footer;
-        color: white;
-        padding: 5px;
-        text-align: center;
-        font-weight: 700;
-    }
-    a {
-        color: white;
-    } 
 }
 
-
-/* Large screens */
-@media only screen and (min-width: 500px) {
+/* +800 pixel and portrait  */
+@media only screen and (min-width: 800px) and (orientation: portrait) {
     body {
-        color: black;
-        display: grid;
-        grid-template-rows: auto auto auto;
-        grid-template-columns: auto auto auto;
-        grid-template-areas: 
-            "header header header"
-            "sideA main sideB"
-            "footer footer footer";
-        justify-content: center;
-        background-color: black;
-        background-image: url(images/backgroundpattern.png);
-        background-repeat: repeat;
-        font-family: 'Forum', cursive;
+        font-size: 30px;
     }
-    #mainArea {
-        display: grid;
-        grid-area: main;
-        box-sizing: border-box;
+    #imageAndQuoteContainer {
+        height: 750px;
+        width: 600px;
     }
-    #quoteSpace {
-        background-image: url(images/book.jpg);
-        z-index: -1;
-        border: 3px solid black;
-        border-radius: 5px;
-        display: grid;
-        justify-items: stretch;
-        align-items: center;
-        box-sizing: content-box;
-        width: 400px;
-        height: 500px;
+}
+
+/* +1200 pixel and portrait  */
+@media only screen and (min-width: 1200px) and (orientation: portrait) {
+    body {
+        font-size: 50px;
     }
-    #actualQuote {
-        font-size: 20px;
-        color: white;
-        margin: 0.4em;
-        padding: 5px;
-        text-align: center;
-        font-weight: 600;
-        background-color: hsla(0, 0%, 0%, 0.6);
-        box-sizing: border-box;
+    header{
+        font-size: .8em;
     }
-    button {
-        justify-self: center;
-        background-color: white;
-        color: black;
-        font-weight: 900;
-        font-size: 1.1em;
-        width: 40%;
-        height: 30px;
-        box-sizing: border-box;
-        margin-bottom: 0.2em;
-    }
-    #placeForQuote {
-        color: white;
-        opacity: 1;
-    }
-    header {
-        grid-area: header;
-        width: 100%;
-        color: white;
-        text-align: center;
-        font-family: inherit;
-    }
-    footer {
-        grid-area: footer;
-        color: white;
-        padding: 5px;
-        text-align: center;
-        font-weight: 700;
-    }
-    a {
-        color: white;
+    #imageAndQuoteContainer {
+        height: 1000px;
+        width: 800px;
     }
 }

@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-          <link rel="stylesheet" href="JokeQuote.css">
-            <link rel="preconnect" href="https://fonts.googleapis.com"> 
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-            <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
+        <title>Historical Quote Generator</title>
+        <link rel="stylesheet" href="JokeQuote.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
     </head>
     <body>
         <header>
             <h1>Wrong Historical Quote Generator</h1>
         </header>
-        <div id="mainArea">
-        <div onClick="newQuote()">
-            <div id="quoteSpace" onClick="newQuote()">
-                <div id="actualQuote">
-                    <p id="placeForQuote">Click to Start</p>
+        <main id="mainArea">
+            <div id="imageAndQuoteContainer" onClick="newQuote()">
+                <img src="images/book.jpg" id="imageForQuote" onClick="newQuote()" width="400px" height="500px" alt="Click for a new quote.">
+                <div id="quoteContainer">
+                    <q id="placeForQuote">Click to Start</q>
+                    <br>
                     <cite id="placeForSpeaker"></cite>
                 </div>
             </div>
-            <br>
-        </div>
-            <button id="newQuoteButton" onClick="newQuote()">New Quote</button>
-            <button id="waitGoBackButton" onClick="waitGoBack()">Go back</button>
-        </div>
+            <div id="buttonGroup">
+                <button id="newQuoteButton" onClick="newQuote()">New Quote</button>
+                <button id="waitGoBackButton" onClick="waitGoBack()">Go back</button>
+            </div>
+        </main>
         <footer>
             <hr>
             <p>Copyright 2021 Patrick Mooney <br>
@@ -33,5 +35,7 @@
             <hr>
         </footer>
         <script src="JokeQuote.js"></script>
+        <noscript>The site requires Javascript enabled to view the content.</noscript>
+
     </body>
 </html>

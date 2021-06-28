@@ -1,3 +1,7 @@
+// Disables "Go back" button at start
+document.getElementById("waitGoBackButton").style.display = "none";
+
+// Arrays
 var quoteTemplates = [
     `Don't believe everything you read on the internet.`,
     `Stop trying to make fetch happen.`,
@@ -23,7 +27,10 @@ var quoteTemplates = [
     `It's not my fault you're, like, in love with me or something.`,
     `On Wednesdays, we wear pink.`,
     `Cowgirls don't cry.`,
-    `Get in loser, we’re going shopping.`
+    `Get in loser, we’re going shopping.`,
+    `The problem with quotes found on the internet is that they are often not true.`,
+    `Road work ahead? Uh yeah, I sure hope it does.`,
+    `Do it for the vine.`
 ];
 var historicalPerson = [
     "Thomas Jefferson",
@@ -74,52 +81,53 @@ var historicalPerson = [
     "Saint Francis of Assisi"
 ];
 var imageLinks = [
-      "url(images/ThomasJefferson.jpg)",
-      "url(images/MansaMusa.jpg)",
-      "url(images/JoanOfArc.jpg)",
-      "url(images/Caesar.jpg)",
-      "url(images/Washington.jpg)",
-      "url(images/Lincoln.jpg)",
-      "url(images/SaintPaul.jpg)",
-      "url(images/MarieCurie.jpg)",
-      "url(images/AlexanderTheGreat.jpg)",
-      "url(images/Genghis.jpg)",
-      "url(images/Confucius.jpg)",
-      "url(images/SunTzu.jpg)",
-      "url(images/HildegardVonBingen.jpg)",
-      "url(images/Gandhi.jpg)",
-      "url(images/Einstein.jpg)",
-      "url(images/Socrates.jpg)",
-      "url(images/PlatoAristotle.jpg)",
-      "url(images/JFK.jpg)",
-      "url(images/MartinLuther.jpg)",
-      "url(images/Shakespeare.jpg)",
-      "url(images/AmeliaEarhart.jpg)",
-      "url(images/MarieAntoinette.jpg)",
-      "url(images/WinstonChurchill.jpg)",
-      "url(images/Machiavelli.jpg)",
-      "url(images/MotherTeresa.jpg)",
-      "url(images/Napoleon.jpg)",
-      "url(images/Nietzsche.jpg)",
-      "url(images/Chaucer.jpg)",
-      "url(images/Darwin.jpg)",
-      "url(images/EleanorRoosevelt.jpg)",
-      "url(images/SaintPatrick.jpg)",
-      "url(images/IsaacNewton.jpg)",
-      "url(images/RosaParks.jpg)",
-      "url(images/Beethoven.jpg)",
-      "url(images/Elizabeth.jpg)",
-      "url(images/MLKjr.jpg)",
-      "url(images/Franklin.jpg)"
+      "images/ThomasJefferson.jpg",
+      "images/MansaMusa.jpg",
+      "images/JoanOfArc.jpg",
+      "images/Caesar.jpg",
+      "images/Washington.jpg",
+      "images/Lincoln.jpg",
+      "images/SaintPaul.jpg",
+      "images/MarieCurie.jpg",
+      "images/AlexanderTheGreat.jpg",
+      "images/Genghis.jpg",
+      "images/Confucius.jpg",
+      "images/SunTzu.jpg",
+      "images/HildegardVonBingen.jpg",
+      "images/Gandhi.jpg",
+      "images/Einstein.jpg",
+      "images/Socrates.jpg",
+      "images/PlatoAristotle.jpg",
+      "images/JFK.jpg",
+      "images/MartinLuther.jpg",
+      "images/Shakespeare.jpg",
+      "images/AmeliaEarhart.jpg",
+      "images/MarieAntoinette.jpg",
+      "images/WinstonChurchill.jpg",
+      "images/Machiavelli.jpg",
+      "images/MotherTeresa.jpg",
+      "images/Napoleon.jpg",
+      "images/Nietzsche.jpg",
+      "images/Chaucer.jpg",
+      "images/Darwin.jpg",
+      "images/EleanorRoosevelt.jpg",
+      "images/SaintPatrick.jpg",
+      "images/IsaacNewton.jpg",
+      "images/RosaParks.jpg",
+      "images/Beethoven.jpg",
+      "images/Elizabeth.jpg",
+      "images/MLKjr.jpg",
+      "images/Franklin.jpg"
                  ];
-
 var shuffledQuoteTemplates = [];
 var shuffledHistoricalPerson = [];
 var shuffledImageLinks = [];
 var lastFiveQuotes = [];
-var quoteToAddToLastFiveQuotes;
-handleWaitGoBackDisplay();
 
+// Variable for current quote
+var quoteToAddToLastFiveQuotes;
+
+// Site's functions
 function shuffle(array) {
   var currentIndex = array.length,  randomIndex;
 
@@ -134,7 +142,6 @@ function shuffle(array) {
 
   return array;
 }
-
 function handleWaitGoBackDisplay() {
     if (lastFiveQuotes.length < 1) {
         document.getElementById("waitGoBackButton").style.display = "none";
@@ -143,11 +150,9 @@ function handleWaitGoBackDisplay() {
         document.getElementById("waitGoBackButton").style.display = "inline-block";
     }
 }
-
 function newQuote() {
     // Moves quote space from middle to bottom
-    document.getElementById("quoteSpace").style.    alignItems = "end";
-
+    // ADD
     
     // handles adding to and maintaining the lastFiveQuotes array.
     if (quoteToAddToLastFiveQuotes != undefined) {
@@ -178,9 +183,9 @@ function newQuote() {
     var quote = shuffledQuoteTemplates.shift();
     var person = shuffledHistoricalPerson.shift();
     var imageToDisplay = shuffledImageLinks.shift();
-    document.getElementById("placeForQuote").innerHTML = `"` + quote + `"`;
+    document.getElementById("placeForQuote").innerHTML = quote;
     document.getElementById("placeForSpeaker").innerHTML = "- " + person;
-    document.getElementById("quoteSpace").style.backgroundImage = imageToDisplay;
+    document.getElementById("imageForQuote").src = imageToDisplay;
 
     quoteToAddToLastFiveQuotes = {
         previousQuote: quote,
@@ -188,15 +193,14 @@ function newQuote() {
         previousImageToDisplay: imageToDisplay
     };
 }
-
 function waitGoBack(){
     handleWaitGoBackDisplay();
     let x = lastFiveQuotes.shift();
     let quote = x.previousQuote;
     let person = x.previousPerson;
     let imageToDisplay = x.previousImageToDisplay;
-    document.getElementById("placeForQuote").innerHTML = `"` + quote + `"`;
+    document.getElementById("placeForQuote").innerHTML = quote;
     document.getElementById("placeForSpeaker").innerHTML = "- " + person;
-    document.getElementById("quoteSpace").style.backgroundImage = imageToDisplay;
+    document.getElementById("imageForQuote").src = imageToDisplay;
     handleWaitGoBackDisplay();
 }
