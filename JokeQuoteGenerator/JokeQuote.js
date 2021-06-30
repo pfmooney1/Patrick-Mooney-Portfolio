@@ -10,7 +10,6 @@ var quoteTemplates = [
     `May the force be with you.`,
     `I love the smell of napalm in the morning. It smells like victory.`,  
     `Here's Johnny!`,
-    `My mama always said life was like a box of chocolates. You never know what you're gonna get.`,
     `Say 'Hello' to my little friend!`,
     `Bro, do you even lift?`,
     `You're a wizard, Harry.`,
@@ -30,7 +29,11 @@ var quoteTemplates = [
     `Get in loser, we’re going shopping.`,
     `The problem with quotes found on the internet is that they are often not true.`,
     `Road work ahead? Uh yeah, I sure hope it does.`,
-    `Do it for the vine.`
+    `Do it for the vine.`,
+    `Before I do anything I ask myself, ‘Would an idiot do that?’ And if the answer is yes, I do not do that thing.`,
+    `Beets. Bears. Battlestar Galactica.`,
+    `Wikipedia is the best thing ever. Anyone in the world can write anything they want about any subject so you know you are getting the best possible information`,
+    `Life is like a box chocolates. Not nearly as fun carb-free.`
 ];
 var historicalPerson = [
     "Thomas Jefferson",

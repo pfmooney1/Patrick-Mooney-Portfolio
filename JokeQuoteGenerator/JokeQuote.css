@@ -1,3 +1,6 @@
+a {
+    color: lightgray;
+} 
 body {
     background-color: black;
     background-image: url(images/backgroundpattern.png);
@@ -20,21 +23,31 @@ body {
     padding: 0em;
     text-align: center;
 }
-#mainArea {
-    box-sizing: content-box;
-    display: grid;
-    grid-area: main;
-    grid-template-areas: 
-        "imageQuoteContainer"
-        "imageQuoteContainer"
-        "imageQuoteContainer"
-        "imageQuoteContainer"
-        "imageQuoteContainer"
-        "buttonGroup";
-    grid-template-columns: 1fr;
-    grid-template-rows: 6fr;
+button {
+    box-sizing: border-box;
+    color: black;
+    font-weight: 700;
+    font-size: 1em;
+    height: 1.35em;
+    margin: 0 0 0.2em 0;
+    width: 50%;
+}
+footer {
+    grid-area: footer;
+}
+header {
+    font-size: .65em;
+    font-weight: 900;
+    grid-area: header;
     margin: 0em;
     padding: 0em;
+}
+#buttonGroup{
+    display: grid;
+    font-size: 1em;
+    grid-area: buttonGroup;
+    height: 100%;
+    justify-items: center;
 }
 #imageAndQuoteContainer {
     align-content: center;
@@ -61,6 +74,22 @@ body {
     width: inherit;
     z-index: 1;
 }
+#mainArea {
+    box-sizing: content-box;
+    display: grid;
+    grid-area: main;
+    grid-template-areas: 
+        "imageQuoteContainer"
+        "imageQuoteContainer"
+        "imageQuoteContainer"
+        "imageQuoteContainer"
+        "imageQuoteContainer"
+        "buttonGroup";
+    grid-template-columns: 1fr;
+    grid-template-rows: 6fr;
+    margin: 0em;
+    padding: 0em;
+}
 #quoteContainer {
     align-self: end;
     background-color: hsla(0, 0%, 0%, 0.6);
@@ -72,36 +101,8 @@ body {
     padding: .6em .2em .6em .2em;
     z-index: 2;
 }
-#buttonGroup{
-    display: grid;
-    font-size: 1em;
-    grid-area: buttonGroup;
-    height: 100%;
-    justify-items: center;
-}
-button {
-    box-sizing: border-box;
-    color: black;
-    font-weight: 700;
-    font-size: 1em;
-    height: 1.35em;
-    margin: 0 0 0.2em 0;
-    width: 50%;
-}
-header {
-    font-size: .65em;
-    font-weight: 900;
-    grid-area: header;
-    margin: 0em;
-    padding: 0em;
-}
-footer {
-    grid-area: footer;
-}
-a {
-    color: lightgray;
-} 
 
+/*  Media Queries */
 /*  Tiny screens */
 @media (max-width: 400px){
     body {
