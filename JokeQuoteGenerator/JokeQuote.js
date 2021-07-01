@@ -10,7 +10,6 @@ var quoteTemplates = [
     `May the force be with you.`,
     `I love the smell of napalm in the morning. It smells like victory.`,  
     `Here's Johnny!`,
-    `Say 'Hello' to my little friend!`,
     `Bro, do you even lift?`,
     `You're a wizard, Harry.`,
     "You miss 100% of the shots you don't make. <br> - Wayne Gretzky <br> - Michael Scott",
@@ -33,7 +32,8 @@ var quoteTemplates = [
     `Before I do anything I ask myself, ‘Would an idiot do that?’ And if the answer is yes, I do not do that thing.`,
     `Beets. Bears. Battlestar Galactica.`,
     `Wikipedia is the best thing ever. Anyone in the world can write anything they want about any subject so you know you are getting the best possible information`,
-    `Life is like a box chocolates. Not nearly as fun carb-free.`
+    `Life is like a box chocolates. Not nearly as fun carb-free.`,
+    `There has never been a sadness that can’t been cured by breakfast food.`
 ];
 var historicalPerson = [
     "Thomas Jefferson",
@@ -155,7 +155,9 @@ function handleWaitGoBackDisplay() {
 }
 function newQuote() {
     // Moves quote space from middle to bottom
-    // ADD
+    document.getElementById('quoteContainer').style.alignSelf = "end";
+    document.getElementById('quoteContainer').style.fontSize = "1.2em";
+
     
     // handles adding to and maintaining the lastFiveQuotes array.
     if (quoteToAddToLastFiveQuotes != undefined) {

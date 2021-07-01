@@ -91,11 +91,11 @@ header {
     padding: 0em;
 }
 #quoteContainer {
-    align-self: end;
+    align-self: center;
     background-color: hsla(0, 0%, 0%, 0.6);
-    font-size: 1.2em;
+    font-size: 2em; /* This is edited in JS during the newQuote function */
     font-weight: 600;
-    grid-area: quote;
+    grid-area: quoteStart;
     height: auto;
     margin: 0;
     padding: .6em .2em .6em .2em;
