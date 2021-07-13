@@ -1,8 +1,7 @@
-//
 // start controls
 var modal = document.getElementById("start");
 var btn = document.getElementById("StartScreen");
-//
+
 // buttons that close windows
 document.getElementsByClassName("close")[0].onclick = closeTheWindow;
 document.getElementsByClassName("close")[0].onclick = setup;
@@ -14,41 +13,42 @@ document.getElementsByClassName("close")[5].onclick = closeTheWindow;
 document.getElementsByClassName("close")[6].onclick = closeTheWindow;
 document.getElementsByClassName("close")[7].onclick = closeTheWindow;
 document.getElementsByClassName("close")[8].onclick = closeTheWindow;
-//
+
 // Function that closes windows
 function closeTheWindow() {
   modal.style.display = "none";
   document.getElementById("repairs").style.display = "none";
 }
-//
+
 // Click outside the modal to close it.
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
 }
+
 //Player Money
-    var player1Money = 1500;
-    var player2Money = 1500;
-    var player3Money = 1500;
-    var player4Money = 1500;
-    var player5Money = 1500;
-    var player6Money = 1500;
-    var player7Money = 1500;
-    var player8Money = 1500;
-    var player9Money = 1500;
-    var player10Money = 1500;
-      document.getElementById("p1money").innerHTML = "$" + player1Money;
-      document.getElementById("p2money").innerHTML = "$" + player2Money;
-      document.getElementById("p3money").innerHTML = "$" + player3Money;
-      document.getElementById("p4money").innerHTML = "$" + player4Money;
-      document.getElementById("p5money").innerHTML = "$" + player5Money;
-      document.getElementById("p6money").innerHTML = "$" + player6Money;
-      document.getElementById("p7money").innerHTML = "$" + player7Money;
-      document.getElementById("p8money").innerHTML = "$" + player8Money;
-      document.getElementById("p9money").innerHTML = "$" + player9Money;
-      document.getElementById("p10money").innerHTML = "$" + player10Money;
-    //
+var player1Money = 1500;
+var player2Money = 1500;
+var player3Money = 1500;
+var player4Money = 1500;
+var player5Money = 1500;
+var player6Money = 1500;
+var player7Money = 1500;
+var player8Money = 1500;
+var player9Money = 1500;
+var player10Money = 1500;
+document.getElementById("p1money").innerHTML = "$" + player1Money;
+document.getElementById("p2money").innerHTML = "$" + player2Money;
+document.getElementById("p3money").innerHTML = "$" + player3Money;
+document.getElementById("p4money").innerHTML = "$" + player4Money;
+document.getElementById("p5money").innerHTML = "$" + player5Money;
+document.getElementById("p6money").innerHTML = "$" + player6Money;
+document.getElementById("p7money").innerHTML = "$" + player7Money;
+document.getElementById("p8money").innerHTML = "$" + player8Money;
+document.getElementById("p9money").innerHTML = "$" + player9Money;
+document.getElementById("p10money").innerHTML = "$" + player10Money;
+
 // Confirm pop up before setup
 function confirmSetup() {
   var txt;
@@ -56,7 +56,7 @@ function confirmSetup() {
     startOver();
   }
 }
-//
+
 // Start Game Button
 function setup() {
   var numberOfPlayers = document.getElementById("numberOfPlayers").value;
@@ -151,7 +151,7 @@ function setup() {
   var modal = document.getElementById("start");
   modal.style.display = "none";
 }
-//
+
 // When the user starts over, it displays all players
 function startOver() {
       document.getElementById("10").style.display = "table-row";
@@ -176,7 +176,7 @@ function startOver() {
 
   modal.style.display = "block";
 }
-//
+
 // Options screen - open and close
 function showOptions() {
   var optionsScreen = document.getElementById("optionsMenu");
@@ -194,14 +194,14 @@ function showOptions() {
     document.getElementById("optionsButton").innerHTML = "Options";
   }
 }
-//
+
 //Change player name
 function rename(id) {
   var target = document.getElementById(id);
   var x = prompt("Pick a name!", "Patrick");
   target.innerHTML = x;
 }
-//
+
 //Add money to a player's account
 function addMoney(id) {
   var target = document.getElementById(id);
@@ -248,7 +248,7 @@ function addMoney(id) {
     }
   }
 }
-//
+
 //Take money from a player's account
 function takeMoney(id) {
   var target = document.getElementById(id);
@@ -295,7 +295,7 @@ function takeMoney(id) {
     }
   }
 }
-//
+
 //Global variables for the repair function
 var communityChestHouses = 0;
 var communityChestHotels = 0;
@@ -305,7 +305,7 @@ var repairBillTotal = 0;
 var housesRepairCost = 0;
 var hotelsRepairCost = 0;
 var playerPayingRepairs;
-//
+
 //Community Chest/Chance card for repairs
 function repairs(id) {
   // Resets number of houses and hotels for both Community Chest and Chance
@@ -342,7 +342,7 @@ function repairs(id) {
     }
   }
 }
-//
+
 // Chance or Community Chest
 function chanceOrChest(a) {
   if (a === 'communityChest') {
@@ -355,7 +355,7 @@ function chanceOrChest(a) {
     document.getElementById("repairsChance1").style.display = "block";
   }
 }
-//
+
 // Calculates the repair bill
 function calculateRepairBill(a) {
   if (a === 'communityChest') {
@@ -385,7 +385,7 @@ function calculateRepairBill(a) {
   }
 
 }
-//
+
 // Bills the correct player and then closes the window.
 function repairAndClose() {
   if (playerPayingRepairs === "1") {
@@ -424,7 +424,7 @@ function repairAndClose() {
   document.getElementById("repairsFinalBill").style.display = "none";
   document.getElementById("repairs").style.display = "none";
 }
-//
+
 // Toggle Tokens color picker
 function selectButton(id, colorChoice) {
     document.getElementById("topLogo").style.color = "black";
@@ -471,27 +471,4 @@ function selectButton(id, colorChoice) {
         bodyElement.style.backgroundColor = "#FAFAFA";
         mainElement.style.backgroundColor = "#EEEEEE";
       }
-}
-//
-// Toggle Tokens color picker
-function selectButtonFont(id, fontChoice) {
-    document.getElementById("georgia").className = "unToggled";
-    document.getElementById("cambria").className = "unToggled";
-    document.getElementById("verdana").className = "unToggled";
-    document.getElementById("lucidaConsole").className = "unToggled";
-    var target = document.getElementById(id);
-    target.className = "toggled";
-    var bodyElement = document.getElementById("body");
-    if (fontChoice == "georgia") {
-        bodyElement.style.fontFamily = "Georgia,serif";
-    } 
-    else if (fontChoice == "cambria") {
-        bodyElement.style.fontFamily = "Cambria,serif";
-    }
-    else if (fontChoice == "verdana") {
-        bodyElement.style.fontFamily = "Verdana,serif";
-    } 
-    else if (fontChoice == "lucidaConsole") {
-        bodyElement.style.fontFamily = "'Lucida Console',monospace";
-    }
 }

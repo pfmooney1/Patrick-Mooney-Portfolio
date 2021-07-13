@@ -30,9 +30,9 @@
       <div id="repairsOne" class="modal-content">
         <span class="close">&times;</span>
         <div class="containerRow">
-         <img src="monopolyImages/tools.svg" class="svgButton"> 
+         <img src="monopolyImages/tools.svg" class="svgButton miniFlankingSVG"> 
             <h1>Charged for Repairs</h1> 
-            <img src="monopolyImages/tools.svg" class="svgButton">
+            <img src="monopolyImages/tools.svg" class="svgButton miniFlankingSVG">
           </div>
         <h2>Community Chest or Chance?</h2>
         <div class="containerRow">
@@ -50,9 +50,9 @@
       <div id="repairsCommunityChest1" class="modal-content">
         <span class="close">&times;</span>
         <div class="containerRow">
-            <img src="monopolyImages/chest.svg" class="svgButton"> 
+            <img src="monopolyImages/chest.svg" class="svgButton miniFlankingSVG"> 
             <h1>Community Chest</h1>
-            <img src="monopolyImages/chest.svg" class="svgButton">
+            <img src="monopolyImages/chest.svg" class="svgButton miniFlankingSVG">
         </div>
         <h2>You are assessed for street repairs.</h2>
         <fieldset>
@@ -67,9 +67,9 @@
       <div id="repairsChance1" class="modal-content">
         <span class="close">&times;</span>
         <div class="containerRow">
-            <img src="monopolyImages/question.svg" class="svgButton"> 
+            <img src="monopolyImages/question.svg" class="svgButton miniFlankingSVG"> 
             <h1>Chance</h1>
-            <img src="monopolyImages/question.svg" class="svgButton">
+            <img src="monopolyImages/question.svg" class="svgButton miniFlankingSVG">
         </div>
         <h2>Make general repairs on all your property.</h2>
         <fieldset>
@@ -84,9 +84,9 @@
       <div id="repairsFinalBill" class="modal-content">
         <span class="close">&times;</span>
         <div class="containerRow">
-            <img src="monopolyImages/tools.svg" class="svgButton"> 
+            <img src="monopolyImages/tools.svg" class="svgButton miniFlankingSVG"> 
             <h1>Charged for Repairs</h1> 
-            <img src="monopolyImages/tools.svg" class="svgButton">
+            <img src="monopolyImages/tools.svg" class="svgButton miniFlankingSVG">
         </div>
         <h2>Your total is...</h2>
         <h2 id="repairsTotal"></h2>
@@ -157,7 +157,7 @@
           <td class="money" id="p7money">$1500</td>
           <td class="addMoney" id="p7AddMoney" onClick="addMoney(id)"><span class="plus">+</span></td>
           <td class="takeMoney" id="p7TakeMoney" onClick="takeMoney(id);"><span class="minus">-</span></td>
-          <td id="7repairs" onClick="repairs(id);"><img src="monopolyImages/tools.svg" class="svgButton"></td>
+          <td id="7repairs" onClick="repairs(id);"><img src="monopolyImages/tools.svg" class="svgButton "></td>
         </tr>
         <tr id="8">
           <td id="p8name" onClick="rename(id);">Player 8</td>
@@ -181,32 +181,9 @@
           <td id="10repairs" onClick="repairs(id);"><img src="monopolyImages/tools.svg" class="svgButton"></td>
         </tr>
       </table>
-      <!-- Options screen -->
-      <div id="optionsMenu">
-        <h2>Settings</h2>
-      <h3>Pick a Theme</h3>
-      <div id="themePicker">
-  <button class="toggled" id="greenTheme" onClick="selectButton(id, 'green');">Green</button>
-  <button class="unToggled" id="darkBlueTheme" onClick="selectButton(id, 'blue');">Dark Blue</button>
-  <button class="unToggled" id="redTheme" onClick="selectButton(id, 'red');">Red</button>
-  <button class="unToggled" id="yellowTheme" onClick="selectButton(id, 'yellow');">Yellow</button><br>
-  <button class="unToggled" id="pinkTheme" onClick="selectButton(id, 'pink');">Pink</button>
-  <button class="unToggled" id="lightBlueTheme" onClick="selectButton(id, 'lightblue');">Light Blue</button>
-  <button class="unToggled" id="blackTheme" onClick="selectButton(id, 'black');">Black</button>
-  <button class="unToggled" id="whiteTheme" onClick="selectButton(id, 'white');">White</button>
-      </div>
-        <h3>Pick a Font</h3>
-      <div id="fontPicker">
-  <button class="toggled" id="georgia" onClick="selectButtonFont(id, 'georgia');">Georgia</button>
-  <button class="unToggled" id="cambria" onClick="selectButtonFont(id, 'cambria');">Cambria</button><br>
-  <button class="unToggled" id="verdana" onClick="selectButtonFont(id, 'verdana');">Verdana</button>
-  <button class="unToggled" id="lucidaConsole" onClick="selectButtonFont(id, 'lucidaConsole');">Lucida Console</button>
-      </div>
-        </div>
       <div>
       <!-- Buttons on the bottom of the main screen -->
-      <button class="mainButtons" id="StartScreen" onClick="confirmSetup();">Start Over</button>
-      <button class="mainButtons" id="optionsButton" onClick="showOptions();">Options</button>
+      <button class="mainButtons" id="StartScreen" onClick="confirmSetup();">New Game</button>
         <p class="footerContent"><a rel="noreferrer" href="mailto:pfmooney@me.com" class="link">Coded by Patrick Mooney</a><br>
         Icons made by Lorc and Delapouite.<br> 
         Available on https://game-icons.net"<br>

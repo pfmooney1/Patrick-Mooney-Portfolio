@@ -1,104 +1,131 @@
 /*-------------------------------------------*\
             Monopoly Game CSS
-
-        Index
-        - Root and CSS Variables
-        - Body, div, etc
-        - Headers
-        - Table
-        - Images/SVGs
-        - Buttons
-        - Color themes
-        - Font themes
-        - Flexbox
-        - Other
 \*-------------------------------------------*/
+/* Rules are alphabetized by tags, then by class, then by id */
 
 :root {
-  --colorOne: #4caf50;
-  --colorTwo: #80e27e;
+  --colorOne: #1446A0;
+  --colorTwo: #EAE6E5;
 }
 
-
-
-/*-------------------------------------------*\
-            Body, div, main, etc
-\*-------------------------------------------*/
-
 body {
+    background-color: var(--colorOne);
+    font-family: Cambria, times, serif;
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+button {
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.9);
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: 1.5em;
+    margin: .5em;
+}
+
+button:active {
+    background-color: var(--colorOne);
+    box-shadow: none;
+    color: white;
+}
+
+button.fixedWidthButton {
+    width: 300px;
+}
+
+button.mainButtons {
+  font-size: 1.5em;
+  padding: 4px 8px;
+}
+
+button.toggled {
   background-color: var(--colorOne);
-  font-family: Georgia, times, serif;
-  font-weight: bold;
+  color: ghostwhite;
+  display: inline-block;
+  font-size: 1em;
+  margin: 0.5em;
+  width: 125px;
+}
+
+button.unToggled {
+  background-color: #f7fbff;
+  box-shadow: 3px 3px rgba(0, 0, 0, 0.5);
+  color: black;
+  display: inline-block;
+  font-size: 1em;
+  margin: .5em;
+  width: 125px;
+}
+
+div#optionsMenu {
+    background-color: #fffff7;
+    box-shadow: 4px 4px 4px black;
+    display: none;
+    font-size: 1.3em;
+    margin: 0 auto 0 auto;
+    min-height: 400px;
+    overflow: auto;
+    padding: 0em 0.5em 1em 0.5em;
+    width: 80%;
+}
+
+div#repairs {
+  display: none;
+}
+
+h1#topLogo {
+    font-size: 2.4em;
+}
+
+fieldset {
+    font-size: 1.5em;
+}
+
+h1, h2, h3, h4, h5, h6 {
   text-align: center;
+}
+
+input[type=number] {
+  font-size: 1em;
+}
+
+input[type=number] {
+  background-color: white;
 }
 
 main {
     background-color: var(--colorTwo);
-    padding: 1em 1em 3em 1em;
-    border: 1px solid black;
-    border-radius: 5px;
-    margin-top: 2.7em;
+    box-shadow: 5px 5px 5px black;
+    border-radius: 2px;
+    margin: 3.4em auto 0 auto;
+    padding: 1em;
+    max-width: 85%;
+    min-width: 60%;
 }
-
-.linkToPortfolio {
-    background-color: black;
-    width: 100%;
-    margin: 0;
-    position: absolute;
-    padding: .2em 0em;
-    top: 0;
-    right: 0;
-    text-align: left;
-}
-.linkToPortfolio > a {
-    color: snow;
-    padding-left: 1em;
-}
-
-
-/*-------------------------------------------*\
-            Headers and related
-\*-------------------------------------------*/
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  text-align: center;
-}
-
-
-
-/*-------------------------------------------*\
-            Table, TR, TD
-\*-------------------------------------------*/
 
 table {
+  background-color: #fffff7;
+  border: 1px solid black;
   border-spacing: 0em;
-  border: 2px solid black;
-  border-radius: 5px;
   margin: 0 auto 0 auto;
   width: 80%;
-}
-
-tr {
-  background-color: #fffff7;
-  margin: 2em 0 2em 0;
+    
 }
 
 td {
-    font-size: 1.5em;
-    vertical-align: center;
     border: 1px solid black;
+    font-size: 2em;
+    vertical-align: center;
 }
 
-td.addMoney,
-td.takeMoney {
+td.addMoney,td.takeMoney {
   font-size: 3em;
-  padding: 0em 0.35em;
   font-weight: 900;
+  padding: 0em 0.35em;
   text-align: center;
 }
 
@@ -106,267 +133,43 @@ td.addMoney {
   color: green;
 }
 
+td.money {
+  font-weight: 900;
+}
+
 td.takeMoney {
   color: red;
 }
 
-td.money {
-  font-weight: 700;
-  font-size: 1.7em;
-}
-
-
-
-/*-------------------------------------------*\
-            Images and SVGs
-\*-------------------------------------------*/
-
 span.plus, span.minus {
+    font-family: sans-serif;
     line-height: 0em;
-    font-family: monospace;
-    font-size: 1.6em;
-    margin: 0em;
-    padding: 0em;
-    text-shadow: 2px 2px black;
-    vertical-align: center;
-}
-
-span.icon {
-    font-size: 1.6em;
-}
-
-.svgButton {
-    height: 40px;
-    margin: auto;
-    padding: 0;
-}
-.svgButtonNoRightMargin {
-    height: 40px;
-    margin: auto .1em auto 0.1em;
-    padding: 0;
-}
-
-.flankingHeaderSVG {
-    height: 70px;
-    margin: auto 2em auto 2em;
-    padding: 0;
+    font-size: 1.4em;
 }
 
 svg {
-  margin: 0 auto 0 auto;
-  padding: 0.1em;
-  text-align: center;
-  width: 100%;
+    margin: 0 auto 0 auto;
+    padding: 0.1em;
+    text-align: center;
+    width: 100%;
+    font-size: 1em;
 }
 
 
 
-/*-------------------------------------------*\
-            Buttons and inputs
-\*-------------------------------------------*/
-
-button {
-    background-color: white;
-    border: 2px solid black;
-    border-radius: 3px;
-    box-shadow: 3px 3px rgba(0, 0, 0, 0.5);
-    font-size: 1.5em;
-    margin: 1em;
-}
-
-button.fixedWidthButton {
-    width: 300px;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-}
-
-button.mainButtons {
-  font-size: 1.5em;
-  margin: 1em;
-  background-color: white;
-  padding: 8px 16px;
-  border: 2px solid black;
-  border-radius: 3px;
-  box-shadow: 3px 3px rgba(0, 0, 0, 0.5);
-}
-
-button.toggleToken {
-  display: inline-block;
-  font-size: 2em;
-  border-radius: 3px;
-  background-color: #f7fbff;
-  border: 2px solid black;
-  color: black;
-  width: 125px;
-  margin: .5em;
-  box-shadow: 3px 3px rgba(0, 0, 0, 0.5);
-}
-
-button.toggled {
-  background-color: #f7fbff;
-  color: black;
-  display: inline-block;
-  font-size: 1em;
-  border-radius: 3px;
-  border: 2px solid black;
-  width: 125px;
-  margin: 0.5em;
-  box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.5) inset, -3px -3px 4px rgba(0, 0, 0, 0.5) inset;
-}
-
-button.unToggled {
-  background-color: #f7fbff;
-  color: black;
-  display: inline-block;
-  font-size: 1em;
-  border-radius: 3px;
-  border: 2px solid black;
-  box-shadow: 3px 3px rgba(0, 0, 0, 0.5);
-  width: 125px;
-  margin: .5em;
-}
-
-input[type=number] {
-  font-size: 1em;
-}
-
-input[type=number] {
-  border: 2px solid black;
-  background-color: white;
-  border-radius: 3px;
-}
-
-
-
-/*-------------------------------------------*\
-         Color themes button in settings
-\*-------------------------------------------*/
-
-#blackTheme {
-  background-color: #212121;
-  color: white;
-}
-
-#darkBlueTheme {
-  background-color: #0277bd;
-  color: white;
-}
-
-#greenTheme {
-  background-color: #80e27e;
-}
-
-#lightBlueTheme {
-  background-color: #81d4fa;
-}
-
-#pinkTheme {
-  background-color: #df55f2;
-}
-
-#redTheme {
-  background-color: #e53935;
-}
-
-#whiteTheme {
-  background-color: #EEEEEE;
-}
-
-#yellowTheme {
-  background-color: #ffff72;
-}
-
-
-
-/*-------------------------------------------*\
-        Font themes button in settings
-\*-------------------------------------------*/
-
-#cambria {
-    font-family: Cambria, serif;
-    width: 250px;
-}
-
-#georgia {
-    font-family: Georgia, serif;
-    width: 250px;
-}
-
-#lucidaConsole {
-    font-family: 'Lucida Console', Monaco, monospace;
-    width: 250px;
-}
-
-#verdana {
-    font-family: Verdana, serif;
-    width: 250px;
-}
-
-
-
-/*-------------------------------------------*\
-            Modals and Content
-\*-------------------------------------------*/
-
-/* Close button on modals*/
+/* Classes */
 .close {
   color: black;
   float: right;
   font-size: 28px;
-  font-weight: bold;
+  font-weight: bolder;
 }
 
-.close:hover,
-.close:focus {
+.close:hover, .close:focus {
   color: black;
-  text-decoration: none;
   cursor: pointer;
+  text-decoration: none;
 }
-
-div#repairs {
-  display: none;
-}
-
-div#optionsMenu {
-    display: none;
-    border: 3px solid black;
-    border-radius: 5px;
-    margin: 0 auto 0 auto;
-    background-color: #fffff7;
-    font-size: 1.5em;
-    padding: 0em 0.5em 1em 0.5em;
-    width: 80%;
-    min-height: 500px;
-    overflow: auto;
-}
-
-.modal {
-  display: block;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-content {
-  background-color: #fffff7;
-  margin: 15% auto;
-  padding: 20px 20px 20px 20px;
-  border: 2px solid black;
-  border-radius: 5px;
-  width: 50%;
-}
-
-
-
-/*-------------------------------------------*\
-            Flexbox
-\*-------------------------------------------*/
 
 .containerRow {
     display: flex;
@@ -374,6 +177,7 @@ div#optionsMenu {
     flex-wrap: wrap;
     justify-content: center;
 }
+
 .containerColumn {
     display: flex;
     flex-direction: column;
@@ -381,12 +185,92 @@ div#optionsMenu {
     justify-content: center;
 }
 
+.flankingHeaderSVG {
+    height: 3.5em;
+    margin: auto 1em auto 1em;
+    padding: 0;
+    
+}
+
+.footerContent {
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.footerContent > a{
+    color: black;
+}
+
+.linkToPortfolio {
+    background-color: black;
+    margin: 0;
+    padding: .2em 0em;
+    position: absolute;
+    right: 0;
+    text-align: left;
+    top: 0;
+    width: 100%;
+}
+
+.linkToPortfolio > a {
+    color: snow;
+    padding-left: 1em;
+}
+
+.miniFlankingSVG {
+    font-size: 1.7em;
+}
+
+.modal {
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    display: block;
+    height: 100%;
+    left: 0;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.modal-content {
+    background-color: #fffff7;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 15% auto;
+    padding: 20px 20px 20px 20px;
+    width: 50%;
+}
+
+.svgButton {
+    height: 1.3em;
+    margin: auto;
+    padding: 0;
+}
 
 
-/*-------------------------------------------*\
-            Other
-\*-------------------------------------------*/
+.svgButtonNoRightMargin {
+    height: 40px;
+    margin: auto .1em auto 0.1em;
+    padding: 0;
+}
 
-fieldset {
-    font-size: 1.5em;
+@media only screen and (max-width: 800px) {
+    body {
+        font-size: 10px;
+        font-weight: 700;
+    }
+}
+@media only screen and (max-width: 700px) {
+    body {
+        font-size: 8px;
+        font-weight: 700;
+    }
+}
+@media only screen and (max-width: 500px) {
+    body {
+        font-size: 5px;
+        font-weight: 700;
+    }
 }
