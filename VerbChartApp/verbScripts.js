@@ -1158,3 +1158,13 @@ function conjugateTheWholeDamnVerb(id) {
     }
     imperativeWriter(); 
 }
+
+function toggleChart(elementToShowOrHide) {
+    var targetElement = document.getElementById(elementToShowOrHide);
+    if (targetElement.style.display == "none") {
+        targetElement.style.display = "block";
+    }
+    else {
+        targetElement.style.display = "none";
+    }
+}

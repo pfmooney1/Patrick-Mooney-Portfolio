@@ -66,8 +66,8 @@ header {
 }
 #imageForQuote {
     background-position: 50% 0;
-    border: 3px solid black;
-    border-radius: 5px;
+    border: 4px outset black;
+    border-radius: 1px;
     box-sizing: inherit;
     grid-area: image;
     height: inherit;

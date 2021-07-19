@@ -2,9 +2,7 @@
 //      Noun chart generator JS
 //      Coded by Patrick Mooney
 // ======================================
-
 // Intial variables
-//
 var mainMenuScreen = document.getElementById("mainMenu");
 var assignmentScreen = document.getElementById("assignmentPage");
 var enterANounScreen = document.getElementById("enterANounScreen");
@@ -16,9 +14,7 @@ var randomNounScreen = document.getElementById("randomNounScreen");
 var otherCharts = document.getElementById("otherCharts");
 var selectANoun = document.getElementById("selectANoun");
 
-
 // Initial div-hiders
-
 assignmentScreen.style.display = "none";
 enterANounScreen.style.display = "none";
 aboutScreen.style.display = "none";
@@ -30,11 +26,6 @@ otherCharts.style.display = "none";
 selectANoun.style.display = "none";
 
 
-
-
-
-
-
 // ====================================================
 // ====================================================
 //              Settings and Options
@@ -42,7 +33,6 @@ selectANoun.style.display = "none";
 // ====================================================
 
 // Changes the font to the user's preference
-//
 function changeTheFont(id) {
     var fontChoice = document.getElementById(id).value;
     var bodyElement = document.getElementById("body");
@@ -61,10 +51,7 @@ function changeTheFont(id) {
     }
 }
 
-
-
 // Hides/shows the VOCATIVE table rows
-// 
 function toggleDarkMode() {
     var body = document.getElementById("body");
     var darkModeButton = document.getElementsByClassName("darkModeButton");
@@ -89,10 +76,7 @@ function toggleDarkMode() {
     }
 }
 
-
-
 // Hides/shows the VOCATIVE table rows
-// 
 function showHideVocatives() {
     var vocativeTableRows = document.getElementsByClassName("vocativeRow");
     var vocativeButtons = document.getElementsByClassName("vocativeButton");
@@ -100,7 +84,7 @@ function showHideVocatives() {
     if (vocativeButtonClassName.includes("checked") === true) {
         // Hides the vocative rows
         for (i = 0; i < vocativeTableRows.length; i++) {
-            vocativeTableRows[i].style.visibility = "hidden";
+            vocativeTableRows[i].style.display = "none";
         }
         // Changes the buttons to unchecked
         for (i = 0; i < vocativeButtons.length; i++) {
@@ -110,7 +94,7 @@ function showHideVocatives() {
     else if (vocativeButtonClassName.includes("checked") === false) {
         // Displays the vocative rows
         for (i = 0; i < vocativeTableRows.length; i++) {
-            vocativeTableRows[i].style.visibility = "visible";
+            vocativeTableRows[i].style.display = "table-row";
         }
         // Changes the buttons to checked
         for (i = 0; i < vocativeButtons.length; i++) {
@@ -119,10 +103,7 @@ function showHideVocatives() {
     }
 }
 
-
-
 // Hides/shows the ENGLISH meanings
-//
 function showHideEnglish() {
     var englishLineBreaks = document.getElementsByClassName("englishBR");
     var englishMeanings = document.getElementsByClassName("englishMeaning");
@@ -158,31 +139,25 @@ function showHideEnglish() {
     }
 }
 
-
-
-// Hides/shows the ENGLISH meanings
-//
+// Hides/shows the Assignment page
 function startWithAssignmentPage() {
     var assignmentButtons = document.getElementsByClassName("assignmentButton");
     var assignmentButtonsClassName = assignmentButtons[0].className;
-    if (assignmentButtonsClassName.includes("checked") === true) {
+    if (assignmentButtonsClassName.includes("checked") == true) {
         // Changes the buttons to unchecked
-        for (i = 0; i < assignmentButtons.length; i++) {
+        for (var i = 0; i < assignmentButtons.length; i++) {
             assignmentButtons[i].className = "assignmentButton toggleToken";
         }
     }
-    else if (assignmentButtonsClassName.includes("checked") === false) {
+    else if (assignmentButtonsClassName.includes("checked") == false) {
         // Changes the buttons to checked
-        for (i = 0; i < assignmentButtons.length; i++) {
+        for (var i = 0; i < assignmentButtons.length; i++) {
             assignmentButtons[i].className = "assignmentButton toggleToken checked";
         }
     }
 }
 
-
-
 // Turns all charts into Copy/Paste friendly (Times New Roman, 12pt font)
-//
 function makeChartsCopyPaste() {
     var copyPasteButtons = document.getElementsByClassName("copyPasteButton");
     var copyPasteButtonsClassName = copyPasteButtons[0].className;
@@ -210,17 +185,12 @@ function makeChartsCopyPaste() {
     }
 }
 
-
-
-
-
 // ====================================================
 // ====================================================
 //  Navigation buttons: allows the user 
 //    to show/hide different parts of the page
 // ====================================================
 // ====================================================
-
 // Hide all of the "screens". Used by the "Navigation" functions
 function hideAllTheScreens() {
     var divsWithClassScreen = document.getElementsByClassName("screen");
@@ -233,7 +203,6 @@ function hideAllTheScreens() {
 
 // "Navigation" functions. 
 //  Hides unused "screens" and shows only user-chosen one.
-//
 function goToOtherChartsScreen() {
     hideAllTheScreens();
     otherCharts.style.display = "grid";
@@ -283,9 +252,7 @@ function goToEnterANounScreenScreen() {
 // Other Charts: Hides/displays Other Charts when chosen
 // ====================================================
 // ====================================================
-
 // Sets other charts to variables
-//
 var relativePronounChartA = document.getElementById("relativePronounChartA");
 var relativePronounChartB = document.getElementById("relativePronounChartB");
 var thirdPersonPronounChartA = document.getElementById("thirdPersonPronounChartA");
@@ -297,9 +264,7 @@ var illeChartB = document.getElementById("illeChartB");
 var isteChartA = document.getElementById("isteChartA");
 var isteChartB = document.getElementById("isteChartB");
 
-
 // Hides all but one set of other charts on load.
-//
 relativePronounChartA.style.display = "table";
 relativePronounChartB.style.display = "table";
 thirdPersonPronounChartA.style.display = "none";
@@ -311,10 +276,7 @@ illeChartB.style.display = "none";
 isteChartA.style.display = "none";
 isteChartB.style.display = "none";
 
-
-
 // Allows the user to display/hide other charts
-//
 function selectOtherChart() {
     relativePronounChartA.style.display = "none";
     relativePronounChartB.style.display = "none";
@@ -354,10 +316,6 @@ function selectOtherChart() {
 }
 
 
-
-
-
-
 // ====================================================
 // ====================================================
 //      Functions to decline the entire noun
@@ -365,17 +323,12 @@ function selectOtherChart() {
 // ====================================================
 
 // Completely decline a noun in Latin and English
-//
 function declineNounCompletely(a, b) {
     var latinNounUnparsed = a;
     var englishMeaning = b;
     computeAndWriteLatin(latinNounUnparsed);
     computeAndWriteEnglish(englishMeaning);
 }
-
-
-
-
 
 
 // ====================================================
@@ -1675,7 +1628,6 @@ function declineEnglishHalfOfNoun (englishMeaningSingular, englishMeaningPlural)
 // ====================================================
 
 // Sets all of the Latin endings of selected nouns
-// 
 function declineSelectedNoun(id) {
     var selectedNoun = document.getElementById(id).value;
     var selectedLatinNoun;
@@ -2216,70 +2168,68 @@ function declineUserEnteredNoun(id) {
 //      Random Noun Buttons
 // ====================================================
 // ====================================================
-// 
-// 
-// picks and declines a random noun
-//
-function randomNounButton() {
-    // Check to see which boxes are checked
-    // Make an array that references each available option
-    // Select a noun from the available options
-    // Separate the English from the Latin
-    // Feed the noun into function that declines the Latin
-    // Feed the noun into function that declines the English
-    // Profit
+function updateRandomNounOptions(id) {
+    let targetButton = document.getElementById(id);
+    if (targetButton.className.includes("checked") == true) { 
+        targetButton.className = "randomNounGridToggles toggleTokenRandom";
+    }
+    else {
+        targetButton.className = "randomNounGridToggles toggleTokenRandom checked";
+    }
 }
+// picks and declines a random noun
 
 // Checks which noun declensions are eligible for random picking
-//
 function randomNounCheckboxChecker() {
-    var arrayOfCheckedBoxes = [];
-    if (document.getElementById("randomA").style.className = "checked") {
-        
+    var arrayOfPossibleNouns = [];
+    if (document.getElementById("randomA").className.includes("checked") == true) {
+        arrayOfPossibleNouns = arrayOfPossibleNouns.concat(firstDeclNouns);
     }
-
-    
-    
-    if (document.getElementById("randomB").style.className = "checked") {
-        
+    if (document.getElementById("randomB").className.includes("checked") == true) {
+        arrayOfPossibleNouns = arrayOfPossibleNouns.concat(secondDeclMascNouns);
+    }    
+    if (document.getElementById("randomC").className.includes("checked") == true) {
+        arrayOfPossibleNouns = arrayOfPossibleNouns.concat(secondDeclNeutNouns);
+    }   
+    if (document.getElementById("randomD").className.includes("checked") == true) {
+        arrayOfPossibleNouns = arrayOfPossibleNouns.concat(thirdDeclMorFNouns);
     }
-    
-    
-    if (document.getElementById("randomC").style.className = "checked") {
-        
+    if (document.getElementById("randomE").className.includes("checked") == true) {
+        arrayOfPossibleNouns = arrayOfPossibleNouns.concat(thirdDeclNeutNouns);
     }
-    
-    
-    if (document.getElementById("randomD").style.className = "checked") {
-        
+    if (document.getElementById("randomF").className.includes("checked") == true) {
+        arrayOfPossibleNouns = arrayOfPossibleNouns.concat(fourthDeclMorFNouns);
     }
-
-    
-    
-    if (document.getElementById("randomE").style.className = "checked") {
-        
-    }
-
-    
-    
-    if (document.getElementById("randomF").style.className = "checked") {
-        
-    }
-
-    
-    
-    if (document.getElementById("randomG").style.className = "checked") {
-        
-    }
-    
-    
-    if (document.getElementById("randomH").style.className = "checked") {
-        
-    }
-
-    
-    
+    if (document.getElementById("randomG").className.includes("checked") == true) {
+        arrayOfPossibleNouns = arrayOfPossibleNouns.concat(fourthDeclNeutNouns);
+    }   
+    if (document.getElementById("randomH").className.includes("checked") == true) {
+        arrayOfPossibleNouns = arrayOfPossibleNouns.concat(fifthDeclNouns);
+    } 
+    return arrayOfPossibleNouns;
 }
+
+// Picks a noun from an array of possibilities and the conjugates it.
+function randomNounButton() {
+    let arrayOfPossibleNouns = randomNounCheckboxChecker();
+    let arrayLength = arrayOfPossibleNouns.length - 1;
+    if (arrayLength < 2) {
+        alert("Please select a declension above first.");
+    }
+    function getRandomInteger(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) ) + min;
+    }
+    let randomlyChosenIndex = getRandomInteger(1, arrayLength);
+    let chosenNoun = arrayOfPossibleNouns[randomlyChosenIndex];
+    var nounParts = chosenNoun.match(/\w+/g);
+    let englishPart = nounParts[3];
+    englishPart.trim();
+    let latinParts = nounParts[0] + ", " + nounParts[1] + ", " + nounParts[2];
+    latinParts.trim();
+    declineNounCompletely(latinParts, englishPart);
+    document.getElementById("RandomNounChartCaption").innerHTML = latinParts + " (" + englishPart + ")";
+}
+
 
 
 // ====================================================
@@ -2287,9 +2237,6 @@ function randomNounCheckboxChecker() {
 //  Latin Nouns in Arrays for the random noun feature
 // ====================================================
 // ====================================================
-// 
-// 
-
 var firstDeclNouns = [
     "amica, amicae, f, friend",
     "silva, silvae, f, forest",
@@ -2578,18 +2525,3 @@ var fifthDeclNouns = [
     "species, speciei, f, appearance",
     "meridies, meridei, m, midday"
 ];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// End of JS

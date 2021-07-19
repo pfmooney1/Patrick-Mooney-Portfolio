@@ -10,10 +10,6 @@
         <h1><a rel="noreferrer" href="https://pfmooney1.github.io/Patrick-Mooney-Portfolio/" target="_blank" class="headerTextBlack">Patrick Mooney's  Latin Noun Generator</a></h1>
     </header>
     <main id="mainColumn">
-    
-        
-        
-        
         <div id="mainMenu" class="screen">
             <div class="MMbutton" onClick="goToSelectANounScreen();">
                 <img src="NounChartImages/gladiusIcon.svg" alt="Selected Noun" class="MMIcon">
@@ -54,9 +50,6 @@
                 <button>About</button>
             </div> <!-- About -->
         </div> <!-- Main Menu-->
-
-
-        
         
         
         <div id="assignmentPage" class="simpleGrid screen">
@@ -72,14 +65,10 @@
 
         </div> <!-- Assignment Page-->
 
-   
-        
-        
         
         <div id="enterANounScreen" class="simpleGrid screen">
             <fieldset id="enterANounFieldSet">
             <legend>Enter any noun below</legend>
-                <p>
                 Latin Noun: 
                 <br>
                 <input type="text" id="userLatinNoun" placeholder="rex, regis, m" spellcheck="false">
@@ -87,7 +76,6 @@
                 English Meaning: 
                 <br>
                 <input type="text" id="userEnglishNoun" placeholder="king">
-                </p>
                 <button class="assignmentButton toggleToken" id="assignmentChoiceA" onClick="startWithAssignmentPage();">Assignment page</button>
                 <button class="copyPasteButton toggleToken" id="copyPasteChoiceA" onClick="makeChartsCopyPaste();">Copy/Paste Mode</button>
                 <button class="englishButton toggleToken checked" id="englishChoiceA" onClick="showHideEnglish();">Include English</button>
@@ -191,9 +179,6 @@
         </div> <!-- Enter your own noun-->
 
 
-        
-        
-
         <div id="aboutScreen" class="simpleGrid screen">
             <h2>About</h2>
             <p class="footerContent">
@@ -203,35 +188,48 @@
             Coded by Patrick Mooney<br>
             <a rel="noreferrer" href="mailto:pfmooney@me.com" class="link" style="color: black;">Click here to contact Me.</a><br>
             <a rel="noreferrer" href="https://pfmooney1.github.io/Patrick-Mooney-Portfolio/" class="link" style="color: black;">Link to my website</a><br>
-            Copyright 2020 Patrick Mooney</p>
+            Copyright 2020 Patrick Mooney
             <br>
             <br>    
             Icons made by Lorc and Delapouite.<br> 
             Available on https://game-icons.net"<br>
+            </p>
             <button onClick="goToMainMenuScreen();" class="closeButton">Close</button>
         </div> <!-- About Screen-->
 
 
-        
-        
-        
         <div id="randomNounScreen" class="simpleGrid screen">
             <h2>Random Noun</h2>
-            <p class="footerContent">Random noun generated right here. <br> Feature coming soon!</p>
-                <h3 id="randomNounGridLabel">Which declensions?</h3>
-                <div id="randomButtonsContainer">
-                    <button class="randomNounGridToggles toggleTokenRandom" id="randomA">1st</button>
-                    <button class="randomNounGridToggles toggleTokenRandom" id="randomB">2nd M</button>
-                    <button class="randomNounGridToggles toggleTokenRandom" id="randomC">2nd N</button>
-                    <button class="randomNounGridToggles toggleTokenRandom" id="randomD">3rd M/F</button>
-                    <button class="randomNounGridToggles toggleTokenRandom" id="randomE">3rd N</button>
-                    <button class="randomNounGridToggles toggleTokenRandom" id="randomF">4th M/F</button>
-                    <button class="randomNounGridToggles toggleTokenRandom" id="randomG">4th N</button>
-                    <button class="randomNounGridToggles toggleTokenRandom" id="randomH">5th</button>
-                </div>
+            <h3 id="randomNounGridLabel">Which declensions?</h3>
+            <div id="randomButtonsContainer">
+                <button class="randomNounGridToggles toggleTokenRandom" 
+                        id="randomA"
+                        onClick="updateRandomNounOptions(id)">1st</button>
+                <button class="randomNounGridToggles toggleTokenRandom" 
+                        id="randomB"
+                        onClick="updateRandomNounOptions(id)">2nd M</button>
+                <button class="randomNounGridToggles toggleTokenRandom" 
+                        id="randomC"
+                        onClick="updateRandomNounOptions(id)">2nd N</button>
+                <button class="randomNounGridToggles toggleTokenRandom" 
+                        id="randomD"
+                        onClick="updateRandomNounOptions(id)">3rd M/F</button>
+                <button class="randomNounGridToggles toggleTokenRandom" 
+                        id="randomE"
+                        onClick="updateRandomNounOptions(id)">3rd N</button>
+                <button class="randomNounGridToggles toggleTokenRandom" 
+                        id="randomF"
+                        onClick="updateRandomNounOptions(id)">4th M/F</button>
+                <button class="randomNounGridToggles toggleTokenRandom" 
+                        id="randomG"
+                        onClick="updateRandomNounOptions(id)">4th N</button>
+                <button class="randomNounGridToggles toggleTokenRandom" 
+                        id="randomH"
+                        onClick="updateRandomNounOptions(id)">5th</button>
+            </div>
             <button onClick="randomNounButton();">Go</button>
             <table is="enterNounChart">
-                <caption id="SelectNounChartCaption">amica, amicae, f. (friend)</caption>
+                <caption id="RandomNounChartCaption">amica, amicae, f. (friend)</caption>
                 <tr class="irregularWarning">
                     <td colspan="3">NOTE: This noun is irregular!</td>
                 </tr>
@@ -324,9 +322,6 @@
             </table>
             <button onClick="goToMainMenuScreen();" class="closeButton">Close</button>
         </div> <!-- About Screen-->
-
-
-        
         
         
         <div id="nounEndingsScreen" class="simpleGrid screen">
@@ -647,54 +642,48 @@
         </div> <!-- About Screen-->
 
         
-        
-        
-        
         <div id="blankChartScreen" class="simpleGrid screen">
             <h2>Blank Chart</h2>
             <table>
                 <tr>
                     <td class="firstColumn"></td>
-                    <td class="boldedCell">Singular</td>
-                    <td class="boldedCell">Plural</td>
+                    <td class="boldedCell" class="secondColumn">Singular</td>
+                    <td class="boldedCell" class="thirdColumn">Plural</td>
                 </tr>
                 <tr>
                     <td class="firstColumn">Nom.</td>
-                    <td><br><br></td>
-                    <td>   </td>
+                    <td class="secondColumn"><br><br></td>
+                    <td class="thirdColumn">   </td>
                 </tr>
                 <tr>
                     <td class="firstColumn">Gen.</td>
-                    <td><br><br></td>
-                    <td>   </td>
+                    <td class="secondColumn"><br><br></td>
+                    <td class="thirdColumn">   </td>
                 </tr>
                 <tr>
                     <td class="firstColumn">Dat.</td>
-                    <td><br><br></td>
-                    <td>   </td>
+                    <td class="secondColumn"><br><br></td>
+                    <td class="thirdColumn">   </td>
                 </tr>
                 <tr>
                     <td class="firstColumn">Acc.</td>
-                    <td><br><br></td>
-                    <td></td>
+                    <td class="secondColumn"><br><br></td>
+                    <td class="thirdColumn"></td>
                 </tr>
                 <tr>
                     <td class="firstColumn">Abl.</td>
-                    <td><br><br></td>
-                    <td>   </td>
+                    <td class="secondColumn"><br><br></td>
+                    <td class="thirdColumn">   </td>
                 </tr>
                 <tr class="vocativeRow">
                     <td class="firstColumn">Voc.</td>
-                    <td><br><br></td>
-                    <td>   </td>
+                    <td class="secondColumn"><br><br></td>
+                    <td class="thirdColumn">   </td>
                 </tr>
             </table>
             <button class="vocativeButton toggleToken checked" id="VocChoiceE" onClick="showHideVocatives();">Include Voc.</button>
             <button onClick="goToMainMenuScreen();" class="closeButton">Close</button>
         </div> <!-- About Screen-->
-
-
-        
 
         
         <div id="selectANoun" class="simpleGrid screen">
@@ -928,9 +917,6 @@
             <button class="copyPasteButton toggleToken" id="copyPasteChoiceA" onClick="makeChartsCopyPaste();">Copy/Paste Mode</button>
             <button onClick="goToMainMenuScreen();" class="closeButton">Close</button>
         </div>
-
-        
-        
         
         
         <div id="otherCharts" class="simpleGrid screen">
@@ -1362,9 +1348,6 @@
         </div>
 
         
-        
-    
-        
         <div id="settingScreen" class="simpleGrid screen">
             <h2 id="">Settings</h2>
                 <button class="assignmentButton toggleToken" id="assignmentChoiceB" onClick="startWithAssignmentPage();">Assignment page</button><br>
@@ -1385,8 +1368,6 @@
             
             <button onClick="goToMainMenuScreen();" class="closeButton">Close</button>
         </div> <!-- Setting Screen -->
-
-
     </main>
     <footer class="">
         <a rel="noreferrer" href="https://pfmooney1.github.io/Patrick-Mooney-Portfolio/" class="">Link to my website</a>

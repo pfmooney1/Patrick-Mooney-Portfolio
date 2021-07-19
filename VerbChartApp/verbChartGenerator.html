@@ -1,639 +1,694 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head><title>Latin Verb Generator</title> 
+    <head>
+        <title>Latin Verb Generator</title> 
+        <!-- Old Stylesheet: <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">  -->
         <link rel="stylesheet" href="verbStylesheet.css">
     </head>
-<body>
-    <header class="linkToPortfolio">
-        <h2 class="linkToPortfolio"><a rel="noreferrer" href="https://pfmooney1.github.io/Patrick-Mooney-Portfolio/" class="portfolioLink">Patrick Mooney</a></h2>
-    </header>
-    <!-- Verb Chart Generator Test -->
-<main>
-<section>
-    <fieldset id="userInput"> <!-- Verb Chart Form -->
-        <legend>Conjugate any Latin verb</legend>
-        <p class="centeredAndLeft"> Enter your own </p>
+    <body>
+        <header class="linkToPortfolio">
+            <h1 class="linkToPortfolio"><a rel="noreferrer" href="https://pfmooney1.github.io/Patrick-Mooney-Portfolio/" class="portfolioLink">Patrick Mooney</a></h1>
+        </header>
+        <main>
+    <section>
+        <fieldset id="userInput"> <!-- Verb Chart Form -->
+            <legend>Conjugate any Latin verb</legend>
+            <p class="centeredAndLeft"> Enter your own </p>
 
-        Latin: <input type="text" id="usersChoiceLatin" spellcheck="false" placeholder="laudo, laudare, laudavi, laudatum"><br>
-        English: <input type="text" id="usersChoiceEnglish" spellcheck="true" placeholder="to praise (optional)"><br>
-        <input type="button" value="Click to Conjugate!" onClick="conjugateTheWholeDamnVerb('usersChoiceLatin');">
-        <br>
-        <p class="centeredAndNarrow">- or -</p>
-        <br>
-        <p class="centeredAndLeft"> Pick one from the list </p>
-        <select id="verbSelect" class="customSelect" name="verbSelectDropdown" onChange="conjugateTheWholeDamnVerb('verbSelect');">
-            <option value="amo, amare, amavi, amatum">amo, amare (to love)</option>
-            <option value="ardeo, ardere, arsi, arsus">ardeo, ard&#275;re (to burn)</option>            
-            <option value="debeo, debere, debui, debitus">debeo, deb&#275;re (to owe)</option>
-            <option value="desidero, desiderare, desideravi, desideratus">desidero, desiderare (to want)</option>
-            <option value="exspecto, exspectare, exspectavi, exspectatus">exspecto, exspectare (to expect)</option>
-            <option value="laudo, laudare, laudavi, laudatum">laudo, laudare (to praise)</option>
-            <option value="laboro, laborare, laboravi, laboratum">laboro, laborare (to work)</option>
-            <option value="neco, necare, necavi, necatum">neco, necare (to murder)</option>
-            <option value="premo, premere, pressi, pressum">premo, premere (to push)</option>
-            <option value="rogo, rogare, rogavi, rogatum">rogo, rogare (to ask)</option>
-            <option value="voco, vocare, vocavi, vocatum">voco, vocare (to call)</option>
-        </select>
-        <input type="button" value="Click to Conjugate!" onClick="conjugateTheWholeDamnVerb('verbSelect');">
-    </fieldset>
-</section>
-    <!-- Verb Chart Form -->
-<br>
-<br>
-<!-- Tables Begin Here-->
-<!--       -->
-<section><!--   ACTIVE INDICATIVE    -->
-    <h2>PRESENT ACTIVE INDICATIVE</h2>
-    <table class="verbChart" id="presActInd"> <!-- PRESENT ACTIVE INDICATIVE -->
-        <tr width="33%">
-            <td> </td>
-            <td> SINGULAR </td>
-            <td> PLURAL </td>
-        </tr>
-        <tr width="33%">
-            <td>1ST </td>
-            <td id="presActInd_1stSing">  </td> <!-- 1st Sing -->
-            <td id="presActInd_1stPl">  </td> <!-- 1st Pl -->
-        </tr>
-        <tr width="33%">
-            <td>2ND </td>
-            <td id="presActInd_2ndSing">  </td> <!-- 2nd Sing -->
-            <td id="presActInd_2ndPl">  </td> <!-- 2nd Pl -->
-        </tr>
-        <tr>
-            <td>3RD </td>
-            <td id="presActInd_3rdSing">  </td> <!-- 3rd Sing -->
-            <td id="presActInd_3rdPl">  </td> <!-- 3rd Pl -->
-        </tr>
-    </table><!-- PRESENT ACTIVE INDICATIVE -->
-<!--       -->
-<!--       -->
-    <h2>IMPERFECT ACTIVE INDICATIVE</h2>
-    <table class="verbChart" id="impActInd"> <!-- IMPERFECT ACTIVE INDICATIVE -->
-        <tr width="33%">
-            <td> </td>
-            <td> SINGULAR </td>
-            <td> PLURAL </td>
-        </tr>
-        <tr width="33%">
-            <td>1ST </td>
-            <td id="impActInd_1stSing">  </td> <!-- 1st Sing -->
-            <td id="impActInd_1stPl">  </td> <!-- 1st Pl -->
-        </tr>
-        <tr width="33%">
-            <td>2ND </td>
-            <td id="impActInd_2ndSing">  </td> <!-- 2nd Sing -->
-            <td id="impActInd_2ndPl">  </td> <!-- 2nd Pl -->
-        </tr>
-        <tr>
-            <td>3RD </td>
-            <td id="impActInd_3rdSing">  </td> <!-- 3rd Sing -->
-            <td id="impActInd_3rdPl">  </td> <!-- 3rd Pl -->
-        </tr>
-    </table> <!-- IMPERFECT ACTIVE INDICATIVE -->
-<!--       -->
-<!--       -->
-    <h2>FUTURE ACTIVE INDICATIVE</h2>
-    <table class="verbChart" id="futActInd"> <!-- FUTURE ACTIVE INDICATIVE -->
-        <tr width="33%">
-            <td> </td>
-            <td> SINGULAR </td>
-            <td> PLURAL </td>
-        </tr>
-        <tr width="33%">
-            <td>1ST </td>
-            <td id="futActInd_1stSing">  </td> <!-- 1st Sing -->
-            <td id="futActInd_1stPl">  </td> <!-- 1st Pl -->
-        </tr>
-        <tr width="33%">
-            <td>2ND </td>
-            <td id="futActInd_2ndSing">  </td> <!-- 2nd Sing -->
-            <td id="futActInd_2ndPl">  </td> <!-- 2nd Pl -->
-        </tr>
-        <tr>
-            <td>3RD </td>
-            <td id="futActInd_3rdSing">  </td> <!-- 3rd Sing -->
-            <td id="futActInd_3rdPl">  </td> <!-- 3rd Pl -->
-        </tr>
-    </table><!-- FUTURE ACTIVE INDICATIVE -->
-<!--       -->
-<!--       -->
-    <h2>PERFECT ACTIVE INDICATIVE</h2>
-    <table class="verbChart" id="perfActInd"> <!-- PERFECT ACTIVE INDICATIVE -->
-        <tr width="33%">
-            <td> </td>
-            <td> SINGULAR </td>
-            <td> PLURAL </td>
-        </tr>
-        <tr width="33%">
-            <td>1ST </td>
-            <td id="perfActInd_1stSing">  </td> <!-- 1st Sing -->
-            <td id="perfActInd_1stPl">  </td> <!-- 1st Pl -->
-        </tr>
-        <tr width="33%">
-            <td>2ND </td>
-            <td id="perfActInd_2ndSing">  </td> <!-- 2nd Sing -->
-            <td id="perfActInd_2ndPl">  </td> <!-- 2nd Pl -->
-        </tr>
-        <tr>
-            <td>3RD </td>
-            <td id="perfActInd_3rdSing">  </td> <!-- 3rd Sing -->
-            <td id="perfActInd_3rdPl">  </td> <!-- 3rd Pl -->
-        </tr>
-    </table> <!-- PERFECT ACTIVE INDICATIVE -->
-<!--       -->
-<!--       -->
-    <h2>PLUPERFECT ACTIVE INDICATIVE</h2>
-    <table class="verbChart" id="pluperfActInd"> <!-- PLUPERFECT ACTIVE INDICATIVE -->
-        <tr width="33%">
-            <td> </td>
-            <td> SINGULAR </td>
-            <td> PLURAL </td>
-        </tr>
-        <tr width="33%">
-            <td>1ST </td>
-            <td id="pluperfActInd_1stSing">  </td> <!-- 1st Sing -->
-            <td id="pluperfActInd_1stPl">  </td> <!-- 1st Pl -->
-        </tr>
-        <tr width="33%">
-            <td>2ND </td>
-            <td id="pluperfActInd_2ndSing">  </td> <!-- 2nd Sing -->
-            <td id="pluperfActInd_2ndPl">  </td> <!-- 2nd Pl -->
-        </tr>
-        <tr>
-            <td>3RD </td>
-            <td id="pluperfActInd_3rdSing">  </td> <!-- 3rd Sing -->
-            <td id="pluperfActInd_3rdPl">  </td> <!-- 3rd Pl -->
-        </tr>
-    </table><!-- PLUPERFECT ACTIVE INDICATIVE -->
-<!--       -->
-<!--       -->
-    <h2>FUTURE PERFECT ACTIVE INDICATIVE</h2>
-    <table class="verbChart" id="futPerfActInd"> <!-- FUTURE PERFECT ACTIVE INDICATIVE -->
-        <tr width="33%">
-            <td> </td>
-            <td> SINGULAR </td>
-            <td> PLURAL </td>
-        </tr>
-        <tr width="33%">
-            <td>1ST </td>
-            <td id="futPerfActInd_1stSing">  </td> <!-- 1st Sing -->
-            <td id="futPerfActInd_1stPl">  </td> <!-- 1st Pl -->
-        </tr>
-        <tr width="33%">
-            <td>2ND </td>
-            <td id="futPerfActInd_2ndSing">  </td> <!-- 2nd Sing -->
-            <td id="futPerfActInd_2ndPl">  </td> <!-- 2nd Pl -->
-        </tr>
-        <tr>
-            <td>3RD </td>
-            <td id="futPerfActInd_3rdSing">  </td> <!-- 3rd Sing -->
-            <td id="futPerfActInd_3rdPl">  </td> <!-- 3rd Pl -->
-        </tr>
-    </table><!-- FUTURE PERFECT ACTIVE INDICATIVE -->
-</section><!--   ACTIVE INDICATIVE    -->
-            <!--       -->
-            <!--       -->
-            <!--       -->
-<section><!--   PASSIVE INDICATIVE    -->
-    <h2>PRESENT PASSIVE INDICATIVE</h2>
-    <table class="verbChart" id="presPassInd"> <!-- PRESENT PASSIVE INDICATIVE -->
-        <tr width="33%">
-            <td> </td>
-            <td> SINGULAR </td>
-            <td> PLURAL </td>
-        </tr>
-        <tr width="33%">
-            <td>1ST </td>
-            <td id="presPassInd_1stSing">  </td> <!-- 1st Sing -->
-            <td id="presPassInd_1stPl">  </td> <!-- 1st Pl -->
-        </tr>
-        <tr width="33%">
-            <td>2ND </td>
-            <td id="presPassInd_2ndSing">  </td> <!-- 2nd Sing -->
-            <td id="presPassInd_2ndPl">  </td> <!-- 2nd Pl -->
-        </tr>
-        <tr>
-            <td>3RD </td>
-            <td id="presPassInd_3rdSing">  </td> <!-- 3rd Sing -->
-            <td id="presPassInd_3rdPl">  </td> <!-- 3rd Pl -->
-        </tr>
-    </table><!-- PRESENT PASSIVE INDICATIVE -->
-<!--       -->
-<!--       -->
-    <h2>IMPERFECT PASSIVE INDICATIVE</h2>
-    <table class="verbChart" id="impPassInd"> <!-- IMPERFECT PASSIVE INDICATIVE -->
-        <tr width="33%">
-            <td> </td>
-            <td> SINGULAR </td>
-            <td> PLURAL </td>
-        </tr>
-        <tr width="33%">
-            <td>1ST </td>
-            <td id="impPassInd_1stSing">  </td> <!-- 1st Sing -->
-            <td id="impPassInd_1stPl">  </td> <!-- 1st Pl -->
-        </tr>
-        <tr width="33%">
-            <td>2ND </td>
-            <td id="impPassInd_2ndSing">  </td> <!-- 2nd Sing -->
-            <td id="impPassInd_2ndPl">  </td> <!-- 2nd Pl -->
-        </tr>
-        <tr>
-            <td>3RD </td>
-            <td id="impPassInd_3rdSing">  </td> <!-- 3rd Sing -->
-            <td id="impPassInd_3rdPl">  </td> <!-- 3rd Pl -->
-        </tr>
-    </table> <!-- IMPERFECT PASSIVE INDICATIVE -->
-<!--       -->
-<!--       -->
-    <h2>FUTURE PASSIVE INDICATIVE</h2>
-    <table class="verbChart" id="futPassInd"> <!-- FUTURE PASSIVE INDICATIVE -->
-        <tr width="33%">
-            <td> </td>
-            <td> SINGULAR </td>
-            <td> PLURAL </td>
-        </tr>
-        <tr width="33%">
-            <td>1ST </td>
-            <td id="futPassInd_1stSing">  </td> <!-- 1st Sing -->
-            <td id="futPassInd_1stPl">  </td> <!-- 1st Pl -->
-        </tr>
-        <tr width="33%">
-            <td>2ND </td>
-            <td id="futPassInd_2ndSing">  </td> <!-- 2nd Sing -->
-            <td id="futPassInd_2ndPl">  </td> <!-- 2nd Pl -->
-        </tr>
-        <tr>
-            <td>3RD </td>
-            <td id="futPassInd_3rdSing">  </td> <!-- 3rd Sing -->
-            <td id="futPassInd_3rdPl">  </td> <!-- 3rd Pl -->
-        </tr>
-    </table><!-- FUTURE PASSIVE INDICATIVE -->
-<!--       -->
-<!--       -->
-    <h2>PERFECT PASSIVE INDICATIVE</h2>
-    <table class="verbChart" id="perfPassInd"> <!-- PERFECT PASSIVE INDICATIVE -->
-        <tr width="33%">
-            <td> </td>
-            <td> SINGULAR </td>
-            <td> PLURAL </td>
-        </tr>
-        <tr width="33%">
-            <td>1ST </td>
-            <td id="perfPassInd_1stSing">  </td> <!-- 1st Sing -->
-            <td id="perfPassInd_1stPl">  </td> <!-- 1st Pl -->
-        </tr>
-        <tr width="33%">
-            <td>2ND </td>
-            <td id="perfPassInd_2ndSing">  </td> <!-- 2nd Sing -->
-            <td id="perfPassInd_2ndPl">  </td> <!-- 2nd Pl -->
-        </tr>
-        <tr>
-            <td>3RD </td>
-            <td id="perfPassInd_3rdSing">  </td> <!-- 3rd Sing -->
-            <td id="perfPassInd_3rdPl">  </td> <!-- 3rd Pl -->
-        </tr>
-    </table> <!-- PERFECT PASSIVE INDICATIVE -->
-<!--       -->
-<!--       -->
-    <h2>PLUPERFECT PASSIVE INDICATIVE</h2>
-    <table class="verbChart" id="pluperfPassInd"> <!-- PLUPERFECT PASSIVE INDICATIVE -->
-        <tr width="33%">
-            <td> </td>
-            <td> SINGULAR </td>
-            <td> PLURAL </td>
-        </tr>
-        <tr width="33%">
-            <td>1ST </td>
-            <td id="pluperfPassInd_1stSing">  </td> <!-- 1st Sing -->
-            <td id="pluperfPassInd_1stPl">  </td> <!-- 1st Pl -->
-        </tr>
-        <tr width="33%">
-            <td>2ND </td>
-            <td id="pluperfPassInd_2ndSing">  </td> <!-- 2nd Sing -->
-            <td id="pluperfPassInd_2ndPl">  </td> <!-- 2nd Pl -->
-        </tr>
-        <tr>
-            <td>3RD </td>
-            <td id="pluperfPassInd_3rdSing">  </td> <!-- 3rd Sing -->
-            <td id="pluperfPassInd_3rdPl">  </td> <!-- 3rd Pl -->
-        </tr>
-    </table><!-- PLUPERFECT PASSIVE INDICATIVE -->
-<!--       -->
-<!--       -->
-    <h2>FUTURE PERFECT PASSIVE INDICATIVE</h2>
-    <table class="verbChart" id="futPerfPassInd"> <!-- FUTURE PERFECT PASSIVE INDICATIVE -->
-        <tr width="33%">
-            <td> </td>
-            <td> SINGULAR </td>
-            <td> PLURAL </td>
-        </tr>
-        <tr width="33%">
-            <td>1ST </td>
-            <td id="futPerfPassInd_1stSing">  </td> <!-- 1st Sing -->
-            <td id="futPerfPassInd_1stPl">  </td> <!-- 1st Pl -->
-        </tr>
-        <tr width="33%">
-            <td>2ND </td>
-            <td id="futPerfPassInd_2ndSing">  </td> <!-- 2nd Sing -->
-            <td id="futPerfPassInd_2ndPl">  </td> <!-- 2nd Pl -->
-        </tr>
-        <tr>
-            <td>3RD </td>
-            <td id="futPerfPassInd_3rdSing">  </td> <!-- 3rd Sing -->
-            <td id="futPerfPassInd_3rdPl">  </td> <!-- 3rd Pl -->
-        </tr>
-    </table><!-- FUTURE PERFECT PASSIVE INDICATIVE -->
+            Latin: <input type="text" id="usersChoiceLatin" spellcheck="false" placeholder="laudo, laudare, laudavi, laudatum"><br>
+            English: <input type="text" id="usersChoiceEnglish" spellcheck="true" placeholder="to praise (optional)"><br>
+            <input type="button" value="Click to Conjugate!" onClick="conjugateTheWholeDamnVerb('usersChoiceLatin');">
+            <br>
+            <p class="centeredAndNarrow">- or -</p>
+            <br>
+            <p class="centeredAndLeft"> Pick one from the list </p>
+            <select id="verbSelect" class="customSelect" name="verbSelectDropdown" onChange="conjugateTheWholeDamnVerb('verbSelect');">
+                <option value="amo, amare, amavi, amatum">amo, amare (to love)</option>
+                <option value="ardeo, ardere, arsi, arsus">ardeo, ard&#275;re (to burn)</option>            
+                <option value="debeo, debere, debui, debitus">debeo, deb&#275;re (to owe)</option>
+                <option value="desidero, desiderare, desideravi, desideratus">desidero, desiderare (to want)</option>
+                <option value="exspecto, exspectare, exspectavi, exspectatus">exspecto, exspectare (to expect)</option>
+                <option value="laudo, laudare, laudavi, laudatum">laudo, laudare (to praise)</option>
+                <option value="laboro, laborare, laboravi, laboratum">laboro, laborare (to work)</option>
+                <option value="neco, necare, necavi, necatum">neco, necare (to murder)</option>
+                <option value="premo, premere, pressi, pressum">premo, premere (to push)</option>
+                <option value="rogo, rogare, rogavi, rogatum">rogo, rogare (to ask)</option>
+                <option value="voco, vocare, vocavi, vocatum">voco, vocare (to call)</option>
+            </select>
+            <input type="button" value="Click to Conjugate!" onClick="conjugateTheWholeDamnVerb('verbSelect');">
+        </fieldset>
+    </section>
+    <!--
+        <fieldset id="toggleButtons">
+            <h3>Toggle charts</h3>
+            <h5>Active Indicative</h5>
+            <div class="btn-group">
+                <button onClick="toggleChart('presActIndChart')" class="">Present</button>
+                <button onClick="toggleChart('impActIndChart')" class="">Imperfect</button>
+                <button onClick="toggleChart('futActIndChart')" class="">Future</button>
+                <button onClick="toggleChart('perfActIndChart')" class="">Perfect</button>
+                <button onClick="toggleChart('pluperfActIndChart')" class="">Pluperfect</button>
+                <button onClick="toggleChart('futPerfActIndChart')" class="">Future Perfect</button>
+            </div>
+            <h5>Passive Indicative</h5>
+            <div class="btn-group">
+                <button onClick="toggleChart('presPassIndChart')" class="">Present</button>
+                <button onClick="toggleChart('impPassIndChart')" class="">Imperfect</button>
+                <button onClick="toggleChart('futPassIndChart')" class="">Future</button>
+                <button onClick="toggleChart('perfPassIndChart')" class="">Perfect</button>
+                <button onClick="toggleChart('pluperfPassIndChart')" class="">Pluperfect</button>
+                <button onClick="toggleChart('futPerfPassIndChart')" class="">Future Perfect</button>
+            </div>
+            <h5>Active Subjunctive</h5>
+            <div class="btn-group">
+                <button onClick="toggleChart('presActSubjChart')" class="">Present</button>
+                <button onClick="toggleChart('impActSubjChart')" class="">Imperfect</button>
+                <button onClick="toggleChart('perfActSubjChart')" class="">Perfect</button>
+                <button onClick="toggleChart('pluperfActSubjChart')" class="">Pluperfect</button>
+            </div>
+            <h5>Passive Subjunctive</h5>
+            <div class="btn-group">
+                <button onClick="toggleChart('presPassSubjChart')" class="">Present</button>
+                <button onClick="toggleChart('impPassSubjChart')" class="">Imperfect</button>
+                <button onClick="toggleChart('perfPassSubjChart')" class="">Perfect</button>
+                <button onClick="toggleChart('pluperfPassSubjChart')" class="">Pluperfect</button>
+            </div>
+            <h5>Other Charts</h5>
+            <div class="btn-group">
+                <button onClick="toggleChart('participlesChart')" class="">Participles</button>
+                <button onClick="toggleChart('InfinitivesChart')" class="">Infinitives</button>
+                <button onClick="toggleChart('ImperativesChart')" class="">Imperatives</button>
+            </div>
+        </fieldset> -->
+    <br>
+
+    <section><!--   ACTIVE INDICATIVE    -->
+        <div id="presActIndChart">
+            <h2>PRESENT ACTIVE INDICATIVE</h2>
+            <table class="verbChart" id="presActInd"> <!-- PRESENT ACTIVE INDICATIVE -->
+                <tr >
+                    <td> </td>
+                    <td> SINGULAR </td>
+                    <td> PLURAL </td>
+                </tr>
+                <tr >
+                    <td>1ST </td>
+                    <td id="presActInd_1stSing">  </td> <!-- 1st Sing -->
+                    <td id="presActInd_1stPl">  </td> <!-- 1st Pl -->
+                </tr>
+                <tr >
+                    <td>2ND </td>
+                    <td id="presActInd_2ndSing">  </td> <!-- 2nd Sing -->
+                    <td id="presActInd_2ndPl">  </td> <!-- 2nd Pl -->
+                </tr>
+                <tr >
+                    <td>3RD </td>
+                    <td id="presActInd_3rdSing">  </td> <!-- 3rd Sing -->
+                    <td id="presActInd_3rdPl">  </td> <!-- 3rd Pl -->
+                </tr>
+            </table>
+        </div>
+
+
+        <div id="impActIndChart">
+        <h2>IMPERFECT ACTIVE INDICATIVE</h2>
+        <table class="verbChart" id="impActInd"> <!-- IMPERFECT ACTIVE INDICATIVE -->
+            <tr >
+                <td> </td>
+                <td> SINGULAR </td>
+                <td> PLURAL </td>
+            </tr>
+            <tr >
+                <td>1ST </td>
+                <td id="impActInd_1stSing">  </td> <!-- 1st Sing -->
+                <td id="impActInd_1stPl">  </td> <!-- 1st Pl -->
+            </tr>
+            <tr >
+                <td>2ND </td>
+                <td id="impActInd_2ndSing">  </td> <!-- 2nd Sing -->
+                <td id="impActInd_2ndPl">  </td> <!-- 2nd Pl -->
+            </tr>
+            <tr>
+                <td>3RD </td>
+                <td id="impActInd_3rdSing">  </td> <!-- 3rd Sing -->
+                <td id="impActInd_3rdPl">  </td> <!-- 3rd Pl -->
+            </tr>
+        </table> 
+        </div>
+
+
+        <div id="futActIndChart">
+            <h2>FUTURE ACTIVE INDICATIVE</h2>
+        <table class="verbChart" id="futActInd"> <!-- FUTURE ACTIVE INDICATIVE -->
+            <tr >
+                <td> </td>
+                <td> SINGULAR </td>
+                <td> PLURAL </td>
+            </tr>
+            <tr >
+                <td>1ST </td>
+                <td id="futActInd_1stSing">  </td> <!-- 1st Sing -->
+                <td id="futActInd_1stPl">  </td> <!-- 1st Pl -->
+            </tr>
+            <tr >
+                <td>2ND </td>
+                <td id="futActInd_2ndSing">  </td> <!-- 2nd Sing -->
+                <td id="futActInd_2ndPl">  </td> <!-- 2nd Pl -->
+            </tr>
+            <tr>
+                <td>3RD </td>
+                <td id="futActInd_3rdSing">  </td> <!-- 3rd Sing -->
+                <td id="futActInd_3rdPl">  </td> <!-- 3rd Pl -->
+            </tr>
+        </table>
+        </div>
+
+
+        <div id="perfActIndChart">
+        <h2>PERFECT ACTIVE INDICATIVE</h2>
+        <table class="verbChart" id="perfActInd"> <!-- PERFECT ACTIVE INDICATIVE -->
+            <tr >
+                <td> </td>
+                <td> SINGULAR </td>
+                <td> PLURAL </td>
+            </tr>
+            <tr >
+                <td>1ST </td>
+                <td id="perfActInd_1stSing">  </td> <!-- 1st Sing -->
+                <td id="perfActInd_1stPl">  </td> <!-- 1st Pl -->
+            </tr>
+            <tr >
+                <td>2ND </td>
+                <td id="perfActInd_2ndSing">  </td> <!-- 2nd Sing -->
+                <td id="perfActInd_2ndPl">  </td> <!-- 2nd Pl -->
+            </tr>
+            <tr>
+                <td>3RD </td>
+                <td id="perfActInd_3rdSing">  </td> <!-- 3rd Sing -->
+                <td id="perfActInd_3rdPl">  </td> <!-- 3rd Pl -->
+            </tr>
+        </table> 
+        </div>
+
+
+        <div id="pluperfActIndChart">
+        <h2>PLUPERFECT ACTIVE INDICATIVE</h2>
+        <table class="verbChart" id="pluperfActInd"> <!-- PLUPERFECT ACTIVE INDICATIVE -->
+            <tr >
+                <td> </td>
+                <td> SINGULAR </td>
+                <td> PLURAL </td>
+            </tr>
+            <tr >
+                <td>1ST </td>
+                <td id="pluperfActInd_1stSing">  </td> <!-- 1st Sing -->
+                <td id="pluperfActInd_1stPl">  </td> <!-- 1st Pl -->
+            </tr>
+            <tr >
+                <td>2ND </td>
+                <td id="pluperfActInd_2ndSing">  </td> <!-- 2nd Sing -->
+                <td id="pluperfActInd_2ndPl">  </td> <!-- 2nd Pl -->
+            </tr>
+            <tr>
+                <td>3RD </td>
+                <td id="pluperfActInd_3rdSing">  </td> <!-- 3rd Sing -->
+                <td id="pluperfActInd_3rdPl">  </td> <!-- 3rd Pl -->
+            </tr>
+        </table>
+        </div>
+
+        <div id="futPerfActIndChart">
+        <h2>FUTURE PERFECT ACTIVE INDICATIVE</h2>
+        <table class="verbChart" id="futPerfActInd"> <!-- FUTURE PERFECT ACTIVE INDICATIVE -->
+            <tr >
+                <td> </td>
+                <td> SINGULAR </td>
+                <td> PLURAL </td>
+            </tr>
+            <tr >
+                <td>1ST </td>
+                <td id="futPerfActInd_1stSing">  </td> <!-- 1st Sing -->
+                <td id="futPerfActInd_1stPl">  </td> <!-- 1st Pl -->
+            </tr>
+            <tr >
+                <td>2ND </td>
+                <td id="futPerfActInd_2ndSing">  </td> <!-- 2nd Sing -->
+                <td id="futPerfActInd_2ndPl">  </td> <!-- 2nd Pl -->
+            </tr>
+            <tr>
+                <td>3RD </td>
+                <td id="futPerfActInd_3rdSing">  </td> <!-- 3rd Sing -->
+                <td id="futPerfActInd_3rdPl">  </td> <!-- 3rd Pl -->
+            </tr>
+        </table>
+        </div>
+    </section><!--   ACTIVE INDICATIVE    -->
+
+    <section><!--   PASSIVE INDICATIVE    -->
+        <div id="presPassIndChart">
+        <h2>PRESENT PASSIVE INDICATIVE</h2>
+        <table class="verbChart" id="presPassInd"> <!-- PRESENT PASSIVE INDICATIVE -->
+            <tr >
+                <td> </td>
+                <td> SINGULAR </td>
+                <td> PLURAL </td>
+            </tr>
+            <tr >
+                <td>1ST </td>
+                <td id="presPassInd_1stSing">  </td> <!-- 1st Sing -->
+                <td id="presPassInd_1stPl">  </td> <!-- 1st Pl -->
+            </tr>
+            <tr >
+                <td>2ND </td>
+                <td id="presPassInd_2ndSing">  </td> <!-- 2nd Sing -->
+                <td id="presPassInd_2ndPl">  </td> <!-- 2nd Pl -->
+            </tr>
+            <tr>
+                <td>3RD </td>
+                <td id="presPassInd_3rdSing">  </td> <!-- 3rd Sing -->
+                <td id="presPassInd_3rdPl">  </td> <!-- 3rd Pl -->
+            </tr>
+        </table>
+        </div>
+
+        <div id="impPassIndChart">
+        <h2>IMPERFECT PASSIVE INDICATIVE</h2>
+        <table class="verbChart" id="impPassInd"> <!-- IMPERFECT PASSIVE INDICATIVE -->
+            <tr >
+                <td> </td>
+                <td> SINGULAR </td>
+                <td> PLURAL </td>
+            </tr>
+            <tr >
+                <td>1ST </td>
+                <td id="impPassInd_1stSing">  </td> <!-- 1st Sing -->
+                <td id="impPassInd_1stPl">  </td> <!-- 1st Pl -->
+            </tr>
+            <tr >
+                <td>2ND </td>
+                <td id="impPassInd_2ndSing">  </td> <!-- 2nd Sing -->
+                <td id="impPassInd_2ndPl">  </td> <!-- 2nd Pl -->
+            </tr>
+            <tr>
+                <td>3RD </td>
+                <td id="impPassInd_3rdSing">  </td> <!-- 3rd Sing -->
+                <td id="impPassInd_3rdPl">  </td> <!-- 3rd Pl -->
+            </tr>
+        </table>
+        </div>
+
+        <div id="futPassIndChart">
+        <h2>FUTURE PASSIVE INDICATIVE</h2>
+        <table class="verbChart" id="futPassInd"> <!-- FUTURE PASSIVE INDICATIVE -->
+            <tr >
+                <td> </td>
+                <td> SINGULAR </td>
+                <td> PLURAL </td>
+            </tr>
+            <tr >
+                <td>1ST </td>
+                <td id="futPassInd_1stSing">  </td> <!-- 1st Sing -->
+                <td id="futPassInd_1stPl">  </td> <!-- 1st Pl -->
+            </tr>
+            <tr >
+                <td>2ND </td>
+                <td id="futPassInd_2ndSing">  </td> <!-- 2nd Sing -->
+                <td id="futPassInd_2ndPl">  </td> <!-- 2nd Pl -->
+            </tr>
+            <tr>
+                <td>3RD </td>
+                <td id="futPassInd_3rdSing">  </td> <!-- 3rd Sing -->
+                <td id="futPassInd_3rdPl">  </td> <!-- 3rd Pl -->
+            </tr>
+        </table>
+        </div>
+        
+        <div id="perfPassIndChart">
+        <h2>PERFECT PASSIVE INDICATIVE</h2>
+        <table class="verbChart" id="perfPassInd"> <!-- PERFECT PASSIVE INDICATIVE -->
+            <tr >
+                <td> </td>
+                <td> SINGULAR </td>
+                <td> PLURAL </td>
+            </tr>
+            <tr >
+                <td>1ST </td>
+                <td id="perfPassInd_1stSing">  </td> <!-- 1st Sing -->
+                <td id="perfPassInd_1stPl">  </td> <!-- 1st Pl -->
+            </tr>
+            <tr >
+                <td>2ND </td>
+                <td id="perfPassInd_2ndSing">  </td> <!-- 2nd Sing -->
+                <td id="perfPassInd_2ndPl">  </td> <!-- 2nd Pl -->
+            </tr>
+            <tr>
+                <td>3RD </td>
+                <td id="perfPassInd_3rdSing">  </td> <!-- 3rd Sing -->
+                <td id="perfPassInd_3rdPl">  </td> <!-- 3rd Pl -->
+            </tr>
+        </table>
+        </div>
+
+        <div id="pluperfPassIndChart">   
+        <h2>PLUPERFECT PASSIVE INDICATIVE</h2>
+        <table class="verbChart" id="pluperfPassInd">
+            <tr >
+                <td> </td>
+                <td> SINGULAR </td>
+                <td> PLURAL </td>
+            </tr>
+            <tr >
+                <td>1ST </td>
+                <td id="pluperfPassInd_1stSing">  </td> <!-- 1st Sing -->
+                <td id="pluperfPassInd_1stPl">  </td> <!-- 1st Pl -->
+            </tr>
+            <tr >
+                <td>2ND </td>
+                <td id="pluperfPassInd_2ndSing">  </td> <!-- 2nd Sing -->
+                <td id="pluperfPassInd_2ndPl">  </td> <!-- 2nd Pl -->
+            </tr>
+            <tr>
+                <td>3RD </td>
+                <td id="pluperfPassInd_3rdSing">  </td> <!-- 3rd Sing -->
+                <td id="pluperfPassInd_3rdPl">  </td> <!-- 3rd Pl -->
+            </tr>
+        </table>
+        </div>
+
+        <div id="futPerfPassIndChart">
+        <h2>FUTURE PERFECT PASSIVE INDICATIVE</h2>
+        <table class="verbChart" id="futPerfPassInd"> <!-- FUTURE PERFECT PASSIVE INDICATIVE -->
+            <tr >
+                <td> </td>
+                <td> SINGULAR </td>
+                <td> PLURAL </td>
+            </tr>
+            <tr >
+                <td>1ST </td>
+                <td id="futPerfPassInd_1stSing">  </td> <!-- 1st Sing -->
+                <td id="futPerfPassInd_1stPl">  </td> <!-- 1st Pl -->
+            </tr>
+            <tr >
+                <td>2ND </td>
+                <td id="futPerfPassInd_2ndSing">  </td> <!-- 2nd Sing -->
+                <td id="futPerfPassInd_2ndPl">  </td> <!-- 2nd Pl -->
+            </tr>
+            <tr>
+                <td>3RD </td>
+                <td id="futPerfPassInd_3rdSing">  </td> <!-- 3rd Sing -->
+                <td id="futPerfPassInd_3rdPl">  </td> <!-- 3rd Pl -->
+            </tr>
+        </table><!-- FUTURE PERFECT PASSIVE INDICATIVE -->
+        </div>
     </section> <!--   PASSIVE INDICATIVE    -->
-            <!--       -->
-            <!--       -->
-            <!--       -->
-<section><!--   ACTIVE SUBJUNCTIVE    -->
-    <h2>PRESENT ACTIVE SUBJUNCTIVE</h2>
-    <table class="verbChart" id="presActSubj"> <!-- PRESENT ACTIVE SUBJUNCTIVE -->
-        <tr width="33%">
-            <td> </td>
-            <td> SINGULAR </td>
-            <td> PLURAL </td>
-        </tr>
-        <tr width="33%">
-            <td>1ST </td>
-            <td id="presActSubj_1stSing">  </td> <!-- 1st Sing -->
-            <td id="presActSubj_1stPl">  </td> <!-- 1st Pl -->
-        </tr>
-        <tr width="33%">
-            <td>2ND </td>
-            <td id="presActSubj_2ndSing">  </td> <!-- 2nd Sing -->
-            <td id="presActSubj_2ndPl">  </td> <!-- 2nd Pl -->
-        </tr>
-        <tr>
-            <td>3RD </td>
-            <td id="presActSubj_3rdSing">  </td> <!-- 3rd Sing -->
-            <td id="presActSubj_3rdPl">  </td> <!-- 3rd Pl -->
-        </tr>
-    </table><!-- PRESENT ACTIVE SUBJUNCTIVE -->
-<!--       -->
-<!--       -->
-    <h2>IMPERFECT ACTIVE SUBJUNCTIVE</h2>
-    <table class="verbChart" id="impActSubj"> <!-- IMPERFECT ACTIVE SUBJUNCTIVE -->
-        <tr width="33%">
-            <td> </td>
-            <td> SINGULAR </td>
-            <td> PLURAL </td>
-        </tr>
-        <tr width="33%">
-            <td>1ST </td>
-            <td id="impActSubj_1stSing">  </td> <!-- 1st Sing -->
-            <td id="impActSubj_1stPl">  </td> <!-- 1st Pl -->
-        </tr>
-        <tr width="33%">
-            <td>2ND </td>
-            <td id="impActSubj_2ndSing">  </td> <!-- 2nd Sing -->
-            <td id="impActSubj_2ndPl">  </td> <!-- 2nd Pl -->
-        </tr>
-        <tr>
-            <td>3RD </td>
-            <td id="impActSubj_3rdSing">  </td> <!-- 3rd Sing -->
-            <td id="impActSubj_3rdPl">  </td> <!-- 3rd Pl -->
-        </tr>
-    </table> <!-- IMPERFECT ACTIVE SUBJUNCTIVE -->
-<!--       -->
-<!--       -->
-    <h2>PERFECT ACTIVE SUBJUNCTIVE</h2>
-    <table class="verbChart" id="perfActSubj"> <!-- PERFECT ACTIVE SUBJUNCTIVE -->
-        <tr width="33%">
-            <td> </td>
-            <td> SINGULAR </td>
-            <td> PLURAL </td>
-        </tr>
-        <tr width="33%">
-            <td>1ST </td>
-            <td id="perfActSubj_1stSing">  </td> <!-- 1st Sing -->
-            <td id="perfActSubj_1stPl">  </td> <!-- 1st Pl -->
-        </tr>
-        <tr width="33%">
-            <td>2ND </td>
-            <td id="perfActSubj_2ndSing">  </td> <!-- 2nd Sing -->
-            <td id="perfActSubj_2ndPl">  </td> <!-- 2nd Pl -->
-        </tr>
-        <tr>
-            <td>3RD </td>
-            <td id="perfActSubj_3rdSing">  </td> <!-- 3rd Sing -->
-            <td id="perfActSubj_3rdPl">  </td> <!-- 3rd Pl -->
-        </tr>
-    </table> <!-- PERFECT ACTIVE SUBJUNCTIVE -->
-<!--       -->
-<!--       -->
-    <h2>PLUPERFECT ACTIVE SUBJUNCTIVE</h2>
-    <table class="verbChart" id="pluperfActSubj"> <!-- PLUPERFECT ACTIVE SUBJUNCTIVE -->
-        <tr width="33%">
-            <td> </td>
-            <td> SINGULAR </td>
-            <td> PLURAL </td>
-        </tr>
-        <tr width="33%">
-            <td>1ST </td>
-            <td id="pluperfActSubj_1stSing">  </td> <!-- 1st Sing -->
-            <td id="pluperfActSubj_1stPl">  </td> <!-- 1st Pl -->
-        </tr>
-        <tr width="33%">
-            <td>2ND </td>
-            <td id="pluperfActSubj_2ndSing">  </td> <!-- 2nd Sing -->
-            <td id="pluperfActSubj_2ndPl">  </td> <!-- 2nd Pl -->
-        </tr>
-        <tr>
-            <td>3RD </td>
-            <td id="pluperfActSubj_3rdSing">  </td> <!-- 3rd Sing -->
-            <td id="pluperfActSubj_3rdPl">  </td> <!-- 3rd Pl -->
-        </tr>
-    </table><!-- PLUPERFECT ACTIVE SUBJUNCTIVE -->
-</section><!--   ACTIVE SUBJUNCTIVE    -->
-            <!--       -->
-            <!--       -->
-            <!--       -->
-<section><!--   PASSIVE SUBJUNCTIVE    -->
-    <h2>PRESENT PASSIVE SUBJUNCTIVE</h2>
-    <table class="verbChart" id="presPassSubj"> <!-- PRESENT PASSIVE SUBJUNCTIVE -->
-        <tr width="33%">
-            <td> </td>
-            <td> SINGULAR </td>
-            <td> PLURAL </td>
-        </tr>
-        <tr width="33%">
-            <td>1ST </td>
-            <td id="presPassSubj_1stSing">  </td> <!-- 1st Sing -->
-            <td id="presPassSubj_1stPl">  </td> <!-- 1st Pl -->
-        </tr>
-        <tr width="33%">
-            <td>2ND </td>
-            <td id="presPassSubj_2ndSing">  </td> <!-- 2nd Sing -->
-            <td id="presPassSubj_2ndPl">  </td> <!-- 2nd Pl -->
-        </tr>
-        <tr>
-            <td>3RD </td>
-            <td id="presPassSubj_3rdSing">  </td> <!-- 3rd Sing -->
-            <td id="presPassSubj_3rdPl">  </td> <!-- 3rd Pl -->
-        </tr>
-    </table><!-- PRESENT PASSIVE SUBJUNCTIVE -->
-<!--       -->
-<!--       -->
-    <h2>IMPERFECT PASSIVE SUBJUNCTIVE</h2>
-    <table class="verbChart" id="impPassSubj"> <!-- IMPERFECT PASSIVE SUBJUNCTIVE -->
-        <tr width="33%">
-            <td> </td>
-            <td> SINGULAR </td>
-            <td> PLURAL </td>
-        </tr>
-        <tr width="33%">
-            <td>1ST </td>
-            <td id="impPassSubj_1stSing">  </td> <!-- 1st Sing -->
-            <td id="impPassSubj_1stPl">  </td> <!-- 1st Pl -->
-        </tr>
-        <tr width="33%">
-            <td>2ND </td>
-            <td id="impPassSubj_2ndSing">  </td> <!-- 2nd Sing -->
-            <td id="impPassSubj_2ndPl">  </td> <!-- 2nd Pl -->
-        </tr>
-        <tr>
-            <td>3RD </td>
-            <td id="impPassSubj_3rdSing">  </td> <!-- 3rd Sing -->
-            <td id="impPassSubj_3rdPl">  </td> <!-- 3rd Pl -->
-        </tr>
-    </table> <!-- IMPERFECT PASSIVE SUBJUNCTIVE -->
-<!--       -->
-<!--       -->
-    <h2>PERFECT PASSIVE SUBJUNCTIVE</h2>
-    <table class="verbChart" id="perfPassSubj"> <!-- PERFECT PASSIVE SUBJUNCTIVE -->
-        <tr width="33%">
-            <td> </td>
-            <td> SINGULAR </td>
-            <td> PLURAL </td>
-        </tr>
-        <tr width="33%">
-            <td>1ST </td>
-            <td id="perfPassSubj_1stSing">  </td> <!-- 1st Sing -->
-            <td id="perfPassSubj_1stPl">  </td> <!-- 1st Pl -->
-        </tr>
-        <tr width="33%">
-            <td>2ND </td>
-            <td id="perfPassSubj_2ndSing">  </td> <!-- 2nd Sing -->
-            <td id="perfPassSubj_2ndPl">  </td> <!-- 2nd Pl -->
-        </tr>
-        <tr>
-            <td>3RD </td>
-            <td id="perfPassSubj_3rdSing">  </td> <!-- 3rd Sing -->
-            <td id="perfPassSubj_3rdPl">  </td> <!-- 3rd Pl -->
-        </tr>
-    </table> <!-- PERFECT PASSIVE SUBJUNCTIVE -->
-<!--       -->
-<!--       -->
-    <h2>PLUPERFECT PASSIVE SUBJUNCTIVE</h2>
-    <table class="verbChart" id="pluperfPassSubj"> <!-- PLUPERFECT PASSIVE SUBJUNCTIVE -->
-        <tr width="33%">
-            <td> </td>
-            <td> SINGULAR </td>
-            <td> PLURAL </td>
-        </tr>
-        <tr width="33%">
-            <td>1ST </td>
-            <td id="pluperfPassSubj_1stSing">  </td> <!-- 1st Sing -->
-            <td id="pluperfPassSubj_1stPl">  </td> <!-- 1st Pl -->
-        </tr>
-        <tr width="33%">
-            <td>2ND </td>
-            <td id="pluperfPassSubj_2ndSing">  </td> <!-- 2nd Sing -->
-            <td id="pluperfPassSubj_2ndPl">  </td> <!-- 2nd Pl -->
-        </tr>
-        <tr>
-            <td>3RD </td>
-            <td id="pluperfPassSubj_3rdSing">  </td> <!-- 3rd Sing -->
-            <td id="pluperfPassSubj_3rdPl">  </td> <!-- 3rd Pl -->
-        </tr>
-    </table><!-- PLUPERFECT PASSIVE SUBJUNCTIVE -->
-<!--       -->
-<!--       -->
-    </section> <!--   PASSIVE SUBJUNCTIVE    -->
-            <!--       -->
-            <!--       -->
-            <!--       -->
-            <!--       -->
-<section><!--   OTHER    -->
-    <h2>Participles</h2>
-    <table class="verbChart" id="participles"> <!-- PARTICIPLES -->
-        <tr width="33%">
-            <td> </td>
-            <td> ACTIVE </td>
-            <td> PASSIVE </td>
-        </tr>
-        <tr width="33%">
-            <td>Present </td>
-            <td id="presActParticiple">  </td>
-            <td id="presPassParticiple"> X </td>
-        </tr>
-        <tr width="33%">
-            <td>Perfect </td>
-            <td id="perfActParticiple"> X </td>
-            <td id="perfPassParticiple">  </td>
-        </tr>
-        <tr>
-            <td>Future </td>
-            <td id="futActParticiple">  </td>
-            <td id="futPassParticiple">  </td>
-        </tr>
-    </table><!-- PARTICIPLES -->
-<!--       -->
-<!--       -->
-    <h2>Infinitives</h2>
-    <table class="verbChart" id="Infinitives"> <!-- Infinitives -->
-        <tr width="33%">
-            <td> </td>
-            <td> ACTIVE </td>
-            <td> PASSIVE </td>
-        </tr>
-        <tr width="33%">
-            <td>Present </td>
-            <td id="presActInfinitive">  </td>
-            <td id="presPassInfinitive"> </td>
-        </tr>
-        <tr width="33%">
-            <td>Perfect </td>
-            <td id="perfActInfinitive"> </td>
-            <td id="perfPassInfinitive">  </td>
-        </tr>
-        <tr>
-            <td>Future </td>
-            <td id="futActInfinitive">  </td>
-            <td id="futPassInfinitive">  </td>
-        </tr>
-    </table><!-- INFINITIVES -->
-<!--       -->
-<!--       -->
-    <h2>Imperatives</h2>
-    <table class="verbChart" id="Imperatives"> <!-- Imperatives -->
-        <tr width="33%">
-            <td> </td>
-            <td> POSITIVE </td>
-            <td> NEGATIVE </td>
-        </tr>
-        <tr width="33%">
-            <td>Singular </td>
-            <td id="singPosImperative">  </td>
-            <td id="singNegImperative"> </td>
-        </tr>
-        <tr width="33%">
-            <td>Plural </td>
-            <td id="plPosImperative">  </td>
-            <td id="plNegImperative"> </td>
-        </tr>
-    </table><!-- INFINITIVES -->
-<!--       -->
-<!--       -->
-    </section> <!-- PARTICIPLES, INFINITIVES, IMPERATIVES -->
-    </main>
-    <!--        -->
-    <!--        -->
-    <!-- SCRIPT -->    
+
+    <section><!--   ACTIVE SUBJUNCTIVE    -->
+        <div id="presActSubjChart">
+        <h2>PRESENT ACTIVE SUBJUNCTIVE</h2>
+        <table class="verbChart" id="presActSubj"> <!-- PRESENT ACTIVE SUBJUNCTIVE -->
+            <tr >
+                <td> </td>
+                <td> SINGULAR </td>
+                <td> PLURAL </td>
+            </tr>
+            <tr >
+                <td>1ST </td>
+                <td id="presActSubj_1stSing">  </td> <!-- 1st Sing -->
+                <td id="presActSubj_1stPl">  </td> <!-- 1st Pl -->
+            </tr>
+            <tr >
+                <td>2ND </td>
+                <td id="presActSubj_2ndSing">  </td> <!-- 2nd Sing -->
+                <td id="presActSubj_2ndPl">  </td> <!-- 2nd Pl -->
+            </tr>
+            <tr>
+                <td>3RD </td>
+                <td id="presActSubj_3rdSing">  </td> <!-- 3rd Sing -->
+                <td id="presActSubj_3rdPl">  </td> <!-- 3rd Pl -->
+            </tr>
+        </table>
+        </div>
+        
+        <div id="impActSubjChart">
+        <h2>IMPERFECT ACTIVE SUBJUNCTIVE</h2>
+        <table class="verbChart" id="impActSubj"> <!-- IMPERFECT ACTIVE SUBJUNCTIVE -->
+            <tr >
+                <td> </td>
+                <td> SINGULAR </td>
+                <td> PLURAL </td>
+            </tr>
+            <tr >
+                <td>1ST </td>
+                <td id="impActSubj_1stSing">  </td> <!-- 1st Sing -->
+                <td id="impActSubj_1stPl">  </td> <!-- 1st Pl -->
+            </tr>
+            <tr >
+                <td>2ND </td>
+                <td id="impActSubj_2ndSing">  </td> <!-- 2nd Sing -->
+                <td id="impActSubj_2ndPl">  </td> <!-- 2nd Pl -->
+            </tr>
+            <tr>
+                <td>3RD </td>
+                <td id="impActSubj_3rdSing">  </td> <!-- 3rd Sing -->
+                <td id="impActSubj_3rdPl">  </td> <!-- 3rd Pl -->
+            </tr>
+        </table>
+        </div>
+        
+        <div id="perfActSubjChart">
+        <h2>PERFECT ACTIVE SUBJUNCTIVE</h2>
+        <table class="verbChart" id="perfActSubj"> <!-- PERFECT ACTIVE SUBJUNCTIVE -->
+            <tr >
+                <td> </td>
+                <td> SINGULAR </td>
+                <td> PLURAL </td>
+            </tr>
+            <tr >
+                <td>1ST </td>
+                <td id="perfActSubj_1stSing">  </td> <!-- 1st Sing -->
+                <td id="perfActSubj_1stPl">  </td> <!-- 1st Pl -->
+            </tr>
+            <tr >
+                <td>2ND </td>
+                <td id="perfActSubj_2ndSing">  </td> <!-- 2nd Sing -->
+                <td id="perfActSubj_2ndPl">  </td> <!-- 2nd Pl -->
+            </tr>
+            <tr>
+                <td>3RD </td>
+                <td id="perfActSubj_3rdSing">  </td> <!-- 3rd Sing -->
+                <td id="perfActSubj_3rdPl">  </td> <!-- 3rd Pl -->
+            </tr>
+        </table>
+        </div>
+        
+        <div id="pluperfActSubjChart">
+        <h2>PLUPERFECT ACTIVE SUBJUNCTIVE</h2>
+        <table class="verbChart" id="pluperfActSubj"> <!-- PLUPERFECT ACTIVE SUBJUNCTIVE -->
+            <tr >
+                <td> </td>
+                <td> SINGULAR </td>
+                <td> PLURAL </td>
+            </tr>
+            <tr >
+                <td>1ST </td>
+                <td id="pluperfActSubj_1stSing">  </td> <!-- 1st Sing -->
+                <td id="pluperfActSubj_1stPl">  </td> <!-- 1st Pl -->
+            </tr>
+            <tr >
+                <td>2ND </td>
+                <td id="pluperfActSubj_2ndSing">  </td> <!-- 2nd Sing -->
+                <td id="pluperfActSubj_2ndPl">  </td> <!-- 2nd Pl -->
+            </tr>
+            <tr>
+                <td>3RD </td>
+                <td id="pluperfActSubj_3rdSing">  </td> <!-- 3rd Sing -->
+                <td id="pluperfActSubj_3rdPl">  </td> <!-- 3rd Pl -->
+            </tr>
+        </table>
+        </div>
+    </section><!--   ACTIVE SUBJUNCTIVE    -->
+
+    <section><!--   PASSIVE SUBJUNCTIVE    -->
+        <div id="presPassSubjChart">
+        <h2>PRESENT PASSIVE SUBJUNCTIVE</h2>
+        <table class="verbChart" id="presPassSubj"> <!-- PRESENT PASSIVE SUBJUNCTIVE -->
+            <tr >
+                <td> </td>
+                <td> SINGULAR </td>
+                <td> PLURAL </td>
+            </tr>
+            <tr >
+                <td>1ST </td>
+                <td id="presPassSubj_1stSing">  </td> <!-- 1st Sing -->
+                <td id="presPassSubj_1stPl">  </td> <!-- 1st Pl -->
+            </tr>
+            <tr >
+                <td>2ND </td>
+                <td id="presPassSubj_2ndSing">  </td> <!-- 2nd Sing -->
+                <td id="presPassSubj_2ndPl">  </td> <!-- 2nd Pl -->
+            </tr>
+            <tr>
+                <td>3RD </td>
+                <td id="presPassSubj_3rdSing">  </td> <!-- 3rd Sing -->
+                <td id="presPassSubj_3rdPl">  </td> <!-- 3rd Pl -->
+            </tr>
+        </table>
+        </div>
+        
+        <div id="impPassSubjChart">
+        <h2>IMPERFECT PASSIVE SUBJUNCTIVE</h2>
+        <table class="verbChart" id="impPassSubj"> <!-- IMPERFECT PASSIVE SUBJUNCTIVE -->
+            <tr >
+                <td> </td>
+                <td> SINGULAR </td>
+                <td> PLURAL </td>
+            </tr>
+            <tr >
+                <td>1ST </td>
+                <td id="impPassSubj_1stSing">  </td> <!-- 1st Sing -->
+                <td id="impPassSubj_1stPl">  </td> <!-- 1st Pl -->
+            </tr>
+            <tr >
+                <td>2ND </td>
+                <td id="impPassSubj_2ndSing">  </td> <!-- 2nd Sing -->
+                <td id="impPassSubj_2ndPl">  </td> <!-- 2nd Pl -->
+            </tr>
+            <tr>
+                <td>3RD </td>
+                <td id="impPassSubj_3rdSing">  </td> <!-- 3rd Sing -->
+                <td id="impPassSubj_3rdPl">  </td> <!-- 3rd Pl -->
+            </tr>
+        </table>
+        </div>
+
+        <div id="perfPassSubjChart">
+        <h2>PERFECT PASSIVE SUBJUNCTIVE</h2>
+        <table class="verbChart" id="perfPassSubj"> <!-- PERFECT PASSIVE SUBJUNCTIVE -->
+            <tr >
+                <td> </td>
+                <td> SINGULAR </td>
+                <td> PLURAL </td>
+            </tr>
+            <tr >
+                <td>1ST </td>
+                <td id="perfPassSubj_1stSing">  </td> <!-- 1st Sing -->
+                <td id="perfPassSubj_1stPl">  </td> <!-- 1st Pl -->
+            </tr>
+            <tr >
+                <td>2ND </td>
+                <td id="perfPassSubj_2ndSing">  </td> <!-- 2nd Sing -->
+                <td id="perfPassSubj_2ndPl">  </td> <!-- 2nd Pl -->
+            </tr>
+            <tr>
+                <td>3RD </td>
+                <td id="perfPassSubj_3rdSing">  </td> <!-- 3rd Sing -->
+                <td id="perfPassSubj_3rdPl">  </td> <!-- 3rd Pl -->
+            </tr>
+        </table>
+        </div>
+
+        <div id="pluperfPassSubjChart">
+        <h2>PLUPERFECT PASSIVE SUBJUNCTIVE</h2>
+        <table class="verbChart" id="pluperfPassSubj"> <!-- PLUPERFECT PASSIVE SUBJUNCTIVE -->
+            <tr >
+                <td> </td>
+                <td> SINGULAR </td>
+                <td> PLURAL </td>
+            </tr>
+            <tr >
+                <td>1ST </td>
+                <td id="pluperfPassSubj_1stSing">  </td> <!-- 1st Sing -->
+                <td id="pluperfPassSubj_1stPl">  </td> <!-- 1st Pl -->
+            </tr>
+            <tr >
+                <td>2ND </td>
+                <td id="pluperfPassSubj_2ndSing">  </td> <!-- 2nd Sing -->
+                <td id="pluperfPassSubj_2ndPl">  </td> <!-- 2nd Pl -->
+            </tr>
+            <tr>
+                <td>3RD </td>
+                <td id="pluperfPassSubj_3rdSing">  </td> <!-- 3rd Sing -->
+                <td id="pluperfPassSubj_3rdPl">  </td> <!-- 3rd Pl -->
+            </tr>
+        </table>
+        </div>
+        </section> <!--   PASSIVE SUBJUNCTIVE    -->
+             
+    <section><!--   OTHER    -->
+        <div id="participlesChart">
+        <h2>Participles</h2>
+        <table class="verbChart" id="participles"> <!-- PARTICIPLES -->
+            <tr >
+                <td> </td>
+                <td> ACTIVE </td>
+                <td> PASSIVE </td>
+            </tr>
+            <tr >
+                <td>Present </td>
+                <td id="presActParticiple">  </td>
+                <td id="presPassParticiple"> X </td>
+            </tr>
+            <tr >
+                <td>Perfect </td>
+                <td id="perfActParticiple"> X </td>
+                <td id="perfPassParticiple">  </td>
+            </tr>
+            <tr>
+                <td>Future </td>
+                <td id="futActParticiple">  </td>
+                <td id="futPassParticiple">  </td>
+            </tr>
+        </table>
+        </div>
+
+        <div id="InfinitivesChart">
+        <h2>Infinitives</h2>
+        <table class="verbChart" id="Infinitives"> <!-- Infinitives -->
+            <tr >
+                <td> </td>
+                <td> ACTIVE </td>
+                <td> PASSIVE </td>
+            </tr>
+            <tr >
+                <td>Present </td>
+                <td id="presActInfinitive">  </td>
+                <td id="presPassInfinitive"> </td>
+            </tr>
+            <tr >
+                <td>Perfect </td>
+                <td id="perfActInfinitive"> </td>
+                <td id="perfPassInfinitive">  </td>
+            </tr>
+            <tr>
+                <td>Future </td>
+                <td id="futActInfinitive">  </td>
+                <td id="futPassInfinitive">  </td>
+            </tr>
+        </table>
+        </div>
+        
+        <div id="ImperativesChart">
+        <h2>Imperatives</h2>
+        <table class="verbChart" id="Imperatives"> <!-- Imperatives -->
+            <tr >
+                <td> </td>
+                <td> POSITIVE </td>
+                <td> NEGATIVE </td>
+            </tr>
+            <tr >
+                <td>Singular </td>
+                <td id="singPosImperative">  </td>
+                <td id="singNegImperative"> </td>
+            </tr>
+            <tr >
+                <td>Plural </td>
+                <td id="plPosImperative">  </td>
+                <td id="plNegImperative"> </td>
+            </tr>
+        </table>
+        </div>
+        </section> <!-- PARTICIPLES, INFINITIVES, IMPERATIVES -->
+        </main> 
         <script type="text/javascript" src="verbScripts.js"></script>
-    <!-- SCRIPT -->    
-</body>
+    </body>
 </html>

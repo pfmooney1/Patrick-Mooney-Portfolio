@@ -11,139 +11,42 @@
     --black: #111111;
 }
 
-/* =========================== *\
-      Main Styled Parts      
-\* =========================== */
+a.linkButton {
+    background-color: var(--buttons);
+    border: 3px solid black;
+    border-radius: 2px;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.5);
+    color: black;
+    display: inline;
+    font-weight: 500;
+    margin: .1em;
+    max-width: 200px;
+    text-align: center;
+    text-decoration: none;
+    width: 70%;
+}
+a.linkButton:hover {
+    transform: scale(1.03);
+}
 body {
     background-color: var(--background-color);
     box-sizing: border-box;
     color: black;
     font-family: helvetica, serif;
-    font-size: 18px;
+    font-size: 16px;
     padding: 0;
     position: relative;
     margin: 0;
     min-height: 100vh;
 }
-header {
-    background-color: var(--primaryColor);
-    box-sizing: border-box;
-    color: snow;
-    display: flex;
-    margin: 0;
-    position: static;
-    right: 0; 
-    text-align: center;
-    top: 0; 
-    width: 100%;
-}
-
-footer {
-    background-color: var(--primaryColor);
-    bottom: 0; 
-    border: 2px solid black;
-    box-sizing: border-box;
-    color: snow;
-    display: flex;
-    justify-content: space-around;
-    margin: 2em auto 0em auto;
-    position: absolute;
-    right: 0; 
-    text-align: center;
-    vertical-align: center;
-    width: 100%;
-}
-section {
-    justify-content: center;
-}
-.containerRow {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-.containerColumn {
-    align-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-p.aboutMeText {
-    font-family: Georgia, serif;
-    font-size: 1.5em;
-}
-.paragraphContent {
-    font-family: Georgia, serif;
-    font-size: 1.5em;
-    width: 80%;
-}
 div.aboutMeDiv {
     margin: 2em auto;
     width: 80%;
 }
-
-.marginWide {
-    margin: 1em 2em;
-    text-align: inherit;
-}
-
-main {
-    padding-bottom: 4em;
-}
-/* =========================== */
-/*          Headings           */
-/* =========================== */
-h1 {
-    font-weight: 800;
-    margin: 0em 0.5em 0em 1em;
-    text-align: left;
-}
-h1.headerContent {
-    font-family: optima, helvetica, serif;
-    font-size: 3em;
-    font-weight: 400;
-    text-shadow: 3px 3px black, -1px -1px black;
-    vertical-align: center;
-}
-h2 {
-    font-family: baskerville;
-    font-size: 2em;
-    font-weight: 600;
-    margin-left: 1em;
-}
-
-/* =========================== */
-/*     Links and Navigation    */
-/* =========================== */
-nav#rowNav {
-    align-items: center;
-    background-color: var(--secondaryColor);
-    border: 2px solid black;
-    box-sizing: border-box;
-    color: black;
-    display: flex;
-    flex-direction: row;
-    font-size: 1.5em;
-    font-weight: 800;
-    justify-content: space-evenly;
-    margin: auto 0;
-    padding: 0em 0em;
+figcaption {
+    font-weight: 700;
     text-align: center;
-    text-transform: uppercase;
-    vertical-align: center;
-    width: 100%;
 }
-.link {
-    color: white;
-    font-family: helvetica, serif;
-    font-size: 1em;
-    text-decoration: none;    
-}
-
-
-/* =========================== */
-/*      Images and Figures     */
-/* =========================== */
 figure.portfolioIcon {
     align-content: center;
     background-color: var(--portfolioCards);
@@ -163,9 +66,56 @@ figure:hover {
     box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.5);
     transform: scale(1.03);
 }
-figcaption {
-    font-weight: 700;
+footer {
+    background-color: var(--primaryColor);
+    bottom: 0; 
+    border: 2px solid black;
+    box-sizing: border-box;
+    color: snow;
+    display: flex;
+    justify-content: space-around;
+    margin: 2em auto 0em auto;
+    position: absolute;
+    right: 0; 
     text-align: center;
+    vertical-align: center;
+    width: 100%;
+}
+h1 {
+    font-weight: 800;
+    margin: 0em 0.5em 0em 1em;
+    text-align: left;
+}
+h1.headerContent {
+    font-family: optima, helvetica, serif;
+    font-size: 3em;
+    font-weight: 400;
+    text-shadow: 3px 3px black, -1px -1px black;
+    vertical-align: center;
+}
+h2 {
+    font-family: baskerville;
+    font-size: 2em;
+    font-weight: 600;
+    margin-left: 1em;
+}
+header {
+    background-color: var(--primaryColor);
+    box-sizing: border-box;
+    color: snow;
+    display: flex;
+    margin: 0;
+    position: static;
+    right: 0; 
+    text-align: center;
+    top: 0; 
+    width: 100%;
+}
+img#emergency {
+    background-color: #429EA6;
+}
+img#fiction {
+    background-color: #21376C;
 }
 img.projectIcon {
     border: 3px solid black;
@@ -175,6 +125,109 @@ img.projectIcon {
     padding: 0;
     width: 300px;
 }
+img#rockPaperScissors {
+    background-color: maroon;
+}
+main {
+    padding-bottom: 4em;
+}
+nav#rowNav {
+    align-items: center;
+    background-color: var(--secondaryColor);
+    border: 2px solid black;
+    box-sizing: border-box;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    font-size: 1.5em;
+    font-weight: 800;
+    justify-content: space-evenly;
+    margin: auto 0;
+    padding: 0em 0em;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: center;
+    width: 100%;
+}
+p.aboutMeText {
+    font-family: Georgia, serif;
+    font-size: 1.5em;
+}
+p.portfolioDescription {
+    text-align: center;
+}
+section {
+    justify-content: center;
+}
+ul#mySkills {
+    font-family: inherit;
+    font-size: 1.5em;
+    line-height: 1.5em;
+    list-style-position: inside;
+}
+
+.containerColumn {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.containerRow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.fas, .far, .fab {
+    font-size: 1.7em;
+}
+.fittedIcon {
+    margin: auto;
+    max-height: 45px;
+    min-height: 100%;
+    padding: 5px 0px 0px 0px;
+    vertical-align: center;
+    width: auto;
+}
+.footerContent { 
+    color: white;
+    display: inline;
+}
+.goToTopLink {
+    color: white;
+    margin: 0 auto;
+    text-align: center;
+}
+.link {
+    color: white;
+    font-family: helvetica, serif;
+    font-size: 1em;
+    text-decoration: none;    
+}
+.marginWide {
+    margin: 1em 2em;
+    text-align: inherit;
+}
+.paragraphContent {
+    font-family: Georgia, serif;
+    font-size: 1.5em;
+    width: 80%;
+}
+.portfolioButtons {
+    align-content: center;
+    align-items: space-between;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+.sampleCode {
+    border: 1px dashed black;
+    font-size: 1.0em;
+    margin: 0 auto;
+    padding: 1em;
+    width: inherit;
+}
+
 
 #photoOfMeContainer {
     background-color: var(--secondaryColor);
@@ -202,101 +255,10 @@ img.projectIcon {
     margin: 3em 2em 1em 0;
     width: 450px;
 }
-
-.fittedIcon {
-    margin: auto;
-    max-height: 45px;
-    min-height: 100%;
-    padding: 5px 0px 0px 0px;
-    vertical-align: center;
-    width: auto;
-}
-/* =========================== */
-/*      Porfolio Icons         */
-/* =========================== */
-p.portfolioDescription {
-    text-align: center;
-}
 #portfolioIcons {
     padding: 2em;
 }
-img#emergency {
-    background-color: #429EA6;
-}
-img#rockPaperScissors {
-    background-color: maroon;
-}
-img#fiction {
-    background-color: #21376C;
-}
-.fas, .far, .fab {
-    font-size: 1.7em;
-}
 
-
-/* =========================== *\
-          Buttons
-\* =========================== */
-a.linkButton {
-    background-color: var(--buttons);
-    border: 3px solid black;
-    border-radius: 2px;
-    box-shadow: 2px 2px rgba(0, 0, 0, 0.5);
-    color: black;
-    display: inline;
-    font-weight: 500;
-    margin: .1em;
-    max-width: 200px;
-    text-align: center;
-    text-decoration: none;
-    width: 70%;
-}
-a.linkButton:hover {
-    transform: scale(1.03);
-}
-.portfolioButtons {
-    align-content: center;
-    align-items: space-between;
-    display: flex;
-    justify-content: space-evenly;
-
-}
-
-
-
-/* =========================== *\
-            Other
-\* =========================== */
-
-.sampleCode {
-    border: 1px dashed black;
-    font-size: 1.0em;
-    margin: 0 auto;
-    padding: 1em;
-    width: inherit;
-}
-
-.goToTopLink {
-    color: white;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.footerContent { 
-    color: white;
-    display: inline;
-}
-
-ul#mySkills {
-    font-family: inherit;
-    font-size: 1.5em;
-    line-height: 1.5em;
-    list-style-position: inside;
-}
-
-/* =========================== *\
-        Media queries      
-\* =========================== */
 @media only screen and (max-width: 800px) {
     body {
         font-size: 14px;
