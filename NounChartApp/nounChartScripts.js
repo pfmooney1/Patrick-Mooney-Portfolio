@@ -1508,14 +1508,14 @@ function declineEnglishHalfOfNoun (englishMeaningSingular, englishMeaningPlural)
     var eng_Sing_Nom = "the " + englishMeaningSingular;
     var eng_Sing_Gen = "of the " + englishMeaningSingular;
     var eng_Sing_Dat = "to/for the " + englishMeaningSingular;
-    var eng_Sing_Acc = "by/with/from the " + englishMeaningSingular;
-    var eng_Sing_Abl = "the " + englishMeaningSingular;
+    var eng_Sing_Acc = "the " + englishMeaningSingular;
+    var eng_Sing_Abl = "by/with/from the " + englishMeaningSingular;
     var eng_Sing_Voc = "oh " + englishMeaningSingular;
     var eng_Plural_Nom = "the " + englishMeaningPlural;
     var eng_Plural_Gen = "of the " + englishMeaningPlural;
     var eng_Plural_Dat = "to/for the " + englishMeaningPlural;
-    var eng_Plural_Acc = "by/with/from the " + englishMeaningPlural;
-    var eng_Plural_Abl = "the " + englishMeaningPlural;
+    var eng_Plural_Acc = "the " + englishMeaningPlural;
+    var eng_Plural_Abl = "by/with/from the " + englishMeaningPlural;
     var eng_Plural_Voc = "oh " + englishMeaningPlural;
     
     var target_eng_sing_nom = document.getElementsByClassName("eng_sing_nom");
