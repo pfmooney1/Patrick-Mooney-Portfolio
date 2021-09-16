@@ -234,8 +234,8 @@ tr, td {
     background-color: cornflowerblue !important;
     box-shadow: -1px -1px var(--black) !important;
 }
-.headerTextBlack { 
-    color: black;
+.headerTextWhite { 
+    color: white;
     text-decoration: none;
 }
 .irregularWarning {
