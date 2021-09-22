@@ -2119,6 +2119,7 @@ function declineSelectedNoun(id) {
             englishMeaning = "sight";
     }
     document.getElementById("SelectNounChartCaption").innerHTML = selectedLatinNoun + " (" + englishMeaning + ")";
+    document.getElementById("EnterNounChartCaption").innerHTML = selectedLatinNoun + " (" + englishMeaning + ")";
     declineNounCompletely(selectedLatinNoun, englishMeaning);
 }
 
@@ -2140,6 +2141,7 @@ function declineUserEnteredNoun(id) {
         englishMeaning = "* Please enter a noun to decline *";
     }
     document.getElementById("SelectNounChartCaption").innerHTML = selectedLatinNoun + " (" + englishMeaning + ")";
+    document.getElementById("EnterNounChartCaption").innerHTML = selectedLatinNoun + " (" + englishMeaning + ")";
     declineNounCompletely(selectedLatinNoun, englishMeaning);
     
     // Checks to see if the user has selected "Assignment screen"
