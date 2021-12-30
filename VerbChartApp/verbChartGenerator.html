@@ -23,17 +23,106 @@
             <br>
             <p class="centeredAndLeft"> Pick one from the list </p>
             <select id="verbSelect" class="customSelect" name="verbSelectDropdown" onChange="conjugateTheWholeDamnVerb('verbSelect');">
-                <option value="amo, amare, amavi, amatum">amo, amare (to love)</option>
-                <option value="ardeo, ardere, arsi, arsus">ardeo, ard&#275;re (to burn)</option>            
-                <option value="debeo, debere, debui, debitus">debeo, deb&#275;re (to owe)</option>
-                <option value="desidero, desiderare, desideravi, desideratus">desidero, desiderare (to want)</option>
-                <option value="exspecto, exspectare, exspectavi, exspectatus">exspecto, exspectare (to expect)</option>
-                <option value="laudo, laudare, laudavi, laudatum">laudo, laudare (to praise)</option>
-                <option value="laboro, laborare, laboravi, laboratum">laboro, laborare (to work)</option>
-                <option value="neco, necare, necavi, necatum">neco, necare (to murder)</option>
-                <option value="premo, premere, pressi, pressum">premo, premere (to push)</option>
-                <option value="rogo, rogare, rogavi, rogatum">rogo, rogare (to ask)</option>
-                <option value="voco, vocare, vocavi, vocatum">voco, vocare (to call)</option>
+              <option value="" disabled selected hidden>Select a verb</option>
+              <optgroup label="Irregular Verbs">
+                <option value="sum, esse, fui, futurus (to be)">sum, esse (to be)</option>
+                <option value="possum, posse, potui (to be able)">possum, posse (to be able)</option>
+                <option value="eo, ire, ii, itum (to go)">eo, ire (to go)</option>
+                <option value="fero, ferre, tuli, latus (to carry)"> fero, ferre (to carry)</option>
+                <option value="malo, malle, malui (to want)"> malo, malle (to prefer)</option>
+                <option value="nolo, nolle, nolui (to want)"> nolo, nolle (to not want)</option>
+                <option value="volo, velle, volui (to want)"> volo, velle (to want)</option>
+              </optgroup>
+
+              <optgroup label="1st conjugation">
+                <option value="amo, amare, amavi, amatum (to love)">amo, amare (to love)</option>
+                <option value="confirmo, confirmare, confirmavi, confirmatum (to confirm)">confirmo, confirmare (to confirm)</option>
+                <option value="desidero, desiderare, desideravi, desideratus (to desire)">desidero, desiderare (to want)</option>
+                <option value="do, dare, dedi, datum (to give)">do, dare (to give)</option>
+                <option value="edifico, edificare, edificavi, edificatum (to build)">edifico, edificare (to build)</option>
+                <option value="exspecto, exspectare, exspectavi, exspectatus (to expect)">exspecto, exspectare (to expect)</option>
+                <option value="iuvo, iuvare, iuvi, iutum (to help)">iuvo, iuvare (to help)</option>
+                <option value="laboro, laborare, laboravi, laboratum (meaning)">laboro, laborare (to work)</option>
+                <option value="laudo, laudare, laudavi, laudatum (to praise)">laudo, laudare (to praise)</option>
+                <option value="lavo, lavare, lavi, lautum (to wash)">lavo, lavare (to wash)</option>
+                <option value="neco, necare, necavi, necatum (meaning)">neco, necare (to murder)</option>
+                <option value="oro, orare, oravi, oratum (to pray)">oro, orare (to pray)</option>
+                <option value="plico, plicare, plicui, plicitum (to fold)">plico, plicare (to fold)</option>
+                <option value="rogo, rogare, rogavi, rogatum (meaning)">rogo, rogare (to ask)</option>
+                <option value="veto, vetare, vetui, vetitum (to forbid)">veto, vetare (to forbid)</option>
+                <option value="voco, vocare, vocavi, vocatum (meaning)">voco, vocare (to call)</option>
+              </optgroup>
+
+              <optgroup label="2nd conjugation">
+                <option value="ardeo, ardere, arsi, arsus (meaning)">ardeo, ardēre (to burn)</option>
+                <option value="debeo, debere, debui, debitus (meaning)">debeo, debēre (to owe)</option>
+                <option value="doceo, docere, docui, doctum (to teach)">doceo, docēre (to teach)</option>
+                <option value="fleo, flere, flevi, fletum (to weep)">fleo, flēre (to weep)</option>
+                <option value="habeo, habere, habui, habitum (to have)">habeo, habēre (to have)</option>
+                <option value="iaceo, iacere, iacui, iacitum (to lie)">iaceo, iacēre (to lie)</option>
+                <option value="iubeo, iubere, iussi, iussum (to order)"> iubeo, iubēre (to order)</option>
+                <option value="maneo, manere, mansi, mansum (to wait)">maneō, manēre (to wait)</option>
+                <option value="misceo, miscere, miscui, mixtum (to mix)"> misceō, miscēre (to mix)</option>
+                <option value="moneo, monere, monui, monitum (to warn)">moneo, monēre (to warn)</option>
+                <option value="moveo, movere, movi, motum (to move)">moveo, movēre (to move)</option>
+                <option value="persuadeo persuadere, persuasi, persuasum (to persuade)">persuadeo persuadēre (to persuade)</option>
+                <option value="rideo, ridere, risi, risum (to laugh)"> rideo, ridēre (to laugh)</option>
+                <option value="sedeo, sedere, sedi, sessum (to sit)"> sedeo, sedēre (to sit)</option>
+                <option value="teneo, tenere, tenui, tentum (to hold)">teneo, tenēre (to hold)</option>
+                <option value="video, videre, visi, visum (to see)">video, vidēre (to see)</option>
+              </optgroup>
+
+              <optgroup label="3rd conjugation">
+                <option value=" cognosco, cognoscere, cognovi, cognotum (to know)">cognosco, cognoscere (to know)</option>
+                <option value=" concedo, concedere, concessi, concessum (to concede)">concedo, concedere (to concede)</option>
+                <option value=" ostendo, ostendere, ostendi, ostentum (to show)">ostendo, ostendere (to show)</option>
+                <option value=" tendo, tendere, tetendi, tensum (to stretch)"> tendō, tendere (to stretch)</option>
+                <option value="bibo, ere, bibii, potum (to drink)"> bibo, bibere (to drink)</option>
+                <option value="cadō, ere, cecidī, cāsum (to fall)"> cado, cadere (to fall)</option>
+                <option value="dico, dicere, dixi, dictum (to say)">dico, dicere (to say)</option>
+                <option value="mitto, mittere, misi, missum (to send)">mitto, mittere (to send)</option>
+                <option value="parco, parcere, perperci, parsum (to spare)"> parco, parcere (to spare)</option>
+                <option value="pello, pellere, pepulī, pulsum (to drive)"> pello, pellere (to drive)</option>
+                <option value="peto, petere, petivi, petitum (to require)">peto, petere (to require)</option>
+                <option value="pono, ponere, posui, positum (to put)"> pono, ponere (to put)</option>
+                <option value="premo, premere, pressi, pressum (meaning)">premo, premere (to push)</option>
+                <option value="quaero, quaerere, quaesīvī, quaesītum (to seek)"> quaero, quaerere (to seek)</option>
+                <option value="relinquo, relinquere, relīquī, relictum (to leave)"> relinquo, relinquere (to leave)</option>
+                <option value="tango, tangere, tetigi, tactum (to touch)"> tango, tangere (to touch)</option>
+                <option value="traho, trahere, traxi, tractum (to draw)"> traho, trahere (to draw)</option>
+              </optgroup>
+
+              <optgroup label="3rd -io conjugation">
+                <option value=" allicio, allicere, allexi, allectus (to attract)"> allicio, allicere (to attract)</option>
+                <option value=" aspicio, aspicere, aspexi, aspectus (to see)"> aspicio, aspicere (to see)</option>
+                <option value=" capio, capere, cepi, captus (to seize)"> capiō, capere (to seize)</option>
+                <option value=" cupio, cupere, cupivi, cupitus (to covet) "> cupio, cupere (to covet)</option>
+                <option value=" deficio, deficere, defeci, defectum (to fail)"> deficio, deficere (to fail)</option>
+                <option value=" facio, facere, feci, factum (to make)"> facio, facere (to make)</option>
+                <option value=" fodio, fodere, fodi, fossus (to dig)"> fodio, fodere (to dig)</option>
+                <option value=" fugio, fugere, fugi, fugitus (to flee)"> fugio, fugere (to flee)</option>
+                <option value=" iacio, iacere, ieci, iactus (to throw)"> iacio, iacere (to throw)</option>
+                <option value=" rapio, rapere, rapui, raptum (to seize)"> rapio, rapere (to seize)</option>
+                <option value=" reficio, reficere, refeci, refectum (to remake)"> reficio, reficere (to remake)</option>
+                <option value=" suscipio, suscipere, suscepi, susceptum (to support)"> suscipio, suscipere (to support)</option>
+                <option value=" suspicio, suspicere, suspexi, suspectum (to admire)"> suspicio, suspicere (to admire)</option>
+              </optgroup>
+
+              <optgroup label="4th conjugation">
+                <option value="aperio, aperire, aperui, apertum (to open)"> aperio, aperire (to open)</option>
+                <option value="audio, audire, audivi, auditum (to hear)"> audio, audire (to hear)</option>
+                <option value="blatio, blatire, blativi, blatitum (to babble)"> blatio, blatire (to babble)</option>
+                <option value="comperio, comperire, comperi, compertus (to discover)"> comperio, comperire (to discover)</option>
+                <option value="consentio, consentire, consensi, consensus (to agree)"> consentio, consentire (to agree)</option>
+                <option value="convenio, convenire, conveni, conventum (to meet)"> convenio, convenire (to meet)</option>
+                <option value="custodio, custodire, custodivi, custoditum (to guard)"> custodio, custodire (to guard)</option>
+                <option value="haurio, haurire, hausi, haustus (to drain)"> haurio, haurire (to drain)</option>
+                <option value="munio, munire, munivi, munitum (to fortify)"> munio, munire (to fortify)</option>
+                <option value="pervenio, pervenire, perveni, perventum (to arrive)"> pervenio, pervenire (to arrive)</option>
+                <option value="punio, punire, punivi, punitum (to punish)"> punio, punire (to punish)</option>
+                <option value="sentio, sentire, sensi, sensum (to feel)"> sentio, sentire (to feel)</option>
+                <option value="venio, venire, veni, ventus (to come)">venio, venire (to come)</option>
+              </optgroup>
             </select>
             <input type="button" value="Click to Conjugate!" onClick="conjugateTheWholeDamnVerb('verbSelect');">
         </fieldset>
