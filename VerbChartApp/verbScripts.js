@@ -1,4 +1,3 @@
-//
 // This function takes the user input and conjugates the verb based on user selections
 function conjugateTheWholeDamnVerb(id) {
     //
@@ -31,36 +30,8 @@ function conjugateTheWholeDamnVerb(id) {
         alert("Error: the fourth principle part must end in either US, A, or UM");
     }
     //
-    //This IDs the conjugation of the verb and whether it is normal or IO
-    function iDVerbConjugation() { 
-        var x = firstPP.slice(firstPP.length - 2, firstPP.length);
-      var y = secondPP.slice(secondPP.length - 3, secondPP.length);
-      if (y === "are") {
-        return "first";
-        }
-      else if (y === "ire") {
-        return "fourth";
-      }
-      else if (y === "ere" && x.indexOf("eo") === -1) {
-          if (x.indexOf("io") === -1) {
-            return "thirdNormal";
-            }
-          else if (x.indexOf("io") >= 0) {
-            return "thirdIO";
-          }
-          else {
-              alert("Error: It is third, but we cant ID what kind!");
-          }
-      }
-      else if (x.indexOf("eo") !== -1) {
-        return "second";
-      }
-      else {
-          alert("ERROR!");
-        return "Error! Conjugation could not be IDed";
-      }
-    }
-    var chosenConjugation = iDVerbConjugation();
+    // This calls a function to determine the conjugation
+    var chosenConjugation = iDVerbConjugation(firstPP, secondPP);
     //
     //
     // This decides if the user wants the English, then takes the English and preps it.
@@ -76,6 +47,7 @@ function conjugateTheWholeDamnVerb(id) {
     trimmedUserEnglish = userEnglishBefore.replace("to ", "");
     trimmedUserEnglish = trimmedUserEnglish.trim();
     var presentEnglish = trimmedUserEnglish;
+    //
     //This statement figures out the "He/She/It verbs" form of the English
     if (presentEnglish.endsWith("ch") || presentEnglish.endsWith("o") || presentEnglish.endsWith("x") || presentEnglish.endsWith("sh") || presentEnglish.endsWith("ss") || presentEnglish.endsWith("z") === true) {
         var presentEnglishThirdSingular = presentEnglish + "es";
@@ -107,7 +79,6 @@ function conjugateTheWholeDamnVerb(id) {
     //
     //
     // ACTIVE INDICATIVE
-    //
     // This conjugates the Present Active Indicative 
     function presentActiveIndicativeWriter() {
         //This figures out what endings to add.
@@ -403,12 +374,7 @@ function conjugateTheWholeDamnVerb(id) {
     futurePerfectActiveIndicativeWriter();
     //
     //
-    //
-    //
     //PASSIVE INDICATIVE
-    //
-    //
-    //
     // This conjugates the Present Passive Indicative 
     function presentPassiveIndicativeWriter() {
         //This figures out what endings to add.
@@ -704,10 +670,7 @@ function conjugateTheWholeDamnVerb(id) {
     futurePerfectPassiveIndicativeWriter(); 
     //
     //
-    //
-    //
     // ACTIVE SUBJUNCTIVE
-    //
     // This conjugates the Present Active Subjunctive 
     function presentActiveSubjunctiveWriter() {
         //This figures out what endings to add.
@@ -856,9 +819,7 @@ function conjugateTheWholeDamnVerb(id) {
     pluperfectActiveSubjunctiveWriter();
     //
     //
-    //
     //PASSIVE SUBJUNCTIVE
-    //
     // This conjugates the Present Passive Subjunctive 
     function presentPassiveSubjunctiveWriter() {
         //This figures out what endings to add.
@@ -1008,8 +969,6 @@ function conjugateTheWholeDamnVerb(id) {
     //
     //
     // OTHER: Participles, Infinitives, Imperatives
-    //
-    //
     // This forms the participles
     function participleWriter() {
         switch (chosenConjugation) {
@@ -1051,24 +1010,24 @@ function conjugateTheWholeDamnVerb(id) {
     participleWriter(); 
     //
     //
-    //
     // This forms the infinitives
     function infinitiveWriter() {
+        var presPassEnding = "";
         switch (chosenConjugation) {
             case "first":
-                var presPassEnding = "ari";
+                presPassEnding = "ari";
                 break;
             case "second": 
-                var presPassEnding = "eri";
+                presPassEnding = "eri";
                 break;
             case "thirdNormal": 
-                var presPassEnding = "i";
+                presPassEnding = "i";
                 break;
             case "thirdIO": 
-                var presPassEnding = "i";
+                presPassEnding = "i";
                 break;  
             case "fourth": 
-                var presPassEnding = "iri";
+                presPassEnding = "iri";
                 break;
             default:
                 alert("Error: Present Passive Infinitive could not be formed.");
@@ -1099,44 +1058,45 @@ function conjugateTheWholeDamnVerb(id) {
     infinitiveWriter(); 
     //
     //
-    //
     // This forms the Imperatives
     function imperativeWriter() {
+        var singPosImperative = "";
+        var plPosImperative = "";
         if (firstPP === "dico") {
-            var singPosImperative = "dic";
-            var plPosImperative = "dicite";
+            singPosImperative = "dic";
+            plPosImperative = "dicite";
         }
         else if (firstPP === "duco") {
-            var singPosImperative = "duc";
-            var plPosImperative = "ducite";
+            singPosImperative = "duc";
+            plPosImperative = "ducite";
         }
         else if (firstPP === "facio") {
-            var singPosImperative = "fac";
-            var plPosImperative = "facite";
+            singPosImperative = "fac";
+            plPosImperative = "facite";
         }
         else if (firstPP === "fero") {
-            var singPosImperative = "fer";
-            var plPosImperative = "ferte";
+            singPosImperative = "fer";
+            plPosImperative = "ferte";
         }
         else if (chosenConjugation === "first") {
-            var singPosImperative = presBase + "a";
-            var plPosImperative = presBase + "ate";
+            singPosImperative = presBase + "a";
+            plPosImperative = presBase + "ate";
         }
         else if (chosenConjugation === "second") {
-            var singPosImperative = presBase + "e";
-            var plPosImperative = presBase + "ete";
+            singPosImperative = presBase + "e";
+            plPosImperative = presBase + "ete";
         }
         else if (chosenConjugation === "thirdNormal") {
-            var singPosImperative = presBase + "e";
-            var plPosImperative = presBase + "ite";
+            singPosImperative = presBase + "e";
+            plPosImperative = presBase + "ite";
         }
         else if (chosenConjugation === "thirdIO") {
-            var singPosImperative = presBase + "e";
-            var plPosImperative = presBase + "ite";
+            singPosImperative = presBase + "e";
+            plPosImperative = presBase + "ite";
         }
         else if (chosenConjugation === "fourth") {
-            var singPosImperative = presBase + "i";
-            var plPosImperative = presBase + "ite";
+            singPosImperative = presBase + "i";
+            plPosImperative = presBase + "ite";
         }
         else {
             alert("Error: imperatives could not be formed.");
@@ -1158,6 +1118,37 @@ function conjugateTheWholeDamnVerb(id) {
     }
     imperativeWriter(); 
 }
+
+//This IDs the conjugation of the verb and whether it is normal or IO
+function iDVerbConjugation(firstPP, secondPP) { 
+    var x = firstPP.slice(firstPP.length - 2, firstPP.length);
+    var y = secondPP.slice(secondPP.length - 3, secondPP.length);
+    if (y === "are") {
+        return "first";
+    }
+    else if (y === "ire") {
+        return "fourth";
+    }
+    else if (y === "ere" && x.indexOf("eo") === -1) {
+        if (x.indexOf("io") === -1) {
+            return "thirdNormal";
+        }
+        else if (x.indexOf("io") >= 0) {
+            return "thirdIO";
+        }
+        else {
+            alert("Error: It is third, but we cant ID what kind!");
+        }
+    }
+    else if (x.indexOf("eo") !== -1) {
+        return "second";
+    }
+    else {
+        alert("ERROR!");
+        return "Error! Conjugation could not be IDed";
+    }
+}
+
 
 function toggleChart(elementToShowOrHide) {
     var targetElement = document.getElementById(elementToShowOrHide);
