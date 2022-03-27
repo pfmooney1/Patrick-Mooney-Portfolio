@@ -4,113 +4,73 @@
 :root {
   --backgroundColor: #005cb2;
   --opponentColor: #d12317;
-  --yourColor: green;
   --resetButtonColor: #00b0ff;
+  --yourColor: green;
 }
 
-/*-------------------------------------------*\
-        Main parts, Flexbox
-\*-------------------------------------------*/
+
 body {
     background-color: var(--backgroundColor);
+    box-sizing: content-box;
     font-size: 1em;
-    box-sizing: content-box;
 }
-main {
-    max-width: 1000px;
-    margin: 4em auto;
-    padding: 1em;
-    border: 2px solid darkgray;
-    border-radius: 5px;
-    background-color: #f5f5f5;
-    box-sizing: content-box;
-}
-.containerRow {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-content: space-around;
-    box-sizing: content-box;
-    max-width: 100%;
-}
-.containerRow h2 {
-    display: inline;
-    box-sizing: content-box;
-    max-width: 100%;
-}
-
-
-
-/*-------------------------------------------*\
-        Links
-\*-------------------------------------------*/
-.linkToPortfolio {
-    background-color: black;
-    width: 100%;
-    margin: 0;
-    position: absolute;
-    padding: .2em 0em;
-    top: 0;
-    right: 0;
-    text-align: left;
-    box-sizing: content-box;
-}
-.linkToPortfolio > a {
-    color: snow;
-    padding-left: 1em;
-}
-
-
-
-/*-------------------------------------------*\
-        Headers
-\*-------------------------------------------*/
-h1{
-    text-align: center;
-    font-size: 3em;
-    box-sizing: border-box;
-    margin: 0 auto;
-}
-h3, h2 {
-    margin: 0.5em 0 0 0;
-    font-size: 2em;
-    text-align: center;
-    border-radius: 5px;
-    padding: 0.25em 0.5em;
-    border: 3px solid rgba(0, 0, 0, 0);
-    box-sizing: border-box;
-}
-
-
-
-/*-------------------------------------------*\
-        Icons and images
-\*-------------------------------------------*/
-svg {
-    height: 150px;
-    width: auto;
-    background-color: var(--yourColor);
-    border: 3px solid black;
-    border-radius: 3px;
+button#reset {
+    background-color: var(--resetButtonColor);
     box-shadow: 4px 4px 2px rgb(0, 0, 0, 0.5);
     box-sizing: content-box;
+    border: 2px solid black;
+    border-radius: 3px;
+    display: block;
+    font-size: 1.2em;
+    font-weight: 900;
+    margin: 0 auto 0 auto;
+    max-width: 250px;
+    min-height: 30px;
+    min-width: 100px;
 }
-svg.bad {
-    background-color: var(--opponentColor);
-    margin: 1em auto 1em auto;
-}
-.good:hover {
+button:hover {
     transform: scale(1.1);
 }
 div.opponent {
     margin: 1em auto 1em auto;
 }
-
-
-
-/*-------------------------------------------*\
-        Icons and images
-\*-------------------------------------------*/
+h1{
+    box-sizing: border-box;
+    font-size: 3em;
+    margin: 0 auto;
+    text-align: center;
+}
+h3, h2 {
+    border: 3px solid rgba(0, 0, 0, 0);
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 2em;
+    margin: 0.5em 0 0 0;
+    padding: 0.25em 0.5em;
+    text-align: center;
+}
+main {
+    background-color: #f5f5f5;
+    border: 2px solid darkgray;
+    border-radius: 5px;
+    box-sizing: content-box;
+    margin: 4em auto;
+    max-width: 1000px;
+    padding: 1em;
+}
+svg {
+    background-color: var(--yourColor);
+    border: 3px solid black;
+    border-radius: 3px;
+    box-shadow: 4px 4px 2px rgb(0, 0, 0, 0.5);
+    box-sizing: content-box;
+    height: 150px;
+    width: auto;
+}
+svg.bad {
+    background-color: var(--opponentColor);
+    margin: 1em auto 1em auto;
+}
 table {
     margin: 0.5em auto 0.5em auto;
 }
@@ -118,34 +78,6 @@ tr {
     max-width: 100%;
 }
 
-
-
-/*-------------------------------------------*\
-        Buttons
-\*-------------------------------------------*/
-button#reset {
-    min-height: 30px;
-    min-width: 100px;
-    max-width: 250px;
-    display: block;
-    margin: 0 auto 0 auto;
-    font-size: 1.2em;
-    border: 2px solid black;
-    border-radius: 3px;
-    background-color: var(--resetButtonColor);
-    font-weight: 900;
-    box-shadow: 4px 4px 2px rgb(0, 0, 0, 0.5);
-    box-sizing: content-box;
-}
-button:hover {
-    transform: scale(1.1);
-}
-
-
-
-/*-------------------------------------------*\
-        Other
-\*-------------------------------------------*/
 .attributions {
     color: black;
     font-size: 1.5em;
@@ -154,7 +86,37 @@ button:hover {
 .attributions a {
     color: black;
 }
-
+.containerRow {
+    align-content: space-around;
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    max-width: 100%;
+}
+.containerRow h2 {
+    box-sizing: content-box;
+    display: inline;
+    max-width: 100%;
+}
+.good:hover {
+    transform: scale(1.1);
+}
+.linkToPortfolio {
+    background-color: black;
+    box-sizing: content-box;
+    margin: 0;
+    padding: .2em 0em;
+    position: absolute;
+    right: 0;
+    text-align: left;
+    top: 0;
+    width: 100%;
+}
+.linkToPortfolio > a {
+    color: snow;
+    padding-left: 1em;
+}
 
 
 /*-------------------------------------------*\
